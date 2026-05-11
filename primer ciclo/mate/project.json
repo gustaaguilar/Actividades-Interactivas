@@ -1,0 +1,53 @@
+{
+  "title": "mate",
+  "date": "24/09/23",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "mate.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 22,
+  "mediaFiles": 29,
+  "totalSize": 15899277,
+  "files": [
+    "16-resized.jpg",
+    "2-resized.jpg",
+    "27-resized.jpg",
+    "39.jpg",
+    "45-resized.jpg",
+    "54-resized.jpg",
+    "63-resized.jpg",
+    "73-resized.jpg",
+    "8.jpg",
+    "billete_de_10-resized.jpg",
+    "caratu-resized.jpg",
+    "cierre-resized2.jpg",
+    "elemental1.gif",
+    "elemental10.gif",
+    "elemental11.gif",
+    "elemental12.gif",
+    "elemental14.gif",
+    "elemental15.gif",
+    "elemental16.gif",
+    "elemental19.gif",
+    "elemental2.gif",
+    "favicon.ico",
+    "i01-i02-i01-bienhecho.jpg",
+    "i01-i03-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "mate.jclic",
+    "mate.jclic.js",
+    "monedagif.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json"
+  ]
+}

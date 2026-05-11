@@ -1,0 +1,2605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="mendoza" version="0.1.3">
+ <settings>
+  <title>mendoza</title>
+  <revision description="created" date="5/5/24" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="4" navButtons="none" />
+  <item name="Provincia" delay="6" navButtons="none" />
+  <item name="1-1" delay="4" navButtons="none" />
+  <item name="1" delay="1" navButtons="none" />
+  <item name="1-_2" delay="4" navButtons="none" />
+  <item name="2" delay="1" navButtons="none" />
+  <item name="1-_3" delay="4" navButtons="none" />
+  <item name="3" delay="1" navButtons="none" />
+  <item name="unir1" delay="4" navButtons="none" />
+  <item name="1-_4" delay="4" navButtons="none" />
+  <item name="4" delay="1" navButtons="none" />
+  <item name="1-_5" delay="4" navButtons="none" />
+  <item name="5" delay="1" navButtons="none" />
+  <item name="1-_6" delay="4" navButtons="none" />
+  <item name="_6" delay="1" navButtons="none" />
+  <item name="unir_4" delay="4" navButtons="none" />
+  <item name="1-_7" delay="4" navButtons="none" />
+  <item name="_7" delay="1" navButtons="none" />
+  <item name="1-_8" delay="4" navButtons="none" />
+  <item name="_8" delay="1" navButtons="none" />
+  <item name="1-_18" delay="4" navButtons="none" />
+  <item name="_18" delay="1" navButtons="none" />
+  <item name="unir_3" delay="4" navButtons="none" />
+  <item name="1-_9" delay="4" navButtons="none" />
+  <item name="_9" delay="1" navButtons="none" />
+  <item name="1-_11" delay="4" navButtons="none" />
+  <item name="_11" delay="1" navButtons="none" />
+  <item name="1-_12" delay="4" navButtons="none" />
+  <item name="_12" delay="1" navButtons="none" />
+  <item name="unir_2" delay="4" navButtons="none" />
+  <item name="1-_13" delay="4" navButtons="none" />
+  <item name="_13" delay="1" navButtons="none" />
+  <item name="1-_14" delay="4" navButtons="none" />
+  <item name="_14" delay="1" navButtons="none" />
+  <item name="1-_15" delay="4" navButtons="none" />
+  <item name="_15" delay="1" navButtons="none" />
+  <item name="unir_6" delay="4" navButtons="none" />
+  <item name="1-_10" delay="4" navButtons="none" />
+  <item name="_10" delay="1" navButtons="none" />
+  <item name="1-_16" delay="4" navButtons="none" />
+  <item name="_16" delay="1" navButtons="none" />
+  <item name="1-_17" delay="4" navButtons="none" />
+  <item name="_17" delay="1" navButtons="none" />
+  <item name="unir_5" delay="4" navButtons="none" />
+  <item name="sopa_2" delay="3" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.DoublePuzzle" name="1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="malargüe-resized1.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="8" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="8" rows="1" />
+    <cell>
+     <p>M</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>g</p>
+    </cell>
+    <cell>
+     <p>ü</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" border="true" image="MALARGÜE-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Ma</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>lar</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>güe</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_10" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="8" border="true" image="ciudadmza-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="8" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Ciu</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>dad</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>de</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>Men</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>do</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>za</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_11" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="7" border="true" image="SAN MARTÍN-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>San</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>Mar</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>tín</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>Al</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ve</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ar</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_12" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="2" border="true" image="JUNÍN-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Ju</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>nín</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_13" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="4" border="true" image="GRAL ALVEAR-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Ri</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>va</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>da</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>via</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_14" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="5" border="true" image="SANTA ROSA-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>San</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ta</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>Ro</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>sa</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_15" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" border="true" image="LA PAZ-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>La</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>Paz</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_16" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="4" border="true" image="LAS HERAS-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Las</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>He</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ras</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_17" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" border="true" image="LAVALLE-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>La</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>va</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>lle</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_18" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="4" border="true" image="GODOY CRUZ-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Go</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>doy</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>Cruz</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="7" border="true" image="GRAL ALVEAR-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Ge</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ne</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ral</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>Al</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ve</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ar</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="5" border="true" image="SAN RAFAEL-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>San</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>Ra</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>fa</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>el</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="4" border="true" image="SAN CARLOS-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>San</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>Car</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>los</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" border="true" image="TUNUYÁN-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Tu</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>nu</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>yán</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="4" border="true" image="TUPUNGATO-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Tu</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>pun</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ga</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>to</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="7" border="true" image="LUJÁN-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Lu</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ján</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>de</p>
+    </cell>
+    <cell txtAlign="middle,bottom" />
+    <cell txtAlign="middle,bottom">
+     <p>Cu</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>yo</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="2" border="true" image="MAIPÚ-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Mai</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>pú</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="1-_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFF6666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa del departamento.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" border="true" image="GRAL ALVEAR-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <p>Guay</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>ma</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>llén</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="generalalvearrr-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="14" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="14" rows="1" />
+    <cell>
+     <p>G</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>A</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>v</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="1san rafael.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>S</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>R</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="1san carlos.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>S</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>C</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="1tunuyan-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>T</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>á</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="Provincia" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el mapa de Mendoza.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00FFCC" dest="0xFFFFFF" angle="0" />
+     <image name="fotomendocina-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="Mapa_de_la_división_política_de_la_provincia_de_Mendoza_(Argentina).jpg">
+    <style>
+     <color inactive="0xFFFFFF" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_10" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="ciudadmza-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="17" cellWidth="35.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="42" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="17" rows="1" />
+    <cell>
+     <p>C</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>M</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>z</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_11" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="san martin-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>S</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>M</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>í</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_12" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="junin-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>J</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>í</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_13" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="1rivadavia.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="9" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="9" rows="1" />
+    <cell>
+     <p>R</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>v</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>v</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_14" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="1santa rosa.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>S</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>R</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_15" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="lapaz-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>L</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>P</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>z</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_16" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="lasheras-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="9" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="9" rows="1" />
+    <cell>
+     <p>L</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>H</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_17" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="2lavalle-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>L</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>v</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_18" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="godoy cruz5-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>G</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>C</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>z</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="generalalvearrr-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="9" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="9" rows="1" />
+    <cell>
+     <p>T</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>g</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="Lujan-de-Cuyo-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="13" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="13" rows="1" />
+    <cell>
+     <p>L</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>j</p>
+    </cell>
+    <cell>
+     <p>á</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell />
+    <cell>
+     <p>C</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="maipu-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>M</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>ú</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el nombre del departamento de Mendoza.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xFFFFFF">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="Guaymallen-resized1.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="40.0" cellHeight="64.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>G</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>é</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="caratu_2">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="caratu-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopa_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra 6 departamentos de Mendoza</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <textGrid rows="10" columns="8" cellWidth="50.0" cellHeight="44.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="26" />
+     <color background="0xFFFFFF" />
+    </style>
+    <text>
+     <row>M********L</row>
+     <row>*A*******A</row>
+     <row>*NL*N****V</row>
+     <row>RIVADAVIAA</row>
+     <row>*NJ*R****L</row>
+     <row>TUPUNGATOL</row>
+     <row>LJ****Ü**E</row>
+     <row>*******E**</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">MALARGÜE</clue>
+    <clue id="1">LAVALLE</clue>
+    <clue id="2">RIVADAVIA</clue>
+    <clue id="3">JUNIN</clue>
+    <clue id="4">TUPUNGATO</clue>
+    <clue id="5">LUJAN</clue>
+   </clues>
+   <cells rows="2" cols="3" cellWidth="166.0" cellHeight="112.0" border="true" id="secondary">
+    <style transparent="true">
+     <font family="Arial" size="17" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell image="MALARGÜE-resized.jpg" />
+    <cell image="LAVALLE-resized.jpg" />
+    <cell image="RIVADAVIA-resized.jpg" />
+    <cell image="JUNÍN-resized.jpg" />
+    <cell image="TUPUNGATO-resized.jpg" />
+    <cell image="LUJÁN-resized.jpg" />
+   </cells>
+   <layout position="AUB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Une cada departamento con su mapa.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xCCFF33" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="3" cols="1" cellWidth="261.0" cellHeight="49.0" border="false" id="primary">
+    <style transparent="true">
+     <font family="Arial" size="36" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>Malargüe</p>
+    </cell>
+    <cell>
+     <p>General Alvear</p>
+    </cell>
+    <cell>
+     <p>San Rafael</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="224.0" cellHeight="186.0" border="false" id="secondary">
+    <style transparent="true">
+     <font family="Arial" size="17" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="MALARGÜE-resized.jpg" />
+    <cell image="GODOY CRUZ-resized.jpg" />
+    <cell image="SAN RAFAEL-resized.jpg" />
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Une cada departamento con su mapa.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xCCFF33" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="3" cols="1" cellWidth="261.0" cellHeight="49.0" border="false" id="primary">
+    <style transparent="true">
+     <font family="Arial" size="36" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>Guaymallén</p>
+    </cell>
+    <cell>
+     <p>San Martín</p>
+    </cell>
+    <cell>
+     <p>Junín</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="224.0" cellHeight="186.0" border="false" id="secondary">
+    <style transparent="true">
+     <font family="Arial" size="17" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="GUAYMALLEN-resized.jpg" />
+    <cell image="SAN MARTÍN-resized.jpg" />
+    <cell image="JUNÍN-resized.jpg" />
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Une cada departamento con su mapa.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xCCFF33" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="3" cols="1" cellWidth="261.0" cellHeight="49.0" border="false" id="primary">
+    <style transparent="true">
+     <font family="Arial" size="36" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>Luján de Cuyo</p>
+    </cell>
+    <cell>
+     <p>Maipú</p>
+    </cell>
+    <cell>
+     <p>Godoy Cruz</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="224.0" cellHeight="186.0" border="false" id="secondary">
+    <style transparent="true">
+     <font family="Arial" size="17" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="LUJÁN-resized.jpg" />
+    <cell image="MAIPÚ-resized.jpg" />
+    <cell image="GODOY CRUZ-resized.jpg" />
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Une cada departamento con su mapa.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xCCFF33" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="3" cols="1" cellWidth="261.0" cellHeight="49.0" border="false" id="primary">
+    <style transparent="true">
+     <font family="Arial" size="36" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>San Carlos</p>
+    </cell>
+    <cell>
+     <p>Tupungato</p>
+    </cell>
+    <cell>
+     <p>Tunuyán</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="224.0" cellHeight="186.0" border="false" id="secondary">
+    <style transparent="true">
+     <font family="Arial" size="17" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="SAN CARLOS-resized.jpg" />
+    <cell image="TUPUNGATO-resized.jpg" />
+    <cell image="TUNUYÁN-resized.jpg" />
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Une cada departamento con su mapa.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xCCFF33" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="3" cols="1" cellWidth="261.0" cellHeight="49.0" border="false" id="primary">
+    <style transparent="true">
+     <font family="Arial" size="36" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <style transparent="true">
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCCFF33" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ciudad de Mendoza</p>
+    </cell>
+    <cell>
+     <p>Las Heras</p>
+    </cell>
+    <cell>
+     <p>Lavalle</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="224.0" cellHeight="186.0" border="false" id="secondary">
+    <style transparent="true">
+     <font family="Arial" size="17" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="CAPITAL-resized.jpg" />
+    <cell image="LAS HERAS-resized.jpg" />
+    <cell image="LAVALLE-resized.jpg" />
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Une cada departamento con su mapa.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xCCFF33" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="3" cols="1" cellWidth="261.0" cellHeight="49.0" border="false" id="primary">
+    <style transparent="true">
+     <font family="Arial" size="36" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>Rivadavia</p>
+    </cell>
+    <cell>
+     <p>Santa Rosa</p>
+    </cell>
+    <cell>
+     <p>La Paz</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="224.0" cellHeight="186.0" border="false" id="secondary">
+    <style transparent="true">
+     <font family="Arial" size="17" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="RIVADAVIA-resized.jpg" />
+    <cell image="SANTA ROSA-resized.jpg" />
+    <cell image="LA PAZ-resized.jpg" />
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="1rivadavia.jpg" file="1rivadavia.jpg" />
+  <media name="1san carlos.jpg" file="1san_carlos.jpg" />
+  <media name="1san rafael.jpg" file="1san_rafael.jpg" />
+  <media name="1santa rosa.jpg" file="1santa_rosa.jpg" />
+  <media name="1tunuyan-resized.jpg" file="1tunuyan-resized.jpg" />
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="2lavalle-resized.jpg" file="2lavalle-resized.jpg" />
+  <media name="bienhecho.jpg" file="bienhecho.jpg" />
+  <media name="CAPITAL-resized.jpg" file="capital-resized.jpg" />
+  <media name="caratu-resized2.jpg" file="caratu-resized2.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="ciudadmza-resized.jpg" file="ciudadmza-resized.jpg" />
+  <media name="fotomendocina-resized.jpg" file="fotomendocina-resized.jpg" />
+  <media name="generalalvearrr-resized.jpg" file="generalalvearrr-resized.jpg" />
+  <media name="GODOY CRUZ-resized.jpg" file="godoy_cruz-resized.jpg" />
+  <media name="godoy cruz5-resized.jpg" file="godoy_cruz5-resized.jpg" />
+  <media name="GRAL ALVEAR-resized.jpg" file="gral_alvear-resized.jpg" />
+  <media name="GUAYMALLEN-resized.jpg" file="guaymallen-resized.jpg" />
+  <media name="Guaymallen-resized1.jpg" file="guaymallen-resized1.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i01-i03-i01-bienhecho.jpg" />
+  <media name="junin-resized.jpg" file="junin-resized.jpg" />
+  <media name="JUNÍN-resized.jpg" file="0junin-resized.jpg" />
+  <media name="LA PAZ-resized.jpg" file="la_paz-resized.jpg" />
+  <media name="lapaz-resized.jpg" file="lapaz-resized.jpg" />
+  <media name="LAS HERAS-resized.jpg" file="las_heras-resized.jpg" />
+  <media name="lasheras-resized.jpg" file="lasheras-resized.jpg" />
+  <media name="LAVALLE-resized.jpg" file="lavalle-resized.jpg" />
+  <media name="Lujan-de-Cuyo-resized.jpg" file="lujan-de-cuyo-resized.jpg" />
+  <media name="LUJÁN-resized.jpg" file="lujan-resized.jpg" />
+  <media name="maipu-resized.jpg" file="maipu-resized.jpg" />
+  <media name="MAIPÚ-resized.jpg" file="0maipu-resized.jpg" />
+  <media name="MALARGÜE-resized.jpg" file="malargue-resized.jpg" />
+  <media name="malargüe-resized1.jpg" file="malargue-resized1.jpg" />
+  <media name="Mapa_de_la_división_política_de_la_provincia_de_Mendoza_(Argentina).jpg" file="mapa_de_la_division_politica_de_la_provincia_de_mendoza__argentina_.jpg" />
+  <media name="RIVADAVIA-resized.jpg" file="rivadavia-resized.jpg" />
+  <media name="SAN CARLOS-resized.jpg" file="san_carlos-resized.jpg" />
+  <media name="san martin-resized.jpg" file="san_martin-resized.jpg" />
+  <media name="SAN MARTÍN-resized.jpg" file="0san_martin-resized.jpg" />
+  <media name="SAN RAFAEL-resized.jpg" file="san_rafael-resized.jpg" />
+  <media name="SANTA ROSA-resized.jpg" file="santa_rosa-resized.jpg" />
+  <media name="TUNUYÁN-resized.jpg" file="tunuyan-resized.jpg" />
+  <media name="TUPUNGATO-resized.jpg" file="tupungato-resized.jpg" />
+ </mediaBag>
+</JClicProject>
+

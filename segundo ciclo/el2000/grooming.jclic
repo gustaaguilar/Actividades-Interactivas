@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="grooming" version="0.1.3">
+ <settings>
+  <title>grooming</title>
+  <revision description="created" date="9/26/23" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="caratula" delay="1" navButtons="none" />
+  <item name="nombregro" delay="1" navButtons="none" />
+  <item name="definicion" delay="1" navButtons="none" />
+  <item name="portadatips" delay="1" navButtons="none" />
+  <item name="tips1" delay="1" navButtons="none" />
+  <item name="tips_2" delay="1" navButtons="none" />
+  <item name="tips_3" delay="1" navButtons="none" />
+  <item name="tips_4" delay="1" navButtons="none" />
+  <item name="tips_5" delay="1" navButtons="none" />
+  <item name="memogrooming" delay="1" navButtons="none" />
+  <item id="start" name="sopagrooming" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="caratula" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000FF" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x00CC00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xCC0099" dest="0xFFFFFF" angle="135" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="caratu-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="definicion" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000099" />
+     </style>
+     <p>Armá la definición de Grooming.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009933" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x0099CC">
+     <gradient source="0xCC0099" dest="0xFFFFFF" angle="135" />
+     <image name="grooming-20201112-1076144-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <position x="-130" y="0" />
+    </window>
+   </settings>
+   <cells rows="2" cols="3" cellWidth="350.0" cellHeight="30.0" border="true">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFF00" background="0x3300FF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell>
+     <p>Acción de un adulto,</p>
+    </cell>
+    <cell>
+     <p>para ganarse la confianza </p>
+    </cell>
+    <cell>
+     <p>de niños y adolescentes </p>
+    </cell>
+    <cell>
+     <p>con fines sexuales u otros delitos,</p>
+    </cell>
+    <cell>
+     <p>a través de</p>
+    </cell>
+    <cell>
+     <p>perfiles falsos de internet.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memogrooming" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x3300CC" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x990099" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x0099FF">
+     <image name="GROOMING.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xCC00CC" border="true" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="179.0" cellHeight="172.0" border="true" id="primary">
+    <style transparent="true">
+     <font family="Arial" size="17" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell image="denuncia-resized.jpg" />
+    <cell image="EL-GROOMING-EN-LAS-ESCUELAS-resized.jpg" />
+    <cell image="no aceptar desconocidos.jpg" />
+    <cell image="wi fi.png" />
+    <cell image="citas-resized.jpg" />
+    <cell image="contraseña2.jpg" />
+    <cell image="grooming-20201112-1076144-resized.jpg" />
+    <cell image="image.jpg" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="nombregro" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000099" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009933" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x000000">
+     <image name="pared-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" border="true">
+     <position x="-63" y="0" />
+    </window>
+   </settings>
+   <cells rows="1" cols="8" cellWidth="113.0" cellHeight="105.0" border="true">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFF00" background="0x3300FF" />
+    </style>
+    <shaper class="@Rectangular" cols="8" rows="1" />
+    <cell>
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Castellar" size="140" bold="true" />
+      <color foreground="0xFF0000" background="0xFFFFFF" />
+     </style>
+     <p>G</p>
+    </cell>
+    <cell>
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Castellar" size="100" bold="true" />
+      <color foreground="0xFF0000" background="0xFFFFFF" />
+     </style>
+     <p>R</p>
+    </cell>
+    <cell>
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Castellar" size="100" bold="true" />
+      <color foreground="0xFF0000" background="0xFFFFFF" />
+     </style>
+     <p>O</p>
+    </cell>
+    <cell>
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Castellar" size="100" bold="true" />
+      <color foreground="0xFF0000" background="0xFFFFFF" />
+     </style>
+     <p>O</p>
+    </cell>
+    <cell>
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Castellar" size="100" bold="true" />
+      <color foreground="0xFF0000" background="0xFFFFFF" />
+     </style>
+     <p>M</p>
+    </cell>
+    <cell>
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Castellar" size="100" bold="true" />
+      <color foreground="0xFF0000" background="0xFFFFFF" />
+     </style>
+     <p>I</p>
+    </cell>
+    <cell>
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Castellar" size="100" bold="true" />
+      <color foreground="0xFF0000" background="0xFFFFFF" />
+     </style>
+     <p>N</p>
+    </cell>
+    <cell>
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Castellar" size="100" bold="true" />
+      <color foreground="0xFF0000" background="0xFFFFFF" />
+     </style>
+     <p>G</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadatips" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000FF" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x00CC00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xCC0099" dest="0xFFFFFF" angle="135" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="tips para grooming-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopagrooming" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>Encuentra 6 palabras relacionadas con el tema grooming.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000CC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0x0099CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xCC0099" border="true" />
+   </settings>
+   <textGrid rows="12" columns="9" cellWidth="50.0" cellHeight="50.0" border="true">
+    <style>
+     <font family="Arial" size="36" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <text>
+     <row>***D********</row>
+     <row>***E*******I</row>
+     <row>CHANTAJE**ON</row>
+     <row>*E*U*****R*T</row>
+     <row>*N*N****G**E</row>
+     <row>*G*C***I***R</row>
+     <row>MANIPULACIÓN</row>
+     <row>*Ñ*A*E*****E</row>
+     <row>*O**P******T</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">INTERNET</clue>
+    <clue id="1">ENGAÑO</clue>
+    <clue id="2">CHANTAJE</clue>
+    <clue id="3">MANIPULACIÓN</clue>
+    <clue id="4">PELIGRO</clue>
+    <clue id="5">DENUNCIA</clue>
+   </clues>
+   <cells rows="3" cols="2" cellWidth="271.0" cellHeight="156.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0x66FFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="3" />
+    <cell image="wi fi.png" />
+    <cell image="engaño.jpg" />
+    <cell image="chantaje.jpg" />
+    <cell image="manipulacion-resized.jpg" />
+    <cell image="peligro2.jpg" />
+    <cell image="denuncia-resized.jpg" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="tips1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000099" />
+     </style>
+     <p>Armá el consejo para evitar el Grooming.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009933" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x0099CC">
+     <gradient source="0xCC0099" dest="0xFFFFFF" angle="135" />
+     <image name="no aceptar desconocidos.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="250.0" cellHeight="70.0" border="true">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFF00" background="0x3300FF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>No</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>aceptar</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>a</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>personas</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>desconocidas.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="tips_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000099" />
+     </style>
+     <p>Armá el consejo para evitar el Grooming.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009933" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x0099CC">
+     <gradient source="0xCC0099" dest="0xFFFFFF" angle="135" />
+     <image name="contraseña3.gif" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <position x="-115" y="0" />
+    </window>
+   </settings>
+   <cells rows="1" cols="5" cellWidth="251.0" cellHeight="97.0" border="true">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFF00" background="0x3300FF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>Utilizar</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>contraseñas</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>privadas</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>y</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>complejas.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="tips_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000099" />
+     </style>
+     <p>Armá el consejo para evitar el Grooming.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009933" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x0099CC">
+     <gradient source="0xCC0099" dest="0xFFFFFF" angle="135" />
+     <image name="informacion personaljpg-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="251.0" cellHeight="98.0" border="true">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFF00" background="0x3300FF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>No</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>publicar</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>información</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>personal</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>en</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>redes</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>sociales.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="tips_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000099" />
+     </style>
+     <p>Armá el consejo para evitar el Grooming.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009933" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x0099CC">
+     <gradient source="0xCC0099" dest="0xFFFFFF" angle="135" />
+     <image name="citas-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <position x="-120" y="0" />
+    </window>
+   </settings>
+   <cells rows="2" cols="6" cellWidth="189.0" cellHeight="82.0" border="true">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFF00" background="0x3300FF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="2" />
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>No</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>programar</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>citas</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>reales</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>con</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>alguien</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>que</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>solo</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>conocemos</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>por</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>redes</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>sociales.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="tips_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000099" />
+     </style>
+     <p>Armá el consejo para evitar el Grooming.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009933" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x0099CC">
+     <gradient source="0xCC0099" dest="0xFFFFFF" angle="135" />
+     <image name="cuenta privada2.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <position x="-230" y="330" />
+    </window>
+   </settings>
+   <cells rows="1" cols="6" cellWidth="205.0" cellHeight="63.0" border="true">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFF00" background="0x3300FF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>Utilizar</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>perfiles</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>privados</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>en</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>redes</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>sociales.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="contraseña1.gif" file="contrasena1.gif" animated="true" />
+  <media name="contraseña3.gif" file="contrasena3.gif" animated="true" />
+  <media name="grooming8.gif" file="grooming8.gif" animated="true" />
+  <media name="groomingpared.gif" file="groomingpared.gif" animated="true" />
+  <media name="homero-tomando.gif" file="homero-tomando.gif" animated="true" />
+  <media name="JWo_1O.gif" file="jwo_1o.gif" animated="true" />
+  <media name="milhouse-tOMANDO NOTA.gif" file="milhouse-tomando_nota.gif" animated="true" />
+  <media name="PATO TOMANDO NOTA.gif" file="pato_tomando_nota.gif" animated="true" />
+  <media name="piña.gif" file="pina.gif" animated="true" />
+  <media name="TOMANDO NOTA 4.gif" file="tomando_nota_4.gif" animated="true" />
+  <media name="TOMANDO NOTA 6.gif" file="tomando_nota_6.gif" animated="true" />
+  <media name="TOMANDO NOTA3.gif" file="tomando_nota3.gif" animated="true" />
+  <media name="TOMANDO NOTA5.gif" file="tomando_nota5.gif" animated="true" />
+  <media name="tomando-notas-mojo-jojo.gif" file="tomando-notas-mojo-jojo.gif" animated="true" />
+  <media name="C:/Users/Usuario/Downloads/grooming/image.jpg" file="c__users_usuario_downloads_grooming_image.jpg" />
+  <media name="caratu-resized.jpg" file="caratu-resized.jpg" />
+  <media name="chantaje.jpg" file="chantaje.jpg" />
+  <media name="cita2-resized.jpg" file="cita2-resized.jpg" />
+  <media name="citas-resized.jpg" file="citas-resized.jpg" />
+  <media name="contraseña2.jpg" file="contrasena2.jpg" />
+  <media name="cuenta privada1.jpg" file="cuenta_privada1.jpg" />
+  <media name="cuenta privada2.jpg" file="cuenta_privada2.jpg" />
+  <media name="denuncia-resized.jpg" file="denuncia-resized.jpg" />
+  <media name="EL-GROOMING-EN-LAS-ESCUELAS-resized.jpg" file="el-grooming-en-las-escuelas-resized.jpg" />
+  <media name="engaño.jpg" file="engano.jpg" />
+  <media name="grooming-20201112-1076144-resized.jpg" file="grooming-20201112-1076144-resized.jpg" />
+  <media name="grooming-ninos-resized.jpg" file="grooming-ninos-resized.jpg" />
+  <media name="GROOMING.jpg" file="grooming.jpg" />
+  <media name="grooming1.jpg" file="grooming1.jpg" />
+  <media name="grooming3-resized.jpg" file="grooming3-resized.jpg" />
+  <media name="grooming7.jpg" file="grooming7.jpg" />
+  <media name="image.jpg" file="image.jpg" />
+  <media name="images.jpg" file="images.jpg" />
+  <media name="imgGrooming-resized.jpg" file="imggrooming-resized.jpg" />
+  <media name="informacion personal-resized.jpg" file="informacion_personal-resized.jpg" />
+  <media name="informacion personalgif-resized.jpg" file="informacion_personalgif-resized.jpg" />
+  <media name="informacion personaljpg-resized.jpg" file="informacion_personaljpg-resized.jpg" />
+  <media name="manipulacion-resized.jpg" file="manipulacion-resized.jpg" />
+  <media name="no aceptar desconocidos.jpg" file="no_aceptar_desconocidos.jpg" />
+  <media name="pared-resized.jpg" file="pared-resized.jpg" />
+  <media name="peligro en la red.jpg" file="peligro_en_la_red.jpg" />
+  <media name="peligro2.jpg" file="peligro2.jpg" />
+  <media name="tips para grooming-resized.jpg" file="tips_para_grooming-resized.jpg" />
+  <media name="tips.JPG" file="tips.jpg" />
+  <media name="TOMANDO NOTA.jpg" file="tomando_nota.jpg" />
+  <media name="grooming_0.png" file="grooming_0.png" />
+  <media name="wi fi.png" file="wi_fi.png" />
+ </mediaBag>
+</JClicProject>
+

@@ -1,0 +1,52 @@
+{
+  "title": "CR-CL",
+  "date": "28/06/24",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "cr-cl.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 24,
+  "mediaFiles": 28,
+  "totalSize": 1063594,
+  "files": [
+    "2-resized.jpg",
+    "alacran-resized.jpg",
+    "ancla.jpg",
+    "bicicleta-resized.jpg",
+    "cierre-resized2.jpg",
+    "clavado2.jpg",
+    "clavos.png",
+    "clip1-resized.jpg",
+    "clip2.jpg",
+    "cr-cl.jclic",
+    "cr-cl.jclic.js",
+    "craneo.jpg",
+    "crayola-resized.jpg",
+    "crema-resized.jpg",
+    "croquetas-resized.jpg",
+    "crucero-resized.jpg",
+    "escritorio-resized.jpg",
+    "favicon.ico",
+    "i01-bienhecho.jpg",
+    "i02-i01-bienhecho.jpg",
+    "i03-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "microfono-resized.jpg",
+    "microscopio-resized.jpg",
+    "nina_masticando_chicle.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json",
+    "secretaria2-resized.jpg",
+    "teclado.jpg"
+  ]
+}

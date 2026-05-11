@@ -1,0 +1,1619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="sasesisosu" version="0.1.3">
+ <settings>
+  <title>lalelilolu</title>
+  <revision description="created" date="8/12/24" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="3" navButtons="none" />
+  <item name="rompe" delay="3" navButtons="none" />
+  <item name="salero" delay="3" navButtons="none" />
+  <item id="start" name="sandia" delay="3" navButtons="none" />
+  <item name="ora_sandía" delay="3" navButtons="none" />
+  <item name="sandía2" delay="3" navButtons="none" />
+  <item name="puzzle_sandia" delay="2" navButtons="none" />
+  <item name="serpiente" delay="3" navButtons="none" />
+  <item name="semáforo" delay="3" navButtons="none" />
+  <item name="ora_semáforo" delay="3" navButtons="none" />
+  <item name="semáforo2" delay="3" navButtons="none" />
+  <item name="puzzle_semáforo" delay="3" navButtons="none" />
+  <item name="siete" delay="3" navButtons="none" />
+  <item name="silla" delay="3" navButtons="none" />
+  <item name="ora_silla" delay="3" navButtons="none" />
+  <item name="silla2" delay="3" navButtons="none" />
+  <item name="puzzle_silla" delay="2" navButtons="none" />
+  <item name="sol" delay="3" navButtons="none" />
+  <item name="sombrero" delay="3" navButtons="none" />
+  <item name="sombrero2" delay="3" navButtons="none" />
+  <item name="ora_sombrero" delay="1" navButtons="none" />
+  <item name="puzzle_sombrero" delay="3" navButtons="none" />
+  <item name="suma" delay="3" navButtons="none" />
+  <item name="susurro" delay="3" navButtons="none" />
+  <item name="suma_2" delay="3" navButtons="none" />
+  <item name="ora_susurro" delay="3" navButtons="none" />
+  <item name="puzzle_susurro" delay="2" navButtons="none" />
+  <item name="unir_2" delay="3" navButtons="none" />
+  <item name="unir_3" delay="3" navButtons="none" />
+  <item name="memo1" delay="1" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF33" background="0x990000" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="memojuego-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="104.0" cellHeight="85.0" border="true" id="primary">
+    <style margin="0">
+     <font family="Arial" size="14" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell txtAlign="middle,bottom" avoidOverlapping="true" image="sandia.png" />
+    <cell txtAlign="middle,bottom" image="semaforo.png">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="siete.png">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="sol.png">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="suma2.png">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="salero.PNG">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="serpiente.png">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="silla.png">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="sombrero.png">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="susurro.PNG">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="rompe" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="2" border="true" image="portadas-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="2" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="salero" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre la sílaba con la que inicia cada dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>salero</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="salero.PNG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="166.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>sa</p>
+    </cell>
+    <cell id="0">
+     <p>su</p>
+    </cell>
+    <cell id="0">
+     <p>so</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="sandia" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre la sílaba con la que inicia cada dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>sandía</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="sandia2.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="166.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>sa</p>
+    </cell>
+    <cell id="0">
+     <p>si</p>
+    </cell>
+    <cell id="0">
+     <p>so</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="sandía2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="sandia.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="400" height="313" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="80" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>sa</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>sa</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="80" bold="true" italic="false">ndía</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_sandia" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="2" border="true" image="sandía1-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="2" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="semáforo" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre la sílaba con la que inicia cada dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>semáforo</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="semaforo.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="166.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>se</p>
+    </cell>
+    <cell id="0">
+     <p>sa</p>
+    </cell>
+    <cell id="0">
+     <p>so</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="semáforo2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="semaforo.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="497" height="313" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>se</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>se</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="72" bold="true" italic="false">máforo</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_semáforo" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="2" border="true" image="semáforo1-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="2" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="serpiente" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre la sílaba con la que inicia cada dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>serpiente</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="serpiente.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="166.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>se</p>
+    </cell>
+    <cell id="0">
+     <p>si</p>
+    </cell>
+    <cell id="0">
+     <p>so</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="siete" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre la sílaba con la que inicia cada dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>siete</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="siete.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="166.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>si</p>
+    </cell>
+    <cell id="0">
+     <p>sa</p>
+    </cell>
+    <cell id="0">
+     <p>so</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="silla" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre la sílaba con la que inicia cada dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>silla</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="silla.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="166.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>si</p>
+    </cell>
+    <cell id="0">
+     <p>sa</p>
+    </cell>
+    <cell id="0">
+     <p>su</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="silla2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="silla.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="400" height="313" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>si</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>si</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">lla</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_silla" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="2" border="true" image="silla1-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="2" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="sol" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre la sílaba con la que inicia cada dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>sol</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="sol.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="166.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>so</p>
+    </cell>
+    <cell id="0">
+     <p>sa</p>
+    </cell>
+    <cell id="0">
+     <p>si</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="sombrero" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre la sílaba con la que inicia cada dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>sombrero</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="sombrero.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="166.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>so</p>
+    </cell>
+    <cell id="0">
+     <p>sa</p>
+    </cell>
+    <cell id="0">
+     <p>se</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="sombrero2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="sombrero.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="688" height="313" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="100" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>so</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>so</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="100" bold="true" italic="false">mbrero</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_sombrero" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="2" border="true" image="sombrero1-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="2" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="suma" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre la sílaba con la que inicia cada dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>suma</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="suma.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="166.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>su</p>
+    </cell>
+    <cell id="0">
+     <p>sa</p>
+    </cell>
+    <cell id="0">
+     <p>se</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="suma_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="suma.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="517" height="313" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>su</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>su</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">ma</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@panels.Identify" name="susurro" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre la sílaba con la que inicia cada dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>susurro</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="susurro.PNG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="166.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>su</p>
+    </cell>
+    <cell id="0">
+     <p>sa</p>
+    </cell>
+    <cell id="0">
+     <p>si</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_susurro" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="2" border="true" image="susurro1-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="2" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="30" bold="true" />
+      <color background="0xFFCCCC" />
+     </style>
+     <p>Unir cada imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="118.0" cellHeight="117.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="sapo.png" />
+    <cell image="semaforo.png" />
+    <cell image="silla.png" />
+    <cell image="sol.png" />
+    <cell image="suma.png" />
+   </cells>
+   <cells rows="5" cols="1" cellWidth="253.0" cellHeight="102.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <color background="0xFFCCFF" inactive="0xFFFFFF" />
+     <gradient source="0xFF99FF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <p>sapo</p>
+    </cell>
+    <cell>
+     <p>semáforo</p>
+    </cell>
+    <cell>
+     <p>silla</p>
+    </cell>
+    <cell>
+     <p>sol</p>
+    </cell>
+    <cell>
+     <p>suma</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-i02-i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="30" bold="true" />
+      <color background="0xFFCCCC" />
+     </style>
+     <p>Unir cada imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="118.0" cellHeight="117.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="salero.PNG" />
+    <cell image="serpiente.png" />
+    <cell image="siete.png" />
+    <cell image="sonajero.png" />
+    <cell image="susurro.PNG" />
+   </cells>
+   <cells rows="5" cols="1" cellWidth="253.0" cellHeight="102.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <color background="0xFFCCFF" inactive="0xFFFFFF" />
+     <gradient source="0xFF99FF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <p>salero</p>
+    </cell>
+    <cell>
+     <p>serpiente</p>
+    </cell>
+    <cell>
+     <p>siete</p>
+    </cell>
+    <cell>
+     <p>sonajero</p>
+    </cell>
+    <cell>
+     <p>susurro</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-i02-i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="sandía1-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="149.0" cellHeight="93.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell>
+     <p>san</p>
+    </cell>
+    <cell>
+     <p>dí</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_sandía" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="sandía1-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="125.0" cellHeight="68.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.6" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x0000CC" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell>
+     <p>san</p>
+    </cell>
+    <cell>
+     <p>dí</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_semáforo" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="semáforo1-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="100.0" cellHeight="68.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.6" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x0000CC" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>má</p>
+    </cell>
+    <cell>
+     <p>fo</p>
+    </cell>
+    <cell>
+     <p>ro</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_silla" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="silla1-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="100.0" cellHeight="68.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.6" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x0000CC" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell>
+     <p>si</p>
+    </cell>
+    <cell>
+     <p>lla</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_sombrero" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="sombrero1-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="142.0" cellHeight="68.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.6" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x0000CC" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell>
+     <p>som</p>
+    </cell>
+    <cell>
+     <p>bre</p>
+    </cell>
+    <cell>
+     <p>ro</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_susurro" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="susurro1-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="110.0" cellHeight="68.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.6" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x0000CC" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>rro</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i01-i01-bienhecho.jpg" file="i01-i01-i01-bienhecho.jpg" />
+  <media name="i01-i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i01-i01-bienhecho.jpg" />
+  <media name="i02-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="i05-i01-bienhecho.jpg" file="i05-i01-bienhecho.jpg" />
+  <media name="memojuego-resized.jpg" file="memojuego-resized.jpg" />
+  <media name="portadas-resized.jpg" file="portadas-resized.jpg" />
+  <media name="sandía1-resized.jpg" file="sandia1-resized.jpg" />
+  <media name="semáforo1-resized.jpg" file="semaforo1-resized.jpg" />
+  <media name="silla1-resized.jpg" file="silla1-resized.jpg" />
+  <media name="sombrero1-resized.jpg" file="sombrero1-resized.jpg" />
+  <media name="susurro1-resized.jpg" file="susurro1-resized.jpg" />
+  <media name="salero.PNG" file="salero.png" />
+  <media name="sandia.png" file="sandia.png" />
+  <media name="sandia2.png" file="sandia2.png" />
+  <media name="sapo.png" file="sapo.png" />
+  <media name="semaforo.png" file="semaforo.png" />
+  <media name="serpiente.png" file="serpiente.png" />
+  <media name="siete.png" file="siete.png" />
+  <media name="silla.png" file="silla.png" />
+  <media name="sol.png" file="sol.png" />
+  <media name="sombrero.png" file="sombrero.png" />
+  <media name="sonajero.png" file="sonajero.png" />
+  <media name="suma.png" file="suma.png" />
+  <media name="suma2.png" file="suma2.png" />
+  <media name="susurro.PNG" file="susurro.png" />
+ </mediaBag>
+</JClicProject>
+

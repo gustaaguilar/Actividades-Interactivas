@@ -1,0 +1,52 @@
+{
+  "title": "Normas_de_convivencia",
+  "date": "11/03/25",
+  "description": {
+    "es": ""
+  },
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "Normas_de_convivencia.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 23,
+  "mediaFiles": 26,
+  "totalSize": 730468,
+  "files": [
+    "Normas_de_convivencia.jclic",
+    "Normas_de_convivencia.jclic.js",
+    "caratu-resized2.jpg",
+    "contribuyo_a_que_la_buena_conviencia_reine_en_el_aula.jpg",
+    "en_clase_trabajo.jpg",
+    "escucho_a_mis_companeras_y_companeros.jpg",
+    "espero_mi_turno.jpg",
+    "favicon.ico",
+    "i01-bienhecho.jpg",
+    "i01-i01-bienhecho.jpg",
+    "i04-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "juego_con_todos_mis_companeros_y_companeras.jpg",
+    "levanto_la_mano_para_hablar.jpg",
+    "me_burlo_de_mis_companeros_y_empleo_motes_ofensivos_cuando_hablo_con_ellos.jpg",
+    "no_admito_mas_opiniones_que_las_mias.jpg",
+    "no_escucho_a_mis_companeros_y_companeras.jpg",
+    "no_pido_disculpas_si_me_equivoco.jpg",
+    "no_respeto_a_mis_companeros.jpg",
+    "no_tiro_papeles_al_suelo.jpg",
+    "pido_disculpas_si_me_equivoco.jpg",
+    "presto_mis_cosas_a_mis_companeros.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json",
+    "rompe1-resized.jpg",
+    "rompe2.jpg",
+    "tacha.jpg"
+  ]
+}

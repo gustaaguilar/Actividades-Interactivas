@@ -1,0 +1,1570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="matema" version="0.1.3">
+ <settings>
+  <title>mate</title>
+  <revision description="created" date="9/24/23" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="4" navButtons="none" />
+  <item name="cuadro1" delay="1" navButtons="none" />
+  <item name="cuadro_2" delay="1" navButtons="none" />
+  <item name="vecino1" delay="2" navButtons="none" />
+  <item name="vecino2" delay="2" navButtons="none" />
+  <item name="vecino3" delay="2" navButtons="none" />
+  <item name="vecino4" delay="2" navButtons="none" />
+  <item name="vecino6" delay="2" navButtons="none" />
+  <item name="vecino5" delay="2" navButtons="none" />
+  <item name="intruso1" delay="2" navButtons="none" />
+  <item name="intruso2" delay="2" navButtons="none" />
+  <item name="cuadro_3" delay="2" navButtons="none" />
+  <item name="cuadro_6" delay="2" navButtons="none" />
+  <item name="cuadro_5" delay="2" navButtons="none" />
+  <item name="cuadro_4" delay="2" navButtons="none" />
+  <item name="vecino_2" delay="2" navButtons="none" />
+  <item name="vecino_3" delay="2" navButtons="none" />
+  <item name="vecino_4" delay="2" navButtons="none" />
+  <item name="vecino_5" delay="2" navButtons="none" />
+  <item name="vecino_6" delay="2" navButtons="none" />
+  <item name="vecino_7" delay="2" navButtons="none" />
+  <item name="MEMONUME" delay="4" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@memory.MemoryGame" name="MEMONUME" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000CC" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x00CC66" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF00CC" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="3" cellWidth="161.0" cellHeight="138.0" border="true" id="primary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+    <cell image="7-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell image="14.png">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell image="21.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell image="32-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell image="40.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell image="67-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell image="78-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell image="85.png">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell image="99.png">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="caratu" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x0033FF" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFF00" background="0x0033FF" />
+     </style>
+     <p>¡Bravo!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="caratu-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="cuadro1" code="" forceOkToAdvance="true">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0099FF" />
+     </style>
+     <p>Escribimos los números que faltan.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario1.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="663" height="340" />
+    </window>
+   </settings>
+   <checkButton>REVISAR</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" bold="true" foreground="0x0000CC">Escribimos los números que faltan.</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">0     1    2    </text>
+      <text family="Arial" background="0xFFFFFF">3</text>
+      <text size="36">    4    5    </text>
+      <text family="Arial" background="0xFFFFFF">6</text>
+      <text size="36">    </text>
+      <target>
+       <answer>7</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>7</text>
+      </target>
+      <text size="36">    </text>
+      <text family="Arial" background="0xFFFFFF">8</text>
+      <text size="36">    9</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">10  11  </text>
+      <target>
+       <answer>12</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>12</text>
+      </target>
+      <text size="36">  13  </text>
+      <target>
+       <answer>14</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>14</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>15</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>15</text>
+      </target>
+      <text size="36">  16  17  18  19</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="cuadro_2" code="" forceOkToAdvance="true">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0099FF" />
+     </style>
+     <p>Escribimos los números que faltan.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario10.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="691" height="298" />
+    </window>
+   </settings>
+   <checkButton>REVISAR</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" bold="true" foreground="0x0000CC">Escribimos los números que faltan.</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">20  </text>
+      <target>
+       <answer>21</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>21</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>22</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>22</text>
+      </target>
+      <text size="36">  23  </text>
+      <target>
+       <answer>24</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>24</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>25</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>25</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>26</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>26</text>
+      </target>
+      <text size="36">  27  </text>
+      <target>
+       <answer>28</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>28</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>29</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>29</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">30  </text>
+      <target>
+       <answer>31</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>31</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>32</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>32</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>33</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>33</text>
+      </target>
+      <text size="36">  34  </text>
+      <target>
+       <answer>35</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>35</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>36</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>36</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>37</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>37</text>
+      </target>
+      <text size="36">  38  </text>
+      <target>
+       <answer>39</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>39</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="cuadro_3" code="" forceOkToAdvance="true">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0099FF" />
+     </style>
+     <p>Escribimos los números que faltan.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario11.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="691" height="298" />
+    </window>
+   </settings>
+   <checkButton>REVISAR</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" bold="true" foreground="0x0000CC">Escribimos los números que faltan.</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">30  31 </text>
+      <text family="Arial" background="0xFFFFFF"> </text>
+      <target>
+       <answer>32</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>32</text>
+      </target>
+      <text size="36">  33  34  </text>
+      <target>
+       <answer>35</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>35</text>
+      </target>
+      <text size="36">  36  </text>
+      <target>
+       <answer>37</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>37</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>38</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>38</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>39</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>39</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">40  </text>
+      <target>
+       <answer>41</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>41</text>
+      </target>
+      <text size="36">  42  </text>
+      <target>
+       <answer>43</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>43</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>44</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>44</text>
+      </target>
+      <text size="36">  45  </text>
+      <target>
+       <answer>46</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>46</text>
+      </target>
+      <text size="36">  47  48  </text>
+      <target>
+       <answer>49</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>49</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="cuadro_4" code="" forceOkToAdvance="true">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0099FF" />
+     </style>
+     <p>Escribimos los números que faltan.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario12-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="691" height="298" />
+    </window>
+   </settings>
+   <checkButton>REVISAR</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" bold="true" foreground="0x0000CC">Escribimos los números que faltan.</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">50  </text>
+      <target>
+       <answer>51</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>51</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>52</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>52</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>53</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>53</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>54</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>54</text>
+      </target>
+      <text size="36">  55  </text>
+      <target>
+       <answer>56</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>56</text>
+      </target>
+      <text size="36">  57  58  </text>
+      <target>
+       <answer>59</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>59</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">60  </text>
+      <target>
+       <answer>61</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>61</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>62</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>62</text>
+      </target>
+      <text size="36">  63  64  </text>
+      <target>
+       <answer>65</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>65</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>66</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>66</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>67</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>67</text>
+      </target>
+      <text size="36">  68  69</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="cuadro_5" code="" forceOkToAdvance="true">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0099FF" />
+     </style>
+     <p>Escribimos los números que faltan.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario13-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="691" height="298" />
+    </window>
+   </settings>
+   <checkButton>REVISAR</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" bold="true" foreground="0x0000CC">Escribimos los números que faltan.</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">70  </text>
+      <target>
+       <answer>71</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>71</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>72</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>72</text>
+      </target>
+      <text size="36">  73  74  </text>
+      <target>
+       <answer>75</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>75</text>
+      </target>
+      <text size="36">  76  </text>
+      <target>
+       <answer>77</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>77</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>78</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>78</text>
+      </target>
+      <text size="36">  79</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">80  81  </text>
+      <target>
+       <answer>82</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>82</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>83</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>83</text>
+      </target>
+      <text size="36">  84  </text>
+      <target>
+       <answer>85</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>85</text>
+      </target>
+      <text size="36">  86  87  </text>
+      <target>
+       <answer>88</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>88</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>89</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>89</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="cuadro_6" code="" forceOkToAdvance="true">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0099FF" />
+     </style>
+     <p>Escribimos los números que faltan.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario14.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="636" height="209" />
+    </window>
+   </settings>
+   <checkButton>REVISAR</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" bold="true" foreground="0x0000CC">Escribimos los números que faltan.</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36">90  </text>
+      <target>
+       <answer>91</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>91</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>92</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>92</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>93</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>93</text>
+      </target>
+      <text size="36">  94  95  </text>
+      <target>
+       <answer>96</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>96</text>
+      </target>
+      <text size="36">  97  </text>
+      <target>
+       <answer>98</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>98</text>
+      </target>
+      <text size="36">  </text>
+      <target>
+       <answer>99</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>99</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.Identify" name="intruso1" code="" type="identifyWords">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Pulsa sobre el intruso.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x0000CC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario15.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="730" height="312" />
+    </window>
+   </settings>
+   <checkButton>REVISÁ</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="48" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text family="Arial" background="0xFFFFFF" size="48">50 51 52 </text>
+      <target>96</target>
+      <text family="Arial" background="0xFFFFFF" size="48"> 54 55 56 57 58 59</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text family="Arial" background="0xFFFFFF" size="48">60 61 62 63 64 65 66 </text>
+      <target>33</target>
+      <text family="Arial" background="0xFFFFFF" size="48"> 68 69</text>
+     </p>
+    </section>
+   </document>
+  </activity>
+  <activity class="@text.Identify" name="intruso2" code="" type="identifyWords">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Pulsa sobre el intruso.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x0000CC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario16.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="730" height="312" />
+    </window>
+   </settings>
+   <checkButton>REVISÁ</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="48" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text family="Arial" background="0xFFFFFF" size="48">70 71 72 73 74 75 76 77 </text>
+      <target>21</target>
+      <text family="Arial" background="0xFFFFFF" size="48"> </text>
+      <target>29</target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text family="Arial" background="0xFFFFFF" size="48">80 81 </text>
+      <target>32</target>
+      <text family="Arial" background="0xFFFFFF" size="48"> 83 84 85 86 87 88 89</text>
+     </p>
+    </section>
+   </document>
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color background="0x00FFFF" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario17.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>28</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>28</text>
+      </target>
+      <text size="72">  29  </text>
+      <target>
+       <answer>30</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>30</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0066FF" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x990000" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario18-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>32</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>32</text>
+      </target>
+      <text size="72">  33  </text>
+      <target>
+       <answer>34</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>34</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario2.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>34</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>34</text>
+      </target>
+      <text size="72">  35  </text>
+      <target>
+       <answer>36</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>36</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009999" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario3-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>30</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>30</text>
+      </target>
+      <text size="72">  31  </text>
+      <target>
+       <answer>32</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>32</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0099" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario4.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>38</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>38</text>
+      </target>
+      <text size="72">  39  </text>
+      <target>
+       <answer>40</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>40</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000CC" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario8-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>35</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>35</text>
+      </target>
+      <text size="72">  36  </text>
+      <target>
+       <answer>37</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>37</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000CC" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario22.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>44</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>44</text>
+      </target>
+      <text size="72">  45  </text>
+      <target>
+       <answer>46</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>46</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000CC" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario30.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>56</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>56</text>
+      </target>
+      <text size="72">  57  </text>
+      <target>
+       <answer>58</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>58</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000CC" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario26-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>60</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>60</text>
+      </target>
+      <text size="72">  61  </text>
+      <target>
+       <answer>62</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>62</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000CC" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario27.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>77</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>77</text>
+      </target>
+      <text size="72">  78  </text>
+      <target>
+       <answer>79</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>79</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000CC" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario28.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>83</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>83</text>
+      </target>
+      <text size="72">  84  </text>
+      <target>
+       <answer>85</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>85</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vecino_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000CC" />
+     </style>
+     <p>Escribo los vecinos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mario29-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="449" height="265" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="72" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>92</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>92</text>
+      </target>
+      <text size="72">  93  </text>
+      <target>
+       <answer>94</answer>
+       <response fill="_" length="2" maxLength="2" />
+       <text>94</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" Alignment="1" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="21.jpg" file="21.jpg" />
+  <media name="32-resized.jpg" file="32-resized.jpg" />
+  <media name="40.jpg" file="40.jpg" />
+  <media name="67-resized.jpg" file="67-resized.jpg" />
+  <media name="7-resized.jpg" file="7-resized.jpg" />
+  <media name="78-resized.jpg" file="78-resized.jpg" />
+  <media name="caratu-resized.jpg" file="caratu-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="i01-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i01-i03-i01-bienhecho.jpg" />
+  <media name="mario1.JPG" file="mario1.jpg" />
+  <media name="mario10.jpg" file="mario10.jpg" />
+  <media name="mario11.JPG" file="mario11.jpg" />
+  <media name="mario12-resized.jpg" file="mario12-resized.jpg" />
+  <media name="mario13-resized.jpg" file="mario13-resized.jpg" />
+  <media name="mario14.jpg" file="mario14.jpg" />
+  <media name="mario15.JPG" file="mario15.jpg" />
+  <media name="mario17.JPG" file="mario17.jpg" />
+  <media name="mario18-resized.jpg" file="mario18-resized.jpg" />
+  <media name="mario2.jpg" file="mario2.jpg" />
+  <media name="mario22.jpg" file="mario22.jpg" />
+  <media name="mario26-resized.jpg" file="mario26-resized.jpg" />
+  <media name="mario27.jpg" file="mario27.jpg" />
+  <media name="mario28.JPG" file="mario28.jpg" />
+  <media name="mario29-resized.jpg" file="mario29-resized.jpg" />
+  <media name="mario3-resized.jpg" file="mario3-resized.jpg" />
+  <media name="mario30.jpg" file="mario30.jpg" />
+  <media name="mario4.JPG" file="mario4.jpg" />
+  <media name="mario8-resized.jpg" file="mario8-resized.jpg" />
+  <media name="14.png" file="14.png" />
+  <media name="85.png" file="85.png" />
+  <media name="99.png" file="99.png" />
+  <media name="mario16.png" file="mario16.png" />
+ </mediaBag>
+</JClicProject>
+

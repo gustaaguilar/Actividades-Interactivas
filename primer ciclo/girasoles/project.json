@@ -1,0 +1,46 @@
+{
+  "title": "girasoles",
+  "date": "21/10/24",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "girasoles.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 24,
+  "mediaFiles": 22,
+  "totalSize": 966334,
+  "files": [
+    "1-resized.jpg",
+    "2-resized.jpg",
+    "3-resized.jpg",
+    "4-resized.jpg",
+    "6-resized.jpg",
+    "7-resized.jpg",
+    "caratu-resized2.jpg",
+    "cierre-resized2.jpg",
+    "favicon.ico",
+    "fluidez.jpg",
+    "fluidez_lectora_caratu.jpg",
+    "fluidezcaratu.jpg",
+    "girasoles-resized.jpg",
+    "girasoles.jclic",
+    "girasoles.jclic.js",
+    "i01-2-resized.jpg",
+    "i01-bienhecho.jpg",
+    "i01-i02-i01-bienhecho.jpg",
+    "i01-i03-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json",
+    "whatsapp_image_2024-10-22_at_14.55.41-resized.jpg"
+  ]
+}

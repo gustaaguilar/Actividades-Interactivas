@@ -1,0 +1,48 @@
+{
+  "title": "verbos",
+  "date": "13/05/25",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "verbos.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 23,
+  "mediaFiles": 24,
+  "totalSize": 1033109,
+  "files": [
+    "2-resized.jpg",
+    "5-auuuch-_grito_el_perrito_ramon_cuando_sintio_el_picotazo_de_las_pulgas-resized.jpg",
+    "7-plic_y_ploc_se_sujetaron_fuerte_para_no_salir_volando-resized.jpg",
+    "8-ramon_giraba__rascaba__se_sacudia_sin_lograr_que_se_cayeran-resized.jpg",
+    "adrian_come_un_pastel-resized.jpg",
+    "cierre-resized2.jpg",
+    "cristian_come_una_manzana-resized.jpg",
+    "dos_amigos_y_sus_cabritas_cantan-resized.jpg",
+    "favicon.ico",
+    "i01-bienhecho.jpg",
+    "i01-i01-bienhecho.jpg",
+    "i02-i01-bienhecho.jpg",
+    "i03-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "julia_anda_en_bici-resized.jpg",
+    "laura_deslava_los_toallones-resized.jpg",
+    "los_chicos_cantan_una_cancion-resized.jpg",
+    "los_ninos_juegan_con_la_pelota-resized.jpg",
+    "mama_bana_al_bebe-resized.jpg",
+    "martin_patea_la_pelota-resized.jpg",
+    "presentacion1-resized.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json",
+    "verbos.jclic",
+    "verbos.jclic.js"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "title": "El cóndor gigante",
+  "date": "7/04/26",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "condor_gigante.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 25,
+  "mediaFiles": 20,
+  "totalSize": 1306942,
+  "files": [
+    "10-_desde__ese__dia__volvio__a__ser__el__dueno__del__cielo-resized.jpg",
+    "1un__condor__enorme__vivia__en__la__cordillera__de__los__andes-resized.jpg",
+    "2-resized.jpg",
+    "2sus__alas__abiertas__parecian__dos__nubes__oscuras__en__el__cielo-resized.jpg",
+    "3aprendio__desde__joven__a__volar__horas__sin__cansarse-resized.jpg",
+    "4los__hombres__decian__que__era__el__condor__mas__grande__visto-resized.jpg",
+    "5carlos__decidio__atraparlo__y__lo__llevo__a__su__casa-resized.jpg",
+    "6poco__a__poco__el__ave__se__acostumbro__a__su__presencia.-resized.jpg",
+    "7sus__alas__se__hicieron__tan__fuertes__que__levantaban__polvo__y__hojas-resized.jpg",
+    "8el__condor__seguia__mirando__al__cielo__y__extranaba__las__montanas-resized.jpg",
+    "9carlos__comprendio__que__el__condor__necesitaba__libertad__para__vivir-resized.jpg",
+    "cierre-resized2.jpg",
+    "condor_gigante.jclic",
+    "condor_gigante.jclic.js",
+    "favicon.ico",
+    "i02-i01-bienhecho.jpg",
+    "i03-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "portada_el_condor_gigante-resized.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json"
+  ]
+}

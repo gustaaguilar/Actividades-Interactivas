@@ -1,0 +1,47 @@
+{
+  "title": "semilla_dorada",
+  "date": "21/09/25",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "semilla_dorada.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 26,
+  "mediaFiles": 23,
+  "totalSize": 671029,
+  "files": [
+    "1habia_una_vez_una__nina_llamada_daniela-resized.jpg",
+    "2-resized.jpg",
+    "2guardaba_una_semilla_dorada_en_su_cajita_de_madera-resized.jpg",
+    "3cada_dia_miraba_su_semilla_con_carino-resized.jpg",
+    "4daniela_la_coloco_en_la_tierra_humeda_de_su_canchita_del_jardin-resized.jpg",
+    "5con_cuidado_la_regaba_y_le_cantaba_canciones-resized.jpg",
+    "6pasaron_los_dias_y_una_ramita_chiquita_salio_de_la_tierra-resized.jpg",
+    "7con_el_tiempo__la_ramita_se_volvio_un_arbol_lleno_de_hojas_verdes-resized.jpg",
+    "8los_pajaros_hacian_nidos_y_cantaban_con_alegria-resized.jpg",
+    "9la_nina_miraba_su_arbol_y_agradecia_con_una_gran_sonrisa.-resized.jpg",
+    "favicon.ico",
+    "i01-bienhecho.jpg",
+    "i01-i01-bienhecho.jpg",
+    "i02-i01-bienhecho.jpg",
+    "i03-i01-bienhecho.jpg",
+    "i05-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "memojuego-resized.jpg",
+    "portada_de_cierre-resized.jpg",
+    "portadasemilladorada-resized1.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json",
+    "semilla_dorada.jclic",
+    "semilla_dorada.jclic.js"
+  ]
+}

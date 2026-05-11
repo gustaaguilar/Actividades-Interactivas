@@ -1,0 +1,1283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="sistema_oseo" version="0.1.3">
+ <settings>
+  <title>sistema_óseo</title>
+  <revision description="created" date="11/14/23" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="3" navButtons="none" />
+  <item name="esque" delay="1" navButtons="none" />
+  <item id="start" name="cráneo" delay="1" navButtons="none" />
+  <item name="húmero" delay="1" navButtons="none" />
+  <item name="radio" delay="1" navButtons="none" />
+  <item name="tibia" delay="1" navButtons="none" />
+  <item name="fémur" delay="1" navButtons="none" />
+  <item name="clavícula" delay="1" navButtons="none" />
+  <item name="costillas" delay="1" navButtons="none" />
+  <item name="pelvis" delay="1" navButtons="none" />
+  <item name="hombro" delay="1" navButtons="none" />
+  <item name="peroné" delay="1" navButtons="none" />
+  <item name="pie" delay="1" navButtons="none" />
+  <item name="función" delay="1" navButtons="none" />
+  <item name="función_7" delay="1" navButtons="none" />
+  <item name="función_5" delay="1" navButtons="none" />
+  <item name="función_6" delay="1" navButtons="none" />
+  <item name="función_4" delay="1" navButtons="none" />
+  <item name="función_3" delay="1" navButtons="none" />
+  <item name="función_2" delay="1" navButtons="none" />
+  <item name="esqueleto" delay="3" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="caratu" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x0033FF" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFF00" background="0x0033FF" />
+     </style>
+     <p>¡Bravo!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="caratu-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="clavícula" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Hueso que conecta el esternón con el omóplato.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="coco18-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="9" cellWidth="49.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="9" rows="1" />
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>v</p>
+    </cell>
+    <cell>
+     <p>í</p>
+    </cell>
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="costillas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Huesos largos y curvos que protegen los órganos del tórax.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco19-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="9" cellWidth="49.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="9" rows="1" />
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="cráneo" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Hueso que protege el cerebro.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco1.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="49.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>á</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="esque" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x0099CC">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="223" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x990099" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="esqueletofinal.png">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="esqueleto" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Principal estructura del cuerpo humano.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco7-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="9" cellWidth="49.0" cellHeight="66.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="9" rows="1" />
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell>
+     <p>q</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Arma la función del sistema óseo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco3.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="117.0" cellHeight="37.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>Proporciona</p>
+    </cell>
+    <cell>
+     <p>soporte</p>
+    </cell>
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>estructural</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>cuerpo.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Arma la función del sistema óseo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco3.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="117.0" cellHeight="37.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>Proporciona</p>
+    </cell>
+    <cell>
+     <p>soporte</p>
+    </cell>
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>estructural</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>cuerpo.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="1.7" markerStroke="2.7">
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Arma la función del sistema óseo.</p>
+    </cell>
+    <cell type="final">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco3.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="117.0" cellHeight="37.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>Proporciona</p>
+    </cell>
+    <cell>
+     <p>soporte</p>
+    </cell>
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>estructural</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>cuerpo.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Arma la función del sistema óseo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco3.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="117.0" cellHeight="37.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>Proporciona</p>
+    </cell>
+    <cell>
+     <p>soporte</p>
+    </cell>
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>estructural</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>cuerpo.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Arma la función del sistema óseo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco3.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="93.0" cellHeight="37.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>Produce</p>
+    </cell>
+    <cell>
+     <p>células</p>
+    </cell>
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>sanguíneas</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>médula</p>
+    </cell>
+    <cell>
+     <p>ósea.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Arma la función del sistema óseo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco7-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="146.0" cellHeight="37.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>Permite</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>movimiento.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Arma la función del sistema óseo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco6.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="117.0" cellHeight="37.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>Proteger</p>
+    </cell>
+    <cell>
+     <p>los</p>
+    </cell>
+    <cell>
+     <style margin="0">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0xFF0000" />
+     </style>
+     <p>órganos</p>
+    </cell>
+    <cell>
+     <p>vitales.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="fémur" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Hueso del muslo, el más largo y fuerte del cuerpo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco15-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="58.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>é</p>
+    </cell>
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="hombro" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Une el brazo al tronco.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco20-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="49.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>h</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>b</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="húmero" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Hueso del brazo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco10-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="49.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>h</p>
+    </cell>
+    <cell>
+     <p>ú</p>
+    </cell>
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="pelvis" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Hueso del brazo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco2.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="49.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>v</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="peroné" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Hueso del brazo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco3.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="49.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>é</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="pie" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Proporcionan soporte, equilibrio y nos permite caminar.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco5.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="49.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="radio" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Hueso del antebrazo.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco11-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="49.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="tibia" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF0000" />
+     </style>
+     <p>Hueso de la pierna.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="223" />
+     <image name="coco12.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="49.0" cellHeight="70.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" />
+     <gradient source="0x666600" dest="0xFFFFFF" angle="203" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>b</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="cocogif1.gif" file="cocogif1.gif" animated="true" />
+  <media name="cocogif10.gif" file="cocogif10.gif" animated="true" />
+  <media name="cocogif2.gif" file="cocogif2.gif" animated="true" />
+  <media name="cocogif3.gif" file="cocogif3.gif" animated="true" />
+  <media name="cocogif4.gif" file="cocogif4.gif" animated="true" />
+  <media name="cocogif5.gif" file="cocogif5.gif" animated="true" />
+  <media name="cocogif6.gif" file="cocogif6.gif" animated="true" />
+  <media name="cocogif7.gif" file="cocogif7.gif" animated="true" />
+  <media name="cocogif8.gif" file="cocogif8.gif" animated="true" />
+  <media name="cocogif9.gif" file="cocogif9.gif" animated="true" />
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="caratu-resized.jpg" file="caratu-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="coco1.jpg" file="coco1.jpg" />
+  <media name="coco10-resized.jpg" file="coco10-resized.jpg" />
+  <media name="coco11-resized.jpg" file="coco11-resized.jpg" />
+  <media name="coco12.jpg" file="coco12.jpg" />
+  <media name="coco13.jpg" file="coco13.jpg" />
+  <media name="coco14.JPG" file="coco14.jpg" />
+  <media name="coco15-resized.jpg" file="coco15-resized.jpg" />
+  <media name="coco16.JPG" file="coco16.jpg" />
+  <media name="coco17.jpg" file="coco17.jpg" />
+  <media name="coco18-resized.jpg" file="coco18-resized.jpg" />
+  <media name="coco19-resized.jpg" file="coco19-resized.jpg" />
+  <media name="coco2.jpg" file="coco2.jpg" />
+  <media name="coco20-resized.jpg" file="coco20-resized.jpg" />
+  <media name="coco3.jpg" file="coco3.jpg" />
+  <media name="coco4.jpg" file="coco4.jpg" />
+  <media name="coco5.jpg" file="coco5.jpg" />
+  <media name="coco6.jpg" file="coco6.jpg" />
+  <media name="coco7-resized.jpg" file="coco7-resized.jpg" />
+  <media name="coco8-resized.jpg" file="coco8-resized.jpg" />
+  <media name="coco9.JPG" file="coco9.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="esqueletofinal.png" file="esqueletofinal.png" />
+ </mediaBag>
+</JClicProject>
+

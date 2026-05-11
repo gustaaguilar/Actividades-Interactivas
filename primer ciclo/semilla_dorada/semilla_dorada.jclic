@@ -1,0 +1,1259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="semilla_dorada" version="0.1.3">
+ <settings>
+  <title>semilla_dorada</title>
+  <revision description="created" date="9/21/25" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="3" navButtons="none" />
+  <item name="puzzle_inicio" delay="3" navButtons="none" />
+  <item name="unir1" delay="3" navButtons="none" />
+  <item name="unir_2" delay="3" navButtons="none" />
+  <item name="ora1" delay="3" navButtons="none" />
+  <item name="puzzle_inicio_2" delay="3" navButtons="none" />
+  <item name="ora_2" delay="3" navButtons="none" />
+  <item name="puzzle_inicio_3" delay="3" navButtons="none" />
+  <item name="ora_3" delay="3" navButtons="none" />
+  <item name="ora_4" delay="3" navButtons="none" />
+  <item name="puzzle_inicio_5" delay="3" navButtons="none" />
+  <item name="ora_5" delay="3" navButtons="none" />
+  <item name="puzzle_inicio_6" delay="3" navButtons="none" />
+  <item name="ora_6" delay="3" navButtons="none" />
+  <item name="puzzle_inicio_7" delay="3" navButtons="none" />
+  <item name="ora_7" delay="3" navButtons="none" />
+  <item name="puzzle_inicio_8" delay="3" navButtons="none" />
+  <item name="ora_8" delay="3" navButtons="none" />
+  <item name="puzzle_inicio_9" delay="3" navButtons="none" />
+  <item name="ora_9" delay="3" navButtons="none" />
+  <item name="puzzle_inicio_10" delay="3" navButtons="none" />
+  <item name="identi1" delay="3" navButtons="none" />
+  <item name="identi_2" delay="3" navButtons="none" />
+  <item name="identi_3" delay="3" navButtons="none" />
+  <item name="memo1" delay="3" navButtons="none" />
+  <item id="start" name="portada-cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="portada-cierre" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="Portada de cierre-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="identi1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="16" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre "Había una vez una  niña llamada Daniela".</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="168.0" cellHeight="251.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" image="5Con cuidado la regaba y le cantaba canciones-resized.jpg" />
+    <cell id="1" image="1Había una vez una  niña llamada Daniela-resized.jpg" />
+    <cell id="0" image="9la niña miraba su árbol y agradecía con una gran sonrisa.-resized.jpg" />
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="14" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre "Guardaba una semilla dorada en su cajita de madera".</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="168.0" cellHeight="251.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" image="5Con cuidado la regaba y le cantaba canciones-resized.jpg" />
+    <cell id="1" image="2Guardaba una semilla dorada en su cajita de madera-resized.jpg" />
+    <cell id="0" image="7Con el tiempo, la ramita se volvió un árbol lleno de hojas verdes-resized.jpg" />
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="14" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre "La regaba y le cantaba canciones".</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="168.0" cellHeight="251.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" image="3cada día miraba su semilla con cariño-resized.jpg" />
+    <cell id="1" image="5Con cuidado la regaba y le cantaba canciones-resized.jpg" />
+    <cell id="0" image="4Daniela la colocó en la tierra húmeda de su canchita del jardín-resized.jpg" />
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF33" background="0x990000" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="memojuego-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="183.0" cellHeight="275.0" border="true" id="primary">
+    <style margin="0">
+     <font family="Arial" size="14" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell txtAlign="middle,bottom" avoidOverlapping="true" image="1Había una vez una  niña llamada Daniela-resized.jpg" />
+    <cell txtAlign="middle,bottom" image="2Guardaba una semilla dorada en su cajita de madera-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="4Daniela la colocó en la tierra húmeda de su canchita del jardín-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="7Con el tiempo, la ramita se volvió un árbol lleno de hojas verdes-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="5Con cuidado la regaba y le cantaba canciones-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="3cada día miraba su semilla con cariño-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x006633" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x00CC33">
+     <image name="1Había una vez una  niña llamada Daniela-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="72.0" cellHeight="43.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.5" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>Había</p>
+    </cell>
+    <cell>
+     <p>una</p>
+    </cell>
+    <cell>
+     <p>vez,</p>
+    </cell>
+    <cell>
+     <p>una</p>
+    </cell>
+    <cell>
+     <p>niña</p>
+    </cell>
+    <cell>
+     <p>llamada</p>
+    </cell>
+    <cell>
+     <p>Daniela.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x006633" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x00CC33">
+     <image name="2Guardaba una semilla dorada en su cajita de madera-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="72.0" cellHeight="43.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.5" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>Guardaba</p>
+    </cell>
+    <cell>
+     <p>una</p>
+    </cell>
+    <cell>
+     <p>semilla</p>
+    </cell>
+    <cell>
+     <p>dorada</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>cajita.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x006633" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x00CC33">
+     <image name="3cada día miraba su semilla con cariño-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="72.0" cellHeight="43.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.5" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>Cada</p>
+    </cell>
+    <cell>
+     <p>día</p>
+    </cell>
+    <cell>
+     <p>miraba</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>semilla</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>cariño.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x006633" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x00CC33">
+     <image name="4Daniela la colocó en la tierra húmeda de su canchita del jardín-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="72.0" cellHeight="43.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.5" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>Plantó</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>semilla</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>tierra</p>
+    </cell>
+    <cell>
+     <p>húmeda.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x006633" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x00CC33">
+     <image name="5Con cuidado la regaba y le cantaba canciones-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="72.0" cellHeight="43.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.5" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>La</p>
+    </cell>
+    <cell>
+     <p>regaba</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>cuidado</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>le</p>
+    </cell>
+    <cell>
+     <p>cantaba.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x006633" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x00CC33">
+     <image name="6Pasaron los días y una ramita chiquita salió de la tierra-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="72.0" cellHeight="43.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.5" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>Salió</p>
+    </cell>
+    <cell>
+     <p>una</p>
+    </cell>
+    <cell>
+     <p>ramita</p>
+    </cell>
+    <cell>
+     <p>pequeña</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>tierra.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x006633" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x00CC33">
+     <image name="7Con el tiempo, la ramita se volvió un árbol lleno de hojas verdes-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="72.0" cellHeight="43.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.5" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>La</p>
+    </cell>
+    <cell>
+     <p>ramita</p>
+    </cell>
+    <cell>
+     <p>creció</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>volvió</p>
+    </cell>
+    <cell>
+     <p>árbol.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x006633" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x00CC33">
+     <image name="8Los pájaros hacían nidos y cantaban con alegría-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="87.0" cellHeight="43.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.5" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>Los</p>
+    </cell>
+    <cell>
+     <p>pájaros</p>
+    </cell>
+    <cell>
+     <p>hacían</p>
+    </cell>
+    <cell>
+     <p>nidos</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>cantaban.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x006633" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x00CC33">
+     <image name="9la niña miraba su árbol y agradecía con una gran sonrisa.-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="92.0" cellHeight="43.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.5" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>Daniela</p>
+    </cell>
+    <cell>
+     <p>sonreía</p>
+    </cell>
+    <cell>
+     <p>agradecida</p>
+    </cell>
+    <cell>
+     <p>mirando</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>árbol.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_inicio" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="4" border="true" image="portadasemilladorada-resized1.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_inicio_10" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Daniela miraba su árbol y agradecía con una gran sonrisa.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="4" border="true" image="9la niña miraba su árbol y agradecía con una gran sonrisa.-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_inicio_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Había una vez una  niña llamada Daniela.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="4" border="true" image="1Había una vez una  niña llamada Daniela-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_inicio_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Guardaba una semilla dorada en su cajita de madera.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="4" border="true" image="2Guardaba una semilla dorada en su cajita de madera-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_inicio_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Daniela colocó la semilla en la tierra húmeda.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="4" border="true" image="4Daniela la colocó en la tierra húmeda de su canchita del jardín-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_inicio_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Con cuidado la regaba y le cantaba canciones.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="4" border="true" image="5Con cuidado la regaba y le cantaba canciones-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_inicio_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Pasaron los días y una ramita chiquita salió de la tierra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="4" border="true" image="6Pasaron los días y una ramita chiquita salió de la tierra-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_inicio_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>La ramita se volvió un árbol lleno de hojas verdes.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="4" border="true" image="7Con el tiempo, la ramita se volvió un árbol lleno de hojas verdes-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_inicio_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>8Los pájaros hacían nidos y cantaban con alegría.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="4" border="true" image="8Los pájaros hacían nidos y cantaban con alegría-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>Une cada oración con su imagen.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="447.0" cellHeight="52.0" border="true" id="primary">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0xCC00CC" inactive="0x00808080" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell txtAlign="left,middle">
+     <p>Había una niña llamada Daniela.</p>
+    </cell>
+    <cell txtAlign="left,middle">
+     <p>Guardaba una semilla dorada en su cajita.</p>
+    </cell>
+    <cell txtAlign="left,middle">
+     <p>Cada día miraba la semilla con cariño.</p>
+    </cell>
+    <cell txtAlign="left,middle">
+     <p>Daniela plantó la semilla en la tierra húmeda.</p>
+    </cell>
+    <cell>
+     <p>La regaba con cuidado y le cantaba.</p>
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="77.0" cellHeight="116.0" border="true" id="secondary">
+    <style>
+     <font family="Arial" size="36" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009933" inactive="0x00808080" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="1Había una vez una  niña llamada Daniela-resized.jpg" />
+    <cell image="2Guardaba una semilla dorada en su cajita de madera-resized.jpg" />
+    <cell image="3cada día miraba su semilla con cariño-resized.jpg" />
+    <cell image="4Daniela la colocó en la tierra húmeda de su canchita del jardín-resized.jpg" />
+    <cell image="5Con cuidado la regaba y le cantaba canciones-resized.jpg" />
+   </cells>
+   <scramble times="31" primary="false" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>Une cada oración con su imagen.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="447.0" cellHeight="52.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0x00808080" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell txtAlign="left,middle">
+     <p>Salió una ramita pequeña de la tierra.</p>
+    </cell>
+    <cell txtAlign="left,middle">
+     <p>La ramita creció y se volvió árbol.</p>
+    </cell>
+    <cell txtAlign="left,middle">
+     <p>Pájaros hacían nidos y cantaban alegres.</p>
+    </cell>
+    <cell txtAlign="left,middle">
+     <p>Daniela sonreía agradecida mirando su árbol.</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="77.0" cellHeight="116.0" border="true" id="secondary">
+    <style>
+     <font family="Arial" size="36" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009933" inactive="0x00808080" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="6Pasaron los días y una ramita chiquita salió de la tierra-resized.jpg" />
+    <cell image="7Con el tiempo, la ramita se volvió un árbol lleno de hojas verdes-resized.jpg" />
+    <cell image="8Los pájaros hacían nidos y cantaban con alegría-resized.jpg" />
+    <cell image="9la niña miraba su árbol y agradecía con una gran sonrisa.-resized.jpg" />
+   </cells>
+   <scramble times="31" primary="false" secondary="true" />
+   <layout position="AB" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="1Había una vez una  niña llamada Daniela-resized.jpg" file="1habia_una_vez_una__nina_llamada_daniela-resized.jpg" />
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="2Guardaba una semilla dorada en su cajita de madera-resized.jpg" file="2guardaba_una_semilla_dorada_en_su_cajita_de_madera-resized.jpg" />
+  <media name="3cada día miraba su semilla con cariño-resized.jpg" file="3cada_dia_miraba_su_semilla_con_carino-resized.jpg" />
+  <media name="4Daniela la colocó en la tierra húmeda de su canchita del jardín-resized.jpg" file="4daniela_la_coloco_en_la_tierra_humeda_de_su_canchita_del_jardin-resized.jpg" />
+  <media name="5Con cuidado la regaba y le cantaba canciones-resized.jpg" file="5con_cuidado_la_regaba_y_le_cantaba_canciones-resized.jpg" />
+  <media name="6Pasaron los días y una ramita chiquita salió de la tierra-resized.jpg" file="6pasaron_los_dias_y_una_ramita_chiquita_salio_de_la_tierra-resized.jpg" />
+  <media name="7Con el tiempo, la ramita se volvió un árbol lleno de hojas verdes-resized.jpg" file="7con_el_tiempo__la_ramita_se_volvio_un_arbol_lleno_de_hojas_verdes-resized.jpg" />
+  <media name="8Los pájaros hacían nidos y cantaban con alegría-resized.jpg" file="8los_pajaros_hacian_nidos_y_cantaban_con_alegria-resized.jpg" />
+  <media name="9la niña miraba su árbol y agradecía con una gran sonrisa.-resized.jpg" file="9la_nina_miraba_su_arbol_y_agradecia_con_una_gran_sonrisa.-resized.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i01-bienhecho.jpg" file="i01-i01-bienhecho.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="i05-i01-bienhecho.jpg" file="i05-i01-bienhecho.jpg" />
+  <media name="memojuego-resized.jpg" file="memojuego-resized.jpg" />
+  <media name="Portada de cierre-resized.jpg" file="portada_de_cierre-resized.jpg" />
+  <media name="portadasemilladorada-resized1.jpg" file="portadasemilladorada-resized1.jpg" />
+ </mediaBag>
+</JClicProject>
+

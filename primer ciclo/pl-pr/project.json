@@ -1,0 +1,50 @@
+{
+  "title": "pl-pr",
+  "date": "2/09/25",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "pl-pr.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 21,
+  "mediaFiles": 26,
+  "totalSize": 982714,
+  "files": [
+    "2-resized.jpg",
+    "actividad_3-resized.jpg",
+    "cierre-resized2.jpg",
+    "el_examen_fue_aprobado_hoy-resized.jpg",
+    "el_nino_come_un_platano-resized.jpg",
+    "el_profesor_llego_primero_a_clase-resized.jpg",
+    "el_viento_sopla_en_la_playa-resized.jpg",
+    "ella_es_dora_la_exploradora-resized.jpg",
+    "esa_planta_es_de_plastico-resized.jpg",
+    "favicon.ico",
+    "fuimos_a_la_escuela_primaria-resized.jpg",
+    "hoy_es_el_cumpleanos_de_pilar-resized.jpg",
+    "i01-bienhecho.jpg",
+    "i01-i01-bienhecho.jpg",
+    "i01-i02-i01-bienhecho.jpg",
+    "i03-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "la_princesa_camina_por_la_explanada-resized.jpg",
+    "llegue_primero_a_la_clase-resized.jpg",
+    "paola_plancha_la_ropa-resized.jpg",
+    "pl-pr.jclic",
+    "pl-pr.jclic.js",
+    "portada_pl-resized.jpg",
+    "portada_pr-resized.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json",
+    "que_gran_sorpresa_para_todos-resized.jpg"
+  ]
+}

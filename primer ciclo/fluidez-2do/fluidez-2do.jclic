@@ -1,0 +1,1387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="fluidez-2do" version="0.1.3">
+ <settings>
+  <title>FLUIDEZ-2do</title>
+  <revision description="created" date="8/6/24" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="4" navButtons="none" />
+  <item name="caratutomas_2" delay="3" navButtons="none" />
+  <item name="caratutomas" delay="3" navButtons="none" />
+  <item name="unir1" delay="3" navButtons="none" />
+  <item name="unir_2" delay="3" navButtons="none" />
+  <item name="pelo" delay="3" navButtons="none" />
+  <item name="ojo" delay="3" navButtons="none" />
+  <item name="nariz" delay="3" navButtons="none" />
+  <item name="lengua" delay="3" navButtons="none" />
+  <item name="mano" delay="3" navButtons="none" />
+  <item name="pie" delay="3" navButtons="none" />
+  <item name="ora1" delay="3" navButtons="none" />
+  <item name="ora_2" delay="3" navButtons="none" />
+  <item name="unir_3" delay="3" navButtons="none" />
+  <item name="intruso" delay="3" navButtons="none" />
+  <item name="lenguapuz" delay="3" navButtons="none" />
+  <item name="manopuz" delay="3" navButtons="none" />
+  <item name="pelopuz" delay="3" navButtons="none" />
+  <item name="ojopuz" delay="3" navButtons="none" />
+  <item name="narizpuz" delay="3" navButtons="none" />
+  <item name="piepuz" delay="3" navButtons="none" />
+  <item name="memo1" delay="3" navButtons="none" />
+  <item name="memo_2" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.DoublePuzzle" name="caratutomas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFF00" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="tomas-y-el-lapiz-magico-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@JigSaw" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="caratutomas_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFF00" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="fluidezcaratu.JPG">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@JigSaw" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color foreground="0xFFCCFF" background="0x003333" />
+     </style>
+     <p>Encuentra el intruso.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color background="0x00CCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fluidez.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="8" cols="5" cellWidth="110.0" cellHeight="42.0" border="false" id="primary">
+    <style margin="1">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xCCFFCC" background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="8" />
+    <cell id="0" image="ojo2.JPG">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+    </cell>
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="1" image="ojo3.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+    <cell id="0" image="ojo2.JPG" />
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="5" rows="8" />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="lengua" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color foreground="0xFFCCFF" background="0x003333" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="lengua.mp3" />
+     <p>Clic sobre el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color background="0x00CCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="boca.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="167.0" cellHeight="105.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF0000" background="0x00CCCC" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="lengua.mp3" />
+     <p>lengua</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="mano.mp3" />
+     <p>mano</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="pie.mp3" />
+     <p>pie</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="lenguapuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="lengua.mp3" />
+     <p>Arma el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="boca.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="72.0" cellHeight="136.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>g</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@panels.Identify" name="mano" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color foreground="0xFFCCFF" background="0x003333" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="mano.mp3" />
+     <p>Clic sobre el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color background="0x00CCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mano.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="167.0" cellHeight="105.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF0000" background="0x00CCCC" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="lengua.mp3" />
+     <p>lengua</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="mano.mp3" autoStart="true" />
+     <p>mano</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="pie.mp3" />
+     <p>pie</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="manopuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="mano.mp3" />
+     <p>Arma el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mano.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="93.0" cellHeight="136.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFF33FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encontrá los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x0000FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fluidez lectora caratu.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="187.0" cellHeight="64.0" border="true" id="primary">
+    <style margin="3">
+     <font family="Arial" size="52" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="ojo.mp3" />
+     <p>ojo</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+     <p>pelo</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nariz.mp3" />
+     <p>nariz</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="lengua.mp3" />
+     <p>lengua</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="mano.mp3" />
+     <p>mano</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="pie.mp3" />
+     <p>pie</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFF33FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encontrá los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x0000FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fluidez lectora caratu.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="146.0" cellHeight="156.0" border="true" id="primary">
+    <style margin="3">
+     <font family="Arial" size="52" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell image="ojo.JPG">
+     <media type="PLAY_AUDIO" level="1" file="ojo.mp3" />
+    </cell>
+    <cell image="pelo.JPG">
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+    </cell>
+    <cell image="nariz.JPG">
+     <media type="PLAY_AUDIO" level="1" file="nariz.mp3" />
+    </cell>
+    <cell image="boca.JPG">
+     <media type="PLAY_AUDIO" level="1" file="lengua.mp3" />
+    </cell>
+    <cell image="mano.JPG">
+     <media type="PLAY_AUDIO" level="1" file="mano.mp3" />
+    </cell>
+    <cell image="pie.JPG">
+     <media type="PLAY_AUDIO" level="1" file="pie.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@panels.Identify" name="nariz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color foreground="0xFFCCFF" background="0x003333" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nariz.mp3" />
+     <p>Clic sobre el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color background="0x00CCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="nariz.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="167.0" cellHeight="105.0" border="true" id="primary">
+    <style margin="2">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xCCFFCC" background="0x660066" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+     <p>pelo</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="ojo.mp3" />
+     <p>ojo</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="nariz.mp3" />
+     <p>nariz</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="narizpuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nariz.mp3" />
+     <p>Arma el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="nariz.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="72.0" cellHeight="136.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>z</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@panels.Identify" name="ojo" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color foreground="0xFFCCFF" background="0x003333" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="ojo.mp3" />
+     <p>Clic sobre el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color background="0x00CCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="ojo.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="167.0" cellHeight="105.0" border="true" id="primary">
+    <style margin="2">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xCCFFCC" background="0x660066" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+     <p>pelo</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="ojo.mp3" />
+     <p>ojo</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="nariz.mp3" />
+     <p>nariz</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="carita triste.jpg">
+     <media type="PLAY_AUDIO" level="1" file="Esa no esss.mp3" />
+    </cell>
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="carita triste.jpg">
+     <media type="PLAY_AUDIO" level="1" file="Esa no esss.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ojopuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="ojo.mp3" />
+     <p>Arma el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="ojo.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="72.0" cellHeight="136.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>j</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="tomas3.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" border="true" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="81.0" cellHeight="33.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>Tomás</p>
+    </cell>
+    <cell>
+     <p>era</p>
+    </cell>
+    <cell>
+     <p>un</p>
+    </cell>
+    <cell>
+     <p>niño</p>
+    </cell>
+    <cell>
+     <p>alegre</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>curioso.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="tomas alegre.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" border="true" />
+   </settings>
+   <cells rows="1" cols="8" cellWidth="72.0" cellHeight="33.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="18" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="8" rows="1" />
+    <cell>
+     <p>Dibujó</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>cuerpo</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>soñó</p>
+    </cell>
+    <cell>
+     <p>que</p>
+    </cell>
+    <cell>
+     <p>cobraba</p>
+    </cell>
+    <cell>
+     <p>vida.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@panels.Identify" name="pelo" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color foreground="0xFFCCFF" background="0x003333" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+     <p>Clic sobre el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color background="0x00CCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="pelo.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="167.0" cellHeight="105.0" border="true" id="primary">
+    <style margin="2">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xCCFFCC" background="0x660066" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+     <p>pelo</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="ojo.mp3" />
+     <p>ojo</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="nariz.mp3" />
+     <p>nariz</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="carita triste.jpg">
+     <media type="PLAY_AUDIO" level="1" file="Esa no esss.mp3" />
+    </cell>
+    <cell image="carita triste.jpg">
+     <media type="PLAY_AUDIO" level="1" file="Esa no esss.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="pelopuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+     <p>Arma el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="pelo.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="72.0" cellHeight="136.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@panels.Identify" name="pie" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color foreground="0xFFCCFF" background="0x003333" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pie.mp3" />
+     <p>Clic sobre el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color background="0x00CCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="pie.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="167.0" cellHeight="105.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF0000" background="0x00CCCC" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="lengua.mp3" />
+     <p>lengua</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="mano.mp3" />
+     <p>mano</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="pie.mp3" />
+     <p>pie</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="piepuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pie.mp3" />
+     <p>Arma el nombre de la imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="pie.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="72.0" cellHeight="136.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0x00CC00" />
+     </style>
+     <p>Une la imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fluidez.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="160.0" cellHeight="134.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="pelo.JPG">
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+    </cell>
+    <cell image="ojo.JPG">
+     <media type="PLAY_AUDIO" level="1" file="ojo.mp3" />
+    </cell>
+    <cell image="nariz.JPG">
+     <media type="PLAY_AUDIO" level="1" file="nariz.mp3" />
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="270.0" cellHeight="129.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFF33" background="0xFF0033" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>pelo</p>
+    </cell>
+    <cell>
+     <p>ojo</p>
+    </cell>
+    <cell>
+     <p>nariz</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xCCFFFF" background="0xCC00CC" />
+     </style>
+     <p>Une la imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006666" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fluidez.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="160.0" cellHeight="134.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="boca.JPG">
+     <media type="PLAY_AUDIO" level="1" file="lengua.mp3" />
+    </cell>
+    <cell image="mano.JPG">
+     <media type="PLAY_AUDIO" level="1" file="mano.mp3" />
+    </cell>
+    <cell image="pie.JPG">
+     <media type="PLAY_AUDIO" level="1" file="pie.mp3" />
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="270.0" cellHeight="129.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFF33" background="0xFF0033" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="lengua.mp3" />
+     <p>lengua</p>
+    </cell>
+    <cell>
+     <p>mano</p>
+    </cell>
+    <cell>
+     <p>pie</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0x00CC00" />
+     </style>
+     <p>Une la imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fluidez.JPG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="228.0" cellHeight="61.0" border="true" id="primary">
+    <style margin="2">
+     <font family="Arial" size="30" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>La cabeza</p>
+    </cell>
+    <cell>
+     <p>Las piernas</p>
+    </cell>
+    <cell>
+     <p>El corazón</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="400.0" cellHeight="61.0" border="true" id="secondary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="30" bold="true" />
+     <color foreground="0xFFFF33" background="0xFF0033" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>era la reina.</p>
+    </cell>
+    <cell>
+     <p>no paraban de moverse.</p>
+    </cell>
+    <cell>
+     <p>latía con amor.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="boca.JPG" file="boca.jpg" />
+  <media name="carita triste.jpg" file="carita_triste.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="fluidez lectora caratu.jpg" file="fluidez_lectora_caratu.jpg" />
+  <media name="fluidez.JPG" file="fluidez.jpg" />
+  <media name="fluidezcaratu.JPG" file="fluidezcaratu.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i02-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="mano.JPG" file="mano.jpg" />
+  <media name="nariz.JPG" file="nariz.jpg" />
+  <media name="ojo.JPG" file="ojo.jpg" />
+  <media name="ojo2.JPG" file="ojo2.jpg" />
+  <media name="ojo3.JPG" file="ojo3.jpg" />
+  <media name="pelo.JPG" file="pelo.jpg" />
+  <media name="pie.JPG" file="pie.jpg" />
+  <media name="tomas alegre.JPG" file="tomas_alegre.jpg" />
+  <media name="tomas-y-el-lapiz-magico-resized.jpg" file="tomas-y-el-lapiz-magico-resized.jpg" />
+  <media name="tomas3.JPG" file="tomas3.jpg" />
+  <media name="Esa no esss.mp3" file="esa_no_esss.mp3" />
+  <media name="lengua.mp3" file="lengua.mp3" />
+  <media name="mano.mp3" file="mano.mp3" />
+  <media name="nariz.mp3" file="nariz.mp3" />
+  <media name="ojo.mp3" file="ojo.mp3" />
+  <media name="pelo.mp3" file="pelo.mp3" />
+  <media name="pie.mp3" file="pie.mp3" />
+ </mediaBag>
+</JClicProject>
+

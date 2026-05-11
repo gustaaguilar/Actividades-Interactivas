@@ -1,0 +1,45 @@
+{
+  "title": "oraciones",
+  "date": "8/06/25",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "oraciones.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 38,
+  "mediaFiles": 21,
+  "totalSize": 819446,
+  "files": [
+    "2-resized.jpg",
+    "cierre-resized2.jpg",
+    "el_abuelo_aurelio_toca_el_violin-resized.jpg",
+    "el_duende_clemente_tiene_oro-resized.jpg",
+    "el_gato_es_suave__mimoso_y_redondo-resized.jpg",
+    "el_leon_come_carne-resized.jpg",
+    "el_mono_come_banana-resized.jpg",
+    "el_nino_recorta-resized.jpg",
+    "favicon.ico",
+    "i01-bienhecho.jpg",
+    "i02-i01-bienhecho.jpg",
+    "i03-i01-bienhecho.jpg",
+    "i05-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "la_bruja_maruja_vuela-resized.jpg",
+    "la_nina_anda_en_bicicleta-resized.jpg",
+    "las_gotas_de_lluvia_despertaron_la_semilla-resized.jpg",
+    "lionel_messi_juega_en_la_seleccion-resized.jpg",
+    "oraciones.jclic",
+    "oraciones.jclic.js",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json"
+  ]
+}

@@ -1,0 +1,2291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="sustantivos" version="0.1.3">
+ <settings>
+  <title>SUSTANTIVOS</title>
+  <revision description="created" date="5/22/24" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="4" navButtons="none" />
+  <item name="rompe_2" delay="5" navButtons="none" />
+  <item name="texto1" delay="4" navButtons="none" />
+  <item name="texto_2" delay="4" navButtons="none" />
+  <item name="texto_3" delay="4" navButtons="none" />
+  <item name="texto_4" delay="4" navButtons="none" />
+  <item name="rompe" delay="3" navButtons="none" />
+  <item id="start" name="unir1" delay="1" navButtons="none" />
+  <item name="identi1" delay="1" navButtons="none" />
+  <item name="identi_2" delay="1" navButtons="none" />
+  <item name="identi_3" delay="1" navButtons="none" />
+  <item name="identi_4" delay="1" navButtons="none" />
+  <item name="sopapropio" delay="1" navButtons="none" />
+  <item name="tachar_1" delay="1" navButtons="none" />
+  <item name="tachar_2" delay="1" navButtons="none" />
+  <item name="tachar_3" delay="1" navButtons="none" />
+  <item name="tachar_5" delay="1" navButtons="none" />
+  <item name="sopacomún" delay="1" navButtons="none" />
+  <item name="ora1" delay="1" navButtons="none" />
+  <item name="ora_2" delay="1" navButtons="none" />
+  <item name="ora_3" delay="1" navButtons="none" />
+  <item name="ora_4" delay="1" navButtons="none" />
+  <item name="ora_5" delay="1" navButtons="none" />
+  <item name="ora_6" delay="1" navButtons="none" />
+  <item name="ora_7" delay="1" navButtons="none" />
+  <item name="ora_8" delay="1" navButtons="none" />
+  <item name="ora_9" delay="1" navButtons="none" />
+  <item name="ora_10" delay="1" navButtons="none" />
+  <item name="ora_11" delay="1" navButtons="none" />
+  <item name="ora_12" delay="1" navButtons="none" />
+  <item name="ora_13" delay="1" navButtons="none" />
+  <item name="ora_14" delay="1" navButtons="none" />
+  <item name="clasesdepalabras" delay="1" navButtons="none" />
+  <item name="memo_3" delay="1" navButtons="none" />
+  <item name="memo_2" delay="4" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@associations.ComplexAssociation" name="clasesdepalabras" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x0000CC" />
+     </style>
+     <p>Une cada palabra según corresponda.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x0099CC" dest="0xFFFFFF" angle="223" />
+     <image name="C:/Users/Usuario/Downloads/sustantivos/portada2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <gradient source="0xFF9900" dest="0xFFFFFF" angle="186" />
+    </window>
+   </settings>
+   <cells rows="6" cols="3" cellWidth="121.0" cellHeight="48.0" border="true" id="primary">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="6" />
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+     </style>
+     <p>abuelo</p>
+    </cell>
+    <cell id="0">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>Ana</p>
+    </cell>
+    <cell id="0">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>Argentina</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>avión</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>capitán</p>
+    </cell>
+    <cell id="0">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>Estela</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>iglesia</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>joyería</p>
+    </cell>
+    <cell id="0">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>Junín</p>
+    </cell>
+    <cell id="0">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>Lavalle</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>león</p>
+    </cell>
+    <cell id="0">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>Lucas</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>mamá</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>médico</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>niño</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>papá</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>pueblo</p>
+    </cell>
+    <cell id="1">
+     <style transparent="true">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xCC00CC" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>auto</p>
+    </cell>
+   </cells>
+   <cells rows="2" cols="1" cellWidth="142.0" cellHeight="72.0" border="true" id="secondary">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell>
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xCC00CC" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>sustantivo propio</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xCC00CC" />
+      <gradient source="0xFFFF00" dest="0xFFFFFF" angle="205" />
+     </style>
+     <p>sustantivo común</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="false" secondary="true" />
+   <layout position="BA" />
+  </activity>
+  <activity class="@panels.Identify" name="identi1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre la imagen del sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="151.0" cellHeight="114.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" txtAlign="middle,bottom" image="niño-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>niño</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="junin.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>Junín</p>
+    </cell>
+    <cell id="0" txtAlign="middle,bottom" image="leon-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>león</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre la imagen del sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="151.0" cellHeight="114.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" txtAlign="middle,bottom" image="iglesia-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>iglesia</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="Ana-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color background="0x000000" />
+     </style>
+     <p>Ana</p>
+    </cell>
+    <cell id="0" txtAlign="middle,bottom" image="papá-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>papá</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre la imagen del sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="151.0" cellHeight="114.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" txtAlign="middle,bottom" image="pueblo-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>pueblo</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="Argentina-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color background="0x000000" />
+     </style>
+     <p>Argentina</p>
+    </cell>
+    <cell id="0" txtAlign="middle,bottom" image="joyeria.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>joyería</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre la imagen del sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="151.0" cellHeight="114.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" txtAlign="middle,bottom" image="avion-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>avión</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="Estela-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>Estela</p>
+    </cell>
+    <cell id="0" txtAlign="middle,bottom" image="capitan-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>capitán</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los sustantivos iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x66FF66" dest="0xFFFFFF" angle="0" />
+     <image name="C:/Users/Usuario/Downloads/sustantivos/portada3-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="123.0" cellHeight="95.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" />
+     <color foreground="0xFFFFFF" background="0x009933" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell image="niño-resized.jpg">
+     <p>niño</p>
+    </cell>
+    <cell image="Ana-resized.jpg">
+     <p>Ana</p>
+    </cell>
+    <cell image="Lucas-resized.jpg">
+     <p>Lucas</p>
+    </cell>
+    <cell image="Argentina-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color inactive="0xFFFFFF" />
+     </style>
+     <p>Argentina</p>
+    </cell>
+    <cell image="pueblo-resized.jpg">
+     <p>pueblo</p>
+    </cell>
+    <cell image="mamá-resized.jpg">
+     <p>mamá</p>
+    </cell>
+    <cell image="Lavalle.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" />
+      <color inactive="0xFFFFFF" />
+     </style>
+     <p>Lavalle</p>
+    </cell>
+    <cell image="iglesia-resized.jpg">
+     <p>iglesia</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los sustantivos iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x66FF66" dest="0xFFFFFF" angle="0" />
+     <image name="C:/Users/Usuario/Downloads/sustantivos/portada3-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="104.0" cellHeight="42.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" />
+     <color foreground="0xFFFFFF" background="0x009933" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell>
+     <p>niño</p>
+    </cell>
+    <cell>
+     <p>Ana</p>
+    </cell>
+    <cell>
+     <p>Lucas</p>
+    </cell>
+    <cell>
+     <p>Argentina</p>
+    </cell>
+    <cell>
+     <p>pueblo</p>
+    </cell>
+    <cell>
+     <p>mamá</p>
+    </cell>
+    <cell>
+     <p>Lavalle</p>
+    </cell>
+    <cell>
+     <p>iglesia</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="Ana-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell>
+     <p>A</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_10" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xCC0000" />
+      <gradient source="0x6666FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo común.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="abuelo-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>b</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_11" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xCC0000" />
+      <gradient source="0x6666FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo común.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="iglesia-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>g</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_12" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xCC0000" />
+      <gradient source="0x6666FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo común.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="leon-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>ó</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_13" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xCC0000" />
+      <gradient source="0x6666FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo común.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="mamá-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="77.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>á</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_14" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xCC0000" />
+      <gradient source="0x6666FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo común.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="C:/Users/Usuario/Downloads/sustantivos/papa2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>á</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="Lucas-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>L</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="Argentina-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="9" cellWidth="54.0" cellHeight="103.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="9" rows="1" />
+    <cell>
+     <p>A</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>g</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="Estela-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>E</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="Mendoza.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>M</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>z</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="junin.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>J</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>í</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x000099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo propio.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="Lavalle.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>L</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>v</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xCC0000" />
+      <gradient source="0x6666FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo común.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="capitan-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>á</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xCC0000" />
+      <gradient source="0x6666FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el sustantivo común.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x330099" />
+      <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="avion-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="54.0" cellHeight="80.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFFFF" background="0xFF00FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>v</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>ó</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="rompe" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="2" border="true" image="C:/Users/Usuario/Downloads/sustantivos/portada3-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="rompe_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666666" border="true" />
+   </settings>
+   <cells rows="3" cols="2" border="true" image="portadaana-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopacomún" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>Encuentra 6 sustantivos comunes.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006666" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xCC00CC">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009900" border="true" />
+   </settings>
+   <textGrid rows="12" columns="8" cellWidth="33.0" cellHeight="32.0" border="true">
+    <style margin="3" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" />
+     <color foreground="0x000099" background="0xFFCCFF" />
+    </style>
+    <text>
+     <row>M****L**PAPÁ</row>
+     <row>*A***E******</row>
+     <row>**M**Ó******</row>
+     <row>***ÁNN*NIÑO*</row>
+     <row>***Ó********</row>
+     <row>**I*********</row>
+     <row>*V**********</row>
+     <row>A**CAPITÁN**</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">MAMÁ</clue>
+    <clue id="1">NIÑO</clue>
+    <clue id="2">AVIÓN</clue>
+    <clue id="3">LEÓN</clue>
+    <clue id="4">CAPITÁN</clue>
+    <clue id="5">PAPÁ</clue>
+   </clues>
+   <cells rows="2" cols="3" cellWidth="128.0" cellHeight="97.0" border="true" id="secondary">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell image="mamá-resized.jpg" />
+    <cell image="niño-resized.jpg" />
+    <cell image="avion-resized.jpg" />
+    <cell image="leon-resized.jpg" />
+    <cell image="capitan-resized.jpg" />
+    <cell image="papá-resized.jpg" />
+   </cells>
+   <layout position="AUB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopapropio" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>Encuentra 6 sustantivos propios.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006666" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xCC00CC">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009900" border="true" />
+   </settings>
+   <textGrid rows="12" columns="8" cellWidth="33.0" cellHeight="32.0" border="true">
+    <style margin="3" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" />
+     <color foreground="0x000099" background="0xFFCCFF" />
+    </style>
+    <text>
+     <row>A******LUCAS</row>
+     <row>*N********A*</row>
+     <row>**A*******Z*</row>
+     <row>ARGENTINA*O*</row>
+     <row>***Í******D*</row>
+     <row>**N*******N*</row>
+     <row>*U********E*</row>
+     <row>J**LAVALLEM*</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">ANA</clue>
+    <clue id="1">LUCAS</clue>
+    <clue id="2">ARGENTINA</clue>
+    <clue id="3">JUNÍN</clue>
+    <clue id="4">MENDOZA</clue>
+    <clue id="5">LAVALLE</clue>
+   </clues>
+   <cells rows="2" cols="3" cellWidth="128.0" cellHeight="97.0" border="true" id="secondary">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell image="Ana-resized.jpg" />
+    <cell image="Lucas-resized.jpg" />
+    <cell image="Argentina-resized.jpg" />
+    <cell image="junin.jpg" />
+    <cell image="Mendoza.jpg" />
+    <cell image="Lavalle.jpg" />
+   </cells>
+   <layout position="AUB" />
+  </activity>
+  <activity class="@panels.Identify" name="tachar_1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Tacha los sustantivos comunes.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="115.0" cellHeight="83.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell id="0" txtAlign="middle,bottom" image="Argentina-resized.jpg">
+     <p>Argentina</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="iglesia-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>iglesia</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="leon-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>león</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="mamá-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color background="0x000000" />
+     </style>
+     <p>mamá</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell />
+    <cell avoidOverlapping="true" image="TACHA.JPG">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="140" bold="true" />
+      <color foreground="0xCC0000" background="0xFFFF00" alternative="0xCC0000" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell avoidOverlapping="true" image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="tachar_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Tacha los sustantivos comunes.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="115.0" cellHeight="83.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell id="0" txtAlign="middle,bottom" image="Ana-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ana</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="capitan-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>capitán</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="medico-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>médico</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="niño-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>niño</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell />
+    <cell avoidOverlapping="true" image="TACHA.JPG">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="140" bold="true" />
+      <color foreground="0xCC0000" background="0xFFFF00" alternative="0xCC0000" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell avoidOverlapping="true" image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="tachar_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Tacha los sustantivos comunes.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="115.0" cellHeight="83.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell id="0" txtAlign="middle,bottom" image="Lucas-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>Lucas</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="papá-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>papá</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="pueblo-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>pueblo</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="uvas.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color background="0x000000" />
+     </style>
+     <p>uva</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell />
+    <cell avoidOverlapping="true" image="TACHA.JPG">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="140" bold="true" />
+      <color foreground="0xCC0000" background="0xFFFF00" alternative="0xCC0000" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell avoidOverlapping="true" image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="tachar_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Tacha los sustantivos comunes.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="115.0" cellHeight="83.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell id="0" txtAlign="middle,bottom" image="Mendoza.jpg">
+     <p>Mendoza</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="faro-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>faro</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="avion-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>avión</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="auto-resized.jpg">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000000" />
+     </style>
+     <p>auto</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell />
+    <cell avoidOverlapping="true" image="TACHA.JPG">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="140" bold="true" />
+      <color foreground="0xCC0000" background="0xFFFF00" alternative="0xCC0000" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell avoidOverlapping="true" image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@text.Identify" name="texto1" code="" type="identifyWords">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <p>Haz clic sobre 4 sustantivos comunes.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color background="0x999900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="texto1-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="416" height="129" />
+    </window>
+   </settings>
+   <checkButton>Revisar</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="20" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF">Ana mira a su </text>
+      <target>mamá</target>
+      <text family="Arial" background="0xFFFFFF"> llenar el </text>
+      <target>tacho</target>
+      <text family="Arial" background="0xFFFFFF"> de </text>
+      <target>uva</target>
+      <text family="Arial" background="0xFFFFFF"> con cientos de </text>
+      <target>racimos</target>
+      <text family="Arial" background="0xFFFFFF">.</text>
+     </p>
+    </section>
+   </document>
+  </activity>
+  <activity class="@text.Identify" name="texto_2" code="" type="identifyWords">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <p>Haz clic sobre 7 sustantivos comunes.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color background="0x999900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="texto2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="416" height="148" />
+    </window>
+   </settings>
+   <checkButton>Revisar</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="20" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF">Desde el </text>
+      <target>callejón</target>
+      <text family="Arial" background="0xFFFFFF"> de la </text>
+      <target>finca</target>
+      <text family="Arial" background="0xFFFFFF"> ha visto como los </text>
+      <target>cosechadores</target>
+      <text family="Arial" background="0xFFFFFF"> descargan la </text>
+      <target>uva</target>
+      <text family="Arial" background="0xFFFFFF"> de sus </text>
+      <target>tachos</target>
+      <text family="Arial" background="0xFFFFFF"> en el </text>
+      <target>camión</target>
+      <text family="Arial" background="0xFFFFFF"> que luego irá a la </text>
+      <target>bodega.</target>
+     </p>
+    </section>
+   </document>
+  </activity>
+  <activity class="@text.Identify" name="texto_3" code="" type="identifyWords">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <p>Haz clic sobre 5 sustantivos comunes.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color background="0x999900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="texto3-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="416" height="179" />
+    </window>
+   </settings>
+   <checkButton>Revisar</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="20" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF">Ana ama las </text>
+      <target>uvas,</target>
+      <text family="Arial" background="0xFFFFFF"> las conoce desde que comienzan a aparecer en la </text>
+      <target>planta</target>
+      <text family="Arial" background="0xFFFFFF"> y las ve crecer cada </text>
+      <target>día</target>
+      <text family="Arial" background="0xFFFFFF"> como si fueran </text>
+      <target>gotas</target>
+      <text family="Arial" background="0xFFFFFF"> que se llenan de </text>
+      <target>jugo.</target>
+      <text family="Arial" background="0xFFFFFF"> </text>
+     </p>
+    </section>
+   </document>
+  </activity>
+  <activity class="@text.Identify" name="texto_4" code="" type="identifyWords">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <p>Haz clic sobre 3 sustantivos comunes.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color background="0x999900" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <image name="texto4-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <position x="213" y="388" />
+     <size width="416" height="139" />
+    </window>
+   </settings>
+   <checkButton>Revisar</checkButton>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="20" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF">Un </text>
+      <target>día,</target>
+      <text family="Arial" background="0xFFFFFF"> Ana será </text>
+      <target>reina</target>
+      <text family="Arial" background="0xFFFFFF"> de la </text>
+      <target>vendimia.</target>
+      <text family="Arial" background="0xFFFFFF"> Lo sueña desde siempre.</text>
+     </p>
+    </section>
+   </document>
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xCCFFCC" background="0x660066" />
+     </style>
+     <p>Une cada sustantivo con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x999999" border="true" />
+   </settings>
+   <cells rows="7" cols="1" cellWidth="159.0" cellHeight="119.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="7" />
+    <cell image="abuelo-resized.jpg" />
+    <cell image="Ana-resized.jpg" />
+    <cell image="avion-resized.jpg" />
+    <cell image="Argentina-resized.jpg" />
+    <cell image="C:/Users/Usuario/Downloads/sustantivos/papa2-resized.jpg" />
+    <cell image="pueblo-resized.jpg" />
+    <cell image="leon-resized.jpg" />
+   </cells>
+   <cells rows="7" cols="1" cellWidth="382.0" cellHeight="86.0" border="false" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="88" />
+     <color foreground="0xFFFFFF" background="0x000099" inactive="0x999999" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="7" />
+    <cell>
+     <p>abuelo</p>
+    </cell>
+    <cell>
+     <p>Ana</p>
+    </cell>
+    <cell>
+     <p>avión</p>
+    </cell>
+    <cell>
+     <p>Argentina</p>
+    </cell>
+    <cell>
+     <p>Papá</p>
+    </cell>
+    <cell>
+     <p>pueblo</p>
+    </cell>
+    <cell>
+     <p>león</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="7" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="false" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="abuelo-resized.jpg" file="abuelo-resized.jpg" />
+  <media name="Ana-resized.jpg" file="ana-resized.jpg" />
+  <media name="Argentina-resized.jpg" file="argentina-resized.jpg" />
+  <media name="auto-resized.jpg" file="auto-resized.jpg" />
+  <media name="avion-resized.jpg" file="avion-resized.jpg" />
+  <media name="C:/Users/Usuario/Downloads/sustantivos/papa2-resized.jpg" file="c__users_usuario_downloads_sustantivos_papa2-resized.jpg" />
+  <media name="C:/Users/Usuario/Downloads/sustantivos/portada2-resized.jpg" file="c__users_usuario_downloads_sustantivos_portada2-resized.jpg" />
+  <media name="C:/Users/Usuario/Downloads/sustantivos/portada3-resized.jpg" file="c__users_usuario_downloads_sustantivos_portada3-resized.jpg" />
+  <media name="capitan-resized.jpg" file="capitan-resized.jpg" />
+  <media name="caratu-resized2.jpg" file="caratu-resized2.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="Estela-resized.jpg" file="estela-resized.jpg" />
+  <media name="faro-resized.jpg" file="faro-resized.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i01-bienhecho.jpg" file="i01-i01-bienhecho.jpg" />
+  <media name="i01-i01-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="i01-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i01-i03-i01-bienhecho.jpg" />
+  <media name="iglesia-resized.jpg" file="iglesia-resized.jpg" />
+  <media name="joyeria.jpg" file="joyeria.jpg" />
+  <media name="junin.jpg" file="junin.jpg" />
+  <media name="Lavalle.jpg" file="lavalle.jpg" />
+  <media name="leon-resized.jpg" file="leon-resized.jpg" />
+  <media name="Lucas-resized.jpg" file="lucas-resized.jpg" />
+  <media name="mamá-resized.jpg" file="mama-resized.jpg" />
+  <media name="medico-resized.jpg" file="medico-resized.jpg" />
+  <media name="Mendoza.jpg" file="mendoza.jpg" />
+  <media name="niño-resized.jpg" file="nino-resized.jpg" />
+  <media name="papá-resized.jpg" file="papa-resized.jpg" />
+  <media name="portadaana-resized.jpg" file="portadaana-resized.jpg" />
+  <media name="pueblo-resized.jpg" file="pueblo-resized.jpg" />
+  <media name="TACHA.JPG" file="tacha.jpg" />
+  <media name="texto1-resized.jpg" file="texto1-resized.jpg" />
+  <media name="texto2-resized.jpg" file="texto2-resized.jpg" />
+  <media name="texto3-resized.jpg" file="texto3-resized.jpg" />
+  <media name="texto4-resized.jpg" file="texto4-resized.jpg" />
+  <media name="uvas.jpg" file="uvas.jpg" />
+ </mediaBag>
+</JClicProject>
+

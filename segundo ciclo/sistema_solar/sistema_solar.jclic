@@ -1,0 +1,1943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="sistema_solar" version="0.1.3">
+ <settings>
+  <title>sistema_solar</title>
+  <revision description="created" date="6/17/25" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="3" navButtons="none" />
+  <item name="señopuz_2" delay="3" navButtons="none" />
+  <item name="astro-seño" delay="3" navButtons="none" />
+  <item name="dylanymarinopuz" delay="5" navButtons="none" />
+  <item id="start" name="dylanymarino" delay="1" navButtons="none" />
+  <item name="astro-dylanymarino" delay="3" navButtons="none" />
+  <item name="nachoynahiarapuz" delay="4" navButtons="none" />
+  <item name="nachoynahiara" delay="1" navButtons="none" />
+  <item name="astro-nahiaraynacho" delay="4" navButtons="none" />
+  <item name="camiloysamirpuz" delay="4" navButtons="none" />
+  <item name="camiloysamir" delay="1" navButtons="none" />
+  <item name="astro-camiloysamir" delay="4" navButtons="none" />
+  <item name="josuéydylanpuz" delay="4" navButtons="none" />
+  <item name="dylanyjosué" delay="1" navButtons="none" />
+  <item name="astro-josuéydylan" delay="3" navButtons="none" />
+  <item name="anaybrianapuz" delay="4" navButtons="none" />
+  <item name="Briana y Ana" delay="1" navButtons="none" />
+  <item name="astro-anaybriana" delay="4" navButtons="none" />
+  <item name="piliyalisonpuz" delay="4" navButtons="none" />
+  <item name="piliyalison" delay="1" navButtons="none" />
+  <item name="astro-piliyalison" delay="4" navButtons="none" />
+  <item name="aidanaytaispuz" delay="4" navButtons="none" />
+  <item name="aidanaytais" delay="1" navButtons="none" />
+  <item name="astro-aidanaytais" delay="4" navButtons="none" />
+  <item name="thiagoyyuripuz" delay="4" navButtons="none" />
+  <item name="thiagoyyuri" delay="1" navButtons="none" />
+  <item name="astro-thiagoyyuri" delay="4" navButtons="none" />
+  <item name="julietaywalterpuz" delay="4" navButtons="none" />
+  <item name="julietaywalter" delay="1" navButtons="none" />
+  <item name="astro-julietaywalter" delay="4" navButtons="none" />
+  <item name="rosaymorenapuz" delay="4" navButtons="none" />
+  <item name="rosaymorena" delay="1" navButtons="none" />
+  <item name="astro-rosaymorena_2" delay="4" navButtons="none" />
+  <item name="nuriayluanapuz" delay="3" navButtons="none" />
+  <item name="luanaynuria" delay="1" navButtons="none" />
+  <item name="astro-nuriayluana" delay="4" navButtons="none" />
+  <item name="triniysantiagopuz" delay="4" navButtons="none" />
+  <item name="santiagoytrini" delay="1" navButtons="none" />
+  <item name="astro-santiagoytrini" delay="4" navButtons="none" />
+  <item name="jereydemirpuz" delay="4" navButtons="none" />
+  <item name="jereydemir" delay="1" navButtons="none" />
+  <item name="astro-jereydemir" delay="4" navButtons="none" />
+  <item name="efraínynahuelpuz" delay="4" navButtons="none" />
+  <item name="nahuelyefrain" delay="1" navButtons="none" />
+  <item name="astro-nahuelyefraín" delay="4" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="rosaymorenapuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="rosa y morena diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="señopuz_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="seño-PUZZLES-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-seño" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="foto seño definitiva-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-rosaymorena_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="morena y rosa-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="rosaymorena" code="" inverse="true">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xCCCC00" background="0x006600" shadow="0x00CCCC" inactive="0xFF6666" alternative="0xCC00CC" border="0xCCCC00" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFF00CC" background="0x000099" />
+     </style>
+     <p>Hecho por Rosalia y Morena</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="solar-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="3.9" markerStroke="2.7">
+     <color foreground="0xFF0000" background="0xFFFFFF" inactive="0x666666" border="0x0000CC" />
+    </style>
+    <text>
+     <row>ABC*******</row>
+     <row>PXK****P*S</row>
+     <row>GHESTRELLA</row>
+     <row>*******A*T</row>
+     <row>*SOL***N*U</row>
+     <row>*******E*R</row>
+     <row>*******T*N</row>
+     <row>*******A*O</row>
+     <row>JUPITER***</row>
+     <row>METEORITOS</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SATURNO</clue>
+    <clue id="1">METEORITOS</clue>
+    <clue id="2">PLANETA</clue>
+    <clue id="3">ESTRELLA</clue>
+    <clue id="4">JUPITER</clue>
+    <clue id="5">SOL</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="piliyalisonpuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="pili y alison diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="piliyalison" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x333300" background="0xFFCCCC" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFFCCCC" />
+     </style>
+     <p>Hecho por Alison y Pilar</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="astronauta-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="12" columns="12" cellWidth="26.0" cellHeight="29.0" border="true">
+    <style>
+     <color foreground="0xCC0000" background="0xFF9999" />
+    </style>
+    <text>
+     <row>*MARTE***S**</row>
+     <row>*******E*A*A</row>
+     <row>*******S*T*S</row>
+     <row>JUPITERT*U*T</row>
+     <row>*******R*R*E</row>
+     <row>*******E*N*R</row>
+     <row>*******L*O*O</row>
+     <row>*******L***I</row>
+     <row>*******A***D</row>
+     <row>*******S***E</row>
+     <row>***********S</row>
+     <row>METEORITO***</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">ASTEROIDES</clue>
+    <clue id="1">MARTE</clue>
+    <clue id="2">ESTRELLAS</clue>
+    <clue id="3">JUPITER</clue>
+    <clue id="4">METEORITO</clue>
+    <clue id="5">SATURNO</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-piliyalison" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="pili y alison-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="anaybrianapuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="ana y briana diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="Briana y Ana" code="">
+   <description />
+   <messages>
+    <cell border="true" type="initial">
+     <style>
+      <font family="Arial" size="22" />
+      <color foreground="0xFF3300" border="0xCC0000" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell avoidOverlapping="true" border="false" type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x66FF33" background="0x009999" />
+     </style>
+     <p>Hecho por Briana y Ana</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="luna.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style>
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0x00CCCC" background="0xFFFFFF" />
+    </style>
+    <text>
+     <row>MBC*TIERRA</row>
+     <row>*EF*******</row>
+     <row>**R*******</row>
+     <row>ESTRELLA*M</row>
+     <row>*********A</row>
+     <row>***LUNA**R</row>
+     <row>*********T</row>
+     <row>JUPITER**E</row>
+     <row>**********</row>
+     <row>MERCURIO**</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">TIERRA</clue>
+    <clue id="1">LUNA</clue>
+    <clue id="2">MARTE</clue>
+    <clue id="3">JUPITER</clue>
+    <clue id="4">MERCURIO</clue>
+    <clue id="5">ESTRELLA</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-anaybriana" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="ana y briana-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="aidanaytaispuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="tais y aidana diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="aidanaytais" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFF33CC" />
+     </style>
+     <p>Encuentra las 6 palabras encondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x0000FF" background="0xFFCCFF" />
+     </style>
+     <p>Hecho por Aidana y Tais.</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="solar.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style>
+     <color foreground="0x990099" background="0xFF66FF" />
+    </style>
+    <text>
+     <row>ESTRELLAS*</row>
+     <row>SATELITEA*</row>
+     <row>*******CT*</row>
+     <row>*******OU*</row>
+     <row>PLANETAMR*</row>
+     <row>*******EN*</row>
+     <row>METEORITOS</row>
+     <row>*******A**</row>
+     <row>**********</row>
+     <row>**********</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">METEORITOS</clue>
+    <clue id="1">COMETA</clue>
+    <clue id="2">ESTRELLAS</clue>
+    <clue id="3">PLANETA</clue>
+    <clue id="4">SATELITE</clue>
+    <clue id="5">SATURNO</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-aidanaytais" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="aidanaytaismejorada-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="thiagoyyuripuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="thiago y yuri diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="thiagoyyuri" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0x33FFCC" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0x33FF33" />
+     </style>
+     <p>Hecho por Thiago y Yuri.</p>
+    </cell>
+    <cell type="finalError">
+     <style />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="solar 19.PNG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0x00FF99" />
+    </style>
+    <text>
+     <row>SPLANETASU</row>
+     <row>DOFWERTTAJ</row>
+     <row>EETTBNMQTG</row>
+     <row>STFIUEGMUP</row>
+     <row>TYEGRGFGRH</row>
+     <row>RIHHHOFYNC</row>
+     <row>EDFRUYEHOX</row>
+     <row>LFHGMNÑTWZ</row>
+     <row>LSOLFKFTEÑ</row>
+     <row>AYSOLARZXM</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SATURNO</clue>
+    <clue id="1">PLANETAS</clue>
+    <clue id="2">ESTRELLA</clue>
+    <clue id="3">SOLAR</clue>
+    <clue id="4">SOL</clue>
+    <clue id="5">METEORITOS</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-thiagoyyuri" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="Thiago y Yuri-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="dylanymarinopuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="dylan y marino diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="dylanymarino" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFF0000" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFF0000" />
+     </style>
+     <p>Hecho por Marino y Dylan G.</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="sistrem solar-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style>
+     <color foreground="0xFF3333" background="0x33FF33" inactive="0xFF3333" border="0xFFFF33" />
+    </style>
+    <text>
+     <row>******AESC</row>
+     <row>*****T*SAO</row>
+     <row>****E**TTM</row>
+     <row>***N**OREE</row>
+     <row>**A**N*ELT</row>
+     <row>*L**R**LIA</row>
+     <row>P**U***LT*</row>
+     <row>**T****AE*</row>
+     <row>*A********</row>
+     <row>SMETEORITO</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SATURNO</clue>
+    <clue id="1">ESTRELLA</clue>
+    <clue id="2">METEORITO</clue>
+    <clue id="3">PLANETA</clue>
+    <clue id="4">COMETA</clue>
+    <clue id="5">SATELITE</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-dylanymarino" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="Dylan y Marino-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="julietaywalterpuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="julieta y walter diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="julietaywalter" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x3366FF" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x000099" />
+     </style>
+     <p>Hecho por Julieta y Walter.</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="sistema solar.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="46.0" cellHeight="46.0" border="true">
+    <style shadow="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0x0099CC" border="0xFFFFFF" />
+    </style>
+    <text>
+     <row>ABCOMETA*M</row>
+     <row>DEF*E*SOLE</row>
+     <row>*J**S****T</row>
+     <row>*U**T****E</row>
+     <row>*P**R****O</row>
+     <row>*I**E****R</row>
+     <row>*T**L****I</row>
+     <row>*E**L****T</row>
+     <row>*R**A****O</row>
+     <row>**PLANETA*</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">COMETA</clue>
+    <clue id="1">SOL</clue>
+    <clue id="2">METEORITO</clue>
+    <clue id="3">JUPITER</clue>
+    <clue id="4">PLANETA</clue>
+    <clue id="5">ESTRELLA</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-julietaywalter" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="julieta y walter buenos-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="nuriayluanapuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="nuaria y luana diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="luanaynuria" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x333333" background="0xFFFFCC" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" />
+      <color foreground="0xFFFFFF" background="0x666666" />
+     </style>
+     <p>Hecho por Luana y Nuria.</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="sistema solar-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style shadow="true" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0xCCCCCC" background="0x999999" />
+    </style>
+    <text>
+     <row>A****M****</row>
+     <row>SESTRELLA*</row>
+     <row>T*A**T****</row>
+     <row>E*T**E***A</row>
+     <row>R*U**O***T</row>
+     <row>O*R**R***E</row>
+     <row>I*N**I***N</row>
+     <row>D*O**T***A</row>
+     <row>E****O***L</row>
+     <row>S****SOL*P</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">ASTEROIDES</clue>
+    <clue id="1">SOL</clue>
+    <clue id="2">SATURNO</clue>
+    <clue id="3">METEORITOS</clue>
+    <clue id="4">ESTRELLA</clue>
+    <clue id="5">PLANETA</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-nuriayluana" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="nuria y luana-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="jereydemirpuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="jere y demir diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="jereydemir" code="">
+   <description>
+    <p>sol</p>
+   </description>
+   <messages>
+    <cell border="false" type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0x3333FF" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0x00CCCC" />
+     </style>
+     <p>Hecho por Demir y Jere.</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="lautaro martines-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style>
+     <font family="Arial" size="17" bold="true" />
+     <color background="0x006666" />
+    </style>
+    <text>
+     <row>METEORITO*</row>
+     <row>*******J*A</row>
+     <row>*P*****U*S</row>
+     <row>*L*****P*T</row>
+     <row>SATURNOI*E</row>
+     <row>*N*****T*R</row>
+     <row>*E*****E*O</row>
+     <row>*T*****R*I</row>
+     <row>*A*******D</row>
+     <row>*ESTRELLAE</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SATURNO</clue>
+    <clue id="1">JUPITER</clue>
+    <clue id="2">PLANETA</clue>
+    <clue id="3">METEORITO</clue>
+    <clue id="4">ASTEROIDE</clue>
+    <clue id="5">ESTRELLA</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-jereydemir" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="jere y demir ultimo-astro-resized1.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="triniysantiagopuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="trinidad y santi diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="santiagoytrini" code="">
+   <description>
+    <p>solar30&#xD;</p>
+   </description>
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>Encuentra las 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <p>Hecho por Santiago y Trini.</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="i01-sistema solar.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFF0000" />
+    </style>
+    <text>
+     <row>ABC**S****</row>
+     <row>DEFA*O*S**</row>
+     <row>GHIT*L*A**</row>
+     <row>METEORITO*</row>
+     <row>***N***U*L</row>
+     <row>UNAA***R*U</row>
+     <row>***L***N*N</row>
+     <row>***P***O*A</row>
+     <row>**********</row>
+     <row>*ESTRELLA*</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SATURNO</clue>
+    <clue id="1">METEORITO</clue>
+    <clue id="2">ESTRELLA</clue>
+    <clue id="3">PLANETA</clue>
+    <clue id="4">LUNA</clue>
+    <clue id="5">SOL</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-santiagoytrini" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="Trinidad y Santi-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="nachoynahiarapuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="nahiara y nacho diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="nachoynahiara" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0x33FFFF" />
+     </style>
+     <p>Encontrá las 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFF6666" />
+     </style>
+     <p>Hecho por Nacho y Nahiara.</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="50.0" cellHeight="50.0" border="false">
+    <style shadow="true" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="17" italic="true" />
+     <color background="0x9999FF" shadow="0x6633FF" />
+    </style>
+    <text>
+     <row>*MESTRELLA</row>
+     <row>*E**R*P*S*</row>
+     <row>AT**A*L*A*</row>
+     <row>TE**S*U*T*</row>
+     <row>EO**L*T*U*</row>
+     <row>NR**A*Ó*R*</row>
+     <row>AI**C*N*N*</row>
+     <row>LT**I***O*</row>
+     <row>PO**Ó*****</row>
+     <row>*S**N*****</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SATURNO</clue>
+    <clue id="1">METEORITOS</clue>
+    <clue id="2">ESTRELLA</clue>
+    <clue id="3">PLANETA</clue>
+    <clue id="4">PLUTÓN</clue>
+    <clue id="5">TRASLACIÓN</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-nahiaraynacho" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="nahiara y nacho-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="camiloysamirpuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="samir y camilo diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="camiloysamir" code="">
+   <description />
+   <messages>
+    <cell border="true" type="initial">
+     <style shadow="true" borderStroke="0.0" markerStroke="2.7">
+      <font family="Arial" size="22" bold="true" italic="true" />
+      <color foreground="0x33FFCC" background="0x0000FF" shadow="0x000000" inactive="0xFF3333" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style shadow="true" borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFF3333" background="0x0000FF" shadow="0x006600" border="0x333333" />
+     </style>
+     <p>Hecho por Camilo y Samir.</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="solar6-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="11" columns="11" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style shadow="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0x6666FF" shadow="0xFF0000" inactive="0x330033" alternative="0x330033" />
+    </style>
+    <text>
+     <row>OESTRELLAGO</row>
+     <row>REFSS***A*U</row>
+     <row>OSI*T**LG*N</row>
+     <row>ET*SR*A*APD</row>
+     <row>TR*AEX**LLO</row>
+     <row>EE*TI***AAC</row>
+     <row>ML*AL***XN*</row>
+     <row>****L*****U</row>
+     <row>**PLANETA**</row>
+     <row>*SATURNO**L</row>
+     <row>SATELITES**</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SATELITES</clue>
+    <clue id="1">METEORO</clue>
+    <clue id="2">GALAXIA</clue>
+    <clue id="3">PLANETA</clue>
+    <clue id="4">ESTRELLA</clue>
+    <clue id="5">SATURNO</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-camiloysamir" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="samir y camilo-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="josuéydylanpuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="josué y dylan diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="dylanyjosué" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x66FF66" background="0xCC3300" />
+     </style>
+     <p>Encuentra las 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x990099" />
+     </style>
+     <p>Hecho por Dylan y Josué.</p>
+    </cell>
+    <cell type="finalError">
+     <style />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="cometa.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style shadow="true">
+     <font family="Arial" size="17" bold="true" />
+     <color background="0x33FFFF" inactive="0x33FFFF" border="0x3333FF" />
+    </style>
+    <text>
+     <row>SATURNOC**</row>
+     <row>****O**O**</row>
+     <row>***N***M**</row>
+     <row>*MARTE*E**</row>
+     <row>*R*****T**</row>
+     <row>U******A**</row>
+     <row>**********</row>
+     <row>TIERRA****</row>
+     <row>**********</row>
+     <row>JUPITER***</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">COMETA</clue>
+    <clue id="1">SATURNO</clue>
+    <clue id="2">MARTE</clue>
+    <clue id="3">JUPITER</clue>
+    <clue id="4">TIERRA</clue>
+    <clue id="5">URANO</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-josuéydylan" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="josué y dylan buenos-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="efraínynahuelpuz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <image name="espacio exterior-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="efrain y nahuel diapo-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="nahuelyefrain" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCC0000" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0x3333FF" />
+     </style>
+     <p>Hecho por Nahuel y Efrain.</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="astronauta.PNG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="0.0" markerStroke="2.7">
+     <color background="0xFF3333" border="0xFF3333" />
+    </style>
+    <text>
+     <row>**********</row>
+     <row>**********</row>
+     <row>**********</row>
+     <row>PLANETA***</row>
+     <row>COHETE**C*</row>
+     <row>METEORITO*</row>
+     <row>ESTRELLAM*</row>
+     <row>********E*</row>
+     <row>SATURNO*T*</row>
+     <row>********A*</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">PLANETA</clue>
+    <clue id="1">COHETE</clue>
+    <clue id="2">METEORITO</clue>
+    <clue id="3">ESTRELLA</clue>
+    <clue id="4">SATURNO</clue>
+    <clue id="5">COMETA</clue>
+   </clues>
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="astro-nahuelyefraín" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="3" border="true" image="Efrain y Nahuel-astro-resized.jpg">
+    <style transparent="true" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="3" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="aidanaytaismejorada-resized.jpg" file="aidanaytaismejorada-resized.jpg" />
+  <media name="ana y briana diapo-resized.jpg" file="ana_y_briana_diapo-resized.jpg" />
+  <media name="ana y briana-astro-resized.jpg" file="ana_y_briana-astro-resized.jpg" />
+  <media name="astronauta-resized.jpg" file="astronauta-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="cometa.jpg" file="cometa.jpg" />
+  <media name="dylan y marino diapo-resized.jpg" file="dylan_y_marino_diapo-resized.jpg" />
+  <media name="Dylan y Marino-astro-resized.jpg" file="dylan_y_marino-astro-resized.jpg" />
+  <media name="efrain y nahuel diapo-resized.jpg" file="efrain_y_nahuel_diapo-resized.jpg" />
+  <media name="Efrain y Nahuel-astro-resized.jpg" file="efrain_y_nahuel-astro-resized.jpg" />
+  <media name="espacio exterior-resized.jpg" file="espacio_exterior-resized.jpg" />
+  <media name="foto seño definitiva-astro-resized.jpg" file="foto_seno_definitiva-astro-resized.jpg" />
+  <media name="i01-sistema solar.jpg" file="sistema_solar.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="i05-i01-bienhecho.jpg" file="i05-i01-bienhecho.jpg" />
+  <media name="jere y demir diapo-resized.jpg" file="jere_y_demir_diapo-resized.jpg" />
+  <media name="jere y demir ultimo-astro-resized1.jpg" file="jere_y_demir_ultimo-astro-resized1.jpg" />
+  <media name="josué y dylan buenos-astro-resized.jpg" file="josue_y_dylan_buenos-astro-resized.jpg" />
+  <media name="josué y dylan diapo-resized.jpg" file="josue_y_dylan_diapo-resized.jpg" />
+  <media name="julieta y walter buenos-astro-resized.jpg" file="julieta_y_walter_buenos-astro-resized.jpg" />
+  <media name="julieta y walter diapo-resized.jpg" file="julieta_y_walter_diapo-resized.jpg" />
+  <media name="lautaro martines-resized.jpg" file="lautaro_martines-resized.jpg" />
+  <media name="luna.jpg" file="luna.jpg" />
+  <media name="morena y rosa-astro-resized.jpg" file="morena_y_rosa-astro-resized.jpg" />
+  <media name="nahiara y nacho diapo-resized.jpg" file="nahiara_y_nacho_diapo-resized.jpg" />
+  <media name="nahiara y nacho-astro-resized.jpg" file="nahiara_y_nacho-astro-resized.jpg" />
+  <media name="nuaria y luana diapo-resized.jpg" file="nuaria_y_luana_diapo-resized.jpg" />
+  <media name="nuria y luana-astro-resized.jpg" file="nuria_y_luana-astro-resized.jpg" />
+  <media name="pili y alison diapo-resized.jpg" file="pili_y_alison_diapo-resized.jpg" />
+  <media name="pili y alison-astro-resized.jpg" file="pili_y_alison-astro-resized.jpg" />
+  <media name="rosa y morena diapo-resized.jpg" file="rosa_y_morena_diapo-resized.jpg" />
+  <media name="samir y camilo diapo-resized.jpg" file="samir_y_camilo_diapo-resized.jpg" />
+  <media name="samir y camilo-astro-resized.jpg" file="samir_y_camilo-astro-resized.jpg" />
+  <media name="seño-PUZZLES-resized.jpg" file="seno-puzzles-resized.jpg" />
+  <media name="sistema solar-resized.jpg" file="sistema_solar-resized.jpg" />
+  <media name="sistema solar.jpg" file="0sistema_solar.jpg" />
+  <media name="sistrem solar-resized.jpg" file="sistrem_solar-resized.jpg" />
+  <media name="solar-resized.jpg" file="solar-resized.jpg" />
+  <media name="solar.jpg" file="solar.jpg" />
+  <media name="solar6-resized.jpg" file="solar6-resized.jpg" />
+  <media name="tais y aidana diapo-resized.jpg" file="tais_y_aidana_diapo-resized.jpg" />
+  <media name="thiago y yuri diapo-resized.jpg" file="thiago_y_yuri_diapo-resized.jpg" />
+  <media name="Thiago y Yuri-astro-resized.jpg" file="thiago_y_yuri-astro-resized.jpg" />
+  <media name="trinidad y santi diapo-resized.jpg" file="trinidad_y_santi_diapo-resized.jpg" />
+  <media name="Trinidad y Santi-astro-resized.jpg" file="trinidad_y_santi-astro-resized.jpg" />
+  <media name="astronauta.PNG" file="astronauta.png" />
+  <media name="solar 19.PNG" file="solar_19.png" />
+ </mediaBag>
+</JClicProject>
+

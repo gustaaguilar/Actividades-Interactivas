@@ -1,0 +1,57 @@
+{
+  "title": "Integrador_de_3ro",
+  "date": "10/11/24",
+  "description": {
+    "es": ""
+  },
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "Integrador_de_3ro.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 22,
+  "mediaFiles": 32,
+  "totalSize": 711098,
+  "files": [
+    "2-resized-vocales.jpg",
+    "Integrador_de_3ro.jclic",
+    "Integrador_de_3ro.jclic.js",
+    "arma_el_rompecabezas.mp3",
+    "caratu-resized2.jpg",
+    "cierre-resized2-vocales.jpg",
+    "conejo.jpg",
+    "elefante.jpg",
+    "favicon.ico",
+    "gallo.jpg",
+    "i01-bienhecho.jpg",
+    "i01-i01-i01-bienhecho.jpg",
+    "i02-i01-bienhecho-vocales.jpg",
+    "i02-i01-bienhecho.jpg",
+    "i03-i01-bienhecho-vocales.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "iguana.jpg",
+    "imsmanifest.xml",
+    "index.html",
+    "jabali.jpg",
+    "leon.jpg",
+    "muy_bien-vocales.mp3",
+    "oveja.jpg",
+    "perro.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json",
+    "sapo.jpg",
+    "serpiente.jpg",
+    "terminaste_te_felicito.mp3",
+    "tucan.jpg",
+    "whatsapp_image_2024-11-11_at_00.36.33__1_-resized.jpg",
+    "whatsapp_image_2024-11-11_at_00.36.34__1_-resized.jpg",
+    "whatsapp_image_2024-11-11_at_00.36.36-resized.jpg",
+    "zorro.jpg"
+  ]
+}

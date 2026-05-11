@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="nutricion" version="0.1.3">
+ <settings>
+  <title>nutrición</title>
+  <revision description="created" date="4/29/25" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="2" navButtons="none" />
+  <item name="portada_4" delay="1" navButtons="none" />
+  <item name="ora1" delay="4" navButtons="none" />
+  <item name="ora_2" delay="4" navButtons="none" />
+  <item name="ora_3" delay="4" navButtons="none" />
+  <item name="ora_4" delay="4" navButtons="none" />
+  <item name="unir1" delay="2" navButtons="none" />
+  <item name="portada_2" delay="2" navButtons="none" />
+  <item name="texto1" delay="2" navButtons="none" />
+  <item name="texto_2" delay="2" navButtons="none" />
+  <item name="texto_3" delay="2" navButtons="none" />
+  <item name="texto_4" delay="2" navButtons="none" />
+  <item name="unir_2" delay="2" navButtons="none" />
+  <item name="memo1" delay="2" navButtons="none" />
+  <item name="sopa" delay="2" navButtons="none" />
+  <item name="memo_2" delay="2" navButtons="none" />
+  <item name="identi_2" delay="2" navButtons="none" />
+  <item name="identi1" delay="2" navButtons="none" />
+  <item name="portada_3" delay="4" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="identi1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre la imagen de "nutrientes".</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i06-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="172.0" cellHeight="172.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" image="ora1-resized.jpg">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell id="1" image="nutrientes.png" />
+    <cell id="0" image="texto3-3.PNG" />
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i06-i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre la imagen de "alimentación".</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i06-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="157.0" cellHeight="172.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" image="ora3.png">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell id="1" image="ora2-resized.jpg">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+      <gradient source="0xFF9933" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell id="0" image="energia vital.png" />
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i06-i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="afiche nutri realista-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="114.0" cellHeight="111.0" border="true" id="primary">
+    <style>
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFCCCC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell image="texto1-2.png" />
+    <cell image="texto2-2.png" />
+    <cell image="texto3-3.PNG" />
+    <cell image="texto4-2.PNG" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="afiche nutri pixar-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="134.0" cellHeight="169.0" border="true" id="primary">
+    <style>
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFCCCC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell image="ora1-resized.jpg" />
+    <cell image="ora2-resized.jpg" />
+    <cell image="ora3.png" />
+    <cell image="ora4.png" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="ora1-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="153.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell>
+     <p>La</p>
+    </cell>
+    <cell>
+     <p>nutrición</p>
+    </cell>
+    <cell>
+     <p>transforma</p>
+    </cell>
+    <cell>
+     <p>sustancias</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>energía.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="ora2-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="132.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell>
+     <p>La</p>
+    </cell>
+    <cell>
+     <p>alimentación</p>
+    </cell>
+    <cell>
+     <p>intruduce</p>
+    </cell>
+    <cell>
+     <p>alimentos</p>
+    </cell>
+    <cell>
+     <p>por</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>sistema</p>
+    </cell>
+    <cell>
+     <p>digestivo.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="ora3.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="96.0" cellHeight="34.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>En</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>nutrición</p>
+    </cell>
+    <cell>
+     <p>colaboran</p>
+    </cell>
+    <cell>
+     <p>cuatro</p>
+    </cell>
+    <cell>
+     <p>importantes</p>
+    </cell>
+    <cell>
+     <p>sistemas</p>
+    </cell>
+    <cell>
+     <p>del</p>
+    </cell>
+    <cell>
+     <p>cuerpo</p>
+    </cell>
+    <cell>
+     <p>humano.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="ora4.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="126.0" cellHeight="37.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF00FF" background="0x0000CC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell>
+     <p>En</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>alimentación,</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>digestión</p>
+    </cell>
+    <cell>
+     <p>aporta</p>
+    </cell>
+    <cell>
+     <p>nutrientes</p>
+    </cell>
+    <cell>
+     <p>esenciales.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="portada_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="4" cols="4" border="true" image="afiche nutri realista-resized.jpg">
+    <style>
+     <font family="Arial" size="17" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="4" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="portada_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="4" cols="4" border="true" image="afiche3-resized.jpg">
+    <style>
+     <font family="Arial" size="17" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="4" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="portada_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="4" cols="4" border="true" image="afiche nutri pixar-resized.jpg">
+    <style>
+     <font family="Arial" size="17" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@ClassicJigSaw" cols="4" rows="4" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopa" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>Encuentra 4 palabras escondidas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i04-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006666" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xCC00CC">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009900" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="43.0" cellHeight="43.0" border="true">
+    <style margin="3">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" />
+    </style>
+    <text>
+     <row>EA*******S</row>
+     <row>N*L*****E*</row>
+     <row>E**I***T**</row>
+     <row>R***M*N***</row>
+     <row>G****E****</row>
+     <row>Í***I*N***</row>
+     <row>A**R***T**</row>
+     <row>**T*****O*</row>
+     <row>NUTRICIÓNS</row>
+     <row>N*********</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">ENERGÍA</clue>
+    <clue id="1">NUTRIENTES</clue>
+    <clue id="2">ALIMENTOS</clue>
+    <clue id="3">NUTRICIÓN</clue>
+   </clues>
+   <cells rows="2" cols="2" cellWidth="128.0" cellHeight="134.0" border="true" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="2" />
+    <cell image="energia vital.png" />
+    <cell image="nutrientes.png" />
+    <cell image="alimentos.png" />
+    <cell image="nutrición.png" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="texto1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color background="0x33FF00" />
+     </style>
+     <p>Lee y elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00CC99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <image name="texto1-2.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="523" height="221" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="26" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="26">La </text>
+      <target>
+       <answer>nutrición</answer>
+       <optionList>
+        <option>nutrición</option>
+        <option>alimentación</option>
+        <option>digestión</option>
+       </optionList>
+       <text>nutrición</text>
+      </target>
+      <text size="26"> es un proceso donde se incorporan sustancias </text>
+      <target>
+       <answer>orgánicas</answer>
+       <optionList>
+        <option>alimenticias</option>
+        <option>orgánicas</option>
+        <option>energéticas</option>
+       </optionList>
+       <text>orgánicas</text>
+      </target>
+      <text size="26"> e </text>
+      <target>
+       <answer>inorgánicas</answer>
+       <optionList>
+        <option>artificiales</option>
+        <option>energéticas</option>
+        <option>inorgánicas</option>
+       </optionList>
+       <text>inorgánicas</text>
+      </target>
+      <text size="26"> y se transforman en </text>
+      <target>
+       <answer>energía</answer>
+       <optionList>
+        <option>comida</option>
+        <option>energía</option>
+        <option>nutrientes</option>
+       </optionList>
+       <text>energía</text>
+      </target>
+      <text size="26">.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="texto_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color background="0x33FF00" />
+     </style>
+     <p>Lee y elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00CC99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <image name="texto2-2.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="523" height="167" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="26" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="26">En la </text>
+      <target>
+       <answer>alimentación</answer>
+       <optionList>
+        <option>respiración</option>
+        <option>circulación</option>
+        <option>alimentación</option>
+        <option>digestión</option>
+       </optionList>
+       <text>alimentación</text>
+      </target>
+      <text size="26"> se incorporan los </text>
+      <target>
+       <answer>alimentos</answer>
+       <optionList>
+        <option>órganos</option>
+        <option>alimentos</option>
+        <option>nutrientes</option>
+       </optionList>
+       <text>alimentos</text>
+      </target>
+      <text size="26"> a través del sistema </text>
+      <target>
+       <answer>digestivo</answer>
+       <optionList>
+        <option>nervioso</option>
+        <option>óseo</option>
+        <option>digestivo</option>
+       </optionList>
+       <text>digestivo</text>
+      </target>
+      <text size="26">.</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="texto_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color background="0x33FF00" />
+     </style>
+     <p>Lee y elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00CC99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <image name="texto3-3.PNG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="523" height="221" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="26" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="26">En el proceso de </text>
+      <target>
+       <answer>nutrición</answer>
+       <optionList>
+        <option>reproducción</option>
+        <option>respiración</option>
+        <option>nutrición</option>
+        <option>digestión</option>
+       </optionList>
+       <text>nutrición</text>
+      </target>
+      <text size="26"> trabajan en forma coordinada los sistemas digestivo, </text>
+      <target>
+       <answer>respiratorio</answer>
+       <optionList>
+        <option>nervioso</option>
+        <option>respiratorio</option>
+        <option>excretor</option>
+        <option>muscular</option>
+       </optionList>
+       <text>respiratorio</text>
+      </target>
+      <text size="26">, </text>
+      <target>
+       <answer>circulatorio</answer>
+       <optionList>
+        <option>óseo</option>
+        <option>digestivo</option>
+        <option>circulatorio</option>
+        <option>linfático</option>
+       </optionList>
+       <text>circulatorio</text>
+      </target>
+      <text size="26"> y </text>
+      <target>
+       <answer>excretor</answer>
+       <optionList>
+        <option>excretor</option>
+        <option>reproductor</option>
+        <option>inmunológico</option>
+        <option>respiratorio</option>
+       </optionList>
+       <text>excretor</text>
+      </target>
+      <text size="26">.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="texto_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color background="0x33FF00" />
+     </style>
+     <p>Lee y elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00CC99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <image name="texto4-2.PNG" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="523" height="221" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="26" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="26">En la </text>
+      <target>
+       <answer>alimentación</answer>
+       <optionList>
+        <option>respiración</option>
+        <option>circulación</option>
+        <option>digestión</option>
+        <option>alimentación</option>
+       </optionList>
+       <text>alimentación</text>
+      </target>
+      <text size="26"> los alimentos se transforman en el proceso de la digestión, se incorporan los </text>
+      <target>
+       <answer>nutrientes</answer>
+       <optionList>
+        <option>órganos</option>
+        <option>nutrientes</option>
+        <option>vitaminas</option>
+        <option>células</option>
+       </optionList>
+       <text>nutrientes</text>
+      </target>
+      <text size="26"> necesarios para nuestro organismo.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFCCCC" />
+     </style>
+     <p>Une cada imagen con el texto que corresponda.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="136.0" cellHeight="132.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="texto1-2.png" />
+    <cell image="texto2-2.png" />
+    <cell image="texto3-3.PNG" />
+    <cell image="texto4-2.PNG" />
+   </cells>
+   <cells rows="4" cols="1" cellWidth="314.0" cellHeight="107.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="16" />
+     <color background="0xFFCCFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="16" />
+      <color background="0xFFCCFF" />
+     </style>
+     <p>La nutrición es un proceso donde se incorporan sustancias orgánicas e inorgánicas y se transforman en energía.</p>
+    </cell>
+    <cell>
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="16" />
+      <color background="0xFFCCFF" />
+     </style>
+     <p>En la alimentación se incorporan los alimentos a través del sistema digestivo.</p>
+    </cell>
+    <cell>
+     <p>En el proceso de nutrición trabajan en forma coordinada los sistemas digestivo, respiratorio, circulatorio y excretor.</p>
+    </cell>
+    <cell>
+     <p>En la alimentación los alimentos se transforman en el proceso de la digestión, se incorporan los nutrientes necesarios para nuestro organismo.</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFCCCC" />
+     </style>
+     <p>Une cada imagen con la imagen que corresponda.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="136.0" cellHeight="132.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="texto1-2.png" />
+    <cell image="texto2-2.png" />
+    <cell image="texto3-3.PNG" />
+    <cell image="texto4-2.PNG" />
+   </cells>
+   <cells rows="4" cols="1" cellWidth="117.0" cellHeight="131.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="16" />
+     <color background="0xFFCCFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="ora1-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="16" />
+      <color background="0xFFCCFF" inactive="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell image="ora2-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="16" />
+      <color background="0xFFCCFF" inactive="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell image="ora3.png" />
+    <cell image="ora4.png" />
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="afiche nutri pixar-resized.jpg" file="afiche_nutri_pixar-resized.jpg" />
+  <media name="afiche nutri realista-resized.jpg" file="afiche_nutri_realista-resized.jpg" />
+  <media name="afiche3-resized.jpg" file="afiche3-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i01-bienhecho.jpg" file="i01-i01-bienhecho.jpg" />
+  <media name="i01-i01-i01-bienhecho.jpg" file="i01-i01-i01-bienhecho.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="i04-i01-bienhecho.jpg" file="i04-i01-bienhecho.jpg" />
+  <media name="i05-i01-bienhecho.jpg" file="i04-i01-bienhecho.jpg" />
+  <media name="i06-i01-bienhecho.jpg" file="i05-i01-bienhecho.jpg" />
+  <media name="ora1-resized.jpg" file="ora1-resized.jpg" />
+  <media name="ora2-resized.jpg" file="ora2-resized.jpg" />
+  <media name="rompe1-resized.jpg" file="rompe1-resized.jpg" />
+  <media name="alimentos.png" file="alimentos.png" />
+  <media name="energia vital.png" file="energia_vital.png" />
+  <media name="nutrición.png" file="nutricion.png" />
+  <media name="nutrientes.png" file="nutrientes.png" />
+  <media name="ora3.png" file="ora3.png" />
+  <media name="ora4.png" file="ora4.png" />
+  <media name="texto1-2.png" file="texto1-2.png" />
+  <media name="texto2-2.png" file="texto2-2.png" />
+  <media name="texto3-3.PNG" file="texto3-3.png" />
+  <media name="texto4-2.PNG" file="texto4-2.png" />
+ </mediaBag>
+</JClicProject>
+

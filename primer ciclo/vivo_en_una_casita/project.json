@@ -1,0 +1,53 @@
+{
+  "title": "lenguaymate",
+  "date": "3/04/24",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "vivo en una casita.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 25,
+  "mediaFiles": 29,
+  "totalSize": 808196,
+  "files": [
+    "2-resized.jpg",
+    "arma_el_rompecabezas.mp3",
+    "bienhecho.jpg",
+    "caratu-resized.jpg",
+    "casa.png",
+    "casita.jpg",
+    "cierre-resized2.jpg",
+    "ciudad.jpg",
+    "de_la_ciudad_al_barrio-resized.jpg",
+    "de_un_continente-resized.jpg",
+    "de_un_pais-resized.jpg",
+    "del_pais_a_la_ciudad-resized.jpg",
+    "del_planeta_al_continente-resized.jpg",
+    "en_mi_nave_fabulosa-resized.jpg",
+    "en_un_barrio_de_la_ciudad-resized.jpg",
+    "favicon.ico",
+    "i02-i01-bienhecho.jpg",
+    "i03-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "muy_bien.mp3",
+    "planeta.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json",
+    "que_en_este_planeta_esta-resized.jpg",
+    "terminaste_te_felicito.mp3",
+    "vivo en una casita.jclic",
+    "vivo en una casita.jclic.js",
+    "vivo_en_una_casita-resized.jpg",
+    "vivo_en_una_casita_000-resized.jpg",
+    "vivoenunacasita2.jpg"
+  ]
+}

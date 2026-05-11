@@ -1,0 +1,52 @@
+{
+  "title": "gallinacolorada",
+  "date": "21/10/25",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "gallinacolorada.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 27,
+  "mediaFiles": 28,
+  "totalSize": 1036435,
+  "files": [
+    "10-la_gallinita_colorada_no_quiso_regalarles_nada-resized.jpg",
+    "11-decidio_abrir_una_panaderia_muy_ordenada_y_linda-resized.jpg",
+    "12-vendia_en_su_panaderia_tortas__galletitas_y_panes_todos_los_dias-resized.jpg",
+    "13-hizo_tantas_que_se_volvio_muy_famosa-resized.jpg",
+    "14-salio_en_la_tapa_de_muchas_revistas-resized.jpg",
+    "2-resized.jpg",
+    "2la_gallinita_colorada_pidio_ayuda_a_sus_vecinos-resized.jpg",
+    "3el_conejo_dijo_que_le_dolian_las_manos-resized.jpg",
+    "4el_perro_le_contesto_que_tenia_que_ir_a_buscar_el_diario-resized.jpg",
+    "5el_gato_nego_diciento_que_tenia_que_ir_de_compras-resized.jpg",
+    "6la_gallinita_sembro_rego_y_cosecho_todo_el_trigo-resized.jpg",
+    "7cuando_estaba_haciendo_los_panes_el_gato_el_perro_y_el_conejo_le_pidieron-resized.jpg",
+    "8-luego_comenzo_a_hacer_panes_con_su_trigo-resized.jpg",
+    "9-el_conejo__el_gato_y_el_perro_se_acercaron-resized.jpg",
+    "cierre-resized2.jpg",
+    "favicon.ico",
+    "gallinacolorada.jclic",
+    "gallinacolorada.jclic.js",
+    "i01-bienhecho.jpg",
+    "i01-i01-bienhecho.jpg",
+    "i01-i01-i01-bienhecho.jpg",
+    "i01-i02-i01-bienhecho.jpg",
+    "i01-i03-i01-bienhecho.jpg",
+    "i03-i01-bienhecho.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "la_gallinita_trabajo_sola_y_sin_ninguna_ayuda-resized.jpg",
+    "portada_gallinita-resized1.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json"
+  ]
+}

@@ -1,0 +1,1750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="plantas" version="0.1.3">
+ <settings>
+  <title>plantas</title>
+  <revision description="created" date="9/26/24" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="4" navButtons="none" />
+  <item name="caratuplanta" delay="3" navButtons="none" />
+  <item name="secuencia" delay="3" navButtons="none" />
+  <item name="ora_2" delay="3" navButtons="none" />
+  <item name="ora_3" delay="3" navButtons="none" />
+  <item name="ora_4" delay="3" navButtons="none" />
+  <item name="ora_5" delay="3" navButtons="none" />
+  <item name="ora_6" delay="3" navButtons="none" />
+  <item name="ora_7" delay="3" navButtons="none" />
+  <item name="ora_8" delay="3" navButtons="none" />
+  <item name="ora_9" delay="3" navButtons="none" />
+  <item name="ora_10" delay="3" navButtons="none" />
+  <item name="preg1" delay="3" navButtons="none" />
+  <item name="unir1" delay="3" navButtons="none" />
+  <item name="unir_2" delay="3" navButtons="none" />
+  <item name="unir_3" delay="3" navButtons="none" />
+  <item name="función1" delay="3" navButtons="none" />
+  <item name="función_2" delay="3" navButtons="none" />
+  <item name="función_3" delay="3" navButtons="none" />
+  <item name="función_4" delay="3" navButtons="none" />
+  <item name="función_5" delay="3" navButtons="none" />
+  <item name="preg_2" delay="3" navButtons="none" />
+  <item name="sopa1" delay="3" navButtons="none" />
+  <item name="selecciona1" delay="3" navButtons="none" />
+  <item name="selecciona_2" delay="3" navButtons="none" />
+  <item name="selecciona_3" delay="3" navButtons="none" />
+  <item name="selecciona_4" delay="3" navButtons="none" />
+  <item name="selecciona_5" delay="3" navButtons="none" />
+  <item name="preg_3" delay="3" navButtons="none" />
+  <item name="memo1" delay="3" navButtons="none" />
+  <item name="memo_2" delay="3" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.DoublePuzzle" name="caratuplanta" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFF00" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="partes de la planta-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@JigSaw" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Absorbe agua y minerales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="la raíz absorbe agua-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="72.0" cellHeight="116.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>í</p>
+    </cell>
+    <cell>
+     <p>z</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Conecta la raíz con hojas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="el tallo conecta raíz-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="72.0" cellHeight="116.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Permiten que la planta respire.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="las hojas permiten que la planta respire-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="72.0" cellHeight="116.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>h</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>j</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Producen frutos y semillas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="las flores producen frutos y semillas-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="72.0" cellHeight="116.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="función_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Viaja de flor a flor</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="el polen viaja de flor en flor-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000000" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="72.0" cellHeight="116.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFF00FF" inactive="0xFFFFFF" />
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFF33FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encontrá los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x0000FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="187.0" cellHeight="64.0" border="true" id="primary">
+    <style margin="3">
+     <font family="Arial" size="52" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell>
+     <p>raíz</p>
+    </cell>
+    <cell>
+     <p>tallo</p>
+    </cell>
+    <cell>
+     <p>hojas</p>
+    </cell>
+    <cell>
+     <p>flores</p>
+    </cell>
+    <cell>
+     <p>fruto</p>
+    </cell>
+    <cell>
+     <p>semillas</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFF33FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encontrá los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x0000FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="144.0" cellHeight="139.0" border="true" id="primary">
+    <style margin="3">
+     <font family="Arial" size="52" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell image="raíz-resized.jpg" />
+    <cell image="tallo-resized.jpg" />
+    <cell image="hojas-resized.jpg" />
+    <cell image="flores-resized.jpg" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_10" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="insectos y viento ayudan al polen-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="91.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0x00CC00" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>Insectos</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>viento</p>
+    </cell>
+    <cell>
+     <p>ayudan</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>polen.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="la raíz absorbe agua-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="97.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0x00CC00" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>La</p>
+    </cell>
+    <cell>
+     <p>raíz</p>
+    </cell>
+    <cell>
+     <p>absorbe</p>
+    </cell>
+    <cell>
+     <p>agua</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>minerales.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="el tallo conecta raíz-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="81.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0x00CC00" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>El</p>
+    </cell>
+    <cell>
+     <p>tallo</p>
+    </cell>
+    <cell>
+     <p>conecta</p>
+    </cell>
+    <cell>
+     <p>raíz</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>hojas.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="los nutrientes viajan por el tallo-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="89.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0x00CC00" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>Los</p>
+    </cell>
+    <cell>
+     <p>nutrientes</p>
+    </cell>
+    <cell>
+     <p>viajan</p>
+    </cell>
+    <cell>
+     <p>por</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>tallo.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="el tronco es el tallo-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="81.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0x00CC00" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>El</p>
+    </cell>
+    <cell>
+     <p>tronco</p>
+    </cell>
+    <cell>
+     <p>es</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>tallo</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>árboles.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="las hojas permiten que la planta respire-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="81.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0x00CC00" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>Las</p>
+    </cell>
+    <cell>
+     <p>hojas</p>
+    </cell>
+    <cell>
+     <p>permiten</p>
+    </cell>
+    <cell>
+     <p>que</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>planta</p>
+    </cell>
+    <cell>
+     <p>respire.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="las hojas también reciben luz solar-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="93.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0x00CC00" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>Las</p>
+    </cell>
+    <cell>
+     <p>hojas</p>
+    </cell>
+    <cell>
+     <p>también</p>
+    </cell>
+    <cell>
+     <p>reciben</p>
+    </cell>
+    <cell>
+     <p>luz</p>
+    </cell>
+    <cell>
+     <p>solar.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="las flores producen frutos y semillas-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="96.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0x00CC00" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>Las</p>
+    </cell>
+    <cell>
+     <p>flores</p>
+    </cell>
+    <cell>
+     <p>producen</p>
+    </cell>
+    <cell>
+     <p>frutos</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>semillas.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <image name="el polen viaja de flor en flor-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="81.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0x00CC00" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>El</p>
+    </cell>
+    <cell>
+     <p>polen</p>
+    </cell>
+    <cell>
+     <p>viaja</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>flor</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>flor.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="preg1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="niño1-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="556" height="171" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36" bold="true">¿Qué parte sujeta la planta al suelo? </text>
+      <target>
+       <answer>la raíz</answer>
+       <optionList>
+        <option>el tallo</option>
+        <option>la raíz</option>
+       </optionList>
+       <text>la raíz</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="preg_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="otoño-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="556" height="236" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36" bold="true">¿En qué estación del año pierden sus hojas algunos árboles? </text>
+      <target>
+       <answer>En otoño</answer>
+       <optionList>
+        <option>En primavera</option>
+        <option>En otoño</option>
+       </optionList>
+       <text>En otoño</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="preg_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="niños4-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="603" height="171" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="32" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="32" bold="true">¿Qué necesitan las plantas para vivir? </text>
+      <target>
+       <answer>Agua, aire, sol y tierra.</answer>
+       <optionList>
+        <option>Agua, aire, sol y tierra.</option>
+        <option>Aire y un terreno seco.</option>
+       </optionList>
+       <text>Agua, aire, sol y tierra.</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="secuencia" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="40" bold="true" />
+      <color foreground="0xFFCCFF" background="0x003333" />
+     </style>
+     <p>Ordená la secuencia.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="40" bold="true" />
+      <color background="0x00CCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="135.0" cellHeight="129.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFF0000" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell id="1" image="1-resized.jpg" />
+    <cell id="0" image="2-resized.jpg" />
+    <cell id="0" image="3-resized.jpg" />
+    <cell id="0" image="4-resized.jpg" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="selecciona1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="Las plantas se sostienen al suelo -resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="556" height="238" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36" bold="true">Las plantas se sostienen al suelo y se alimentan por las </text>
+      <target>
+       <answer>raíces</answer>
+       <optionList>
+        <option>semillas</option>
+        <option>hojas</option>
+        <option>raíces</option>
+       </optionList>
+       <text>raíces</text>
+      </target>
+      <text size="36" bold="true">.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="selecciona_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="las plantas respiran por las hojas-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="556" height="169" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36" bold="true">Las plantas respiran por las </text>
+      <target>
+       <answer>hojas</answer>
+       <optionList>
+        <option>raíces</option>
+        <option>hojas</option>
+        <option>frutos</option>
+       </optionList>
+       <text>hojas</text>
+      </target>
+      <text size="36" bold="true">.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="selecciona_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="el tallo sostiene a las hojas-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="556" height="169" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36" bold="true">El </text>
+      <target>
+       <answer>tallo</answer>
+       <optionList>
+        <option>sol</option>
+        <option>tallo</option>
+        <option>viento</option>
+       </optionList>
+       <text>tallo</text>
+      </target>
+      <text size="36" bold="true"> sostiene a las hojas.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="selecciona_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="los frutos nacen de las flores-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="556" height="169" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36" bold="true">Los frutos nacen de las </text>
+      <target>
+       <answer>flores</answer>
+       <optionList>
+        <option>flores</option>
+        <option>hojas</option>
+        <option>semillas</option>
+       </optionList>
+       <text>flores</text>
+      </target>
+      <text size="36" bold="true">.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="selecciona_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Elige la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="los frutos tienen en su interior las semillas-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="556" height="219" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="36" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="36" bold="true">Los frutos tienen en su interior a las semillas que darán vida a otra </text>
+      <target>
+       <answer>planta</answer>
+       <optionList>
+        <option>flor</option>
+        <option>semilla</option>
+        <option>planta</option>
+       </optionList>
+       <text>planta</text>
+      </target>
+      <text size="36" bold="true">.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopa1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xFFCC99" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra 4 partes de la planta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <image name="sopa de letras1-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <textGrid rows="6" columns="7" cellWidth="42.0" cellHeight="39.0" border="true">
+    <style>
+     <color background="0xFFFFFF" />
+    </style>
+    <text>
+     <row>RS***F</row>
+     <row>*A***L</row>
+     <row>*JÍ**O</row>
+     <row>*O*ZLR</row>
+     <row>*H*L*E</row>
+     <row>**A**S</row>
+     <row>*T****</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">RAÍZ</clue>
+    <clue id="1">TALLO</clue>
+    <clue id="2">HOJAS</clue>
+    <clue id="3">FLORES</clue>
+   </clues>
+   <cells rows="2" cols="2" cellWidth="148.0" cellHeight="148.0" border="true" id="secondary">
+    <style>
+     <font family="Arial" size="17" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="2" />
+    <cell image="raíz-resized.jpg" />
+    <cell image="tallo-resized.jpg" />
+    <cell image="hojas-resized.jpg" />
+    <cell image="flores-resized.jpg" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0x00CC00" />
+     </style>
+     <p>Une la imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x996600" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="3" cols="1" cellWidth="131.0" cellHeight="128.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="las plantas tienen raíz-resized.jpg" />
+    <cell image="la raíz absorbe agua-resized.jpg" />
+    <cell image="el tallo conecta raíz-resized.jpg" />
+   </cells>
+   <cells rows="3" cols="1" cellWidth="382.0" cellHeight="129.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFF33" background="0xFF0033" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>Las plantas tienen raíz, tallo, hojas y flor.</p>
+    </cell>
+    <cell>
+     <p>La raíz absorbe agua y minerales.</p>
+    </cell>
+    <cell>
+     <p>El tallo conecta raíz con hojas.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0x00CC00" />
+     </style>
+     <p>Une la imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x996600" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="3" cols="1" cellWidth="131.0" cellHeight="128.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="los nutrientes viajan por el tallo-resized.jpg" />
+    <cell image="el tronco es el tallo-resized.jpg" />
+    <cell image="las hojas permiten que la planta respire-resized.jpg" />
+   </cells>
+   <cells rows="3" cols="1" cellWidth="382.0" cellHeight="129.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFF33" background="0xFF0033" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>Los nutrientes viajan por el tallo.</p>
+    </cell>
+    <cell>
+     <p>El tronco es el tallo de árboles.</p>
+    </cell>
+    <cell>
+     <p>Las hojas permiten que la planta respire.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0x00CC00" />
+     </style>
+     <p>Une la imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x99FF99" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x996600" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="4" cols="1" cellWidth="131.0" cellHeight="128.0" border="true" id="primary">
+    <style>
+     <font family="Arial" size="28" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="las hojas también reciben luz solar-resized.jpg" />
+    <cell image="las flores producen frutos y semillas-resized.jpg" />
+    <cell image="el polen viaja de flor en flor-resized.jpg" />
+    <cell image="insectos y viento ayudan al polen-resized.jpg" />
+   </cells>
+   <cells rows="4" cols="1" cellWidth="382.0" cellHeight="129.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFF33" background="0xFF0033" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <p>Las hojas también reciben luz solar.</p>
+    </cell>
+    <cell>
+     <p>Las flores producen frutos y semillas.</p>
+    </cell>
+    <cell>
+     <p>El polen viaja de flor a flor.</p>
+    </cell>
+    <cell>
+     <p>Insectos y viento ayudan al polen.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="i01-2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="1-resized.jpg" file="1-resized.jpg" />
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="3-resized.jpg" file="3-resized.jpg" />
+  <media name="4-resized.jpg" file="4-resized.jpg" />
+  <media name="boca.JPG" file="boca.jpg" />
+  <media name="caratu-resized2.jpg" file="caratu-resized2.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="el polen viaja de flor en flor-resized.jpg" file="el_polen_viaja_de_flor_en_flor-resized.jpg" />
+  <media name="el tallo conecta raíz-resized.jpg" file="el_tallo_conecta_raiz-resized.jpg" />
+  <media name="el tallo sostiene a las hojas-resized.jpg" file="el_tallo_sostiene_a_las_hojas-resized.jpg" />
+  <media name="el tronco es el tallo-resized.jpg" file="el_tronco_es_el_tallo-resized.jpg" />
+  <media name="flores-resized.jpg" file="flores-resized.jpg" />
+  <media name="fluidez lectora caratu.jpg" file="fluidez_lectora_caratu.jpg" />
+  <media name="fluidez.JPG" file="fluidez.jpg" />
+  <media name="hojas-resized.jpg" file="hojas-resized.jpg" />
+  <media name="i01-2-resized.jpg" file="i01-2-resized.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i01-i01-bienhecho.jpg" />
+  <media name="i02-i01-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i01-i03-i01-bienhecho.jpg" />
+  <media name="IMG-20240926-WA0002-resized.jpg" file="img-20240926-wa0002-resized.jpg" />
+  <media name="IMG-20240926-WA0003-resized.jpg" file="img-20240926-wa0003-resized.jpg" />
+  <media name="IMG-20240926-WA0017-resized.jpg" file="img-20240926-wa0017-resized.jpg" />
+  <media name="insectos y viento ayudan al polen-resized.jpg" file="insectos_y_viento_ayudan_al_polen-resized.jpg" />
+  <media name="la raíz absorbe agua-resized.jpg" file="la_raiz_absorbe_agua-resized.jpg" />
+  <media name="ladrillo-resized.jpg" file="ladrillo-resized.jpg" />
+  <media name="las flores producen frutos y semillas-resized.jpg" file="las_flores_producen_frutos_y_semillas-resized.jpg" />
+  <media name="las hojas permiten que la planta respire-resized.jpg" file="las_hojas_permiten_que_la_planta_respire-resized.jpg" />
+  <media name="las hojas también reciben luz solar-resized.jpg" file="las_hojas_tambien_reciben_luz_solar-resized.jpg" />
+  <media name="las plantas respiran por las hojas-resized.jpg" file="las_plantas_respiran_por_las_hojas-resized.jpg" />
+  <media name="Las plantas se sostienen al suelo -resized.jpg" file="las_plantas_se_sostienen_al_suelo_-resized.jpg" />
+  <media name="las plantas tienen raíz-resized.jpg" file="las_plantas_tienen_raiz-resized.jpg" />
+  <media name="leen2-resized.jpg" file="leen2-resized.jpg" />
+  <media name="los frutos nacen de las flores-resized.jpg" file="los_frutos_nacen_de_las_flores-resized.jpg" />
+  <media name="los frutos tienen en su interior las semillas-resized.jpg" file="los_frutos_tienen_en_su_interior_las_semillas-resized.jpg" />
+  <media name="los nutrientes viajan por el tallo-resized.jpg" file="los_nutrientes_viajan_por_el_tallo-resized.jpg" />
+  <media name="martillo-resized.jpg" file="martillo-resized.jpg" />
+  <media name="nariz.JPG" file="nariz.jpg" />
+  <media name="niña2-resized.jpg" file="nina2-resized.jpg" />
+  <media name="niña3-resized.jpg" file="nina3-resized.jpg" />
+  <media name="niño1-resized.jpg" file="nino1-resized.jpg" />
+  <media name="niños4-resized.jpg" file="ninos4-resized.jpg" />
+  <media name="ojo.JPG" file="ojo.jpg" />
+  <media name="ojo2.JPG" file="ojo2.jpg" />
+  <media name="ojo3.JPG" file="ojo3.jpg" />
+  <media name="otoño-resized.jpg" file="otono-resized.jpg" />
+  <media name="pala-resized.jpg" file="pala-resized.jpg" />
+  <media name="partes de la planta-resized.jpg" file="partes_de_la_planta-resized.jpg" />
+  <media name="pelo.JPG" file="pelo.jpg" />
+  <media name="raíz-resized.jpg" file="raiz-resized.jpg" />
+  <media name="sala-resized.jpg" file="sala-resized.jpg" />
+  <media name="sopa de letras1-resized.jpg" file="sopa_de_letras1-resized.jpg" />
+  <media name="tallo-resized.jpg" file="tallo-resized.jpg" />
+  <media name="tomas-y-el-lapiz-magico-resized.jpg" file="tomas-y-el-lapiz-magico-resized.jpg" />
+  <media name="tomas3.JPG" file="tomas3.jpg" />
+  <media name="ladrillo.mp3" file="ladrillo.mp3" />
+  <media name="lengua.mp3" file="lengua.mp3" />
+  <media name="mano.mp3" file="mano.mp3" />
+  <media name="martillo.mp3" file="martillo.mp3" />
+  <media name="nariz.mp3" file="nariz.mp3" />
+  <media name="ojo.mp3" file="ojo.mp3" />
+  <media name="pala (2).mp3" file="pala__2_.mp3" />
+  <media name="pelo.mp3" file="pelo.mp3" />
+  <media name="pie.mp3" file="pie.mp3" />
+  <media name="sala.mp3" file="sala.mp3" />
+ </mediaBag>
+</JClicProject>
+

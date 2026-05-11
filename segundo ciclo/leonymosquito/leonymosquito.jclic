@@ -1,0 +1,1413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="leonymosquito" version="0.1.3">
+ <settings>
+  <title>leonymosquito</title>
+  <revision description="created" date="8/25/24" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="4" navButtons="none" />
+  <item name="ora1" delay="3" navButtons="none" />
+  <item name="ora_2" delay="3" navButtons="none" />
+  <item name="ora_3" delay="3" navButtons="none" />
+  <item name="ora_4" delay="3" navButtons="none" />
+  <item name="ora_5" delay="3" navButtons="none" />
+  <item name="ora_6" delay="3" navButtons="none" />
+  <item name="ora_7" delay="3" navButtons="none" />
+  <item name="ora_8" delay="3" navButtons="none" />
+  <item name="ora_9" delay="3" navButtons="none" />
+  <item name="ora_10" delay="3" navButtons="none" />
+  <item name="elegir1" delay="3" navButtons="none" />
+  <item name="elegir_2" delay="3" navButtons="none" />
+  <item name="elegir_3" delay="3" navButtons="none" />
+  <item name="falta1" delay="3" navButtons="none" />
+  <item name="falta_2" delay="3" navButtons="none" />
+  <item name="falta_3" delay="3" navButtons="none" />
+  <item name="falta_4" delay="3" navButtons="none" />
+  <item name="falta_5" delay="3" navButtons="none" />
+  <item name="unir1" delay="3" navButtons="none" />
+  <item name="unir_2" delay="3" navButtons="none" />
+  <item name="memo1" delay="3" navButtons="none" />
+  <item name="memo_2" delay="4" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="caratu">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="caratu-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="elegir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFF00" background="0x660066" />
+     </style>
+     <p>Lee y selecciona la respuesta correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x66FF66" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="leon debajo del arbol2-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="489" height="216" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="28" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" size="28" bold="false" italic="false">El texto "El León y el mosquito" es: </text>
+      <target>
+       <answer>una fábula</answer>
+       <optionList>
+        <option>un cuento</option>
+        <option>una fábula</option>
+        <option>una leyenda</option>
+        <option>una noticia</option>
+       </optionList>
+       <text>una fábula</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="elegir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFF00" background="0x660066" />
+     </style>
+     <p>Lee y selecciona la respuesta correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x66FF66" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="el mosquito enfrentó al leon valientemente-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="640" height="169" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="28" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" size="28" bold="true" italic="false">¿Quiénes son los personajes principales?</text>
+      <text family="Arial" background="0xFFFFFF" size="28"> </text>
+     </p>
+     <p family="Arial" background="0xFFFFFF">
+      <target>
+       <answer>un mosquito y un león</answer>
+       <optionList>
+        <option>un perro y una oveja</option>
+        <option>un mosquito y un león</option>
+        <option>una mariposa y un oso</option>
+        <option>una serpiente y una paloma</option>
+       </optionList>
+       <text>un mosquito y un león</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="elegir_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFF00" background="0x660066" />
+     </style>
+     <p>Lee y selecciona la respuesta correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x66FF66" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="el mosquito picó al leon varias veces-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="472" height="216" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="28" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" size="28" bold="true" italic="false">¿Cuál fue la razón por la cual el león empezó a enfadarse?  </text>
+     </p>
+     <p family="Arial" background="0xFFFFFF">
+      <target>
+       <answer>el mosquito picoteó al león</answer>
+       <optionList>
+        <option>el mosquito picoteó al león</option>
+        <option>el mosquito asustó al león</option>
+        <option>el mosquito despertó al león</option>
+        <option>el mosquito golpeó al león</option>
+       </optionList>
+       <text>el mosquito picoteó al león</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falta1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>Un león ........... bajo un árbol. (arma la palabra faltante)</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x99FFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="leon debajo del arbol2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="55.0" cellHeight="78.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="65" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>b</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falta_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>Un .......... empezó a molestar al león. (arma la palabra faltante)</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x99FFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="leon debajo del arbol2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="8" cellWidth="72.0" cellHeight="78.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="65" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="8" rows="1" />
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell>
+     <p>q</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falta_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>El mosquito ..... al león en la nariz. (arma la palabra faltante)</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x99FFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="el mosquito picó al leon varias veces-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="72.0" cellHeight="78.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="65" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>p</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>ó</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falta_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>El mosquito tropezó con una ........ (arma la palabra faltante)</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x99FFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="tropezó con una telaraña y quedó atrapado-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="8" cellWidth="68.0" cellHeight="78.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="65" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="8" rows="1" />
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>ñ</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falta_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>Moraleja: ninguna ...... dura para siempre. (arma la palabra faltante)</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x99FFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="WhatsApp Image 2024-08-25 at 20.04.30-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="8" cellWidth="68.0" cellHeight="78.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="65" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="8" rows="1" />
+    <cell>
+     <p>v</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFF33FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encontrá los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x0000FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="187.0" cellHeight="64.0" border="true" id="primary">
+    <style margin="3">
+     <font family="Arial" size="52" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell>
+     <p>mosquito</p>
+    </cell>
+    <cell>
+     <p>pelo</p>
+    </cell>
+    <cell>
+     <p>nariz</p>
+    </cell>
+    <cell>
+     <p>lengua</p>
+    </cell>
+    <cell>
+     <p>mano</p>
+    </cell>
+    <cell>
+     <p>pie</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFF33FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encontrá los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x0000FF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFF9900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="146.0" cellHeight="147.0" border="true" id="primary">
+    <style margin="3">
+     <font family="Arial" size="52" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell image="el leon se lastimó con sus garras-resized.jpg" />
+    <cell image="leon debajo del arbol1-resized.jpg" />
+    <cell image="tropezó con una telaraña y quedó atrapado-resized.jpg" />
+    <cell image="el mosquito picó al leon varias veces-resized.jpg" />
+    <cell image="el mosquito voló orgulloso de su victoria-resized.jpg" />
+    <cell image="el mosquito enfrentó al leon valientemente2-resized.jpg" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <image name="leon debajo del arbol2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="98.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>Un</p>
+    </cell>
+    <cell>
+     <p>león</p>
+    </cell>
+    <cell>
+     <p>descansaba</p>
+    </cell>
+    <cell>
+     <p>bajo</p>
+    </cell>
+    <cell>
+     <p>un</p>
+    </cell>
+    <cell>
+     <p>árbol.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_10" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <image name="moraleja ninguna victoria dura para siempre-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="98.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>Moraleja:</p>
+    </cell>
+    <cell>
+     <p>ninguna</p>
+    </cell>
+    <cell>
+     <p>victoria</p>
+    </cell>
+    <cell>
+     <p>dura</p>
+    </cell>
+    <cell>
+     <p>para</p>
+    </cell>
+    <cell>
+     <p>siempre.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <image name="leon debajo del arbol1-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="85.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>Un</p>
+    </cell>
+    <cell>
+     <p>mosquito</p>
+    </cell>
+    <cell>
+     <p>empezó</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>molestar</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>león.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <image name="el leon amenazó con destruir al mosquito-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="87.0" cellHeight="39.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>El</p>
+    </cell>
+    <cell>
+     <p>león</p>
+    </cell>
+    <cell>
+     <p>amenazó</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>destruir</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>mosquito.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <image name="el mosquito enfrentó al leon valientemente-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="114.0" cellHeight="33.0" border="true">
+    <style margin="0" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>El</p>
+    </cell>
+    <cell>
+     <p>mosquito</p>
+    </cell>
+    <cell>
+     <p>desafió</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>león</p>
+    </cell>
+    <cell>
+     <p>valientemente.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <image name="el mosquito picó al leon varias veces-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="78.0" cellHeight="33.0" border="true">
+    <style margin="0" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>El</p>
+    </cell>
+    <cell>
+     <p>mosquito</p>
+    </cell>
+    <cell>
+     <p>picó</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>león</p>
+    </cell>
+    <cell>
+     <p>varias</p>
+    </cell>
+    <cell>
+     <p>veces.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <image name="el leon se lastimó con sus garras-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="80.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>El</p>
+    </cell>
+    <cell>
+     <p>león</p>
+    </cell>
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>lastimó</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>sus</p>
+    </cell>
+    <cell>
+     <p>garras.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <image name="el mosquito voló orgulloso de su victoria-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="76.0" cellHeight="33.0" border="true">
+    <style margin="0" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>El</p>
+    </cell>
+    <cell>
+     <p>mosquito</p>
+    </cell>
+    <cell>
+     <p>voló</p>
+    </cell>
+    <cell>
+     <p>orgulloso</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>victoria.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <image name="tropezó con una telaraña y quedó atrapado-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="79.0" cellHeight="33.0" border="true">
+    <style margin="0" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>Tropezó</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>una</p>
+    </cell>
+    <cell>
+     <p>telaraña</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>quedó</p>
+    </cell>
+    <cell>
+     <p>atrapado.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Arma la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     <image name="una araña deboró al mosquito vencido-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="98.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>Una</p>
+    </cell>
+    <cell>
+     <p>araña</p>
+    </cell>
+    <cell>
+     <p>devoró</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>mosquito</p>
+    </cell>
+    <cell>
+     <p>vencido.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0x00CC00" />
+     </style>
+     <p>Une la imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="168.0" cellHeight="162.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="leon debajo del arbol1-resized.jpg">
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+    </cell>
+    <cell image="el mosquito enfrentó al leon valientemente2-resized.jpg">
+     <media type="PLAY_AUDIO" level="1" file="ojo.mp3" />
+    </cell>
+    <cell image="el leon se lastimó con sus garras-resized.jpg">
+     <media type="PLAY_AUDIO" level="1" file="nariz.mp3" />
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="371.0" cellHeight="129.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFF33" background="0xCC0000" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>Un león descansaba bajo un árbol.</p>
+    </cell>
+    <cell>
+     <p>El mosquito desafió al león.</p>
+    </cell>
+    <cell>
+     <p>El león se lastimó con sus propias garras.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0x00CC00" />
+     </style>
+     <p>Une la imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="168.0" cellHeight="162.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="el mosquito picó al leon varias veces-resized.jpg">
+     <media type="PLAY_AUDIO" level="1" file="pelo.mp3" />
+    </cell>
+    <cell image="el mosquito voló orgulloso de su victoria-resized.jpg">
+     <media type="PLAY_AUDIO" level="1" file="ojo.mp3" />
+    </cell>
+    <cell image="tropezó con una telaraña y quedó atrapado-resized.jpg">
+     <media type="PLAY_AUDIO" level="1" file="nariz.mp3" />
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="442.0" cellHeight="120.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="80" bold="true" />
+     <color foreground="0xFFFF33" background="0x006600" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>El mosquito se enfrentó al león valientemente.</p>
+    </cell>
+    <cell>
+     <p>El mosquito voló orgulloso de su victoria.</p>
+    </cell>
+    <cell>
+     <p>El mosquito quedó atrapado en una telaraña.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="boca.JPG" file="boca.jpg" />
+  <media name="caratu-resized2.jpg" file="caratu-resized2.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="el leon amenazó con destruir al mosquito-resized.jpg" file="el_leon_amenazo_con_destruir_al_mosquito-resized.jpg" />
+  <media name="el leon se lastimó con sus garras-resized.jpg" file="el_leon_se_lastimo_con_sus_garras-resized.jpg" />
+  <media name="el mosquito enfrentó al leon valientemente-resized.jpg" file="el_mosquito_enfrento_al_leon_valientemente-resized.jpg" />
+  <media name="el mosquito enfrentó al leon valientemente2-resized.jpg" file="el_mosquito_enfrento_al_leon_valientemente2-resized.jpg" />
+  <media name="el mosquito picó al leon varias veces-resized.jpg" file="el_mosquito_pico_al_leon_varias_veces-resized.jpg" />
+  <media name="el mosquito voló orgulloso de su victoria-resized.jpg" file="el_mosquito_volo_orgulloso_de_su_victoria-resized.jpg" />
+  <media name="fluidez lectora caratu.jpg" file="fluidez_lectora_caratu.jpg" />
+  <media name="fluidez.JPG" file="fluidez.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i01-i01-bienhecho.jpg" file="i01-i01-bienhecho.jpg" />
+  <media name="i01-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i01-i03-i01-bienhecho.jpg" />
+  <media name="indio viajero-resized.jpg" file="indio_viajero-resized.jpg" />
+  <media name="leon debajo del arbol1-resized.jpg" file="leon_debajo_del_arbol1-resized.jpg" />
+  <media name="leon debajo del arbol2-resized.jpg" file="leon_debajo_del_arbol2-resized.jpg" />
+  <media name="leon debajo del arbol3-resized.jpg" file="leon_debajo_del_arbol3-resized.jpg" />
+  <media name="mano.JPG" file="mano.jpg" />
+  <media name="moraleja ninguna victoria dura para siempre-resized.jpg" file="moraleja_ninguna_victoria_dura_para_siempre-resized.jpg" />
+  <media name="nariz.JPG" file="nariz.jpg" />
+  <media name="ojo.JPG" file="ojo.jpg" />
+  <media name="ojo2.JPG" file="ojo2.jpg" />
+  <media name="ojo3.JPG" file="ojo3.jpg" />
+  <media name="pelo.JPG" file="pelo.jpg" />
+  <media name="pie.JPG" file="pie.jpg" />
+  <media name="tomas3.JPG" file="tomas3.jpg" />
+  <media name="tropezó con una telaraña y quedó atrapado-resized.jpg" file="tropezo_con_una_telarana_y_quedo_atrapado-resized.jpg" />
+  <media name="un mosquito empezo a molestar al leon-resized.jpg" file="un_mosquito_empezo_a_molestar_al_leon-resized.jpg" />
+  <media name="una araña deboró al mosquito vencido-resized.jpg" file="una_arana_deboro_al_mosquito_vencido-resized.jpg" />
+  <media name="WhatsApp Image 2024-08-25 at 20.04.27 (1)-resized.jpg" file="whatsapp_image_2024-08-25_at_20.04.27__1_-resized.jpg" />
+  <media name="WhatsApp Image 2024-08-25 at 20.04.27-resized.jpg" file="whatsapp_image_2024-08-25_at_20.04.27-resized.jpg" />
+  <media name="WhatsApp Image 2024-08-25 at 20.04.29-resized.jpg" file="whatsapp_image_2024-08-25_at_20.04.29-resized.jpg" />
+  <media name="WhatsApp Image 2024-08-25 at 20.04.30 (2)-resized.jpg" file="whatsapp_image_2024-08-25_at_20.04.30__2_-resized.jpg" />
+  <media name="WhatsApp Image 2024-08-25 at 20.04.30-resized.jpg" file="whatsapp_image_2024-08-25_at_20.04.30-resized.jpg" />
+  <media name="WhatsApp Image 2024-08-25 at 20.04.31-resized.jpg" file="whatsapp_image_2024-08-25_at_20.04.31-resized.jpg" />
+  <media name="lengua.mp3" file="lengua.mp3" />
+  <media name="mano.mp3" file="mano.mp3" />
+  <media name="nariz.mp3" file="nariz.mp3" />
+  <media name="ojo.mp3" file="ojo.mp3" />
+  <media name="pelo.mp3" file="pelo.mp3" />
+  <media name="pie.mp3" file="pie.mp3" />
+ </mediaBag>
+</JClicProject>
+

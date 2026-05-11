@@ -1,0 +1,1587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="fluidez-6to" version="0.1.3">
+ <settings>
+  <title>fluidez-6to</title>
+  <revision description="created" date="8/20/24" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="4" navButtons="none" />
+  <item name="caratutomas_2" delay="3" navButtons="none" />
+  <item name="ora1" delay="3" navButtons="none" />
+  <item name="ora_2" delay="3" navButtons="none" />
+  <item name="ora_3" delay="3" navButtons="none" />
+  <item name="ora_4" delay="3" navButtons="none" />
+  <item name="ora_5" delay="3" navButtons="none" />
+  <item name="ora_6" delay="3" navButtons="none" />
+  <item name="ora_7" delay="3" navButtons="none" />
+  <item name="ora_8" delay="3" navButtons="none" />
+  <item name="ora_9" delay="3" navButtons="none" />
+  <item name="ora_10" delay="3" navButtons="none" />
+  <item name="sopa" delay="3" navButtons="none" />
+  <item name="falta1" delay="3" navButtons="none" />
+  <item name="falta_2" delay="3" navButtons="none" />
+  <item name="falta_3" delay="3" navButtons="none" />
+  <item name="falta_4" delay="3" navButtons="none" />
+  <item name="falta_5" delay="3" navButtons="none" />
+  <item name="unir1" delay="3" navButtons="none" />
+  <item name="unir_2" delay="3" navButtons="none" />
+  <item name="unir_3" delay="3" navButtons="none" />
+  <item name="ordenar" delay="3" navButtons="none" />
+  <item name="memo1" delay="3" navButtons="none" />
+  <item name="memo_2" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.DoublePuzzle" name="caratutomas_2">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFF00" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="i01-fluidezcaratu.JPG">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@JigSaw" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falta1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>Correcaminos era un ..... especial. (arma la palabra faltante)</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x99FFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="indio viajero-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="61.0" cellHeight="78.0" border="true">
+    <style margin="2">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falta_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>Traía historias de todo el ....... (arma la palabra faltante)</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x99FFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="contaba historias-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="54.0" cellHeight="85.0" border="true">
+    <style margin="2">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falta_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>Contó sobre un lugar con ....... de otoño. (arma la palabra faltante)</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x99FFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="otoño2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="54.0" cellHeight="85.0" border="true">
+    <style margin="2">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>á</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>b</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falta_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>Los indios no creyeron en su ......... (arma la palabra faltante)</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x99FFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="no le creyeron-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="9" cellWidth="54.0" cellHeight="85.0" border="true">
+    <style margin="2">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="9" rows="1" />
+    <cell>
+     <p>h</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falta_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003333" />
+     </style>
+     <p>.......... decidió buscar el árbol de otoño. (arma la palabra faltante)</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x99FFFF" background="0x660066" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <image name="fue en busca-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="12" cellWidth="43.0" cellHeight="85.0" border="true">
+    <style margin="1">
+     <font family="Arial" size="55" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="12" rows="1" />
+    <cell>
+     <p>C</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="55" bold="true" />
+      <color foreground="0xFFFF00" background="0xCC0000" />
+     </style>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>n</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0x999900" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFF0000" background="0x006600" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="otoño3-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="152.0" cellHeight="36.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell>
+     <p>Correcaminos</p>
+    </cell>
+    <cell>
+     <p>otoño</p>
+    </cell>
+    <cell>
+     <p>frío</p>
+    </cell>
+    <cell>
+     <p>árbol</p>
+    </cell>
+    <cell>
+     <p>valentía</p>
+    </cell>
+    <cell>
+     <p>indios</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0x999900" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFF0000" background="0x006600" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="indios entendieron2-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="126.0" cellHeight="123.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0x33FF00" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell image="contaba historias-resized.jpg" />
+    <cell image="contando historias-resized.jpg" />
+    <cell image="indio viajero-resized.jpg" />
+    <cell image="otoño2-resized.jpg" />
+    <cell image="indios entendieron2-resized.jpg" />
+    <cell image="otoño3-resized.jpg" />
+    <cell image="recorre con valentía-resized.jpg" />
+    <cell image="transforma en arbol-resized.jpg" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="indio viajero-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="125.0" cellHeight="36.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFF00" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Correcaminos</p>
+    </cell>
+    <cell>
+     <p>era</p>
+    </cell>
+    <cell>
+     <p>un</p>
+    </cell>
+    <cell>
+     <p>indio</p>
+    </cell>
+    <cell>
+     <p>viajero.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_10" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="comprendieron otoño-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="108.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFF00" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Los</p>
+    </cell>
+    <cell>
+     <p>indios</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>comprendieron</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>verdadero</p>
+    </cell>
+    <cell>
+     <p>otoño.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="contaba historias-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="80.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFF00" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Traia</p>
+    </cell>
+    <cell>
+     <p>historias</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>todo</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>mundo.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="otoño3-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="8" cellWidth="66.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFF00" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="8" rows="1" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Contó</p>
+    </cell>
+    <cell>
+     <p>sobre</p>
+    </cell>
+    <cell>
+     <p>un</p>
+    </cell>
+    <cell>
+     <p>lugar</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>árboles</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>otoño.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="no le creyeron-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="78.0" cellHeight="42.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFF00" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Los</p>
+    </cell>
+    <cell>
+     <p>indios</p>
+    </cell>
+    <cell>
+     <p>no</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>creyeron</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>historia.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fue en busca-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="97.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFF00" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Correcaminos</p>
+    </cell>
+    <cell>
+     <p>decidió</p>
+    </cell>
+    <cell>
+     <p>buscar</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>árbol</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>otoño.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="indios entendieron2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="76.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFF00" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Nadie</p>
+    </cell>
+    <cell>
+     <p>sabía</p>
+    </cell>
+    <cell>
+     <p>donde</p>
+    </cell>
+    <cell>
+     <p>encontrar</p>
+    </cell>
+    <cell>
+     <p>ese</p>
+    </cell>
+    <cell>
+     <p>arbol</p>
+    </cell>
+    <cell>
+     <p>especial.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="señor frio-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="8" cellWidth="70.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFF00" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="8" rows="1" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Encontró</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>Señor</p>
+    </cell>
+    <cell>
+     <p>del</p>
+    </cell>
+    <cell>
+     <p>frío</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>una</p>
+    </cell>
+    <cell>
+     <p>cueva.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="recorre con valentía-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="70.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFF00" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Siguió</p>
+    </cell>
+    <cell>
+     <p>un</p>
+    </cell>
+    <cell>
+     <p>camino</p>
+    </cell>
+    <cell>
+     <p>peligroso</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>gran</p>
+    </cell>
+    <cell>
+     <p>valentía.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="transforma en arbol-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="83.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFFFF00" background="0x333300" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Correcaminos</p>
+    </cell>
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>transformó</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>un</p>
+    </cell>
+    <cell>
+     <p>hermoso</p>
+    </cell>
+    <cell>
+     <p>árbol.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena la historia.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="indios entendieron2-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="10" cols="1" cellWidth="308.0" cellHeight="28.0" border="true">
+    <style margin="2">
+     <font family="Arial" size="18" bold="true" />
+     <color background="0x009999" inactive="0xFFFFFF" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="10" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0x009999" inactive="0xFFFFFF" />
+     </style>
+     <p>Correcaminos era un indio especial.</p>
+    </cell>
+    <cell>
+     <p>Traía historias de todo el mundo.</p>
+    </cell>
+    <cell>
+     <p>Habló de un lugar con otoño.</p>
+    </cell>
+    <cell>
+     <p>Los otros indios no le creyeron.</p>
+    </cell>
+    <cell>
+     <p>Correcaminos buscó el árbol de otoño.</p>
+    </cell>
+    <cell>
+     <p>Nadie sabía dónde encontrarlo.</p>
+    </cell>
+    <cell>
+     <p>Encontró al Señor del Frío.</p>
+    </cell>
+    <cell>
+     <p>Siguió su camino con valentía.</p>
+    </cell>
+    <cell>
+     <p>Correcaminos se transformó en árbol.</p>
+    </cell>
+    <cell>
+     <p>Los indios comprendieron el otoño.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopa" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>Encuentra 6 palabras escondidas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006666" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0x003333">
+     <image name="otoño2-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <textGrid rows="12" columns="12" cellWidth="33.0" cellHeight="30.0" border="true">
+    <style margin="3">
+     <font family="Arial" size="55" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" />
+    </style>
+    <text>
+     <row>C********I**</row>
+     <row>*OÁA*****N**</row>
+     <row>**RI*****D**</row>
+     <row>**BR*****I**</row>
+     <row>**OOE****O**</row>
+     <row>**LT*C***S**</row>
+     <row>***S**A*****</row>
+     <row>*FRIO**M****</row>
+     <row>***H****I***</row>
+     <row>*********N**</row>
+     <row>******OTOÑO*</row>
+     <row>***********S</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">HISTORIA</clue>
+    <clue id="1">FRIO</clue>
+    <clue id="2">INDIOS</clue>
+    <clue id="3">CORRECAMINOS</clue>
+    <clue id="4">OTOÑO</clue>
+    <clue id="5">ÁRBOL</clue>
+   </clues>
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="30" bold="true" />
+      <color foreground="0xFFCC33" background="0x660066" />
+     </style>
+     <p>Une cada oración con su final.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="no le creyeron-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="276.0" cellHeight="102.0" border="true" id="primary">
+    <style margin="2">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0x660066" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x330033" />
+     </style>
+     <p>Correcaminos era un indio</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Traía historias de todo el </p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x000099" />
+     </style>
+     <p>Contó sobre un lugar con árboles de</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x006666" />
+     </style>
+     <p>Los indios no creyeron en su</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="150.0" cellHeight="45.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0x990000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>especial.</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>mundo.</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>otoño.</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>historia.</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="30" bold="true" />
+      <color foreground="0xFFCC33" background="0x660066" />
+     </style>
+     <p>Une cada oración con su final.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="indios entendieron2-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="1" cellWidth="313.0" cellHeight="102.0" border="true" id="primary">
+    <style margin="2">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0x660066" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x003333" />
+     </style>
+     <p>Correcaminos se transformó en un hermoso</p>
+    </cell>
+    <cell>
+     <p>Los indios comprendieron el verdadero </p>
+    </cell>
+   </cells>
+   <cells rows="2" cols="1" cellWidth="134.0" cellHeight="37.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0x990000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell>
+     <p>árbol.</p>
+    </cell>
+    <cell>
+     <p>otoño.</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell image="i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="30" bold="true" />
+      <color foreground="0xFFCC33" background="0x660066" />
+     </style>
+     <p>Une cada oración con su final.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="contando historias-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="293.0" cellHeight="102.0" border="true" id="primary">
+    <style margin="2">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0x660066" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x006666" />
+     </style>
+     <p>Correcaminos decidió buscar el árbol de</p>
+    </cell>
+    <cell>
+     <p>Nadie sabía donde encontrar ese árbol</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0xCC0000" />
+     </style>
+     <p>Encontró al Señor del Frío en una</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <p>Siguió un camino peligroso con gran</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="163.0" cellHeight="42.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0x990000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>otoño.</p>
+    </cell>
+    <cell>
+     <p>especial.</p>
+    </cell>
+    <cell>
+     <p>cueva.</p>
+    </cell>
+    <cell>
+     <p>valentía.</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="190846316-conjunto-de-arañas-im.jpg" file="190846316-conjunto-de-aranas-im.jpg" />
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="araña en tela-resized.jpg" file="arana_en_tela-resized.jpg" />
+  <media name="arañas colgando.jpg" file="aranas_colgando.jpg" />
+  <media name="arañas negras-resized.jpg" file="aranas_negras-resized.jpg" />
+  <media name="caratu-resized2.jpg" file="caratu-resized2.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="comprendieron otoño-resized.jpg" file="comprendieron_otono-resized.jpg" />
+  <media name="contaba historias-resized.jpg" file="contaba_historias-resized.jpg" />
+  <media name="contando historias-resized.jpg" file="contando_historias-resized.jpg" />
+  <media name="fue en busca-resized.jpg" file="fue_en_busca-resized.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-fluidezcaratu.JPG" file="i01-fluidezcaratu.jpg" />
+  <media name="i01-i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i01-i01-bienhecho.jpg" file="i01-i01-bienhecho.jpg" />
+  <media name="i01-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i01-i03-i01-bienhecho.jpg" />
+  <media name="india en el bosque-resized.jpg" file="india_en_el_bosque-resized.jpg" />
+  <media name="indio niño-resized.jpg" file="indio_nino-resized.jpg" />
+  <media name="indio viajero-resized.jpg" file="indio_viajero-resized.jpg" />
+  <media name="indios entendieron2-resized.jpg" file="indios_entendieron2-resized.jpg" />
+  <media name="no le creyeron-resized.jpg" file="no_le_creyeron-resized.jpg" />
+  <media name="otoño2-resized.jpg" file="otono2-resized.jpg" />
+  <media name="otoño3-resized.jpg" file="otono3-resized.jpg" />
+  <media name="recorre con valentía-resized.jpg" file="recorre_con_valentia-resized.jpg" />
+  <media name="señor frio-resized.jpg" file="senor_frio-resized.jpg" />
+  <media name="transforma en arbol-resized.jpg" file="transforma_en_arbol-resized.jpg" />
+ </mediaBag>
+</JClicProject>
+

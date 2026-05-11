@@ -1,0 +1,1366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="completovocales" version="0.1.3">
+ <settings>
+  <title>completovocales</title>
+  <revision description="created" date="4/14/24" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="3" navButtons="none" />
+  <item name="banana" delay="1" navButtons="none" />
+  <item name="abeja" delay="1" navButtons="none" />
+  <item name="gusano" delay="1" navButtons="none" />
+  <item name="pera" delay="1" navButtons="none" />
+  <item name="manzana" delay="1" navButtons="none" />
+  <item name="naranja" delay="1" navButtons="none" />
+  <item name="uva" delay="1" navButtons="none" />
+  <item name="mandarina" delay="1" navButtons="none" />
+  <item name="pomelo" delay="1" navButtons="none" />
+  <item name="frutilla" delay="1" navButtons="none" />
+  <item name="durazno" delay="1" navButtons="none" />
+  <item name="anana" delay="1" navButtons="none" />
+  <item name="perro" delay="1" navButtons="none" />
+  <item name="loro" delay="1" navButtons="none" />
+  <item name="gallina" delay="1" navButtons="none" />
+  <item name="paloma" delay="1" navButtons="none" />
+  <item name="payaso" delay="1" navButtons="none" />
+  <item name="vaca" delay="1" navButtons="none" />
+  <item name="sapo" delay="1" navButtons="none" />
+  <item name="helado" delay="1" navButtons="none" />
+  <item name="gato" delay="1" navButtons="none" />
+  <item name="elegir" delay="2" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@text.FillInBlanks" name="abeja" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="abeja.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">b</text>
+      <target>
+       <answer>e</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>e</text>
+      </target>
+      <text size="120">j</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="anana" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="anana.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">n</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">n</text>
+      <target>
+       <answer>á</answer>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>á</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="banana" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="banana.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="598" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">b</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">n</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">n</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="caratu">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="caratu-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="durazno" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="durazno.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">d</text>
+      <target>
+       <answer>u</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>u</text>
+      </target>
+      <text size="120">r</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">zn</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@panels.Identify" name="elegir" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x999900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Clic sobre durazno - naranja - payaso - gato</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="3" cellWidth="181.0" cellHeight="158.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <gradient source="0x00FF33" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="3" />
+    <cell id="1" image="durazno.gif" />
+    <cell id="0" image="pato.gif" />
+    <cell id="0" image="perro.gif" />
+    <cell id="0" image="sapo.gif" />
+    <cell id="0" image="gallina.gif" />
+    <cell id="1" image="payaso.gif" />
+    <cell id="0" image="vaca.gif" />
+    <cell id="1" image="gato.gif" />
+    <cell id="1" image="naranja.gif" />
+   </cells>
+   <cells rows="3" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell image="bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="frutilla" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="frutilla.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">fr</text>
+      <target>
+       <answer>u</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>u</text>
+      </target>
+      <text size="120">t</text>
+      <target>
+       <answer>i</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>i</text>
+      </target>
+      <text size="120">ll</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="gallina" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="gallina.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">g</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">ll</text>
+      <target>
+       <answer>i</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>i</text>
+      </target>
+      <text size="120">n</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="gato" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="gato.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">g</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">t</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="gusano" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="gusano.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">g</text>
+      <target>
+       <answer>u</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>u</text>
+      </target>
+      <text size="120">s</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">n</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="helado" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="helado.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">h</text>
+      <target>
+       <answer>e</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>e</text>
+      </target>
+      <text size="120">l</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">d</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="loro" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="loro.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">l</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+      <text size="120">r</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="mandarina" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="mandarina.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="671" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">m</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">nd</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">r</text>
+      <target>
+       <answer>i</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>i</text>
+      </target>
+      <text size="120">n</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="manzana" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="manzana.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="740" height="291" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">m</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">nz</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">n</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="naranja" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="naranja.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">n</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">r</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">nj</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="paloma" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="paloma.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">p</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">l</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+      <text size="120">m</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="payaso" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="payaso.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">p</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">y</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">s</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="pera" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="pera.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">p</text>
+      <target>
+       <answer>e</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>e</text>
+      </target>
+      <text size="120">r</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="perro" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="perro.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">p</text>
+      <target>
+       <answer>e</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>e</text>
+      </target>
+      <text size="120">rr</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="pomelo" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="pomelo.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">p</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+      <text size="120">m</text>
+      <target>
+       <answer>e</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>e</text>
+      </target>
+      <text size="120">l</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="sapo" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="sapo.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">s</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">p</text>
+      <target>
+       <answer>o</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>o</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="uva" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="uva.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <target>
+       <answer>u</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>u</text>
+      </target>
+      <text size="120">v</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="vaca" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x33FF00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Completamos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="72" bold="true" />
+      <gradient source="0x0000CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="vaca.gif" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true">
+     <size width="531" height="307" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" Alignment="1">
+      <text size="120">v</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+      <text size="120">c</text>
+      <target>
+       <answer>a</answer>
+       <response fill="_" length="1" maxLength="1" />
+       <text>a</text>
+      </target>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="abeja.gif" file="abeja.gif" animated="true" />
+  <media name="anana.gif" file="anana.gif" animated="true" />
+  <media name="banana.gif" file="banana.gif" animated="true" />
+  <media name="boca.gif" file="boca.gif" animated="true" />
+  <media name="C:/Users/Usuario/Pictures/armopalabras/abeja.gif" file="c__users_usuario_pictures_armopalabras_abeja.gif" animated="true" />
+  <media name="C:/Users/Usuario/Pictures/armopalabras/conejo.gif" file="c__users_usuario_pictures_armopalabras_conejo.gif" animated="true" />
+  <media name="durazno.gif" file="durazno.gif" animated="true" />
+  <media name="frutilla.gif" file="frutilla.gif" animated="true" />
+  <media name="gallina.gif" file="gallina.gif" animated="true" />
+  <media name="gato.gif" file="gato.gif" animated="true" />
+  <media name="gusano.gif" file="gusano.gif" animated="true" />
+  <media name="helado.gif" file="helado.gif" animated="true" />
+  <media name="loro.gif" file="loro.gif" animated="true" />
+  <media name="mandarina.gif" file="mandarina.gif" animated="true" />
+  <media name="mano.gif" file="mano.gif" animated="true" />
+  <media name="manzana.gif" file="manzana.gif" animated="true" />
+  <media name="naranja.gif" file="naranja.gif" animated="true" />
+  <media name="paloma.gif" file="paloma.gif" animated="true" />
+  <media name="pato.gif" file="pato.gif" animated="true" />
+  <media name="payaso.gif" file="payaso.gif" animated="true" />
+  <media name="pera.gif" file="pera.gif" animated="true" />
+  <media name="perro.gif" file="perro.gif" animated="true" />
+  <media name="pomelo.gif" file="pomelo.gif" animated="true" />
+  <media name="sapo.gif" file="sapo.gif" animated="true" />
+  <media name="sopa.gif" file="sopa.gif" animated="true" />
+  <media name="uva.gif" file="uva.gif" animated="true" />
+  <media name="vaca.gif" file="vaca.gif" animated="true" />
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="bienhecho.jpg" file="bienhecho.jpg" />
+  <media name="C:/Users/Usuario/Pictures/armopalabras/bienhecho.jpg" file="c__users_usuario_pictures_armopalabras_bienhecho.jpg" />
+  <media name="caratu-resized2.jpg" file="caratu-resized2.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="frutilla-resized.jpg" file="frutilla-resized.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="paloma-resized.jpg" file="paloma-resized.jpg" />
+ </mediaBag>
+</JClicProject>
+

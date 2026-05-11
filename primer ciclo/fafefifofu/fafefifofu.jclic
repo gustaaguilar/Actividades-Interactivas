@@ -1,0 +1,2377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="fafefifofu" version="0.1.3">
+ <settings>
+  <title>fafefifofu</title>
+  <revision description="created" date="9/5/24" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="4" navButtons="none" />
+  <item id="start" name="identi1" delay="3" navButtons="none" />
+  <item name="identi_2" delay="3" navButtons="none" />
+  <item name="identi_3" delay="3" navButtons="none" />
+  <item name="identi_4" delay="3" navButtons="none" />
+  <item name="identi_5" delay="3" navButtons="none" />
+  <item name="falda" delay="3" navButtons="none" />
+  <item name="falda2" delay="3" navButtons="none" />
+  <item name="familia" delay="3" navButtons="none" />
+  <item name="feria" delay="3" navButtons="none" />
+  <item name="fideos" delay="3" navButtons="none" />
+  <item name="fósforo" delay="3" navButtons="none" />
+  <item name="fuego" delay="3" navButtons="none" />
+  <item name="fabrica_2" delay="3" navButtons="none" />
+  <item name="feria_3" delay="3" navButtons="none" />
+  <item name="foca" delay="3" navButtons="none" />
+  <item name="fuego_5" delay="3" navButtons="none" />
+  <item name="fideos_2" delay="3" navButtons="none" />
+  <item name="foca_2" delay="3" navButtons="none" />
+  <item name="foco_2" delay="3" navButtons="none" />
+  <item name="foto_3" delay="3" navButtons="none" />
+  <item name="unir1" delay="3" navButtons="none" />
+  <item name="tachar_faro" delay="3" navButtons="none" />
+  <item name="tachar_feria" delay="3" navButtons="none" />
+  <item name="tachar_fideos" delay="3" navButtons="none" />
+  <item name="tachar_foco" delay="3" navButtons="none" />
+  <item name="tachar_fuego" delay="4" navButtons="none" />
+  <item name="feliz" delay="3" navButtons="none" />
+  <item name="feliz2" delay="3" navButtons="none" />
+  <item name="firma" delay="3" navButtons="none" />
+  <item name="feliz_2" delay="3" navButtons="none" />
+  <item name="firma2" delay="3" navButtons="none" />
+  <item name="fuerte" delay="3" navButtons="none" />
+  <item name="fuerte2" delay="3" navButtons="none" />
+  <item name="fuma2" delay="3" navButtons="none" />
+  <item name="fuma" delay="3" navButtons="none" />
+  <item name="foca_3" delay="3" navButtons="none" />
+  <item name="unir_2" delay="3" navButtons="none" />
+  <item name="memo1" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@text.FillInBlanks" name="fabrica_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fabrica.mp3" />
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fabrica-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fa</answer>
+       <answer>fá</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fá</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">brica</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="falda" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="falda.mp3" />
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="falda-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="89.0" cellHeight="119.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="falda2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="falda.mp3" />
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="falda-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fa</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fa</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">lda</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="familia" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="familia.mp3" />
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="familia-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="67.0" cellHeight="96.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="80" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="feliz" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="feliz.mp3" />
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="feliz-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="89.0" cellHeight="119.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>l</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>z</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="feliz2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="feliz.mp3" />
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="feria-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fe</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fe</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">liz</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="feliz_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="feliz.mp3" />
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="feria-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fe</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fe</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">liz</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="feria" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="feria.mp3" />
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="feria-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="89.0" cellHeight="119.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="feria_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="feria.mp3" />
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="feria-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fe</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fe</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">ria</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="fideos" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fideos.mp3" />
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fideos-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="89.0" cellHeight="119.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>d</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="fideos_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fideos.mp3" />
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fideos-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fi</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fi</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">deos</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="firma" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="firma.mp3" />
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="firma-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="89.0" cellHeight="119.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>i</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="firma2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="firma.mp3" />
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="firma-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fi</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fi</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">rma</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="foca" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="foca.mp3" />
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="foca-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fo</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fo</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">ca</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="foca_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="foca.mp3" />
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="foca-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="66.0" cellHeight="96.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="85" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="foca_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="foco.mp3" />
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="foco-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="66.0" cellHeight="96.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="85" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>c</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="foco_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="foco.mp3" />
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="foco-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fo</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fo</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">co</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="foto_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="foto-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="66.0" cellHeight="96.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="85" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="fuego" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fuego-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="89.0" cellHeight="119.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>g</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="fuego_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fuego-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fu</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fu</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">ego</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="fuerte" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fuerte-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="89.0" cellHeight="119.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>t</p>
+    </cell>
+    <cell>
+     <p>e</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="fuerte2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fuerte-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fu</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fu</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">erte</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="fuma" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fuma.mp3" />
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fumar-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="4" cellWidth="89.0" cellHeight="119.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>u</p>
+    </cell>
+    <cell>
+     <p>m</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="fuma2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0x66FFCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fuma.mp3" />
+     <p>Escribe la sílaba que falta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fumar-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="480" height="295" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false" Alignment="1">
+      <target>
+       <answer>fu</answer>
+       <response fill="." length="2" maxLength="2" />
+       <text>fu</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF" size="120" bold="true" italic="false">ma</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="fósforo" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF00" background="0x009900" />
+     </style>
+     <p>Armá la palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color background="0xFFFF00" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fosforo-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="7" cellWidth="66.0" cellHeight="96.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="85" bold="true" />
+     <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="7" rows="1" />
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>ó</p>
+    </cell>
+    <cell>
+     <p>s</p>
+    </cell>
+    <cell>
+     <p>f</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+    <cell>
+     <p>r</p>
+    </cell>
+    <cell>
+     <p>o</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@panels.Identify" name="identi1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="faro.mp3" />
+     <p>Clic sobre la sílaba con la que inicia el dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="faro-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="112.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x00FF33" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>fa</p>
+    </cell>
+    <cell id="0">
+     <p>fe</p>
+    </cell>
+    <cell id="0">
+     <p>fi</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="feria.mp3" />
+     <p>Clic sobre la sílaba con la que inicia el dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="feria-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="112.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x00FF33" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>fe</p>
+    </cell>
+    <cell id="0">
+     <p>fo</p>
+    </cell>
+    <cell id="0">
+     <p>fu</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fideos.mp3" />
+     <p>Clic sobre la sílaba con la que inicia el dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fideos-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="112.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x00FF33" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>fi</p>
+    </cell>
+    <cell id="0">
+     <p>fe</p>
+    </cell>
+    <cell id="0">
+     <p>fa</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="foco.mp3" />
+     <p>Clic sobre la sílaba con la que inicia el dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="foco-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="112.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x00FF33" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>fo</p>
+    </cell>
+    <cell id="0">
+     <p>fe</p>
+    </cell>
+    <cell id="0">
+     <p>fa</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fuego.mp3" />
+     <p>Clic sobre la sílaba con la que inicia el dibujo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fuego-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="137.0" cellHeight="112.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="100" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x00FF33" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>fu</p>
+    </cell>
+    <cell id="0">
+     <p>fa</p>
+    </cell>
+    <cell id="0">
+     <p>fo</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF33" background="0x990000" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="101.0" border="true" id="primary">
+    <style>
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" shadow="0x66FF66" inactive="0xFFFFFF" alternative="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell txtAlign="middle,bottom" image="familia-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" inactive="0xFFCCCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="familia.mp3" />
+     <p>familia</p>
+    </cell>
+    <cell txtAlign="middle,bottom" image="feria-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" inactive="0xFFCCCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="feria.mp3" />
+     <p>feria</p>
+    </cell>
+    <cell txtAlign="middle,bottom" image="fideos-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" inactive="0xFFCCCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fideos.mp3" />
+     <p>fideos</p>
+    </cell>
+    <cell txtAlign="middle,bottom" image="foco-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" inactive="0xFFCCCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="foco.mp3" />
+     <p>foco</p>
+    </cell>
+    <cell txtAlign="middle,bottom" image="fuego-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" inactive="0xFFCCCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fuego.mp3" />
+     <p>fuego</p>
+    </cell>
+    <cell txtAlign="middle,bottom" image="faro-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006666" inactive="0xFFCCCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="faro.mp3" />
+     <p>faro</p>
+    </cell>
+    <cell txtAlign="middle,bottom" image="cafe-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" inactive="0xFFCCCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cafe.mp3" />
+     <p>café</p>
+    </cell>
+    <cell txtAlign="middle,bottom" image="fiesta-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" inactive="0xFFCCCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fiesta.mp3" />
+     <p>fiesta</p>
+    </cell>
+    <cell txtAlign="middle,bottom" image="fosforo-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" inactive="0xFFCCCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fosforo.mp3" />
+     <p>fósforo</p>
+    </cell>
+    <cell txtAlign="middle,bottom" image="fumar-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" inactive="0xFFCCCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fuma.mp3" />
+     <p>fuma</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@panels.Identify" name="tachar_faro" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="faro.mp3" />
+     <p>Tacha las sílabas que sobran.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="faro-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="96.0" cellHeight="85.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="88" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell id="0">
+     <p>fa</p>
+    </cell>
+    <cell id="1">
+     <p>fe</p>
+    </cell>
+    <cell id="1">
+     <p>fi</p>
+    </cell>
+    <cell id="1">
+     <p>fo</p>
+    </cell>
+    <cell id="1">
+     <p>fu</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell />
+    <cell avoidOverlapping="true" image="TACHA.JPG">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="140" bold="true" />
+      <color foreground="0xCC0000" background="0xFFFF00" alternative="0xCC0000" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell avoidOverlapping="true" image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="tachar_feria" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="feria.mp3" />
+     <p>Tacha las sílabas que sobran.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="feria-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="96.0" cellHeight="85.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="88" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell id="1">
+     <p>fa</p>
+    </cell>
+    <cell id="0">
+     <p>fe</p>
+    </cell>
+    <cell id="1">
+     <p>fi</p>
+    </cell>
+    <cell id="1">
+     <p>fo</p>
+    </cell>
+    <cell id="1">
+     <p>fu</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell image="TACHA.JPG" />
+    <cell avoidOverlapping="true">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="140" bold="true" />
+      <color foreground="0xCC0000" background="0xFFFF00" alternative="0xCC0000" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell avoidOverlapping="true" image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="tachar_fideos" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fideos.mp3" />
+     <p>Tacha las sílabas que sobran.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fideos-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="96.0" cellHeight="85.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="88" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell id="0">
+     <p>fi</p>
+    </cell>
+    <cell id="1">
+     <p>fe</p>
+    </cell>
+    <cell id="1">
+     <p>fa</p>
+    </cell>
+    <cell id="1">
+     <p>fo</p>
+    </cell>
+    <cell id="1">
+     <p>fu</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell />
+    <cell avoidOverlapping="true" image="TACHA.JPG">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="140" bold="true" />
+      <color foreground="0xCC0000" background="0xFFFF00" alternative="0xCC0000" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell avoidOverlapping="true" image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="tachar_foco" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="foco.mp3" />
+     <p>Tacha las sílabas que sobran.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="foco-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="96.0" cellHeight="85.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="88" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell id="0">
+     <p>fo</p>
+    </cell>
+    <cell id="1">
+     <p>fe</p>
+    </cell>
+    <cell id="1">
+     <p>fi</p>
+    </cell>
+    <cell id="1">
+     <p>fa</p>
+    </cell>
+    <cell id="1">
+     <p>fu</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell />
+    <cell avoidOverlapping="true" image="TACHA.JPG">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="140" bold="true" />
+      <color foreground="0xCC0000" background="0xFFFF00" alternative="0xCC0000" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell avoidOverlapping="true" image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="tachar_fuego" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="18" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fuego.mp3" />
+     <p>Tacha las sílabas que sobran.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="fuego-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="96.0" cellHeight="85.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="88" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x33FFFF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell id="0">
+     <p>fu</p>
+    </cell>
+    <cell id="1">
+     <p>fe</p>
+    </cell>
+    <cell id="1">
+     <p>fi</p>
+    </cell>
+    <cell id="1">
+     <p>fo</p>
+    </cell>
+    <cell id="1">
+     <p>fa</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell />
+    <cell avoidOverlapping="true" image="TACHA.JPG">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="140" bold="true" />
+      <color foreground="0xCC0000" background="0xFFFF00" alternative="0xCC0000" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+    </cell>
+    <cell avoidOverlapping="true" image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+    <cell image="TACHA.JPG" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="30" bold="true" />
+      <color foreground="0xFFCC33" background="0x660066" />
+     </style>
+     <p>Une cada imagen con su sílaba inicial.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="103.0" cellHeight="102.0" border="true" id="primary">
+    <style margin="2">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0x660066" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="falda-resized.jpg">
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x330033" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="falda.mp3" />
+    </cell>
+    <cell image="feria-resized.jpg">
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="feria.mp3" />
+    </cell>
+    <cell image="fideos-resized.jpg">
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x000099" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fideos.mp3" />
+    </cell>
+    <cell image="foca-resized.jpg">
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x006666" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="foca.mp3" />
+    </cell>
+    <cell image="fuego-resized.jpg">
+     <media type="PLAY_AUDIO" level="1" file="fuego.mp3" />
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="102.0" cellHeight="92.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" />
+     <color foreground="0xFFFF00" background="0x990000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="72" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>fa</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="72" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>fe</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="72" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>fi</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="72" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>fo</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="72" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>fu</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="i01-i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-i01-bienhecho.jpg" />
+    <cell image="i02-i01-i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="30" bold="true" />
+      <color foreground="0xFFCC33" background="0x660066" />
+     </style>
+     <p>Une cada imagen con su sílaba inicial.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="103.0" cellHeight="102.0" border="true" id="primary">
+    <style margin="2">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFF00" background="0x660066" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="familia-resized.jpg">
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x330033" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="familia.mp3" />
+    </cell>
+    <cell image="feliz-resized.jpg">
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x333300" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="feliz.mp3" />
+    </cell>
+    <cell image="fiesta-resized.jpg">
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x000099" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="fiesta.mp3" />
+    </cell>
+    <cell image="foco-resized.jpg">
+     <style margin="1">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x006666" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="foco.mp3" />
+    </cell>
+    <cell image="fuerte-resized.jpg">
+     <media type="PLAY_AUDIO" level="1" file="fuerte.mp3" />
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="102.0" cellHeight="92.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" />
+     <color foreground="0xFFFF00" background="0x990000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="72" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>fa</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="72" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>fe</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="72" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>fi</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="72" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>fo</p>
+    </cell>
+    <cell>
+     <style margin="1">
+      <font family="Arial" size="72" bold="true" />
+      <color foreground="0xFFFF00" background="0x990000" />
+     </style>
+     <p>fu</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="i01-i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-i01-bienhecho.jpg" />
+    <cell image="i01-i01-i01-i01-bienhecho.jpg" />
+    <cell image="i02-i01-i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="cafe-resized.jpg" file="cafe-resized.jpg" />
+  <media name="cafetera-resized.jpg" file="cafetera-resized.jpg" />
+  <media name="caratu-resized2.jpg" file="caratu-resized2.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="elefante-resized.jpg" file="elefante-resized.jpg" />
+  <media name="fabrica-resized.jpg" file="fabrica-resized.jpg" />
+  <media name="falda-resized.jpg" file="falda-resized.jpg" />
+  <media name="familia-resized.jpg" file="familia-resized.jpg" />
+  <media name="faro-resized.jpg" file="faro-resized.jpg" />
+  <media name="feliz-resized.jpg" file="feliz-resized.jpg" />
+  <media name="feria-resized.jpg" file="feria-resized.jpg" />
+  <media name="feria2-resized.jpg" file="feria2-resized.jpg" />
+  <media name="fideos-resized.jpg" file="fideos-resized.jpg" />
+  <media name="fiesta-resized.jpg" file="fiesta-resized.jpg" />
+  <media name="fila-resized.jpg" file="fila-resized.jpg" />
+  <media name="firma-resized.jpg" file="firma-resized.jpg" />
+  <media name="flor-resized.jpg" file="flor-resized.jpg" />
+  <media name="foca-resized.jpg" file="foca-resized.jpg" />
+  <media name="foco-resized.jpg" file="foco-resized.jpg" />
+  <media name="fogata-resized.jpg" file="fogata-resized.jpg" />
+  <media name="fosforo-resized.jpg" file="fosforo-resized.jpg" />
+  <media name="foto-resized.jpg" file="foto-resized.jpg" />
+  <media name="fuego-resized.jpg" file="fuego-resized.jpg" />
+  <media name="fuente-resized.jpg" file="fuente-resized.jpg" />
+  <media name="fuerte-resized.jpg" file="fuerte-resized.jpg" />
+  <media name="fumar-resized.jpg" file="fumar-resized.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i01-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="i01-i01-i01-i01-bienhecho.jpg" file="i01-i01-i01-bienhecho.jpg" />
+  <media name="i01-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i01-i01-bienhecho.jpg" />
+  <media name="i02-i01-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i01-i03-i01-bienhecho.jpg" />
+  <media name="TACHA.JPG" file="tacha.jpg" />
+  <media name="taco-resized.jpg" file="taco-resized.jpg" />
+  <media name="taza-resized.jpg" file="taza-resized.jpg" />
+  <media name="telefono-resized.jpg" file="telefono-resized.jpg" />
+  <media name="tetera-resized.jpg" file="tetera-resized.jpg" />
+  <media name="tigre-resized.jpg" file="tigre-resized.jpg" />
+  <media name="tiza-resized.jpg" file="tiza-resized.jpg" />
+  <media name="tomate-resized.jpg" file="tomate-resized.jpg" />
+  <media name="toro-resized.jpg" file="toro-resized.jpg" />
+  <media name="tubo-resized.jpg" file="tubo-resized.jpg" />
+  <media name="tucan-resized.jpg" file="tucan-resized.jpg" />
+  <media name="cafe.mp3" file="cafe.mp3" />
+  <media name="fabrica.mp3" file="fabrica.mp3" />
+  <media name="falda.mp3" file="falda.mp3" />
+  <media name="familia.mp3" file="familia.mp3" />
+  <media name="faro.mp3" file="faro.mp3" />
+  <media name="feliz.mp3" file="feliz.mp3" />
+  <media name="feria.mp3" file="feria.mp3" />
+  <media name="fideos.mp3" file="fideos.mp3" />
+  <media name="fiesta.mp3" file="fiesta.mp3" />
+  <media name="fila.mp3" file="fila.mp3" />
+  <media name="firma.mp3" file="firma.mp3" />
+  <media name="foca.mp3" file="foca.mp3" />
+  <media name="foco.mp3" file="foco.mp3" />
+  <media name="fosforo.mp3" file="fosforo.mp3" />
+  <media name="foto.mp3" file="foto.mp3" />
+  <media name="fuego.mp3" file="fuego.mp3" />
+  <media name="fuente.mp3" file="fuente.mp3" />
+  <media name="fuerte.mp3" file="fuerte.mp3" />
+  <media name="fuma.mp3" file="fuma.mp3" />
+  <media name="taco.mp3" file="taco.mp3" />
+  <media name="taza.mp3" file="taza.mp3" />
+  <media name="telefono.mp3" file="telefono.mp3" />
+  <media name="tetera.mp3" file="tetera.mp3" />
+  <media name="tigre.mp3" file="tigre.mp3" />
+  <media name="tiza.mp3" file="tiza.mp3" />
+  <media name="tomate.mp3" file="tomate.mp3" />
+  <media name="toro.mp3" file="toro.mp3" />
+  <media name="tubo.mp3" file="tubo.mp3" />
+  <media name="tucán.mp3" file="tucan.mp3" />
+ </mediaBag>
+</JClicProject>
+

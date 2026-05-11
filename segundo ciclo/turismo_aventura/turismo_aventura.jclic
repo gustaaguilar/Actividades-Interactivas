@@ -1,0 +1,1774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="turismo_aventura" version="0.1.3">
+ <settings>
+  <title>viajamos</title>
+  <revision description="created" date="4/10/25" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="3" navButtons="none" />
+  <item name="rompe_2" delay="3" navButtons="none" />
+  <item name="ora1" delay="3" navButtons="none" />
+  <item name="ora_2" delay="3" navButtons="none" />
+  <item name="ora_3" delay="3" navButtons="none" />
+  <item name="ora_4" delay="3" navButtons="none" />
+  <item name="ora_5" delay="3" navButtons="none" />
+  <item name="ora_6" delay="3" navButtons="none" />
+  <item name="ora_7" delay="3" navButtons="none" />
+  <item name="ora_8" delay="3" navButtons="none" />
+  <item name="ora_11" delay="3" navButtons="none" />
+  <item name="ora_10" delay="3" navButtons="none" />
+  <item name="ora_12" delay="3" navButtons="none" />
+  <item name="ora_13" delay="3" navButtons="none" />
+  <item name="ora_14" delay="3" navButtons="none" />
+  <item name="ora_15" delay="3" navButtons="none" />
+  <item name="unir1" delay="2" navButtons="none" />
+  <item name="unir_2" delay="2" navButtons="none" />
+  <item name="sopa" delay="2" navButtons="none" />
+  <item name="identi1" delay="2" navButtons="none" />
+  <item name="identi_2" delay="2" navButtons="none" />
+  <item name="identi_3" delay="2" navButtons="none" />
+  <item name="pregunta1" delay="5" navButtons="none" />
+  <item name="memo1" delay="2" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="identi1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre la imagen de:</p>
+     <p> "Las pulgas Plic y Ploc estaban aburridas buscando diversión".</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="181.0" cellHeight="185.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0x999900" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" image="9-Las pulgas reían emocionadas mientras se aferraban a su pelaje-resized.jpg" />
+    <cell id="1" image="1-Las pulgas Plic y Ploc estaban aburridas buscando diversión-resized.jpg" />
+    <cell id="0" image="7-Plic y Ploc se sujetaron fuerte para no salir volando-resized.jpg" />
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre la imagen de:</p>
+     <p> "Auuuch- gritó el perrito Ramón cuando sintió el picotazo de las pulgas".</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="181.0" cellHeight="185.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0x999900" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" image="2-Miraron a su alrededor sin encontrar nada que les interesara-resized.jpg" />
+    <cell id="1" image="5-Auuuch- gritó el perrito Ramón cuando sintió el picotazo de las pulgas-resized.jpg" />
+    <cell id="0" image="10-Al final, Ramón se rindió y aceptó jugar con ellas-resized.jpg" />
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color background="0xFFFF00" />
+      <gradient source="0xFFCCFF" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Haz clic sobre la imagen de:</p>
+     <p> "vieron al perrito Ramón durmiendo en la vereda".</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009900" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x666600" border="true" />
+   </settings>
+   <cells rows="1" cols="3" cellWidth="181.0" cellHeight="185.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0x999900" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="0" image="9-Las pulgas reían emocionadas mientras se aferraban a su pelaje-resized.jpg" />
+    <cell id="1" image="3-De pronto vieron al perrito Ramón durmiendo en la vereda-resized.jpg" />
+    <cell id="0" image="4-Saltaron rápidamente sobre él con una sonrisa traviesa en el rostro-resized.jpg" />
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFCCCC" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="portadaactividad-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="111.0" cellHeight="111.0" border="true" id="primary">
+    <style>
+     <font family="Arial" size="28" bold="true" />
+     <color background="0x999900" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell image="1-Las pulgas Plic y Ploc estaban aburridas buscando diversión-resized.jpg" />
+    <cell image="2-Miraron a su alrededor sin encontrar nada que les interesara-resized.jpg" />
+    <cell image="3-De pronto vieron al perrito Ramón durmiendo en la vereda-resized.jpg" />
+    <cell image="4-Saltaron rápidamente sobre él con una sonrisa traviesa en el rostro-resized.jpg" />
+    <cell image="5-Auuuch- gritó el perrito Ramón cuando sintió el picotazo de las pulgas-resized.jpg" />
+    <cell image="C:/Users/Usuario/Downloads/turismoaventura/este perro va a cruzar la calle y el semáforo está en rojo Vienen los autos-resized.jpg" />
+    <cell image="7-Plic y Ploc se sujetaron fuerte para no salir volando-resized.jpg" />
+    <cell image="8-Ramón giraba, rascaba, se sacudía sin lograr que se cayeran-resized.jpg" />
+    <cell image="C:/Users/Usuario/Downloads/turismoaventura/Pasaron por la vereda que estaba lavando doña Elda la vecina distraída2-resized.jpg" />
+    <cell image="C:/Users/Usuario/Downloads/turismoaventura/Pasaron por la vereda que estaba lavando doña Elda la vecina distraída-resized.jpg" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="1-Las pulgas Plic y Ploc estaban aburridas buscando diversión-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>Las</p>
+    </cell>
+    <cell>
+     <p>pulgas</p>
+    </cell>
+    <cell>
+     <p>Plic</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>Ploc</p>
+    </cell>
+    <cell>
+     <p>estaban</p>
+    </cell>
+    <cell>
+     <p>muy</p>
+    </cell>
+    <cell>
+     <p>aburridas</p>
+    </cell>
+    <cell>
+     <p>buscando</p>
+    </cell>
+    <cell>
+     <p>diversión.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_10" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="turismo aventura-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="6" cellWidth="88.0" cellHeight="29.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="2" />
+    <cell>
+     <p>¡Estoy</p>
+    </cell>
+    <cell>
+     <p>empapada!</p>
+    </cell>
+    <cell>
+     <p>-dijo</p>
+    </cell>
+    <cell>
+     <p>Ploc-</p>
+    </cell>
+    <cell>
+     <p>no</p>
+    </cell>
+    <cell>
+     <p>te</p>
+    </cell>
+    <cell>
+     <p>preocupes</p>
+    </cell>
+    <cell>
+     <p>-dijo</p>
+    </cell>
+    <cell>
+     <p>Plic-</p>
+    </cell>
+    <cell>
+     <p>hacemos</p>
+    </cell>
+    <cell>
+     <p>turismo</p>
+    </cell>
+    <cell>
+     <p>aventura.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_11" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="C:/Users/Usuario/Downloads/turismoaventura/Pasaron por la vereda que estaba lavando doña Elda la vecina distraída-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="6" cellWidth="78.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="2" />
+    <cell>
+     <p>Pasaron</p>
+    </cell>
+    <cell>
+     <p>por</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>vereda</p>
+    </cell>
+    <cell>
+     <p>que</p>
+    </cell>
+    <cell>
+     <p>estaba</p>
+    </cell>
+    <cell>
+     <p>lavando</p>
+    </cell>
+    <cell>
+     <p>doña</p>
+    </cell>
+    <cell>
+     <p>Elda,</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>vecina</p>
+    </cell>
+    <cell>
+     <p>distraída.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_12" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="C:/Users/Usuario/Downloads/turismoaventura/Pasaron por la vereda que estaba lavando doña Elda la vecina distraída2-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="6" cellWidth="102.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="2" />
+    <cell>
+     <p>Su</p>
+    </cell>
+    <cell>
+     <p>peor</p>
+    </cell>
+    <cell>
+     <p>enemigo,</p>
+    </cell>
+    <cell>
+     <p>Batman</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>perro</p>
+    </cell>
+    <cell>
+     <p>ovejero,</p>
+    </cell>
+    <cell>
+     <p>ladró</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>Ramón</p>
+    </cell>
+    <cell>
+     <p>salió</p>
+    </cell>
+    <cell>
+     <p>corriendo.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_13" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="C:/Users/Usuario/Downloads/turismoaventura/este perro va a cruzar la calle y el semáforo está en rojo Vienen los autos-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="6" cellWidth="73.0" cellHeight="27.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="2" />
+    <cell>
+     <p>¡Este</p>
+    </cell>
+    <cell>
+     <p>perro</p>
+    </cell>
+    <cell>
+     <p>cruzará</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>calle</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>semáforo</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>rojo!</p>
+    </cell>
+    <cell>
+     <p>vienen</p>
+    </cell>
+    <cell>
+     <p>autos!.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_14" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="C:/Users/Usuario/Downloads/turismoaventura/Ramón- Le dijo la dueña-Otra vez te escapaste-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="6" cellWidth="77.0" cellHeight="29.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="2" />
+    <cell>
+     <p>Lo</p>
+    </cell>
+    <cell>
+     <p>esperaba</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>dueña</p>
+    </cell>
+    <cell>
+     <p>-Ramón!</p>
+    </cell>
+    <cell>
+     <p>-le</p>
+    </cell>
+    <cell>
+     <p>dijo</p>
+    </cell>
+    <cell>
+     <p>ella-</p>
+    </cell>
+    <cell>
+     <p>otra </p>
+    </cell>
+    <cell>
+     <p>vez</p>
+    </cell>
+    <cell>
+     <p>te</p>
+    </cell>
+    <cell>
+     <p>escapaste!.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_15" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="C:/Users/Usuario/Downloads/turismoaventura/Plic y Ploc saltaron del lomo de Ramón-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="6" cellWidth="77.0" cellHeight="29.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="2" />
+    <cell>
+     <p>Saltaron</p>
+    </cell>
+    <cell>
+     <p>del</p>
+    </cell>
+    <cell>
+     <p>lomo</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>Ramón</p>
+    </cell>
+    <cell>
+     <p>justo</p>
+    </cell>
+    <cell>
+     <p>antes</p>
+    </cell>
+    <cell>
+     <p>que</p>
+    </cell>
+    <cell>
+     <p>lo</p>
+    </cell>
+    <cell>
+     <p>llevaran</p>
+    </cell>
+    <cell>
+     <p>para</p>
+    </cell>
+    <cell>
+     <p>despulgarlo.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="2-Miraron a su alrededor sin encontrar nada que les interesara-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>Miraron</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>alrededor</p>
+    </cell>
+    <cell>
+     <p>sin</p>
+    </cell>
+    <cell>
+     <p>encontrar</p>
+    </cell>
+    <cell>
+     <p>nada</p>
+    </cell>
+    <cell>
+     <p>que</p>
+    </cell>
+    <cell>
+     <p>les</p>
+    </cell>
+    <cell>
+     <p>interesara.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="3-De pronto vieron al perrito Ramón durmiendo en la vereda-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>De</p>
+    </cell>
+    <cell>
+     <p>pronto,</p>
+    </cell>
+    <cell>
+     <p>vieron</p>
+    </cell>
+    <cell>
+     <p>al</p>
+    </cell>
+    <cell>
+     <p>perrito</p>
+    </cell>
+    <cell>
+     <p>Ramón</p>
+    </cell>
+    <cell>
+     <p>durmiendo</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>la</p>
+    </cell>
+    <cell>
+     <p>vereda.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="4-Saltaron rápidamente sobre él con una sonrisa traviesa en el rostro-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>Saltaron</p>
+    </cell>
+    <cell>
+     <p>sobre</p>
+    </cell>
+    <cell>
+     <p>él</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>una</p>
+    </cell>
+    <cell>
+     <p>sonrisa</p>
+    </cell>
+    <cell>
+     <p>traviesa</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>rostro.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="5-Auuuch- gritó el perrito Ramón cuando sintió el picotazo de las pulgas-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="32.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>¡Auchhh!</p>
+    </cell>
+    <cell>
+     <p>- gritó</p>
+    </cell>
+    <cell>
+     <p>Ramón -</p>
+    </cell>
+    <cell>
+     <p>sintiendo</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>picotazo</p>
+    </cell>
+    <cell>
+     <p>fuerte</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>las</p>
+    </cell>
+    <cell>
+     <p>pulgas.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="6-Empezó a rascarse desesperado con su pata trasera peluda-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>Ramón</p>
+    </cell>
+    <cell>
+     <p>empezó</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>rascarse</p>
+    </cell>
+    <cell>
+     <p>desesperado</p>
+    </cell>
+    <cell>
+     <p>con</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>pata</p>
+    </cell>
+    <cell>
+     <p>trasera</p>
+    </cell>
+    <cell>
+     <p>peluda.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="7-Plic y Ploc se sujetaron fuerte para no salir volando-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>Plic</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>Ploc</p>
+    </cell>
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>sujetaron</p>
+    </cell>
+    <cell>
+     <p>fuerte</p>
+    </cell>
+    <cell>
+     <p>para</p>
+    </cell>
+    <cell>
+     <p>no</p>
+    </cell>
+    <cell>
+     <p>salir</p>
+    </cell>
+    <cell>
+     <p>volando.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="8-Ramón giraba, rascaba, se sacudía sin lograr que se cayeran-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>Ramón</p>
+    </cell>
+    <cell>
+     <p>giraba,</p>
+    </cell>
+    <cell>
+     <p>rascaba,</p>
+    </cell>
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>sacudía</p>
+    </cell>
+    <cell>
+     <p>sin</p>
+    </cell>
+    <cell>
+     <p>lograr</p>
+    </cell>
+    <cell>
+     <p>que</p>
+    </cell>
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>cayeran.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x0000CC" />
+      <gradient source="0x006600" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá la oración.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0x33CC00" />
+      <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="9-Las pulgas reían emocionadas mientras se aferraban a su pelaje-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="33.0" border="true">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFF99FF" background="0x000099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>Las</p>
+    </cell>
+    <cell>
+     <p>pulgas</p>
+    </cell>
+    <cell>
+     <p>reían</p>
+    </cell>
+    <cell>
+     <p>emocionadas</p>
+    </cell>
+    <cell>
+     <p>mientras</p>
+    </cell>
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>aferraban</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>su</p>
+    </cell>
+    <cell>
+     <p>pelaje.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="pregunta1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="20" bold="true" />
+      <gradient source="0x33CC00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Leo atentamente y elijo la opción correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i05-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <gradient source="0x33CC00" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="portadaactividad-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <size width="581" height="401" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x0000FF" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="14" bold="false" italic="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" size="14" bold="true">1. ¿De qué tratará el libro?</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <target>
+       <answer>Sobre dos pulgas que hacen un divertido viaje montadas en un perro.</answer>
+       <optionList>
+        <option>Sobre un gato que se pierde en el bosque.</option>
+        <option>Sobre dos pulgas que hacen un divertido viaje montadas en un perro.</option>
+        <option>Sobre un niño que adopta una pulga como mascota.</option>
+       </optionList>
+       <text>Sobre dos pulgas que hacen un divertido viaje montadas en un perro.</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" bold="true">2. ¿Quiénes son los protagonistas? ¿Qué hace cada uno de ellos?</text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <target>
+       <answer>Plic y Ploc que se suben a un perro para vivir una aventura.</answer>
+       <optionList>
+        <option>Un caballo y un loro que vuelan juntos.</option>
+        <option>Dos perros que hacen una carrera.</option>
+        <option>Plic y Ploc que se suben a un perro para vivir una aventura.</option>
+       </optionList>
+       <text>Plic y Ploc que se suben a un perro para vivir una aventura.</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF"> </text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" bold="true">3. ¿Qué tipo de animales son los protagonistas?</text>
+      <text family="Arial" background="0xFFFFFF"> </text>
+      <target>
+       <answer>Pulgas.</answer>
+       <optionList>
+        <option>Ranas.</option>
+        <option>Pulgas.</option>
+        <option>Ratones.</option>
+       </optionList>
+       <text>Pulgas.</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" size="14" bold="true" italic="false">4. ¿Cómo los podemos clasificar?</text>
+      <text family="Arial" background="0xFFFFFF"> </text>
+      <target>
+       <answer>Insectos.</answer>
+       <optionList>
+        <option>Insectos.</option>
+        <option>Mamíferos.</option>
+        <option>Reptiles.</option>
+       </optionList>
+       <text>Insectos.</text>
+      </target>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF" />
+     <p family="Arial" background="0xFFFFFF">
+      <text family="Arial" background="0xFFFFFF" size="14" bold="true" italic="false">5. ¿Cuál es el peor enemigo del protagonista?</text>
+      <text family="Arial" background="0xFFFFFF"> </text>
+      <target>
+       <answer>Batman, el perro ovejero.</answer>
+       <optionList>
+        <option>Un mosquito gigante.</option>
+        <option>Una rata que vive en el techo.</option>
+        <option>Batman, el perro ovejero.</option>
+       </optionList>
+       <text>Batman, el perro ovejero.</text>
+      </target>
+      <text family="Arial" background="0xFFFFFF"> </text>
+     </p>
+     <p family="Arial" background="0xFFFFFF" />
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="rompe" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="14" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas del mapa de Mendoza. </p>
+     <p>Observá todos los lugares, animales y dibujos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xCCCCFF" border="true" />
+   </settings>
+   <cells rows="3" cols="2" border="true" image="mapamen-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@JigSaw" cols="2" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="rompe_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Armá el rompecabezas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x666600" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x33FFFF" border="true" />
+   </settings>
+   <cells rows="3" cols="2" border="true" image="portadaactividad-resized.jpg">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@JigSaw" cols="2" rows="3" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopa" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x009900" />
+     </style>
+     <p>Encuentra los personajes de la historia.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006666" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xCC00CC">
+     <gradient source="0xFF9999" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009900" border="true" />
+   </settings>
+   <textGrid rows="6" columns="7" cellWidth="50.0" cellHeight="40.0" border="true">
+    <style margin="3">
+     <font family="Arial" size="72" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" />
+    </style>
+    <text>
+     <row>P***R*</row>
+     <row>ELDAAN</row>
+     <row>*DI*MA</row>
+     <row>*U*CÓM</row>
+     <row>*E*ONT</row>
+     <row>*Ñ*L*A</row>
+     <row>*A*P*B</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">PLIC</clue>
+    <clue id="1">PLOC</clue>
+    <clue id="2">RAMÓN</clue>
+    <clue id="3">ELDA</clue>
+    <clue id="4">BATMAN</clue>
+    <clue id="5">DUEÑA</clue>
+   </clues>
+   <cells rows="3" cols="2" cellWidth="182.0" cellHeight="145.0" border="true" id="secondary">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="3" />
+    <cell image="plic-removebg-preview.png" />
+    <cell image="ploc-removebg-preview.png" />
+    <cell image="ramón-removebg-preview.png" />
+    <cell image="elda-removebg-preview-resized.jpg" />
+    <cell image="batman-removebg-preview.png" />
+    <cell image="dueña-removebg-preview-resized.jpg" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="30" bold="true" />
+      <color background="0xFFCCCC" />
+     </style>
+     <p>Une según corresponda.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="105.0" cellHeight="106.0" border="true" id="primary">
+    <style>
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="1-Las pulgas Plic y Ploc estaban aburridas buscando diversión-resized.jpg" />
+    <cell image="2-Miraron a su alrededor sin encontrar nada que les interesara-resized.jpg" />
+    <cell image="3-De pronto vieron al perrito Ramón durmiendo en la vereda-resized.jpg" />
+    <cell image="4-Saltaron rápidamente sobre él con una sonrisa traviesa en el rostro-resized.jpg" />
+    <cell image="5-Auuuch- gritó el perrito Ramón cuando sintió el picotazo de las pulgas-resized.jpg" />
+   </cells>
+   <cells rows="5" cols="1" cellWidth="312.0" cellHeight="107.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFCCFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <p>Las pulgas Plic y Ploc estaban aburridas buscando diversión.</p>
+    </cell>
+    <cell>
+     <p>Miraron a su alrededor sin encontrar nada que les interesara.</p>
+    </cell>
+    <cell>
+     <p>De pronto, vieron al perrito Ramón durmiendo en la vereda.</p>
+    </cell>
+    <cell>
+     <p>Saltaron rápidamente sobre él con una sonrisa traviesa en el rostro.</p>
+    </cell>
+    <cell>
+     <p>-¡Auuuch! -gritó Ramón sintiendo el picotazo fuerte de las pulgas.</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="30" bold="true" />
+      <color background="0xFFCCCC" />
+     </style>
+     <p>Unir normas de buena convivencia.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="105.0" cellHeight="106.0" border="true" id="primary">
+    <style>
+     <font family="Arial" size="20" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="6-Empezó a rascarse desesperado con su pata trasera peluda-resized.jpg" />
+    <cell image="7-Plic y Ploc se sujetaron fuerte para no salir volando-resized.jpg" />
+    <cell image="C:/Users/Usuario/Downloads/turismoaventura/Pasaron por la vereda que estaba lavando doña Elda la vecina distraída-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0x996600" />
+     </style>
+    </cell>
+    <cell image="C:/Users/Usuario/Downloads/turismoaventura/Pasaron por la vereda que estaba lavando doña Elda la vecina distraída2-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <color background="0x996600" />
+     </style>
+    </cell>
+    <cell image="C:/Users/Usuario/Downloads/turismoaventura/Plic y Ploc saltaron del lomo de Ramón-resized.jpg" />
+   </cells>
+   <cells rows="5" cols="1" cellWidth="370.0" cellHeight="107.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFCCFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <p>Empezó a rascarse desesperado con su pata trasera peluda.</p>
+    </cell>
+    <cell>
+     <p>Plic y Ploc se sujetaron fuerte para no salir volando.</p>
+    </cell>
+    <cell>
+     <p>Pasaron por la vereda que estaba lavando doña Elda, la vecina distraída.</p>
+    </cell>
+    <cell>
+     <p>Su peor enemigo, Batman el perro ovejero, ladró y Ramón escapó corriendo.</p>
+    </cell>
+    <cell>
+     <p>Saltaron del lomo de Ramón justo antes que lo llevara para despulgarlo.</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="1-Las pulgas Plic y Ploc estaban aburridas buscando diversión-resized.jpg" file="1-las_pulgas_plic_y_ploc_estaban_aburridas_buscando_diversion-resized.jpg" />
+  <media name="10-Al final, Ramón se rindió y aceptó jugar con ellas-resized.jpg" file="10-al_final__ramon_se_rindio_y_acepto_jugar_con_ellas-resized.jpg" />
+  <media name="2-Miraron a su alrededor sin encontrar nada que les interesara-resized.jpg" file="2-miraron_a_su_alrededor_sin_encontrar_nada_que_les_interesara-resized.jpg" />
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="3-De pronto vieron al perrito Ramón durmiendo en la vereda-resized.jpg" file="3-de_pronto_vieron_al_perrito_ramon_durmiendo_en_la_vereda-resized.jpg" />
+  <media name="4-Saltaron rápidamente sobre él con una sonrisa traviesa en el rostro-resized.jpg" file="4-saltaron_rapidamente_sobre_el_con_una_sonrisa_traviesa_en_el_rostro-resized.jpg" />
+  <media name="5-Auuuch- gritó el perrito Ramón cuando sintió el picotazo de las pulgas-resized.jpg" file="5-auuuch-_grito_el_perrito_ramon_cuando_sintio_el_picotazo_de_las_pulgas-resized.jpg" />
+  <media name="6-Empezó a rascarse desesperado con su pata trasera peluda-resized.jpg" file="6-empezo_a_rascarse_desesperado_con_su_pata_trasera_peluda-resized.jpg" />
+  <media name="7-Plic y Ploc se sujetaron fuerte para no salir volando-resized.jpg" file="7-plic_y_ploc_se_sujetaron_fuerte_para_no_salir_volando-resized.jpg" />
+  <media name="8-Ramón giraba, rascaba, se sacudía sin lograr que se cayeran-resized.jpg" file="8-ramon_giraba__rascaba__se_sacudia_sin_lograr_que_se_cayeran-resized.jpg" />
+  <media name="9-Las pulgas reían emocionadas mientras se aferraban a su pelaje-resized.jpg" file="9-las_pulgas_reian_emocionadas_mientras_se_aferraban_a_su_pelaje-resized.jpg" />
+  <media name="C:/Users/Usuario/Downloads/turismoaventura/este perro va a cruzar la calle y el semáforo está en rojo Vienen los autos-resized.jpg" file="c__users_usuario_downloads_turismoaventura_este_perro_va_a_cruzar_la_calle_y_el_semaforo_esta_en_rojo_vienen_los_autos-resized.jpg" />
+  <media name="C:/Users/Usuario/Downloads/turismoaventura/Pasaron por la vereda que estaba lavando doña Elda la vecina distraída-resized.jpg" file="c__users_usuario_downloads_turismoaventura_pasaron_por_la_vereda_que_estaba_lavando_dona_elda_la_vecina_distraida-resized.jpg" />
+  <media name="C:/Users/Usuario/Downloads/turismoaventura/Pasaron por la vereda que estaba lavando doña Elda la vecina distraída2-resized.jpg" file="c__users_usuario_downloads_turismoaventura_pasaron_por_la_vereda_que_estaba_lavando_dona_elda_la_vecina_distraida2-resized.jpg" />
+  <media name="C:/Users/Usuario/Downloads/turismoaventura/Plic y Ploc saltaron del lomo de Ramón-resized.jpg" file="c__users_usuario_downloads_turismoaventura_plic_y_ploc_saltaron_del_lomo_de_ramon-resized.jpg" />
+  <media name="C:/Users/Usuario/Downloads/turismoaventura/Ramón- Le dijo la dueña-Otra vez te escapaste-resized.jpg" file="c__users_usuario_downloads_turismoaventura_ramon-_le_dijo_la_duena-otra_vez_te_escapaste-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="dueña-removebg-preview-resized.jpg" file="duena-removebg-preview-resized.jpg" />
+  <media name="elda-removebg-preview-resized.jpg" file="elda-removebg-preview-resized.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i01-bienhecho.jpg" file="i01-i01-bienhecho.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i02-i05-i01-bienhecho.jpg" file="i01-i03-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="mapamen-resized.jpg" file="mapamen-resized.jpg" />
+  <media name="portadaactividad-resized.jpg" file="portadaactividad-resized.jpg" />
+  <media name="turismo aventura-resized.jpg" file="turismo_aventura-resized.jpg" />
+  <media name="batman-removebg-preview.png" file="batman-removebg-preview.png" />
+  <media name="plic-removebg-preview.png" file="plic-removebg-preview.png" />
+  <media name="ploc-removebg-preview.png" file="ploc-removebg-preview.png" />
+  <media name="ramón-removebg-preview.png" file="ramon-removebg-preview.png" />
+ </mediaBag>
+</JClicProject>
+

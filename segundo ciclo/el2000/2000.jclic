@@ -1,0 +1,2146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="el2000" version="0.1.3">
+ <settings>
+  <title>el200</title>
+  <revision description="created" date="4/23/24" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="5" navButtons="none" />
+  <item name="rompe_2" delay="1" navButtons="none" />
+  <item id="start" name="ordenar1" delay="1" navButtons="none" />
+  <item name="ordenar_2" delay="1" navButtons="none" />
+  <item name="ordenar_3" delay="1" navButtons="none" />
+  <item name="ordenar_4" delay="1" navButtons="none" />
+  <item name="ordenar_5" delay="1" navButtons="none" />
+  <item name="ordenar_6" delay="1" navButtons="none" />
+  <item name="ordenar_7" delay="1" navButtons="none" />
+  <item name="ordenar_8" delay="1" navButtons="none" />
+  <item name="ordenar_9" delay="1" navButtons="none" />
+  <item name="ordenar_15" delay="1" navButtons="none" />
+  <item name="ordenar_14" delay="1" navButtons="none" />
+  <item name="ordenar_16" delay="1" navButtons="none" />
+  <item name="rompe1" delay="1" navButtons="none" />
+  <item name="intruso_0" delay="1" navButtons="none" />
+  <item name="intruso1" delay="1" navButtons="none" />
+  <item name="intruso_2" delay="1" navButtons="none" />
+  <item name="intruso_3" delay="1" navButtons="none" />
+  <item name="intruso_4" delay="1" navButtons="none" />
+  <item name="intruso_5" delay="1" navButtons="none" />
+  <item name="intruso_6" delay="1" navButtons="none" />
+  <item name="intruso_7" delay="1" navButtons="none" />
+  <item name="intruso_8" delay="1" navButtons="none" />
+  <item name="intruso_9" delay="1" navButtons="none" />
+  <item name="intruso_10" delay="1" navButtons="none" />
+  <item name="memo1" delay="1" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="caratu" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="caratu-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="intruso1-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+     <position x="30" y="406" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell id="0">
+     <p>2010</p>
+    </cell>
+    <cell id="0">
+     <p>2011</p>
+    </cell>
+    <cell id="0">
+     <p>2012</p>
+    </cell>
+    <cell id="1">
+     <p>58</p>
+    </cell>
+    <cell id="0">
+     <p>2014</p>
+    </cell>
+    <cell id="0">
+     <p>2015</p>
+    </cell>
+    <cell id="1">
+     <p>4</p>
+    </cell>
+    <cell id="0">
+     <p>2017</p>
+    </cell>
+    <cell id="0">
+     <p>2018</p>
+    </cell>
+    <cell id="1">
+     <p>67</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell />
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg">
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg">
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso_0" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="intrusomessi1-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+     <position x="30" y="406" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell id="0">
+     <p>2000</p>
+    </cell>
+    <cell id="0">
+     <p>2001</p>
+    </cell>
+    <cell id="1">
+     <p>24</p>
+    </cell>
+    <cell id="0">
+     <p>2003</p>
+    </cell>
+    <cell id="0">
+     <p>2004</p>
+    </cell>
+    <cell id="1">
+     <p>6</p>
+    </cell>
+    <cell id="0">
+     <p>2006</p>
+    </cell>
+    <cell id="1">
+     <p>78</p>
+    </cell>
+    <cell id="0">
+     <p>2008</p>
+    </cell>
+    <cell id="0">
+     <p>2009</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso_10" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="intruso6-resized1.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+     <position x="1" y="406" />
+    </window>
+   </settings>
+   <cells rows="1" cols="11" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="11" rows="1" />
+    <cell id="0">
+     <p>2010</p>
+    </cell>
+    <cell id="0">
+     <p>2011</p>
+    </cell>
+    <cell id="0">
+     <p>2012</p>
+    </cell>
+    <cell id="1">
+     <p>58</p>
+    </cell>
+    <cell id="0">
+     <p>2014</p>
+    </cell>
+    <cell id="0">
+     <p>2015</p>
+    </cell>
+    <cell id="1">
+     <p>3</p>
+    </cell>
+    <cell id="0">
+     <p>2017</p>
+    </cell>
+    <cell id="0">
+     <p>2018</p>
+    </cell>
+    <cell id="1">
+     <p>57</p>
+    </cell>
+    <cell id="0">
+     <p>2020</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="11" rows="1" />
+    <cell />
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg">
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg">
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="instrusomessi2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell id="0">
+     <p>2020</p>
+    </cell>
+    <cell id="0">
+     <p>2021</p>
+    </cell>
+    <cell id="0">
+     <p>2022</p>
+    </cell>
+    <cell id="0">
+     <p>2023</p>
+    </cell>
+    <cell id="1">
+     <p>4</p>
+    </cell>
+    <cell id="0">
+     <p>2025</p>
+    </cell>
+    <cell id="0">
+     <p>2026</p>
+    </cell>
+    <cell id="1">
+     <p>21</p>
+    </cell>
+    <cell id="0">
+     <p>2028</p>
+    </cell>
+    <cell id="1">
+     <p>69</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell />
+    <cell />
+    <cell />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell image="bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="instrusomessi3-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell id="0">
+     <p>2030</p>
+    </cell>
+    <cell id="0">
+     <p>2031</p>
+    </cell>
+    <cell id="1">
+     <p>67</p>
+    </cell>
+    <cell id="0">
+     <p>2033</p>
+    </cell>
+    <cell id="0">
+     <p>2034</p>
+    </cell>
+    <cell id="1">
+     <p>2021</p>
+    </cell>
+    <cell id="0">
+     <p>2036</p>
+    </cell>
+    <cell id="1">
+     <p>55</p>
+    </cell>
+    <cell id="0">
+     <p>2038</p>
+    </cell>
+    <cell id="0">
+     <p>2039</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="intrusomessi4-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+     <position x="30" y="400" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell id="0">
+     <p>2040</p>
+    </cell>
+    <cell id="1">
+     <p>2012</p>
+    </cell>
+    <cell id="0">
+     <p>2042</p>
+    </cell>
+    <cell id="0">
+     <p>2043</p>
+    </cell>
+    <cell id="1">
+     <p>79</p>
+    </cell>
+    <cell id="0">
+     <p>2045</p>
+    </cell>
+    <cell id="0">
+     <p>2046</p>
+    </cell>
+    <cell id="1">
+     <p>2000</p>
+    </cell>
+    <cell id="0">
+     <p>2048</p>
+    </cell>
+    <cell id="0">
+     <p>2049</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="intruso2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+     <position x="30" y="406" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell id="0">
+     <p>2050</p>
+    </cell>
+    <cell id="0">
+     <p>2051</p>
+    </cell>
+    <cell id="0">
+     <p>2052</p>
+    </cell>
+    <cell id="1">
+     <p>2019</p>
+    </cell>
+    <cell id="0">
+     <p>2054</p>
+    </cell>
+    <cell id="0">
+     <p>2055</p>
+    </cell>
+    <cell id="0">
+     <p>2056</p>
+    </cell>
+    <cell id="0">
+     <p>2057</p>
+    </cell>
+    <cell id="0">
+     <p>2058</p>
+    </cell>
+    <cell id="1">
+     <p>2055</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell />
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg">
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xFF3333" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="intruso3-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+     <position x="1" y="406" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell id="0">
+     <p>2060</p>
+    </cell>
+    <cell id="0">
+     <p>2061</p>
+    </cell>
+    <cell id="0">
+     <p>2062</p>
+    </cell>
+    <cell id="0">
+     <p>2063</p>
+    </cell>
+    <cell id="0">
+     <p>2064</p>
+    </cell>
+    <cell id="1">
+     <p>16</p>
+    </cell>
+    <cell id="0">
+     <p>2066</p>
+    </cell>
+    <cell id="1">
+     <p>45</p>
+    </cell>
+    <cell id="0">
+     <p>2068</p>
+    </cell>
+    <cell id="1">
+     <p>2044</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell />
+    <cell />
+    <cell />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell image="bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="intruso4-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+     <position x="1" y="406" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell id="0">
+     <p>2070</p>
+    </cell>
+    <cell id="0">
+     <p>2071</p>
+    </cell>
+    <cell id="1">
+     <p>17</p>
+    </cell>
+    <cell id="0">
+     <p>2073</p>
+    </cell>
+    <cell id="1">
+     <p>2051</p>
+    </cell>
+    <cell id="0">
+     <p>2075</p>
+    </cell>
+    <cell id="0">
+     <p>2076</p>
+    </cell>
+    <cell id="1">
+     <p>2030</p>
+    </cell>
+    <cell id="0">
+     <p>2078</p>
+    </cell>
+    <cell id="0">
+     <p>2079</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="intruso5-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+     <position x="1" y="406" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell id="0">
+     <p>2080</p>
+    </cell>
+    <cell id="0">
+     <p>2081</p>
+    </cell>
+    <cell id="0">
+     <p>2082</p>
+    </cell>
+    <cell id="1">
+     <p>44</p>
+    </cell>
+    <cell id="0">
+     <p>2084</p>
+    </cell>
+    <cell id="1">
+     <p>2005</p>
+    </cell>
+    <cell id="0">
+     <p>2086</p>
+    </cell>
+    <cell id="0">
+     <p>2087</p>
+    </cell>
+    <cell id="0">
+     <p>2088</p>
+    </cell>
+    <cell id="1">
+     <p>2021</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell />
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg">
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell />
+    <cell image="bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="intruso_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los intrusos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xFFCC66" dest="0xFFFFFF" angle="0" />
+     <image name="intruso6-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+     <position x="1" y="406" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" cellWidth="53.0" cellHeight="39.0" border="true" id="primary">
+    <style margin="1" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF0000" alternative="0xFFFF00" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell id="0">
+     <p>2090</p>
+    </cell>
+    <cell id="0">
+     <p>2091</p>
+    </cell>
+    <cell id="0">
+     <p>2092</p>
+    </cell>
+    <cell id="0">
+     <p>2093</p>
+    </cell>
+    <cell id="1">
+     <p>256</p>
+    </cell>
+    <cell id="0">
+     <p>2095</p>
+    </cell>
+    <cell id="1">
+     <p>80</p>
+    </cell>
+    <cell id="0">
+     <p>2097</p>
+    </cell>
+    <cell id="1">
+     <p>9</p>
+    </cell>
+    <cell id="0">
+     <p>2099</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="11" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell />
+    <cell />
+    <cell />
+    <cell>
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell image="bienhecho.jpg" />
+    <cell />
+    <cell image="bienhecho.jpg">
+     <style>
+      <font family="Arial" size="32" bold="true" />
+      <color background="0xCC0000" inactive="0x000000" alternative="0xFFFF00" />
+     </style>
+    </cell>
+    <cell />
+    <cell image="bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="false" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <image name="memo1-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true">
+     <gradient source="0x990099" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="2" cols="5" cellWidth="91.0" cellHeight="76.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <gradient source="0xFFFF00" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>2010</p>
+    </cell>
+    <cell>
+     <p>2011</p>
+    </cell>
+    <cell>
+     <p>2012</p>
+    </cell>
+    <cell>
+     <p>2013</p>
+    </cell>
+    <cell>
+     <p>2014</p>
+    </cell>
+    <cell>
+     <p>2015</p>
+    </cell>
+    <cell>
+     <p>2016</p>
+    </cell>
+    <cell>
+     <p>2017</p>
+    </cell>
+    <cell>
+     <p>2018</p>
+    </cell>
+    <cell>
+     <p>2019</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <image name="ordena1-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="100.0" cellHeight="58.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>2000</p>
+    </cell>
+    <cell>
+     <p>2001</p>
+    </cell>
+    <cell>
+     <p>2002</p>
+    </cell>
+    <cell>
+     <p>2003</p>
+    </cell>
+    <cell>
+     <p>2004</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_14" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <image name="ordena2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="61.0" cellHeight="55.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="32" bold="true" />
+     <color foreground="0xFFFF00" background="0x006666" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>2080</p>
+    </cell>
+    <cell>
+     <p>2081</p>
+    </cell>
+    <cell>
+     <p>2082</p>
+    </cell>
+    <cell>
+     <p>2083</p>
+    </cell>
+    <cell>
+     <p>2084</p>
+    </cell>
+    <cell>
+     <p>2085</p>
+    </cell>
+    <cell>
+     <p>2086</p>
+    </cell>
+    <cell>
+     <p>2087</p>
+    </cell>
+    <cell>
+     <p>2088</p>
+    </cell>
+    <cell>
+     <p>2089</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_15" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <image name="ordena3-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="61.0" cellHeight="55.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="32" bold="true" />
+     <color foreground="0x339900" background="0xFFFFFF" inactive="0xFFFFFF" />
+     <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>2070</p>
+    </cell>
+    <cell>
+     <p>2071</p>
+    </cell>
+    <cell>
+     <p>2072</p>
+    </cell>
+    <cell>
+     <p>2073</p>
+    </cell>
+    <cell>
+     <p>2074</p>
+    </cell>
+    <cell>
+     <p>2075</p>
+    </cell>
+    <cell>
+     <p>2076</p>
+    </cell>
+    <cell>
+     <p>2077</p>
+    </cell>
+    <cell>
+     <p>2078</p>
+    </cell>
+    <cell>
+     <p>2079</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_16" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <image name="ordena4-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="61.0" cellHeight="55.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="32" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+     <gradient source="0xCC00CC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>2090</p>
+    </cell>
+    <cell>
+     <p>2091</p>
+    </cell>
+    <cell>
+     <p>2092</p>
+    </cell>
+    <cell>
+     <p>2093</p>
+    </cell>
+    <cell>
+     <p>2094</p>
+    </cell>
+    <cell>
+     <p>2095</p>
+    </cell>
+    <cell>
+     <p>2096</p>
+    </cell>
+    <cell>
+     <p>2097</p>
+    </cell>
+    <cell>
+     <p>2098</p>
+    </cell>
+    <cell>
+     <p>2099</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <image name="ordena6-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="100.0" cellHeight="58.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>2005</p>
+    </cell>
+    <cell>
+     <p>2006</p>
+    </cell>
+    <cell>
+     <p>2007</p>
+    </cell>
+    <cell>
+     <p>2008</p>
+    </cell>
+    <cell>
+     <p>2009</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <image name="ordena7-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="100.0" cellHeight="58.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>2010</p>
+    </cell>
+    <cell>
+     <p>2011</p>
+    </cell>
+    <cell>
+     <p>2012</p>
+    </cell>
+    <cell>
+     <p>2013</p>
+    </cell>
+    <cell>
+     <p>2014</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <image name="ordena8-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="5" cellWidth="100.0" cellHeight="58.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="1" />
+    <cell>
+     <p>2015</p>
+    </cell>
+    <cell>
+     <p>2016</p>
+    </cell>
+    <cell>
+     <p>2017</p>
+    </cell>
+    <cell>
+     <p>2018</p>
+    </cell>
+    <cell>
+     <p>2019</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <image name="portada3-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="61.0" cellHeight="55.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="32" bold="true" />
+     <color foreground="0xFFFF00" background="0xCC0000" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>2020</p>
+    </cell>
+    <cell>
+     <p>2021</p>
+    </cell>
+    <cell>
+     <p>2022</p>
+    </cell>
+    <cell>
+     <p>2023</p>
+    </cell>
+    <cell>
+     <p>2024</p>
+    </cell>
+    <cell>
+     <p>2025</p>
+    </cell>
+    <cell>
+     <p>2026</p>
+    </cell>
+    <cell>
+     <p>2027</p>
+    </cell>
+    <cell>
+     <p>2028</p>
+    </cell>
+    <cell>
+     <p>2029</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <image name="portada4-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="61.0" cellHeight="55.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="32" bold="true" />
+     <color foreground="0xFFFF00" background="0x990099" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>2030</p>
+    </cell>
+    <cell>
+     <p>2031</p>
+    </cell>
+    <cell>
+     <p>2032</p>
+    </cell>
+    <cell>
+     <p>2033</p>
+    </cell>
+    <cell>
+     <p>2034</p>
+    </cell>
+    <cell>
+     <p>2035</p>
+    </cell>
+    <cell>
+     <p>2036</p>
+    </cell>
+    <cell>
+     <p>2037</p>
+    </cell>
+    <cell>
+     <p>2038</p>
+    </cell>
+    <cell>
+     <p>2039</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_7" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="61.0" cellHeight="55.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="32" bold="true" />
+     <color foreground="0xFFFF00" background="0x006666" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>2040</p>
+    </cell>
+    <cell>
+     <p>2041</p>
+    </cell>
+    <cell>
+     <p>2042</p>
+    </cell>
+    <cell>
+     <p>2043</p>
+    </cell>
+    <cell>
+     <p>2044</p>
+    </cell>
+    <cell>
+     <p>2045</p>
+    </cell>
+    <cell>
+     <p>2046</p>
+    </cell>
+    <cell>
+     <p>2047</p>
+    </cell>
+    <cell>
+     <p>2048</p>
+    </cell>
+    <cell>
+     <p>2049</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="61.0" cellHeight="55.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="32" bold="true" />
+     <color foreground="0xFFFF00" background="0xFF6633" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>2050</p>
+    </cell>
+    <cell>
+     <p>2051</p>
+    </cell>
+    <cell>
+     <p>2052</p>
+    </cell>
+    <cell>
+     <p>2053</p>
+    </cell>
+    <cell>
+     <p>2054</p>
+    </cell>
+    <cell>
+     <p>2055</p>
+    </cell>
+    <cell>
+     <p>2056</p>
+    </cell>
+    <cell>
+     <p>2057</p>
+    </cell>
+    <cell>
+     <p>2058</p>
+    </cell>
+    <cell>
+     <p>2059</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_9" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x009933" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena de menor a mayor.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="48" bold="true" />
+      <gradient source="0x660066" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x009999" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="10" cellWidth="61.0" cellHeight="55.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="32" bold="true" />
+     <color background="0x00CCCC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell>
+     <p>2060</p>
+    </cell>
+    <cell>
+     <p>2061</p>
+    </cell>
+    <cell>
+     <p>2062</p>
+    </cell>
+    <cell>
+     <p>2063</p>
+    </cell>
+    <cell>
+     <p>2064</p>
+    </cell>
+    <cell>
+     <p>2065</p>
+    </cell>
+    <cell>
+     <p>2066</p>
+    </cell>
+    <cell>
+     <p>2067</p>
+    </cell>
+    <cell>
+     <p>2068</p>
+    </cell>
+    <cell>
+     <p>2069</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="rompe1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena del más chico al más grande.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x00FFCC" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" border="true" image="IMG-20250323-WA0003-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color foreground="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell txtAlign="middle,top">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" />
+      <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>2010</p>
+    </cell>
+    <cell txtAlign="middle,top">
+     <p>2011</p>
+    </cell>
+    <cell txtAlign="middle,top">
+     <p>2012</p>
+    </cell>
+    <cell txtAlign="middle,top">
+     <p>2013</p>
+    </cell>
+    <cell txtAlign="middle,top">
+     <p>2014</p>
+    </cell>
+    <cell txtAlign="middle,top">
+     <p>2015</p>
+    </cell>
+    <cell txtAlign="middle,top">
+     <p>2016</p>
+    </cell>
+    <cell txtAlign="middle,top">
+     <p>2017</p>
+    </cell>
+    <cell txtAlign="middle,top">
+     <p>2018</p>
+    </cell>
+    <cell txtAlign="middle,top">
+     <p>2019</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="rompe_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <gradient source="0xCC9900" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Ordena del más chico al más grande.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x00FFCC" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <cells rows="1" cols="10" border="true" image="portada4-resized.jpg">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color foreground="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="10" rows="1" />
+    <cell txtAlign="middle,bottom">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" />
+      <gradient source="0xFF0000" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>2000</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>2001</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>2002</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>2003</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>2004</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>2005</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>2006</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>2007</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>2008</p>
+    </cell>
+    <cell txtAlign="middle,bottom">
+     <p>2009</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="200 infantil-resized.jpg" file="200_infantil-resized.jpg" />
+  <media name="bienhecho.jpg" file="bienhecho.jpg" />
+  <media name="buenos días-resized.jpg" file="buenos_dias-resized.jpg" />
+  <media name="caratu-resized2.jpg" file="caratu-resized2.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="IMG-20250323-WA0003-resized.jpg" file="img-20250323-wa0003-resized.jpg" />
+  <media name="instrusomessi2-resized.jpg" file="instrusomessi2-resized.jpg" />
+  <media name="instrusomessi3-resized.jpg" file="instrusomessi3-resized.jpg" />
+  <media name="intruso1-resized.jpg" file="intruso1-resized.jpg" />
+  <media name="intruso2-resized.jpg" file="intruso2-resized.jpg" />
+  <media name="intruso2-resized.jpg_1" file="intruso2-resized.jpg" />
+  <media name="intruso3-resized.jpg" file="intruso3-resized.jpg" />
+  <media name="intruso4-resized.jpg" file="intruso4-resized.jpg" />
+  <media name="intruso5-resized.jpg" file="intruso5-resized.jpg" />
+  <media name="intruso6-resized.jpg" file="intruso6-resized.jpg" />
+  <media name="intruso6-resized1.jpg" file="intruso6-resized1.jpg" />
+  <media name="intrusomessi1-resized.jpg" file="intrusomessi1-resized.jpg" />
+  <media name="intrusomessi4-resized.jpg" file="intrusomessi4-resized.jpg" />
+  <media name="jugando en el patio1-resized.jpg" file="jugando_en_el_patio1-resized.jpg" />
+  <media name="memo1-resized.jpg" file="memo1-resized.jpg" />
+  <media name="messi con el mural-resized.jpg" file="messi_con_el_mural-resized.jpg" />
+  <media name="messi haciendo memoria3-resized.jpg" file="messi_haciendo_memoria3-resized.jpg" />
+  <media name="niños con carteles1-resized.jpg" file="ninos_con_carteles1-resized.jpg" />
+  <media name="ordena1-resized.jpg" file="ordena1-resized.jpg" />
+  <media name="ordena2-resized.jpg" file="ordena2-resized.jpg" />
+  <media name="ordena3-resized.jpg" file="ordena3-resized.jpg" />
+  <media name="ordena4-resized.jpg" file="ordena4-resized.jpg" />
+  <media name="ordena5-resized.jpg" file="ordena5-resized.jpg" />
+  <media name="ordena6-resized.jpg" file="ordena6-resized.jpg" />
+  <media name="ordena7-resized.jpg" file="ordena7-resized.jpg" />
+  <media name="ordena8-resized.jpg" file="ordena8-resized.jpg" />
+  <media name="portada1-resized.jpg" file="portada1-resized.jpg" />
+  <media name="portada2-resized.jpg" file="portada2-resized.jpg" />
+  <media name="portada3-resized.jpg" file="portada3-resized.jpg" />
+  <media name="portada4-resized.jpg" file="portada4-resized.jpg" />
+  <media name="serie del 210-resized.jpg" file="serie_del_210-resized.jpg" />
+  <media name="serie del 220-resized.jpg" file="serie_del_220-resized.jpg" />
+  <media name="serie del 230-resized.jpg" file="serie_del_230-resized.jpg" />
+  <media name="serie del 240-resized.jpg" file="serie_del_240-resized.jpg" />
+  <media name="serie del 250-resized.jpg" file="serie_del_250-resized.jpg" />
+  <media name="serie del 260-resized.jpg" file="serie_del_260-resized.jpg" />
+  <media name="serie del 270-resized.jpg" file="serie_del_270-resized.jpg" />
+  <media name="serie del 280-resized.jpg" file="serie_del_280-resized.jpg" />
+  <media name="serie del 290-resized.jpg" file="serie_del_290-resized.jpg" />
+ </mediaBag>
+</JClicProject>
+

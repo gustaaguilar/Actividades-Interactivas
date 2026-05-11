@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="adjetivos" version="0.1.3">
+ <settings>
+  <title>ADJETIVOS</title>
+  <revision description="created" date="11/17/25" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="3" navButtons="none" />
+  <item name="portadadjetivos" delay="2" navButtons="none" />
+  <item id="start" name="adjetivo30" delay="3" navButtons="none" />
+  <item name="adjetivo11" delay="3" navButtons="none" />
+  <item name="adjetivo12" delay="3" navButtons="none" />
+  <item name="adjetivo3" delay="3" navButtons="none" />
+  <item name="adjetivo4" delay="3" navButtons="none" />
+  <item name="adjetivo6" delay="3" navButtons="none" />
+  <item name="adjetivo8" delay="3" navButtons="none" />
+  <item name="adjetivo18" delay="3" navButtons="none" />
+  <item name="adjetivo19" delay="3" navButtons="none" />
+  <item name="adjetivo22" delay="3" navButtons="none" />
+  <item name="adjetivo23" delay="3" navButtons="none" />
+  <item name="memo1" delay="3" navButtons="none" />
+  <item name="memo_2" delay="3" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@textGrid.WordSearch" name="adjetivo11" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.0" markerStroke="2.7">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x33FFFF" />
+      <gradient source="0x33FF33" dest="0xCC00CC" angle="0" />
+     </style>
+     <p>Encuentra 6 adjetivos.</p>
+    </cell>
+    <cell type="final">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xCCFF00" background="0x333333" />
+     </style>
+     <p>¡Muy bien! - Máximo y Axel</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0x009999">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFF0000" border="true">
+     <gradient source="0xFF3333" dest="0x990099" angle="259" />
+    </window>
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0xFFFF00" background="0x330033" />
+    </style>
+    <text>
+     <row>ABC******D</row>
+     <row>DEF******E</row>
+     <row>**BUENO**S</row>
+     <row>*********P</row>
+     <row>*GRANDE**E</row>
+     <row>S***L****I</row>
+     <row>U****T***N</row>
+     <row>C*LINDO**A</row>
+     <row>I********D</row>
+     <row>O********O</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">ALTO</clue>
+    <clue id="1">LINDO</clue>
+    <clue id="2">DESPEINADO</clue>
+    <clue id="3">BUENO</clue>
+    <clue id="4">GRANDE</clue>
+    <clue id="5">SUCIO</clue>
+   </clues>
+   <cells rows="3" cols="2" border="true" image="maximo y axel-resized.jpg" id="secondary">
+    <style>
+     <font family="Arial" size="17" bold="true" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="adjetivo12" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFCC99" background="0x9900CC" />
+      <gradient source="0xFF0066" dest="0x00FFCC" angle="0" />
+     </style>
+     <p>ENCUENTRA  6 ADJETIVOS</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFF66" />
+      <gradient source="0x33FF33" dest="0xFF33CC" angle="0" />
+     </style>
+     <p>¡Muy bien! - ABRIL Y DEBORA</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0x330099">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0xFF3333" dest="0xFFFF33" angle="0" />
+    </window>
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0x660066" background="0x33FFCC" />
+    </style>
+    <text>
+     <row>L****S***B</row>
+     <row>A****I***R</row>
+     <row>V****M*O*A</row>
+     <row>A****PC**S</row>
+     <row>L****A***I</row>
+     <row>L***LT***L</row>
+     <row>I**F*I***E</row>
+     <row>N*DULCE**R</row>
+     <row>O****O***O</row>
+     <row>DIVERTIDO*</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SIMPATICO</clue>
+    <clue id="1">FLACO</clue>
+    <clue id="2">BRASILERO</clue>
+    <clue id="3">LAVALLINO</clue>
+    <clue id="4">DULCE</clue>
+    <clue id="5">DIVERTIDO</clue>
+   </clues>
+   <cells rows="3" cols="2" border="true" image="i01-abril y debora-resized.jpg" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="adjetivo18" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x99FFFF" background="0xFFFFFF" shadow="0xCC00CC" alternative="0xCCCCFF" border="0xCC0000" />
+      <gradient source="0xFF00CC" dest="0xFFFFFF" angle="0" />
+     </style>
+     <p>Encuentra 6  adjetivos.   </p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x9900CC" background="0x99FFFF" border="0xFF33CC" />
+     </style>
+     <p>¡Muy bien! - Naomi y Rihana</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xFF3333">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x00CC00" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0x00FFFF" background="0xFF0033" />
+    </style>
+    <text>
+     <row>*BC******O</row>
+     <row>DEU*****T*</row>
+     <row>GH*E***L**</row>
+     <row>**L*NIA***</row>
+     <row>*****O****</row>
+     <row>*******O**</row>
+     <row>O******I**</row>
+     <row>L******B*O</row>
+     <row>A******U*E</row>
+     <row>MORENO*R*F</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">RUBIO</clue>
+    <clue id="1">ALTO</clue>
+    <clue id="2">MORENO</clue>
+    <clue id="3">BUENO</clue>
+    <clue id="4">FEO</clue>
+    <clue id="5">MALO</clue>
+   </clues>
+   <cells rows="3" cols="2" border="true" image="i01-Naomí y Rihana-resized.jpg" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="adjetivo19" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" />
+      <color foreground="0xFF3333" background="0xFF33FF" border="0x99FFFF" />
+     </style>
+     <p>ENCONTRAR 6 ADJETIVOS.</p>
+    </cell>
+    <cell border="true" type="final">
+     <style>
+      <font family="Baskerville Old Face" size="24" bold="true" />
+      <color foreground="0xFF66FF" background="0x33FFFF" border="0xFF00CC" />
+     </style>
+     <p>¡Muy bien! - FRANCHESCA Y SELENA</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0x3333FF">
+     <gradient source="0x000000" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFCC66" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="39.0" border="true">
+    <style>
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0x330033" background="0xFF3333" />
+    </style>
+    <text>
+     <row>ABL******C</row>
+     <row>DEA******O</row>
+     <row>S**LINDO*S</row>
+     <row>I***T****T</row>
+     <row>N****O***I</row>
+     <row>C***E****N</row>
+     <row>E**F*****O</row>
+     <row>R*********</row>
+     <row>O*********</row>
+     <row>LAVALLINO*</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">LAVALLINO</clue>
+    <clue id="1">COSTINO</clue>
+    <clue id="2">ALTO</clue>
+    <clue id="3">FEO</clue>
+    <clue id="4">SINCERO</clue>
+    <clue id="5">LINDO</clue>
+   </clues>
+   <cells rows="3" cols="2" border="true" image="i01-Selena y Francesca-resized.jpg" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="adjetivo22" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFF00FF" background="0x99FFFF" />
+     </style>
+     <p>Encuentra 6 adjetivos</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFF33FF" background="0x99FFFF" />
+     </style>
+     <p>¡Muy bien! - Jero y Naza</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xCC0000" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x000099" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style>
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0xFFFFFF" background="0x00CCCC" />
+    </style>
+    <text>
+     <row>M*B*******</row>
+     <row>ELAVALLINO</row>
+     <row>N*J*E*****</row>
+     <row>D*O**R****</row>
+     <row>O*****D***</row>
+     <row>C******E**</row>
+     <row>IPRIMERO**</row>
+     <row>N*****T***</row>
+     <row>O****L****</row>
+     <row>****A*****</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">MENDOCINO</clue>
+    <clue id="1">ALTO</clue>
+    <clue id="2">VERDE</clue>
+    <clue id="3">PRIMERO</clue>
+    <clue id="4">BAJO</clue>
+    <clue id="5">LAVALLINO</clue>
+   </clues>
+   <cells rows="2" cols="3" border="true" image="i01-Nazareno y Jerónimo-resized.jpg" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="adjetivo23" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xCCFFFF" background="0xFF33CC" />
+     </style>
+     <p>ENCUENTRA 6 ADJETIVOS.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFF33" background="0xCC00CC" />
+     </style>
+     <p>¡Muy bien! - Ludmi e Ivon</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xFFFFCC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x000099" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0x0000CC" background="0xFF99FF" />
+    </style>
+    <text>
+     <row>H********A</row>
+     <row>*E*RUBIO*L</row>
+     <row>**R**G***T</row>
+     <row>***M**U**O</row>
+     <row>****O**A**</row>
+     <row>*****S**P*</row>
+     <row>******O**O</row>
+     <row>LINDO*****</row>
+     <row>**********</row>
+     <row>CHIQUITO**</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">RUBIO</clue>
+    <clue id="1">ALTO</clue>
+    <clue id="2">LINDO</clue>
+    <clue id="3">HERMOSO</clue>
+    <clue id="4">GUAPO</clue>
+    <clue id="5">CHIQUITO</clue>
+   </clues>
+   <cells rows="3" cols="2" border="true" image="i01-Ivon y Ludmila-resized.jpg" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="adjetivo3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" />
+      <color foreground="0xFF0000" background="0x33FFCC" />
+     </style>
+     <p>Encuentra 6 adjetivos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x33FF00" background="0xFF3333" />
+      <gradient source="0xFF0000" dest="0x0000FF" angle="0" />
+     </style>
+     <p>¡Muy bien! - MAXIMO Y BRUNO</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0x3333FF">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x009933" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0xFFFFFF" background="0xFF3333" />
+    </style>
+    <text>
+     <row>ABC**KL*G*</row>
+     <row>DEF*C*A*R*</row>
+     <row>GHIA**V*A*</row>
+     <row>**R**RA*N*</row>
+     <row>BC***UL*D*</row>
+     <row>*O*F*BL*E*</row>
+     <row>**N*EII***</row>
+     <row>***I*ON***</row>
+     <row>****T*O***</row>
+     <row>*****O****</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">CRACK</clue>
+    <clue id="1">LAVALLINO</clue>
+    <clue id="2">BONITO</clue>
+    <clue id="3">RUBIO</clue>
+    <clue id="4">GRANDE</clue>
+    <clue id="5">FEO</clue>
+   </clues>
+   <cells rows="2" cols="3" border="true" image="Bruno y Máximo-resized.jpg" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="adjetivo30" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="2.7">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xCC0000" background="0x33FFCC" border="0xFF9999" />
+     </style>
+     <p>Encuentra 6 adjetivos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x990000" background="0x33FFCC" border="0x990099" />
+     </style>
+     <p>¡Muy bien! - Luz y Wanda</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xFF99CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFCCFF" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="17" bold="true" />
+     <color background="0x33FFFF" />
+    </style>
+    <text>
+     <row>ABCVERDE*L</row>
+     <row>DEFD*****A</row>
+     <row>GCI*U****V</row>
+     <row>**O**L***A</row>
+     <row>***S**C**L</row>
+     <row>**ALTO*E*L</row>
+     <row>*****I***I</row>
+     <row>******N**N</row>
+     <row>*******O*O</row>
+     <row>MENDOCINO*</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">ALTO</clue>
+    <clue id="1">LAVALLINO</clue>
+    <clue id="2">MENDOCINO</clue>
+    <clue id="3">COSTINO</clue>
+    <clue id="4">VERDE</clue>
+    <clue id="5">DULCE</clue>
+   </clues>
+   <cells rows="3" cols="2" border="true" image="Morena y Wandalina-resized.jpg" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="adjetivo4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" />
+      <color foreground="0x0033FF" background="0x0000CC" />
+      <gradient source="0xCC0099" dest="0xFF0033" angle="0" />
+     </style>
+     <p>Encuentra 6 adjetivos</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0x66FFFF" />
+      <gradient source="0x6666FF" dest="0xFFFF33" angle="0" />
+     </style>
+     <p>¡Muy bien! - Thiago y Augusto</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xFFFF00">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFF0033" border="true">
+     <gradient source="0x0000FF" dest="0xFFFF66" angle="0" />
+    </window>
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style>
+     <color foreground="0xFFFF00" background="0x9999FF" />
+     <gradient source="0x6666FF" dest="0x660066" angle="0" />
+    </style>
+    <text>
+     <row>*SIMPATICO</row>
+     <row>**********</row>
+     <row>***RUBIO**</row>
+     <row>HERMOSO***</row>
+     <row>G****O****</row>
+     <row>*R***P**O*</row>
+     <row>**A**A**T*</row>
+     <row>***N*U**L*</row>
+     <row>****DG**A*</row>
+     <row>*****E****</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">ALTO</clue>
+    <clue id="1">HERMOSO</clue>
+    <clue id="2">GRANDE</clue>
+    <clue id="3">GUAPO</clue>
+    <clue id="4">SIMPATICO</clue>
+    <clue id="5">RUBIO</clue>
+   </clues>
+   <cells rows="3" cols="2" border="true" image="i01-augusto y thiago-resized.jpg" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="adjetivo6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x99FFFF" background="0xFFCCCC" inactive="0xFF9999" border="0xFF33FF" />
+      <gradient source="0x000000" dest="0xFFFFFF" angle="0" cycles="3" />
+     </style>
+     <p>Encuentra los 6 adjetivos.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x99FF00" background="0xFFCCCC" />
+      <gradient source="0x000000" dest="0xFFFFFF" angle="36" cycles="3" />
+     </style>
+     <p>¡Muy bien! - Luana y Bianca</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xFFCC99">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style>
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0x990099" background="0xFFCCFF" inactive="0x999900" border="0x009999" />
+    </style>
+    <text>
+     <row>*******O*M</row>
+     <row>*A*F***C*E</row>
+     <row>*L**E**I*N</row>
+     <row>*T***O*T*D</row>
+     <row>*O*****A*O</row>
+     <row>*******P*C</row>
+     <row>GRANDE*M*I</row>
+     <row>*******I*N</row>
+     <row>*******S*O</row>
+     <row>LAVALLINO*</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SIMPATICO</clue>
+    <clue id="1">FEO</clue>
+    <clue id="2">ALTO</clue>
+    <clue id="3">GRANDE</clue>
+    <clue id="4">LAVALLINO</clue>
+    <clue id="5">MENDOCINO</clue>
+   </clues>
+   <cells rows="3" cols="2" border="true" image="i01-Luana y Bianca-resized.jpg" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="adjetivo8" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x666600" />
+     </style>
+     <p>ENCUENTRA 6 ADJETIVOS</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x00FF66" background="0xFF3333" border="0xFF3333" />
+     </style>
+     <p>¡Muy bien! - IAN y JOEL</p>
+    </cell>
+    <cell type="finalError">
+     <style>
+      <color foreground="0x33FF00" background="0xFF0000" />
+     </style>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true">
+     <gradient source="0x00CC00" dest="0xFFFFFF" angle="0" />
+    </window>
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="40.0" cellHeight="40.0" border="true">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="17" bold="true" />
+     <color foreground="0xFFFFFF" background="0xCC0000" />
+    </style>
+    <text>
+     <row>**********</row>
+     <row>S******A**</row>
+     <row>I******L**</row>
+     <row>M******T**</row>
+     <row>PCOSTINO**</row>
+     <row>A*******O*</row>
+     <row>TLAVALLINO</row>
+     <row>I**O**B***</row>
+     <row>C**E*U****</row>
+     <row>O**FR*****</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SIMPATICO</clue>
+    <clue id="1">COSTINO</clue>
+    <clue id="2">FEO</clue>
+    <clue id="3">RUBIO</clue>
+    <clue id="4">ALTO</clue>
+    <clue id="5">LAVALLINO</clue>
+   </clues>
+   <cells rows="3" cols="2" border="true" image="i01-Joel e Ian-resized.jpg" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="3" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF33" background="0x990000" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="memojuego-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="204.0" cellHeight="136.0" border="true" id="primary">
+    <style margin="0">
+     <font family="Arial" size="14" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell txtAlign="middle,bottom" avoidOverlapping="true" image="abril y debora-resized.jpg" />
+    <cell txtAlign="middle,bottom" image="Joel e Ian-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="maximo y axel-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="Morena y Wandalina-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="Nazareno y Jerónimo-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="Selena y Francesca-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <p>Encuentra los iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFF33" background="0x990000" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006666" dest="0xFFFFFF" angle="0" />
+     <image name="memojuego-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="183.0" cellHeight="187.0" border="true" id="primary">
+    <style margin="0">
+     <font family="Arial" size="14" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell txtAlign="middle,bottom" avoidOverlapping="true" image="i01-Ivon y Ludmila-resized.jpg" />
+    <cell txtAlign="middle,bottom" image="augusto y thiago-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="Bruno y Máximo-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="i01-Luana y Bianca-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="i01-Naomí y Rihana-resized.jpg">
+     <style margin="2" borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+    <cell txtAlign="middle,bottom" image="2-resized.jpg">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0xFFFFFF" />
+     </style>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="portadadjetivos" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="portada adjetivos-resized.jpg">
+    <style />
+    <shaper class="@ClassicJigSaw" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="1Había una vez una  niña llamada Daniela-resized.jpg" file="1habia_una_vez_una__nina_llamada_daniela-resized.jpg" />
+  <media name="2-resized.jpg" file="2-resized-adjetivos.jpg" />
+  <media name="2Guardaba una semilla dorada en su cajita de madera-resized.jpg" file="2guardaba_una_semilla_dorada_en_su_cajita_de_madera-resized.jpg" />
+  <media name="3cada día miraba su semilla con cariño-resized.jpg" file="3cada_dia_miraba_su_semilla_con_carino-resized.jpg" />
+  <media name="4Daniela la colocó en la tierra húmeda de su canchita del jardín-resized.jpg" file="4daniela_la_coloco_en_la_tierra_humeda_de_su_canchita_del_jardin-resized.jpg" />
+  <media name="5Con cuidado la regaba y le cantaba canciones-resized.jpg" file="5con_cuidado_la_regaba_y_le_cantaba_canciones-resized.jpg" />
+  <media name="7Con el tiempo, la ramita se volvió un árbol lleno de hojas verdes-resized.jpg" file="7con_el_tiempo__la_ramita_se_volvio_un_arbol_lleno_de_hojas_verdes-resized.jpg" />
+  <media name="abril y debora-resized.jpg" file="abril_y_debora-resized.jpg" />
+  <media name="augusto y thiago-resized.jpg" file="augusto_y_thiago-resized.jpg" />
+  <media name="Bruno y Máximo-resized.jpg" file="bruno_y_maximo-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2-adjetivos.jpg" />
+  <media name="i01-abril y debora-resized.jpg" file="i01-abril_y_debora-resized.jpg" />
+  <media name="i01-augusto y thiago-resized.jpg" file="i01-augusto_y_thiago-resized.jpg" />
+  <media name="i01-i01-bienhecho.jpg" file="i01-i01-bienhecho.jpg" />
+  <media name="i01-Ivon y Ludmila-resized.jpg" file="i01-ivon_y_ludmila-resized.jpg" />
+  <media name="i01-Joel e Ian-resized.jpg" file="i01-joel_e_ian-resized.jpg" />
+  <media name="i01-Luana y Bianca-resized.jpg" file="i01-luana_y_bianca-resized.jpg" />
+  <media name="i01-Naomí y Rihana-resized.jpg" file="i01-naomi_y_rihana-resized.jpg" />
+  <media name="i01-Nazareno y Jerónimo-resized.jpg" file="i01-nazareno_y_jeronimo-resized.jpg" />
+  <media name="i01-Selena y Francesca-resized.jpg" file="i01-selena_y_francesca-resized.jpg" />
+  <media name="i02-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="Ivon y Ludmila-resized.jpg" file="ivon_y_ludmila-resized.jpg" />
+  <media name="Joel e Ian-resized.jpg" file="joel_e_ian-resized.jpg" />
+  <media name="Luana y Bianca-resized.jpg" file="luana_y_bianca-resized.jpg" />
+  <media name="maximo y axel-resized.jpg" file="maximo_y_axel-resized.jpg" />
+  <media name="memojuego-resized.jpg" file="memojuego-resized.jpg" />
+  <media name="Morena y Wandalina-resized.jpg" file="morena_y_wandalina-resized.jpg" />
+  <media name="Máximo-resized.jpg" file="maximo-resized.jpg" />
+  <media name="Naomí y Rihana-resized.jpg" file="naomi_y_rihana-resized.jpg" />
+  <media name="Nazareno y Jerónimo-resized.jpg" file="nazareno_y_jeronimo-resized.jpg" />
+  <media name="portada adjetivos-resized.jpg" file="portada_adjetivos-resized.jpg" />
+  <media name="Selena y Francesca-resized.jpg" file="selena_y_francesca-resized.jpg" />
+ </mediaBag>
+</JClicProject>
+
