@@ -1,0 +1,1933 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="animales" version="0.1.3">
+ <settings>
+  <title>Los Animales - Ambiente 3er Grado</title>
+  <revision description="created" date="5/8/25" />
+  <author name="Gustavo Aguilar" mail="profegustaaguilar@gmail.com" url="quesepantodos.blogspot.com" rol="Profesor de Informática Educativa">
+   <comments>
+    <p>Clasificación de animales para 3er grado. Ambiente - Mayo 2025.</p>
+   </comments>
+  </author>
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="4" navButtons="none" />
+  <item name="portada_animales" delay="3" navButtons="none" />
+  <item name="ora1" delay="3" navButtons="none" />
+  <item name="ora2" delay="3" navButtons="none" />
+  <item name="ora3" delay="3" navButtons="none" />
+  <item name="ora4" delay="3" navButtons="none" />
+  <item name="ora5" delay="3" navButtons="none" />
+  <item name="ora6" delay="3" navButtons="none" />
+  <item name="fill1" delay="3" navButtons="none" />
+  <item name="fill2" delay="3" navButtons="none" />
+  <item name="fill3" delay="3" navButtons="none" />
+  <item name="fill4" delay="3" navButtons="none" />
+  <item name="fill5" delay="3" navButtons="none" />
+  <item name="vof1" delay="3" navButtons="none" />
+  <item name="vof2" delay="3" navButtons="none" />
+  <item name="vof3" delay="3" navButtons="none" />
+  <item name="vof4" delay="3" navButtons="none" />
+  <item name="vof5" delay="3" navButtons="none" />
+  <item name="clasif1" delay="3" navButtons="none" />
+  <item name="clasif2" delay="3" navButtons="none" />
+  <item name="clasif3" delay="3" navButtons="none" />
+  <item name="unir1" delay="3" navButtons="none" />
+  <item name="unir2" delay="3" navButtons="none" />
+  <item name="unir3" delay="3" navButtons="none" />
+  <item name="identi1" delay="3" navButtons="none" />
+  <item name="identi2" delay="3" navButtons="none" />
+  <item name="identi3" delay="3" navButtons="none" />
+  <item name="sopa" delay="3" navButtons="none" />
+  <item name="memoria1" delay="3" navButtons="none" />
+  <item name="ordenar" delay="3" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x003366" background="0xFFFFFF" />
+      <gradient source="0x0066CC" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Último rompecabezas!</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_portada.mp3" />
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x003366" background="0xFFFFFF" />
+     </style>
+     <p>¡Muy bien! ¡Terminaste!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@associations.ComplexAssociation" name="clasif1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_clasificar.mp3" />
+     <p>Clasificá cada animal según su hábitat.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="6" cols="1" cellWidth="226.0" cellHeight="70.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell id="0" txtAlign="right,middle" image="img_perro.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_perro.mp3" />
+     <p>perro</p>
+    </cell>
+    <cell id="1" txtAlign="right,middle" image="img_delfin.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_delfin.mp3" />
+     <p>delfín</p>
+    </cell>
+    <cell id="2" txtAlign="right,middle" image="img_aguila.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_aguila.mp3" />
+     <p>águila</p>
+    </cell>
+    <cell id="1" txtAlign="right,middle" image="img_tiburon.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_tiburon.mp3" />
+     <p>tiburón</p>
+    </cell>
+    <cell id="0" txtAlign="right,middle" image="img_caballo.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_caballo.mp3" />
+     <p>caballo</p>
+    </cell>
+    <cell id="2" txtAlign="right,middle" image="img_loro.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_loro.mp3" />
+     <p>loro</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="160.0" cellHeight="55.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFF99" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>Terrestre</p>
+    </cell>
+    <cell>
+     <p>Acuático</p>
+    </cell>
+    <cell>
+     <p>Aéreo</p>
+    </cell>
+   </cells>
+   <cells rows="6" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.ComplexAssociation" name="clasif2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_clasificar.mp3" />
+     <p>Clasificá cada animal según su alimentación.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="6" cols="1" cellWidth="240.0" cellHeight="71.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell id="0" txtAlign="right,middle" image="img_vaca.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_vaca.mp3" />
+     <p>vaca</p>
+    </cell>
+    <cell id="1" txtAlign="right,middle" image="img_leon.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_leon.mp3" />
+     <p>león</p>
+    </cell>
+    <cell id="2" txtAlign="right,middle" image="img_oso.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_oso.mp3" />
+     <p>oso</p>
+    </cell>
+    <cell id="0" txtAlign="right,middle" image="img_conejo.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_conejo.mp3" />
+     <p>conejo</p>
+    </cell>
+    <cell id="1" txtAlign="right,middle" image="img_tiburon.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_tiburon.mp3" />
+     <p>tiburón</p>
+    </cell>
+    <cell id="2" txtAlign="right,middle" image="img_cerdo.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_cerdo.mp3" />
+     <p>cerdo</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="160.0" cellHeight="55.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFF99" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <p>Herbívoro</p>
+    </cell>
+    <cell>
+     <p>Carnívoro</p>
+    </cell>
+    <cell>
+     <p>Omnívoro</p>
+    </cell>
+   </cells>
+   <cells rows="6" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.ComplexAssociation" name="clasif3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_clasificar.mp3" />
+     <p>Clasificá cada animal según cómo nace.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="6" cols="1" cellWidth="247.0" cellHeight="55.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell id="0" txtAlign="right,middle" image="img_gallina.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_gallina.mp3" />
+     <p>gallina</p>
+    </cell>
+    <cell id="1" txtAlign="right,middle" image="img_perro.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_perro.mp3" />
+     <p>perro</p>
+    </cell>
+    <cell id="0" txtAlign="right,middle" image="img_tortuga.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_tortuga.mp3" />
+     <p>tortuga</p>
+    </cell>
+    <cell id="1" txtAlign="right,middle" image="img_delfin.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_delfin.mp3" />
+     <p>delfín</p>
+    </cell>
+    <cell id="0" txtAlign="right,middle" image="img_mariposa.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_mariposa.mp3" />
+     <p>mariposa</p>
+    </cell>
+    <cell id="1" txtAlign="right,middle" image="img_vaca.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_vaca.mp3" />
+     <p>vaca</p>
+    </cell>
+   </cells>
+   <cells rows="2" cols="1" cellWidth="160.0" cellHeight="55.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFF99" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell>
+     <p>Ovíparo</p>
+    </cell>
+    <cell>
+     <p>Vivíparo</p>
+    </cell>
+   </cells>
+   <cells rows="6" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="fill1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_completar.mp3" />
+     <p>Completá la oración con la palabra que falta.</p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="img_perro.png" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true">
+     <size width="580" height="120" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x003366" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="26" bold="false" tabWidth="12" italic="false" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="26">El perro es un animal </text>
+      <target>
+       <answer>terrestre</answer>
+       <response fill="_" length="9" maxLength="9" />
+       <text>terrestre</text>
+      </target>
+      <text size="26"> porque vive en la tierra.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="fill2">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Completá la oración con la palabra que falta.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_completar.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="img_tiburon.png" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true">
+     <size width="580" height="120" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x003366" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="26" bold="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="26">El tiburón es un animal </text>
+      <target>
+       <answer>acuático</answer>
+       <response fill="_" length="8" maxLength="8" />
+       <text>acuático</text>
+      </target>
+      <text size="26"> porque vive en el mar.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="fill3">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Completá la oración con la palabra que falta.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_completar.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="img_vaca.png" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true">
+     <size width="580" height="120" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x003366" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="26" bold="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="26">La vaca es un animal </text>
+      <target>
+       <answer>herbívoro</answer>
+       <response fill="_" length="9" maxLength="9" />
+       <text>herbívoro</text>
+      </target>
+      <text size="26"> porque come pasto.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="fill4">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Completá la oración con la palabra que falta.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_completar.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="img_aguila.png" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true">
+     <size width="580" height="120" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x003366" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="26" bold="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="26">El cóndor es un animal </text>
+      <target>
+       <answer>ovíparo</answer>
+       <response fill="_" length="7" maxLength="7" />
+       <text>ovíparo</text>
+      </target>
+      <text size="26"> porque nace de un huevo.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@text.FillInBlanks" name="fill5">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Completá la oración con la palabra que falta.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_completar.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="img_delfin.png" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true">
+     <size width="580" height="120" />
+    </window>
+   </settings>
+   <document>
+    <style name="targetError" base="target" foreground="0xFF0000" />
+    <style name="target" base="default" foreground="0x003366" target="true" />
+    <style name="default" family="Arial" background="0xFFFFFF" size="26" bold="false" tabWidth="12" />
+    <section>
+     <p family="Arial" background="0xFFFFFF">
+      <text size="26">El delfín es un animal </text>
+      <target>
+       <answer>vivíparo</answer>
+       <response fill="_" length="8" maxLength="8" />
+       <text>vivíparo</text>
+      </target>
+      <text size="26"> porque nace del vientre.</text>
+     </p>
+    </section>
+   </document>
+   <evaluator class="@ComplexEvaluator" />
+  </activity>
+  <activity class="@panels.Identify" name="identi1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFFFF99" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_identificar.mp3" />
+     <p>¿Cuál de estos es un animal carnívoro?</p>
+     <p>Hacé clic en la respuesta correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="500.0" cellHeight="148.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" txtAlign="middle,bottom" image="img_vaca.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_vaca.mp3" />
+     <p>Vaca — come pasto y heno.</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="img_leon.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_leon.mp3" />
+     <p>León — caza otros animales para comer.</p>
+    </cell>
+    <cell id="0" txtAlign="middle,bottom" image="img_oso.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_oso.mp3" />
+     <p>Oso — come frutos, miel y peces.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFFFF99" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_identificar.mp3" />
+     <p>¿Cuál de estos es un animal acuático?</p>
+     <p>Hacé clic en la respuesta correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="500.0" cellHeight="148.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" txtAlign="middle,bottom" image="img_elefante.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_elefante.mp3" />
+     <p>Elefante — vive en la sabana africana.</p>
+    </cell>
+    <cell id="0" txtAlign="middle,bottom" image="img_aguila.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_aguila.mp3" />
+     <p>Águila — vuela y anida en las montañas.</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="img_tiburon.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_tiburon.mp3" />
+     <p>Tiburón — nada en el mar y los océanos.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFFFF99" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_identificar.mp3" />
+     <p>¿Cuál de estos es un mamífero vivíparo?</p>
+     <p>Hacé clic en la respuesta correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="500.0" cellHeight="132.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" txtAlign="middle,bottom" image="img_gallina.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_gallina.mp3" />
+     <p>Gallina — pone huevos para tener sus crías.</p>
+    </cell>
+    <cell id="1" txtAlign="middle,bottom" image="img_delfin.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_delfin.mp3" />
+     <p>Delfín — tiene crías que nacen vivas del vientre.</p>
+    </cell>
+    <cell id="0" txtAlign="middle,bottom" image="img_tortuga.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_tortuga.mp3" />
+     <p>Tortuga — pone huevos en la arena de la playa.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memoria1">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Encontrá los pares iguales.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_memoria.mp3" />
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="110.0" cellHeight="110.0" border="true" id="primary">
+    <style margin="2">
+     <font family="Arial" size="14" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell image="img_perro.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_perro.mp3" />
+    </cell>
+    <cell image="img_gato.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_gato.mp3" />
+    </cell>
+    <cell image="img_vaca.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_vaca.mp3" />
+    </cell>
+    <cell image="img_caballo.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_caballo.mp3" />
+    </cell>
+    <cell image="img_delfin.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_delfin.mp3" />
+    </cell>
+    <cell image="img_aguila.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_aguila.mp3" />
+    </cell>
+    <cell image="img_tortuga.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_tortuga.mp3" />
+    </cell>
+    <cell image="img_mariposa.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_mariposa.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora1">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Armá la oración.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_rompe.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="fondo_animales.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="102.0" cellHeight="36.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.0" markerStroke="2.7">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell>
+     <p>Los</p>
+    </cell>
+    <cell>
+     <p>vertebrados</p>
+    </cell>
+    <cell>
+     <p>tienen</p>
+    </cell>
+    <cell>
+     <p>una</p>
+    </cell>
+    <cell>
+     <p>columna</p>
+    </cell>
+    <cell>
+     <p>vertebral</p>
+    </cell>
+    <cell>
+     <p>bien</p>
+    </cell>
+    <cell>
+     <p>definida.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora2">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Armá la oración.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_rompe.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="fondo_animales.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="102.0" cellHeight="36.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.0" markerStroke="2.7">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell>
+     <p>Los</p>
+    </cell>
+    <cell>
+     <p>herbívoros</p>
+    </cell>
+    <cell>
+     <p>solo</p>
+    </cell>
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>alimentan</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>plantas</p>
+    </cell>
+    <cell>
+     <p>herbáceas.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora3">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Armá la oración.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_rompe.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="fondo_animales.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="102.0" cellHeight="36.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.0" markerStroke="2.7">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell>
+     <p>Los</p>
+    </cell>
+    <cell>
+     <p>carnívoros</p>
+    </cell>
+    <cell>
+     <p>cazan</p>
+    </cell>
+    <cell>
+     <p>a</p>
+    </cell>
+    <cell>
+     <p>otros</p>
+    </cell>
+    <cell>
+     <p>animales</p>
+    </cell>
+    <cell>
+     <p>para</p>
+    </cell>
+    <cell>
+     <p>alimentarse.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora4">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Armá la oración.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_rompe.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="fondo_animales.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="102.0" cellHeight="36.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.0" markerStroke="2.7">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell>
+     <p>Los</p>
+    </cell>
+    <cell>
+     <p>omnívoros</p>
+    </cell>
+    <cell>
+     <p>comen</p>
+    </cell>
+    <cell>
+     <p>tanto</p>
+    </cell>
+    <cell>
+     <p>plantas</p>
+    </cell>
+    <cell>
+     <p>como</p>
+    </cell>
+    <cell>
+     <p>otros</p>
+    </cell>
+    <cell>
+     <p>animales.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora5">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Armá la oración.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_rompe.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="fondo_animales.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="36.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.0" markerStroke="2.7">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>Los</p>
+    </cell>
+    <cell>
+     <p>animales</p>
+    </cell>
+    <cell>
+     <p>acuáticos</p>
+    </cell>
+    <cell>
+     <p>viven</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>mueven</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>el</p>
+    </cell>
+    <cell>
+     <p>agua.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ora6">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Armá la oración.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_rompe.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <image name="fondo_animales.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="102.0" cellHeight="36.0" border="true">
+    <style transparent="true" margin="1" borderStroke="3.0" markerStroke="2.7">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" inactive="0xFFFFFF" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell>
+     <p>Los</p>
+    </cell>
+    <cell>
+     <p>ovíparos</p>
+    </cell>
+    <cell>
+     <p>nacen</p>
+    </cell>
+    <cell>
+     <p>de</p>
+    </cell>
+    <cell>
+     <p>huevos</p>
+    </cell>
+    <cell>
+     <p>y</p>
+    </cell>
+    <cell>
+     <p>los</p>
+    </cell>
+    <cell>
+     <p>vivíparos</p>
+    </cell>
+    <cell>
+     <p>del</p>
+    </cell>
+    <cell>
+     <p>vientre.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <p>Ordená los pasos para clasificar un animal.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_ordenar.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x003366" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="480.0" cellHeight="65.0" border="true">
+    <style margin="4" borderStroke="2.0" markerStroke="3.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0x003366" background="0xEEF4FF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <p>Observar al animal con atención.</p>
+     <media type="PLAY_AUDIO" level="1" file="ord_paso1.mp3" />
+    </cell>
+    <cell>
+     <p>Identificar sus características principales.</p>
+     <media type="PLAY_AUDIO" level="1" file="ord_paso2.mp3" />
+    </cell>
+    <cell>
+     <p>Clasificarlo según lo aprendido.</p>
+     <media type="PLAY_AUDIO" level="1" file="ord_paso3.mp3" />
+    </cell>
+    <cell>
+     <p>Registrar la clasificación completa.</p>
+     <media type="PLAY_AUDIO" level="1" file="ord_paso4.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portada_animales">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x003366" background="0xFFFFFF" />
+      <gradient source="0x0066CC" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>Los Animales - Ambiente 3er Grado</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_portada.mp3" />
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x003366" background="0xFFFFFF" />
+     </style>
+     <p>¡Muy bien! ¡A jugar!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="portada.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopa" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_sopa.mp3" />
+     <p>Encontrá las 8 palabras escondidas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0x003366">
+     <gradient source="0x003366" dest="0x001133" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x003366" border="true" />
+   </settings>
+   <textGrid rows="10" columns="12" cellWidth="39.0" cellHeight="37.0" border="true">
+    <style margin="2">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFF00" background="0x003366" />
+    </style>
+    <text>
+     <row>VERTEBRADO</row>
+     <row>**********</row>
+     <row>*ACUATICO*</row>
+     <row>**********</row>
+     <row>**OVIPARO*</row>
+     <row>HERBIVORO*</row>
+     <row>**********</row>
+     <row>*VIVIPARO*</row>
+     <row>TERRESTRE*</row>
+     <row>**********</row>
+     <row>OMNIVORO**</row>
+     <row>*CARNIVORO</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">VERTEBRADO</clue>
+    <clue id="1">HERBIVORO</clue>
+    <clue id="2">CARNIVORO</clue>
+    <clue id="3">OMNIVORO</clue>
+    <clue id="4">ACUATICO</clue>
+    <clue id="5">TERRESTRE</clue>
+    <clue id="6">OVIPARO</clue>
+    <clue id="7">VIVIPARO</clue>
+   </clues>
+   <cells rows="4" cols="2" cellWidth="102.0" cellHeight="102.0" border="true" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="4" />
+    <cell image="img_elefante.png" />
+    <cell image="img_delfin.png" />
+    <cell image="img_gallina.png" />
+    <cell image="img_vaca.png" />
+    <cell image="img_gato.png" />
+    <cell image="img_perro.png" />
+    <cell image="img_oso.png" />
+    <cell image="img_leon.png" />
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_unir.mp3" />
+     <p>Uní cada animal con su tipo de alimentación.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="252.0" cellHeight="70.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell txtAlign="right,middle" image="img_leon.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_leon.mp3" />
+     <p>León</p>
+    </cell>
+    <cell txtAlign="right,middle" image="img_vaca.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_vaca.mp3" />
+     <p>Vaca</p>
+    </cell>
+    <cell txtAlign="right,middle" image="img_oso.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_oso.mp3" />
+     <p>Oso</p>
+    </cell>
+    <cell txtAlign="right,middle" image="img_caballo.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_caballo.mp3" />
+     <p>Caballo</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="200.0" cellHeight="70.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFF99" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_carnivoro.mp3" />
+     <p>Carnívoro</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_herbivoro.mp3" />
+     <p>Herbívoro</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_omnivoro.mp3" />
+     <p>Omnívoro</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_herbivoro.mp3" />
+     <p>Herbívoro</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_unir.mp3" />
+     <p>Uní cada animal con el hábitat donde vive.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="252.0" cellHeight="70.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell txtAlign="right,middle" image="img_perro.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_perro.mp3" />
+     <p>Perro</p>
+    </cell>
+    <cell txtAlign="right,middle" image="img_delfin.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_delfin.mp3" />
+     <p>Delfín</p>
+    </cell>
+    <cell txtAlign="right,middle" image="img_aguila.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_aguila.mp3" />
+     <p>Águila</p>
+    </cell>
+    <cell txtAlign="right,middle" image="img_elefante.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_elefante.mp3" />
+     <p>Elefante</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="200.0" cellHeight="70.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFF99" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_terrestre.mp3" />
+     <p>Terrestre</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_acuatico.mp3" />
+     <p>Acuático</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_aereo.mp3" />
+     <p>Aéreo</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_terrestre.mp3" />
+     <p>Terrestre</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="unir3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_unir.mp3" />
+     <p>Uní cada animal con su forma de nacer.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="262.0" cellHeight="70.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell txtAlign="right,middle" image="img_gallina.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_gallina.mp3" />
+     <p>Gallina</p>
+    </cell>
+    <cell txtAlign="right,middle" image="img_perro.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_perro.mp3" />
+     <p>Perro</p>
+    </cell>
+    <cell txtAlign="right,middle" image="img_tortuga.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_tortuga.mp3" />
+     <p>Tortuga</p>
+    </cell>
+    <cell txtAlign="right,middle" image="img_delfin.png">
+     <media type="PLAY_AUDIO" level="1" file="ref_delfin.mp3" />
+     <p>Delfín</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="200.0" cellHeight="70.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFF99" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_oviparo.mp3" />
+     <p>Ovíparo</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_viviparo.mp3" />
+     <p>Vivíparo</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_oviparo.mp3" />
+     <p>Ovíparo</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="term_viviparo.mp3" />
+     <p>Vivíparo</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="vof1">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFFFF99" />
+     </style>
+     <p>¿Verdadero o Falso?</p>
+     <p>El águila es un animal acuático.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_vof.mp3" />
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="img_aguila.png" tiled="true" />
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="1" cellWidth="400.0" cellHeight="80.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell id="0">
+     <p>Verdadero</p>
+    </cell>
+    <cell id="1">
+     <p>Falso</p>
+    </cell>
+   </cells>
+   <cells rows="2" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="0" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="vof2">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFFFF99" />
+     </style>
+     <p>¿Verdadero o Falso?</p>
+     <p>El caballo es un animal herbívoro.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_vof.mp3" />
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="img_caballo.png" tiled="true" />
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="1" cellWidth="400.0" cellHeight="80.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell id="1">
+     <p>Verdadero</p>
+    </cell>
+    <cell id="0">
+     <p>Falso</p>
+    </cell>
+   </cells>
+   <cells rows="2" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="0" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="vof3">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFFFF99" />
+     </style>
+     <p>¿Verdadero o Falso?</p>
+     <p>Los peces son animales vertebrados.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_vof.mp3" />
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="img_pez.png" tiled="true" />
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="1" cellWidth="400.0" cellHeight="80.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell id="1">
+     <p>Verdadero</p>
+    </cell>
+    <cell id="0">
+     <p>Falso</p>
+    </cell>
+   </cells>
+   <cells rows="2" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="0" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="vof4">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFFFF99" />
+     </style>
+     <p>¿Verdadero o Falso?</p>
+     <p>El oso es carnívoro porque solo come carne.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_vof.mp3" />
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="img_oso.png" tiled="true" />
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="1" cellWidth="400.0" cellHeight="80.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell id="0">
+     <p>Verdadero</p>
+    </cell>
+    <cell id="1">
+     <p>Falso</p>
+    </cell>
+   </cells>
+   <cells rows="2" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="0" primary="false" />
+  </activity>
+  <activity class="@panels.Identify" name="vof5">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xFFFF99" />
+     </style>
+     <p>¿Verdadero o Falso?</p>
+     <p>Los reptiles son animales ovíparos.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_vof.mp3" />
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xCCFFCC" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="img_tortuga.png" tiled="true" />
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="1" cellWidth="400.0" cellHeight="80.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell id="1">
+     <p>Verdadero</p>
+    </cell>
+    <cell id="0">
+     <p>Falso</p>
+    </cell>
+   </cells>
+   <cells rows="2" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="2" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="0" primary="false" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="Armá el rompecabezas.mp3" />
+     <p>Armá el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="Muy bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="fondo_animales.jpg" file="fondo_animales.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i01-i02-i01-bienhecho.jpg" file="i01-i02-i01-bienhecho.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="i05-i01-bienhecho.jpg" file="i05-i01-bienhecho.jpg" />
+  <media name="portada.jpg" file="portada.jpg" />
+  <media name="Armá el rompecabezas.mp3" file="arma_el_rompecabezas.mp3" />
+  <media name="cons_clasificar.mp3" file="cons_clasificar.mp3" />
+  <media name="cons_completar.mp3" file="cons_completar.mp3" />
+  <media name="cons_identificar.mp3" file="cons_identificar.mp3" />
+  <media name="cons_memoria.mp3" file="cons_memoria.mp3" />
+  <media name="cons_ordenar.mp3" file="cons_ordenar.mp3" />
+  <media name="cons_portada.mp3" file="cons_portada.mp3" />
+  <media name="cons_rompe.mp3" file="cons_rompe.mp3" />
+  <media name="cons_sopa.mp3" file="cons_sopa.mp3" />
+  <media name="cons_unir.mp3" file="cons_unir.mp3" />
+  <media name="cons_vof.mp3" file="cons_vof.mp3" />
+  <media name="Muy bien.mp3" file="i01-muy_bien.mp3" />
+  <media name="muy_bien.mp3" file="muy_bien.mp3" />
+  <media name="ord_paso1.mp3" file="ord_paso1.mp3" />
+  <media name="ord_paso2.mp3" file="ord_paso2.mp3" />
+  <media name="ord_paso3.mp3" file="ord_paso3.mp3" />
+  <media name="ord_paso4.mp3" file="ord_paso4.mp3" />
+  <media name="ref_aguila.mp3" file="ref_aguila.mp3" />
+  <media name="ref_caballo.mp3" file="ref_caballo.mp3" />
+  <media name="ref_cerdo.mp3" file="ref_cerdo.mp3" />
+  <media name="ref_conejo.mp3" file="ref_conejo.mp3" />
+  <media name="ref_delfin.mp3" file="ref_delfin.mp3" />
+  <media name="ref_elefante.mp3" file="ref_elefante.mp3" />
+  <media name="ref_gallina.mp3" file="ref_gallina.mp3" />
+  <media name="ref_gato.mp3" file="ref_gato.mp3" />
+  <media name="ref_leon.mp3" file="ref_leon.mp3" />
+  <media name="ref_loro.mp3" file="ref_loro.mp3" />
+  <media name="ref_mariposa.mp3" file="ref_mariposa.mp3" />
+  <media name="ref_oso.mp3" file="ref_oso.mp3" />
+  <media name="ref_perro.mp3" file="ref_perro.mp3" />
+  <media name="ref_pez.mp3" file="ref_pez.mp3" />
+  <media name="ref_tiburon.mp3" file="ref_tiburon.mp3" />
+  <media name="ref_tortuga.mp3" file="ref_tortuga.mp3" />
+  <media name="ref_vaca.mp3" file="ref_vaca.mp3" />
+  <media name="term_acuatico.mp3" file="term_acuatico.mp3" />
+  <media name="term_aereo.mp3" file="term_aereo.mp3" />
+  <media name="term_carnivoro.mp3" file="term_carnivoro.mp3" />
+  <media name="term_herbivoro.mp3" file="term_herbivoro.mp3" />
+  <media name="term_invertebrado.mp3" file="term_invertebrado.mp3" />
+  <media name="term_mamifero.mp3" file="term_mamifero.mp3" />
+  <media name="term_omnivoro.mp3" file="term_omnivoro.mp3" />
+  <media name="term_oviparo.mp3" file="term_oviparo.mp3" />
+  <media name="term_terrestre.mp3" file="term_terrestre.mp3" />
+  <media name="term_vertebrado.mp3" file="term_vertebrado.mp3" />
+  <media name="term_viviparo.mp3" file="term_viviparo.mp3" />
+  <media name="img_aguila.png" file="img_aguila.png" />
+  <media name="img_caballo.png" file="img_caballo.png" />
+  <media name="img_cerdo.png" file="img_cerdo.png" />
+  <media name="img_conejo.png" file="img_conejo.png" />
+  <media name="img_delfin.png" file="img_delfin.png" />
+  <media name="img_elefante.png" file="img_elefante.png" />
+  <media name="img_gallina.png" file="img_gallina.png" />
+  <media name="img_gato.png" file="img_gato.png" />
+  <media name="img_leon.png" file="img_leon.png" />
+  <media name="img_loro.png" file="img_loro.png" />
+  <media name="img_mariposa.png" file="img_mariposa.png" />
+  <media name="img_oso.png" file="img_oso.png" />
+  <media name="img_perro.png" file="img_perro.png" />
+  <media name="img_pez.png" file="img_pez.png" />
+  <media name="img_tiburon.png" file="img_tiburon.png" />
+  <media name="img_tortuga.png" file="img_tortuga.png" />
+  <media name="img_vaca.png" file="img_vaca.png" />
+ </mediaBag>
+</JClicProject>
+
