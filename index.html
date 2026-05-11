@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Actividades Interactivas - Informática Educativa - Profe Gustavo Aguilar">
+<title>Actividades Interactivas · Profe Gustavo Aguilar</title>
+<style>
+  :root {
+    --bg: #080e1a;
+    --c1: #4ade80;
+    --c2: #f97316;
+    --text: #e2e8f0;
+    --dim: #64748b;
+    --card: rgba(255,255,255,.05);
+    --cbord: rgba(255,255,255,.09);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Verdana,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+  
+  /* HEADER */
+  header{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:24px 16px;
+    text-align:center;
+    position:sticky;top:0;z-index:100;
+  }
+  .header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center}
+  .foto-avatar{cursor:pointer;flex-shrink:0}
+  .foto-avatar img{width:52px;height:52px;border-radius:50%;border:2px solid var(--c1);object-fit:cover}
+  .header-text h1{font-size:clamp(1.1rem,4vw,1.6rem);font-weight:800;background:linear-gradient(120deg,#fff 30%,var(--c1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .header-text p{font-size:.75rem;color:var(--dim);margin-top:3px}
+  
+  /* BUSCADOR */
+  .search-bar{
+    max-width:600px;margin:20px auto 0;padding:0 16px;
+  }
+  .search-bar input{
+    width:100%;padding:12px 18px;border-radius:100px;
+    border:1.5px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+    color:var(--text);font-size:1rem;outline:none;
+    transition:border-color .2s;
+  }
+  .search-bar input:focus{border-color:var(--c1)}
+  .search-bar input::placeholder{color:var(--dim)}
+
+  /* WRAPPER */
+  .wrapper{max-width:900px;margin:0 auto;padding:24px 12px 60px}
+
+  /* CICLO HEADER */
+  .ciclo-header{
+    display:flex;align-items:center;gap:12px;
+    margin:32px 0 16px;
+  }
+  .ciclo-badge{
+    background:var(--c1);color:#0f172a;
+    font-weight:800;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;
+    padding:5px 14px;border-radius:100px;white-space:nowrap;
+  }
+  .ciclo-badge.c2{background:var(--c2)}
+  .ciclo-title{font-size:1.2rem;font-weight:800;color:var(--text)}
+  .ciclo-count{
+    font-size:.72rem;font-weight:700;
+    color:var(--dim);
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:100px;padding:3px 10px;
+  }
+  .ciclo-line{flex:1;height:1px;background:rgba(255,255,255,.06)}
+
+  /* GRILLA */
+  .cards-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:12px;
+  }
+
+  /* CARD */
+  .card{
+    display:flex;flex-direction:column;
+    text-decoration:none;
+    background:var(--card);
+    border:1.5px solid var(--cbord);
+    border-radius:16px;
+    padding:16px 12px 14px;
+    position:relative;overflow:hidden;
+    transition:transform .2s,box-shadow .2s,border-color .2s;
+    -webkit-tap-highlight-color:transparent;
+    min-height:130px;
+  }
+  .card:hover,.card:active{
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,.5);
+    border-color:rgba(74,222,128,.4);
+  }
+  .card-ico{width:38px;height:38px;margin-bottom:10px;display:block;flex-shrink:0}
+  .card-ico svg{width:38px;height:38px}
+  .card-name{
+    font-size:.82rem;font-weight:700;
+    line-height:1.3;margin-bottom:8px;
+    color:var(--text);flex:1;
+  }
+  .card-area{
+    font-size:.6rem;font-weight:700;
+    letter-spacing:.8px;text-transform:uppercase;
+    padding:3px 8px;border-radius:20px;
+    display:inline-block;align-self:flex-start;
+  }
+
+  /* CONTADOR */
+  .total-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(74,222,128,.08);
+    border:1px solid rgba(74,222,128,.2);
+    border-radius:100px;padding:5px 14px;
+    font-size:.72rem;font-weight:700;color:var(--c1);
+    margin:8px 0 0;
+  }
+
+  /* LIGHTBOX */
+  #lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.9);align-items:center;justify-content:center;cursor:zoom-out}
+  #lightbox.open{display:flex}
+  #lightbox img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,.7)}
+  .lb-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .lb-caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-size:.75rem;color:rgba(255,255,255,.6);background:rgba(0,0,0,.5);border-radius:100px;padding:4px 14px;white-space:nowrap}
+
+  /* FOOTER */
+  footer{text-align:center;padding:32px 16px;border-top:1px solid rgba(255,255,255,.06)}
+  footer p{font-size:.75rem;color:var(--dim);line-height:2}
+  footer a{color:var(--c1);text-decoration:none}
+
+  /* EMPTY */
+  .empty{display:none;text-align:center;padding:40px;color:var(--dim);font-size:.9rem}
+
+  @media(max-width:400px){
+    .cards-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(min-width:600px){
+    .cards-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="foto-avatar" onclick="document.getElementById('lightbox').classList.add('open')">
+      <img src="data:image/jpeg;base64,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" alt="Profe Gustavo Aguilar" />
+    </div>
+    <div class="header-text">
+      <h1>Actividades Interactivas</h1>
+      <p>Informática Educativa · Profe Gustavo Aguilar ·</p>
+    </div>
+  </div>
+  <div class="search-bar">
+    <input type="text" id="buscador" placeholder="🔍 Buscar actividad..." oninput="filtrar(this.value)" />
+  </div>
+</header>
+
+<div id="lightbox" onclick="this.classList.remove('open')">
+  <button class="lb-close" onclick="document.getElementById('lightbox').classList.remove('open')">✕</button>
+  <img src="data:image/jpeg;base64,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" alt="Profe Gustavo Aguilar" onclick="event.stopPropagation()" />
+  <div class="lb-caption">Profe Gustavo Aguilar · Informática Educativa</div>
+</div>
+
+<div class="wrapper">
+
+  <!-- PRIMER CICLO -->
+  <div class="ciclo-header">
+    <span class="ciclo-badge">1° Ciclo</span>
+    <span class="ciclo-title">Primer Ciclo</span>
+    <span class="ciclo-count" id="cnt-c1">35 paquetes</span>
+    <div class="ciclo-line"></div>
+  </div>
+  <div class="cards-grid" id="grid-c1">
+        <a class="card" href="primer%20ciclo/armopalabras/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="14" height="14" rx="3" fill="#4ade80"/><rect x="20" y="2" width="14" height="14" rx="3" fill="#22d3ee"/><rect x="2" y="20" width="14" height="14" rx="3" fill="#a78bfa"/><rect x="20" y="20" width="14" height="14" rx="3" fill="#f97316"/><circle cx="18" cy="9" r="3.5" fill="#1e293b"/><circle cx="18" cy="27" r="3.5" fill="#1e293b"/><circle cx="9" cy="18" r="3.5" fill="#1e293b"/><circle cx="27" cy="18" r="3.5" fill="#1e293b"/></svg></span>
+          <div class="card-name">Armo Palabras</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/cacocuceci/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Ca Co Cu Ce Ci</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/chachechicochu/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Cha Che Chi Cho Chu</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/completovocales/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#6366f1"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="18" fill="white">abc</text></svg></span>
+          <div class="card-name">Completo Vocales</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/cr-cl/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">CR - CL</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/dadedidodu/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Da De Di Do Du</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/fafefifofu/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Fa Fe Fi Fo Fu</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/fluidez-2do/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="6" width="14" height="22" rx="2" fill="#f59e0b"/><rect x="20" y="6" width="14" height="22" rx="2" fill="#fcd34d"/><rect x="15" y="4" width="6" height="26" rx="1" fill="#92400e"/><line x1="18" y1="4" x2="18" y2="30" stroke="#78350f" stroke-width="1.5"/></svg></span>
+          <div class="card-name">Fluidez 2°</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/Fluidez-3ro/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="6" width="14" height="22" rx="2" fill="#f59e0b"/><rect x="20" y="6" width="14" height="22" rx="2" fill="#fcd34d"/><rect x="15" y="4" width="6" height="26" rx="1" fill="#92400e"/><line x1="18" y1="4" x2="18" y2="30" stroke="#78350f" stroke-width="1.5"/></svg></span>
+          <div class="card-name">Fluidez 3°</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/lalelilolu/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">La Le Li Lo Lu</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/letram/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Letra M</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/mamemimomu/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Ma Me Mi Mo Mu</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/naneninonu/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Na Ne Ni No Nu</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/ñañeñiñoñu/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Ña Ñe Ñi Ño Ñu</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/oraciones/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><polygon points="6,28 8,20 26,4 32,10 14,28" fill="#fbbf24"/><polygon points="6,28 8,20 14,26" fill="#d97706"/><polygon points="26,4 32,10 30,12 24,6" fill="#9ca3af"/><line x1="8" y1="20" x2="14" y2="26" stroke="#92400e" stroke-width="1.5"/></svg></span>
+          <div class="card-name">Oraciones</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/papepipopu/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Pa Pe Pi Po Pu</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/pl-pr/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">PL - PR</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/rareriroru/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Ra Re Ri Ro Ru</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/sasesisosu/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Sa Se Si So Su</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/sonido_bl/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Sonido BL</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/sonido_br/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Sonido BR</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/tatetitotu/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Ta Te Ti To Tu</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/vocal_intermedia/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#6366f1"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="18" fill="white">abc</text></svg></span>
+          <div class="card-name">Vocal Intermedia</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/vocales/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#3b82f6"/><text x="18" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">ABC</text></svg></span>
+          <div class="card-name">Vocales</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="primer%20ciclo/1a5/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="14" height="14" rx="3" fill="#ef4444"/><rect x="20" y="2" width="14" height="14" rx="3" fill="#f97316"/><rect x="2" y="20" width="14" height="14" rx="3" fill="#eab308"/><rect x="20" y="20" width="14" height="14" rx="3" fill="#22c55e"/><text x="9" y="14" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">1</text><text x="27" y="14" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">2</text><text x="9" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">3</text><text x="27" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">4</text></svg></span>
+          <div class="card-name">Números 1 al 5</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#f97316">Matemática</span>
+        </a>
+        <a class="card" href="primer%20ciclo/1a10/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="14" height="14" rx="3" fill="#ef4444"/><rect x="20" y="2" width="14" height="14" rx="3" fill="#f97316"/><rect x="2" y="20" width="14" height="14" rx="3" fill="#eab308"/><rect x="20" y="20" width="14" height="14" rx="3" fill="#22c55e"/><text x="9" y="14" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">1</text><text x="27" y="14" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">2</text><text x="9" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">3</text><text x="27" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">4</text></svg></span>
+          <div class="card-name">Números 1 al 10</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#f97316">Matemática</span>
+        </a>
+        <a class="card" href="primer%20ciclo/días/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="5" width="32" height="28" rx="4" fill="#e0f2fe"/><rect x="2" y="5" width="32" height="10" rx="4" fill="#0ea5e9"/><rect x="2" y="11" width="32" height="4" fill="#0ea5e9"/><circle cx="11" cy="4" r="3" fill="#0369a1"/><circle cx="25" cy="4" r="3" fill="#0369a1"/><rect x="7" y="21" width="5" height="4" rx="1" fill="#3b82f6"/><rect x="15" y="21" width="5" height="4" rx="1" fill="#f97316"/><rect x="23" y="21" width="5" height="4" rx="1" fill="#3b82f6"/></svg></span>
+          <div class="card-name">Días de la Semana</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#f97316">Matemática</span>
+        </a>
+        <a class="card" href="primer%20ciclo/el100/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#dc2626"/><text x="18" y="15" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="10" fill="white">100</text><text x="18" y="27" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="#fbbf24">✓</text></svg></span>
+          <div class="card-name">El 100</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#f97316">Matemática</span>
+        </a>
+        <a class="card" href="primer%20ciclo/el200/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="14" height="14" rx="3" fill="#ef4444"/><rect x="20" y="2" width="14" height="14" rx="3" fill="#f97316"/><rect x="2" y="20" width="14" height="14" rx="3" fill="#eab308"/><rect x="20" y="20" width="14" height="14" rx="3" fill="#22c55e"/><text x="9" y="14" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">1</text><text x="27" y="14" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">2</text><text x="9" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">3</text><text x="27" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">4</text></svg></span>
+          <div class="card-name">El 200</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#f97316">Matemática</span>
+        </a>
+        <a class="card" href="primer%20ciclo/mate/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#10b981"/><rect x="15" y="8" width="6" height="20" rx="3" fill="white"/><rect x="8" y="15" width="20" height="6" rx="3" fill="white"/></svg></span>
+          <div class="card-name">Matemática</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#f97316">Matemática</span>
+        </a>
+        <a class="card" href="primer%20ciclo/matema/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#8b5cf6"/><rect x="8" y="16" width="20" height="4" rx="2" fill="white"/><circle cx="18" cy="9" r="3.5" fill="white"/><circle cx="18" cy="27" r="3.5" fill="white"/></svg></span>
+          <div class="card-name">Matema</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#f97316">Matemática</span>
+        </a>
+        <a class="card" href="primer%20ciclo/25deMayo/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="4" y="28" width="28" height="4" rx="1" fill="#6366f1"/><rect x="6" y="14" width="3" height="14" fill="#818cf8"/><rect x="11" y="14" width="3" height="14" fill="#818cf8"/><rect x="16" y="14" width="3" height="14" fill="#818cf8"/><rect x="21" y="14" width="3" height="14" fill="#818cf8"/><rect x="26" y="14" width="3" height="14" fill="#818cf8"/><polygon points="4,14 18,4 32,14" fill="#4f46e5"/><rect x="2" y="12" width="32" height="3" rx="1" fill="#6366f1"/></svg></span>
+          <div class="card-name">25 de Mayo</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#a78bfa">Cs. Sociales</span>
+        </a>
+        <a class="card" href="primer%20ciclo/gallinacolorada/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><ellipse cx="18" cy="22" rx="12" ry="10" fill="#dc2626"/><circle cx="18" cy="12" r="7" fill="#dc2626"/><polygon points="18,8 23,5 18,12" fill="#f97316"/><circle cx="15" cy="10" r="2" fill="white"/><circle cx="15" cy="10" r="1" fill="black"/><polygon points="10,28 8,34 14,32" fill="#f97316"/><polygon points="22,28 24,34 18,32" fill="#f97316"/></svg></span>
+          <div class="card-name">Gallina Colorada</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#22d3ee">Cs. Naturales</span>
+        </a>
+        <a class="card" href="primer%20ciclo/girasoles/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><circle cx="18" cy="18" r="7" fill="#92400e"/><ellipse cx="18" cy="5" rx="4" ry="6" fill="#fbbf24"/><ellipse cx="18" cy="31" rx="4" ry="6" fill="#fbbf24"/><ellipse cx="5" cy="18" rx="6" ry="4" fill="#fbbf24"/><ellipse cx="31" cy="18" rx="6" ry="4" fill="#fbbf24"/><ellipse cx="9" cy="9" rx="4" ry="6" fill="#fbbf24" transform="rotate(45 9 9)"/><ellipse cx="27" cy="9" rx="4" ry="6" fill="#fbbf24" transform="rotate(-45 27 9)"/><ellipse cx="9" cy="27" rx="4" ry="6" fill="#fbbf24" transform="rotate(-45 9 27)"/><ellipse cx="27" cy="27" rx="4" ry="6" fill="#fbbf24" transform="rotate(45 27 27)"/></svg></span>
+          <div class="card-name">Girasoles</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#22d3ee">Cs. Naturales</span>
+        </a>
+        <a class="card" href="primer%20ciclo/semilla_dorada/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><line x1="18" y1="32" x2="18" y2="10" stroke="#92400e" stroke-width="2.5"/><ellipse cx="18" cy="8" rx="4" ry="6" fill="#fbbf24"/><ellipse cx="13" cy="14" rx="3" ry="5" fill="#fbbf24" transform="rotate(-20 13 14)"/><ellipse cx="23" cy="14" rx="3" ry="5" fill="#fbbf24" transform="rotate(20 23 14)"/><ellipse cx="12" cy="20" rx="3" ry="5" fill="#d97706" transform="rotate(-15 12 20)"/><ellipse cx="24" cy="20" rx="3" ry="5" fill="#d97706" transform="rotate(15 24 20)"/></svg></span>
+          <div class="card-name">Semilla Dorada</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#22d3ee">Cs. Naturales</span>
+        </a>
+  </div>
+
+  <!-- SEGUNDO CICLO -->
+  <div class="ciclo-header" style="margin-top:40px">
+    <span class="ciclo-badge c2">2° Ciclo</span>
+    <span class="ciclo-title">Segundo Ciclo</span>
+    <span class="ciclo-count" id="cnt-c2">24 paquetes</span>
+    <div class="ciclo-line"></div>
+  </div>
+  <div class="cards-grid" id="grid-c2">
+        <a class="card" href="segundo%20ciclo/adjetivos/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="4" y="3" width="22" height="28" rx="3" fill="#e0f2fe"/><rect x="4" y="3" width="22" height="7" rx="3" fill="#38bdf8"/><line x1="9" y1="17" x2="21" y2="17" stroke="#64748b" stroke-width="2"/><line x1="9" y1="22" x2="21" y2="22" stroke="#64748b" stroke-width="2"/><line x1="9" y1="27" x2="15" y2="27" stroke="#64748b" stroke-width="2"/><circle cx="28" cy="28" r="6" fill="#f97316"/><text x="28" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="white">✎</text></svg></span>
+          <div class="card-name">Adjetivos</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/clasesdepalabras/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="4" y="3" width="22" height="28" rx="3" fill="#e0f2fe"/><rect x="4" y="3" width="22" height="7" rx="3" fill="#38bdf8"/><line x1="9" y1="17" x2="21" y2="17" stroke="#64748b" stroke-width="2"/><line x1="9" y1="22" x2="21" y2="22" stroke="#64748b" stroke-width="2"/><line x1="9" y1="27" x2="15" y2="27" stroke="#64748b" stroke-width="2"/><circle cx="28" cy="28" r="6" fill="#f97316"/><text x="28" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="white">✎</text></svg></span>
+          <div class="card-name">Clases de Palabras</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/fluidez-4to/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="6" width="14" height="22" rx="2" fill="#f59e0b"/><rect x="20" y="6" width="14" height="22" rx="2" fill="#fcd34d"/><rect x="15" y="4" width="6" height="26" rx="1" fill="#92400e"/><line x1="18" y1="4" x2="18" y2="30" stroke="#78350f" stroke-width="1.5"/></svg></span>
+          <div class="card-name">Fluidez 4°</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/fluidez-5to/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="6" width="14" height="22" rx="2" fill="#f59e0b"/><rect x="20" y="6" width="14" height="22" rx="2" fill="#fcd34d"/><rect x="15" y="4" width="6" height="26" rx="1" fill="#92400e"/><line x1="18" y1="4" x2="18" y2="30" stroke="#78350f" stroke-width="1.5"/></svg></span>
+          <div class="card-name">Fluidez 5°</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/fluidez-6to/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="6" width="14" height="22" rx="2" fill="#f59e0b"/><rect x="20" y="6" width="14" height="22" rx="2" fill="#fcd34d"/><rect x="15" y="4" width="6" height="26" rx="1" fill="#92400e"/><line x1="18" y1="4" x2="18" y2="30" stroke="#78350f" stroke-width="1.5"/></svg></span>
+          <div class="card-name">Fluidez 6°</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/pasado_presente_futuro/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M9,4 L27,4 L27,10 L18,18 L27,26 L27,32 L9,32 L9,26 L18,18 L9,10 Z" fill="#c084fc" stroke="#7c3aed" stroke-width="1.5"/><path d="M10,5 L26,5 L18,13 Z" fill="#fbbf24"/><path d="M10,31 L26,31 L20,25 L16,25 Z" fill="#f97316"/></svg></span>
+          <div class="card-name">Pasado · Presente · Futuro</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/poesía/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><ellipse cx="12" cy="16" rx="9" ry="11" fill="#fde68a" stroke="#d97706" stroke-width="1.5"/><ellipse cx="24" cy="18" rx="9" ry="11" fill="#c7d2fe" stroke="#6366f1" stroke-width="1.5"/><path d="M8,16 Q12,20 16,16" stroke="#dc2626" stroke-width="2" fill="none"/><path d="M20,19 Q24,14 28,19" stroke="#2563eb" stroke-width="2" fill="none"/></svg></span>
+          <div class="card-name">Poesía</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/sinónimosyantónimos/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,4 A14,14 0 0,1 32,18" stroke="#22d3ee" stroke-width="4" fill="none" stroke-linecap="round"/><polygon points="30,10 36,18 24,18" fill="#22d3ee"/><path d="M18,32 A14,14 0 0,1 4,18" stroke="#f97316" stroke-width="4" fill="none" stroke-linecap="round"/><polygon points="6,26 0,18 12,18" fill="#f97316"/></svg></span>
+          <div class="card-name">Sinónimos y Antónimos</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/sustantivos/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="4" y="3" width="22" height="28" rx="3" fill="#e0f2fe"/><rect x="4" y="3" width="22" height="7" rx="3" fill="#38bdf8"/><line x1="9" y1="17" x2="21" y2="17" stroke="#64748b" stroke-width="2"/><line x1="9" y1="22" x2="21" y2="22" stroke="#64748b" stroke-width="2"/><line x1="9" y1="27" x2="15" y2="27" stroke="#64748b" stroke-width="2"/><circle cx="28" cy="28" r="6" fill="#f97316"/><text x="28" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="white">✎</text></svg></span>
+          <div class="card-name">Sustantivos</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/verbos/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="3" y="5" width="20" height="24" rx="3" fill="#dbeafe"/><rect x="3" y="5" width="20" height="6" rx="3" fill="#60a5fa"/><line x1="8" y1="18" x2="18" y2="18" stroke="#3b82f6" stroke-width="2"/><line x1="8" y1="23" x2="18" y2="23" stroke="#3b82f6" stroke-width="2"/><path d="M24 24 L30 18 L33 21 L27 27 Z" fill="#a78bfa"/><line x1="28" y1="20" x2="25" y2="25" stroke="#7c3aed" stroke-width="1.5"/></svg></span>
+          <div class="card-name">Verbos</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#4ade80">Lengua</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/el2000/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="14" height="14" rx="3" fill="#ef4444"/><rect x="20" y="2" width="14" height="14" rx="3" fill="#f97316"/><rect x="2" y="20" width="14" height="14" rx="3" fill="#eab308"/><rect x="20" y="20" width="14" height="14" rx="3" fill="#22c55e"/><text x="9" y="14" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">1</text><text x="27" y="14" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">2</text><text x="9" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">3</text><text x="27" y="32" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="white">4</text></svg></span>
+          <div class="card-name">El 2000</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#f97316">Matemática</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/cuadriláteros/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><polygon points="18,3 33,18 18,33 3,18" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/><rect x="10" y="10" width="16" height="16" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="3,2"/></svg></span>
+          <div class="card-name">Cuadriláteros</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#f97316">Matemática</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/alimentación/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><ellipse cx="18" cy="22" rx="15" ry="9" fill="#86efac"/><ellipse cx="18" cy="20" rx="15" ry="9" fill="#4ade80"/><circle cx="12" cy="18" r="3" fill="#dc2626"/><circle cx="22" cy="17" r="2.5" fill="#f97316"/><circle cx="16" cy="22" r="2" fill="#fbbf24"/><circle cx="25" cy="22" r="3" fill="#dc2626"/><path d="M4,14 Q18,8 32,14" stroke="#166534" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></span>
+          <div class="card-name">Alimentación</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#22d3ee">Cs. Naturales</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/ambiente_acuático/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><ellipse cx="16" cy="18" rx="12" ry="8" fill="#38bdf8"/><polygon points="28,10 36,18 28,26" fill="#0ea5e9"/><circle cx="8" cy="15" r="2.5" fill="white"/><circle cx="8" cy="15" r="1.2" fill="#1e293b"/><line x1="6" y1="18" x2="26" y2="18" stroke="#0284c7" stroke-width="1"/></svg></span>
+          <div class="card-name">Ambiente Acuático</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#22d3ee">Cs. Naturales</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/leonymosquito/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><circle cx="18" cy="18" r="11" fill="#f97316"/><circle cx="18" cy="18" r="8" fill="#fbbf24"/><circle cx="14" cy="16" r="2.5" fill="#1e293b"/><circle cx="22" cy="16" r="2.5" fill="#1e293b"/><ellipse cx="18" cy="21" rx="4" ry="3" fill="#fed7aa"/><path d="M12,23 Q18,28 24,23" stroke="#f97316" stroke-width="2" fill="none"/><path d="M4,8 Q10,12 10,18" stroke="#f97316" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M32,8 Q26,12 26,18" stroke="#f97316" stroke-width="6" fill="none" stroke-linecap="round"/></svg></span>
+          <div class="card-name">León y Mosquito</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#22d3ee">Cs. Naturales</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/nutrición/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><circle cx="12" cy="13" r="7" fill="#16a34a"/><circle cx="22" cy="13" r="7" fill="#16a34a"/><circle cx="17" cy="10" r="6" fill="#22c55e"/><circle cx="27" cy="10" r="5" fill="#22c55e"/><rect x="16" y="20" width="4" height="12" rx="2" fill="#166534"/></svg></span>
+          <div class="card-name">Nutrición</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#22d3ee">Cs. Naturales</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/plantas/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,32 Q10,20 6,10 Q14,8 22,16 Q28,22 18,32" fill="#16a34a"/><path d="M18,32 Q22,22 28,14" stroke="#15803d" stroke-width="2" fill="none"/><path d="M18,32 Q14,18 8,12" stroke="#86efac" stroke-width="1.5" fill="none"/></svg></span>
+          <div class="card-name">Plantas</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#22d3ee">Cs. Naturales</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/sistema-oseo/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="13" y="6" width="10" height="24" rx="5" fill="#e2e8f0"/><circle cx="8" cy="10" r="6" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/><circle cx="8" cy="26" r="6" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/><circle cx="28" cy="10" r="6" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/><circle cx="28" cy="26" r="6" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/></svg></span>
+          <div class="card-name">Sistema Óseo</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#22d3ee">Cs. Naturales</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/sistema_solar/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><circle cx="18" cy="18" r="10" fill="#f97316"/><circle cx="18" cy="18" r="10" fill="none" stroke="#fed7aa" stroke-width="2" stroke-dasharray="4,2"/><ellipse cx="18" cy="18" rx="17" ry="6" fill="none" stroke="#fbbf24" stroke-width="2.5" transform="rotate(-20 18 18)"/></svg></span>
+          <div class="card-name">Sistema Solar</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#22d3ee">Cs. Naturales</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/grooming/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,3 L33,9 L33,20 Q33,29 18,34 Q3,29 3,20 L3,9 Z" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/><path d="M18,7 L29,12 L29,20 Q29,27 18,31 Q7,27 7,20 L7,12 Z" fill="#60a5fa"/><path d="M11,18 L16,23 L25,13" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="card-name">Grooming</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#64748b">Ed. Digital</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/lavalle/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="4" y="28" width="28" height="4" rx="1" fill="#6366f1"/><rect x="6" y="14" width="3" height="14" fill="#818cf8"/><rect x="11" y="14" width="3" height="14" fill="#818cf8"/><rect x="16" y="14" width="3" height="14" fill="#818cf8"/><rect x="21" y="14" width="3" height="14" fill="#818cf8"/><rect x="26" y="14" width="3" height="14" fill="#818cf8"/><polygon points="4,14 18,4 32,14" fill="#4f46e5"/><rect x="2" y="12" width="32" height="3" rx="1" fill="#6366f1"/></svg></span>
+          <div class="card-name">Lavalle</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#a78bfa">Cs. Sociales</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/Mendoza/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><polygon points="4,4 14,7 22,3 32,6 32,30 22,27 14,31 4,28" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/><path d="M14,7 L14,31" stroke="#16a34a" stroke-width="1.5"/><path d="M22,3 L22,27" stroke="#16a34a" stroke-width="1.5"/><path d="M10,12 Q14,16 12,22" stroke="#60a5fa" stroke-width="2" fill="none"/><circle cx="22" cy="14" r="2" fill="#ef4444"/></svg></span>
+          <div class="card-name">Mendoza</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#a78bfa">Cs. Sociales</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/sanmartín/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><line x1="4" y1="4" x2="32" y2="32" stroke="#9ca3af" stroke-width="4" stroke-linecap="round"/><line x1="32" y1="4" x2="4" y2="32" stroke="#9ca3af" stroke-width="4" stroke-linecap="round"/><circle cx="18" cy="18" r="4" fill="#6b7280"/><rect x="15" y="2" width="6" height="10" rx="2" fill="#fbbf24"/><rect x="15" y="24" width="6" height="10" rx="2" fill="#fbbf24"/></svg></span>
+          <div class="card-name">San Martín</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#a78bfa">Cs. Sociales</span>
+        </a>
+        <a class="card" href="segundo%20ciclo/turismo_aventura/index.html" target="_blank">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><polygon points="4,4 14,7 22,3 32,6 32,30 22,27 14,31 4,28" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/><path d="M14,7 L14,31" stroke="#16a34a" stroke-width="1.5"/><path d="M22,3 L22,27" stroke="#16a34a" stroke-width="1.5"/><path d="M10,12 Q14,16 12,22" stroke="#60a5fa" stroke-width="2" fill="none"/><circle cx="22" cy="14" r="2" fill="#ef4444"/></svg></span>
+          <div class="card-name">Turismo Aventura</div>
+          <span class="card-area" style="background:rgba(0,0,0,0.2);color:#a78bfa">Cs. Sociales</span>
+        </a>
+  </div>
+
+  <div class="empty" id="empty-msg">No se encontraron actividades.</div>
+
+</div>
+
+<footer>
+  <p>
+    <strong style="color:var(--c1)">Profe Gustavo Aguilar</strong><br>
+    Informática Educativa · Docente de Nivel Primario y Medio<br>
+    <a href="http://quesepantodos.blogspot.com" target="_blank">quesepantodos.blogspot.com</a><br>
+    <span style="font-size:.65rem;opacity:.5">ESC. N° 1-183 "Correo Argentino" · Neuquén · 2025</span>
+  </p>
+</footer>
+
+<script>
+function filtrar(q) {
+  q = q.toLowerCase().trim();
+  let visC1 = 0, visC2 = 0;
+  
+  document.querySelectorAll('#grid-c1 .card').forEach(card => {
+    const nombre = card.querySelector('.card-name').textContent.toLowerCase();
+    const area = card.querySelector('.card-area').textContent.toLowerCase();
+    const show = !q || nombre.includes(q) || area.includes(q);
+    card.style.display = show ? '' : 'none';
+    if(show) visC1++;
+  });
+  
+  document.querySelectorAll('#grid-c2 .card').forEach(card => {
+    const nombre = card.querySelector('.card-name').textContent.toLowerCase();
+    const area = card.querySelector('.card-area').textContent.toLowerCase();
+    const show = !q || nombre.includes(q) || area.includes(q);
+    card.style.display = show ? '' : 'none';
+    if(show) visC2++;
+  });
+  
+  document.getElementById('cnt-c1').textContent = visC1 + ' paquetes';
+  document.getElementById('cnt-c2').textContent = visC2 + ' paquetes';
+  document.getElementById('empty-msg').style.display = (visC1 + visC2 === 0) ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>
