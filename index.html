@@ -119,21 +119,29 @@
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
   </div>
 </div>
-<!-- CONTADOR GOATCOUNTER -->
+<!-- CONTADOR DE VISITAS -->
 <div style="background:linear-gradient(135deg,#0a1628,#0f2040);border-bottom:1px solid rgba(74,222,128,.1);padding:8px 16px;text-align:center">
-  <div style="display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center">
-    <span style="font-size:.75rem;color:rgba(255,255,255,.5)">&#128101; Visitaron este sitio:</span>
-    <strong>
-      <a href="https://quesepantodos.goatcounter.com" 
-         style="color:#4ade80;text-decoration:none;font-size:1rem;font-weight:800"
-         target="_blank">
-        <img src="https://quesepantodos.goatcounter.com/counter/TOTAL.svg" 
-             alt="Contador de visitas"
-             style="vertical-align:middle;height:22px;filter:brightness(10) sepia(1) hue-rotate(80deg) saturate(3)" />
-      </a>
-    </strong>
+  <div style="display:inline-flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center">
+    <span style="font-size:.75rem;color:rgba(255,255,255,.5)">
+      &#128101; Visitaron este sitio: <strong id="visit-count" style="color:#4ade80;font-size:.9rem">...</strong>
+    </span>
   </div>
 </div>
+<script>
+  // Usar GoatCounter API para obtener el total de visitas
+  fetch('https://quesepantodos.goatcounter.com/counter/TOTAL.json')
+    .then(r => r.json())
+    .then(d => {
+      const el = document.getElementById('visit-count');
+      if (el && d && d.count) {
+        el.textContent = Number(d.count).toLocaleString('es-AR');
+      }
+    })
+    .catch(() => {
+      const el = document.getElementById('visit-count');
+      if (el) el.textContent = '—';
+    });
+</script>
 
 <div class="novedades">
   <span class="nov-badge">&#x1F195; Nuevo</span>
