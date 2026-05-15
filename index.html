@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="QueSepanTodos.com - Actividades Interactivas - Informática Educativa - Profe Gustavo Aguilar">
 <title>QueSepanTodos.com · Actividades Interactivas</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-498GJDP0C2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-498GJDP0C2');
+</script>
+
 <style>
   :root {
     --bg:#080e1a;--bg2:#0f172a;--bg3:#1e293b;
@@ -21,23 +31,19 @@
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Segoe UI',Verdana,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
-
   .site-title-bar{background:linear-gradient(135deg,#0a1628,#0f2040,#0a1628);border-bottom:2px solid rgba(74,222,128,.3);padding:14px 16px;text-align:center;position:relative}
   .site-title{font-size:clamp(1.8rem,6vw,3rem);font-weight:900;background:linear-gradient(120deg,#4ade80,#22d3ee,#4ade80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
   .site-tagline{font-size:.72rem;color:rgba(74,222,128,.6);letter-spacing:2px;text-transform:uppercase;margin-top:3px}
   .theme-toggle{position:absolute;top:50%;right:16px;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:6px 12px;cursor:pointer;font-size:.75rem;color:rgba(255,255,255,.8);transition:background .2s;white-space:nowrap}
   .theme-toggle:hover{background:rgba(255,255,255,.2)}
-
   .counter-banner{background:linear-gradient(135deg,#0f2040,#0a1628);border-bottom:1px solid rgba(74,222,128,.15);padding:10px 16px;text-align:center}
   .counter-inner{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
   .counter-num{font-size:2rem;font-weight:900;background:linear-gradient(120deg,#4ade80,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
   .counter-label{font-size:.8rem;color:rgba(255,255,255,.6)}
-
   .novedades{background:linear-gradient(90deg,rgba(74,222,128,.08),rgba(34,211,238,.08));border-left:3px solid var(--c1);padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .nov-badge{background:var(--c1);color:#0f172a;font-size:.65rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px;white-space:nowrap;flex-shrink:0}
   .nov-text{font-size:.82rem;color:var(--text)}
   .nov-text strong{color:var(--c1)}
-
   header{background:var(--bg2);border-bottom:1px solid rgba(255,255,255,.08);padding:16px;text-align:center}
   .header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center}
   .foto-avatar{cursor:pointer;flex-shrink:0}
@@ -45,7 +51,6 @@
   .foto-avatar:hover img{transform:scale(1.08);box-shadow:0 0 16px rgba(74,222,128,.4)}
   .header-text h1{font-size:clamp(.95rem,3.5vw,1.35rem);font-weight:800;color:var(--text)}
   .header-text p{font-size:.7rem;color:var(--dim);margin-top:3px}
-
   .search-section{background:var(--bg2);border-bottom:1px solid rgba(255,255,255,.06);padding:12px 16px 14px}
   .search-bar{max-width:600px;margin:0 auto 12px}
   .search-bar input{width:100%;padding:11px 18px;border-radius:100px;border:1.5px solid rgba(255,255,255,.12);background:var(--card);color:var(--text);font-size:.95rem;outline:none;transition:border-color .2s}
@@ -55,7 +60,6 @@
   .filtro-btn{padding:6px 14px;border-radius:100px;border:1.5px solid var(--cbord);background:var(--card);color:var(--dim);font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent}
   .filtro-btn:hover,.filtro-btn.active{border-color:var(--c1);color:var(--c1);background:rgba(74,222,128,.08)}
   .filtro-btn[data-f="all"].active{background:var(--c1);color:#0f172a;border-color:var(--c1)}
-
   .wrapper{max-width:900px;margin:0 auto;padding:20px 12px 0}
   .ciclo-header{display:flex;align-items:center;gap:12px;margin:28px 0 14px}
   .ciclo-badge{background:var(--c1);color:#0f172a;font-weight:800;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:100px;white-space:nowrap}
@@ -63,55 +67,18 @@
   .ciclo-title{font-size:1.1rem;font-weight:800;color:var(--text)}
   .ciclo-count{font-size:.7rem;font-weight:700;color:var(--dim);background:var(--card);border:1px solid var(--cbord);border-radius:100px;padding:3px 10px}
   .ciclo-line{flex:1;height:1px;background:var(--cbord)}
-
   .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
-
-  /* CARD CON TOOLTIP */
-  .card{
-    display:flex;flex-direction:column;text-decoration:none;
-    background:var(--card);border:1.5px solid var(--cbord);
-    border-radius:14px;padding:14px 11px 12px;
-    transition:transform .2s,box-shadow .2s,border-color .2s;
-    -webkit-tap-highlight-color:transparent;min-height:125px;
-    position:relative;
-  }
+  .card{display:flex;flex-direction:column;text-decoration:none;background:var(--card);border:1.5px solid var(--cbord);border-radius:14px;padding:14px 11px 12px;transition:transform .2s,box-shadow .2s,border-color .2s;-webkit-tap-highlight-color:transparent;min-height:125px;position:relative}
   .card:hover,.card:active{transform:translateY(-4px);box-shadow:0 12px 28px var(--shadow);border-color:rgba(74,222,128,.4)}
   .card-ico{width:36px;height:36px;margin-bottom:9px;display:block;flex-shrink:0}
   .card-ico svg{width:36px;height:36px}
   .card-name{font-size:.8rem;font-weight:700;line-height:1.3;margin-bottom:8px;color:var(--text);flex:1}
   .card-area{font-size:.58rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 8px;border-radius:20px;display:inline-block;align-self:flex-start}
-
-  /* TOOLTIP — solo desktop */
   @media(hover:hover){
-    .card[data-tooltip]:hover::after{
-      content:attr(data-tooltip);
-      position:absolute;
-      bottom:calc(100% + 8px);
-      left:50%;transform:translateX(-50%);
-      background:rgba(15,23,42,.95);
-      color:#e2e8f0;
-      font-size:.68rem;font-weight:500;
-      padding:6px 10px;border-radius:8px;
-      white-space:nowrap;
-      border:1px solid rgba(74,222,128,.25);
-      box-shadow:0 4px 16px rgba(0,0,0,.4);
-      z-index:100;
-      pointer-events:none;
-    }
-    .card[data-tooltip]:hover::before{
-      content:'';
-      position:absolute;
-      bottom:calc(100% + 2px);
-      left:50%;transform:translateX(-50%);
-      border:6px solid transparent;
-      border-top-color:rgba(15,23,42,.95);
-      z-index:100;
-      pointer-events:none;
-    }
+    .card[data-tooltip]:hover::after{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(15,23,42,.95);color:#e2e8f0;font-size:.68rem;font-weight:500;padding:6px 10px;border-radius:8px;white-space:nowrap;border:1px solid rgba(74,222,128,.25);box-shadow:0 4px 16px rgba(0,0,0,.4);z-index:100;pointer-events:none}
+    .card[data-tooltip]:hover::before{content:'';position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(15,23,42,.95);z-index:100;pointer-events:none}
   }
-
   .empty{display:none;text-align:center;padding:40px;color:var(--dim);font-size:.9rem}
-
   #lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);align-items:center;justify-content:center;cursor:zoom-out;backdrop-filter:blur(4px)}
   #lightbox.open{display:flex}
   #lightbox img{max-width:92vw;max-height:86vh;border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.8);cursor:default;animation:zoomIn .2s ease}
@@ -119,7 +86,6 @@
   .lb-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
   .lb-close:hover{background:rgba(255,255,255,.28)}
   .lb-caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-size:.75rem;color:rgba(255,255,255,.65);background:rgba(0,0,0,.5);border-radius:100px;padding:5px 16px;white-space:nowrap}
-
   .como-usar{background:var(--bg2);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:24px 16px;margin-top:40px}
   .como-usar h2{text-align:center;font-size:1.1rem;font-weight:800;color:var(--c1);margin-bottom:20px;letter-spacing:.5px}
   .pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;max-width:900px;margin:0 auto}
@@ -127,7 +93,6 @@
   .paso-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4ade80,#22d3ee);color:#0f172a;font-weight:900;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
   .paso-content h3{font-size:.82rem;font-weight:800;color:var(--text);margin-bottom:4px}
   .paso-content p{font-size:.75rem;color:var(--dim);line-height:1.5}
-
   footer{text-align:center;padding:36px 16px;border-top:1px solid rgba(255,255,255,.08);margin-top:48px;background:linear-gradient(135deg,#0a1628,#0f2040)}
   .footer-brand{font-size:1.4rem;font-weight:900;background:linear-gradient(120deg,#4ade80,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;margin-bottom:10px}
   .footer-nombre{font-size:1rem;font-weight:800;color:#fff;margin-bottom:4px}
@@ -135,9 +100,10 @@
   .footer-mail{display:inline-flex;align-items:center;gap:6px;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;border:1.5px solid rgba(74,222,128,.3);border-radius:100px;padding:7px 18px;transition:background .2s,border-color .2s;margin-top:4px}
   .footer-mail:hover{background:rgba(74,222,128,.1);border-color:var(--c1)}
   .footer-year{font-size:.65rem;color:rgba(255,255,255,.25);margin-top:14px;display:block}
-
   @media(max-width:380px){.cards-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
+<script data-goatcounter="https://quesepantodos.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -149,14 +115,29 @@
 
 <div class="counter-banner">
   <div class="counter-inner">
-    <span class="counter-num">61</span>
+    <span class="counter-num">63</span>
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
+  </div>
+</div>
+<!-- CONTADOR GOATCOUNTER -->
+<div style="background:linear-gradient(135deg,#0a1628,#0f2040);border-bottom:1px solid rgba(74,222,128,.1);padding:8px 16px;text-align:center">
+  <div style="display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center">
+    <span style="font-size:.75rem;color:rgba(255,255,255,.5)">&#128101; Visitaron este sitio:</span>
+    <strong>
+      <a href="https://quesepantodos.goatcounter.com" 
+         style="color:#4ade80;text-decoration:none;font-size:1rem;font-weight:800"
+         target="_blank">
+        <img src="https://quesepantodos.goatcounter.com/counter/TOTAL.svg" 
+             alt="Contador de visitas"
+             style="vertical-align:middle;height:22px;filter:brightness(10) sepia(1) hue-rotate(80deg) saturate(3)" />
+      </a>
+    </strong>
   </div>
 </div>
 
 <div class="novedades">
   <span class="nov-badge">&#x1F195; Nuevo</span>
-  <span class="nov-text"><strong>Los Animales</strong> &mdash; Ambiente 3&deg; Grado &middot; Clasificaci&oacute;n por h&aacute;bitat, alimentaci&oacute;n y reproducci&oacute;n.</span>
+  <span class="nov-text"><strong>Clasificaci&oacute;n de Animales</strong> &mdash; Cs. Naturales 4&deg; Grado &middot; Clasificaci&oacute;n de animales por alimentaci&oacute;n y caracter&iacute;sticas.</span>
 </div>
 
 <header>
@@ -181,6 +162,7 @@
     <button class="filtro-btn" data-f="matematica" onclick="setFiltro(this)">Matem&aacute;tica</button>
     <button class="filtro-btn" data-f="csnaturales" onclick="setFiltro(this)">Cs. Naturales</button>
     <button class="filtro-btn" data-f="cssociales" onclick="setFiltro(this)">Cs. Sociales</button>
+    <button class="filtro-btn" data-f="ambiente" onclick="setFiltro(this)">Ambiente</button>
     <button class="filtro-btn" data-f="integrador" onclick="setFiltro(this)">Integrador</button>
   </div>
 </div>
@@ -195,7 +177,7 @@
   <div class="ciclo-header">
     <span class="ciclo-badge">1&deg; Ciclo</span>
     <span class="ciclo-title">Primer Ciclo</span>
-    <span class="ciclo-count" id="cnt-c1">37 paquetes</span>
+    <span class="ciclo-count" id="cnt-c1">36 paquetes</span>
     <div class="ciclo-line"></div>
   </div>
   <div class="cards-grid" id="grid-c1">
@@ -374,22 +356,17 @@
           <div class="card-name">Semilla Dorada</div>
           <span class="card-area" style="background:rgba(255,255,255,.08);color:#22d3ee">Cs. Naturales</span>
         </a>
-        <a class="card" href="primer%20ciclo/animales/index.html" target="_blank" data-area="csnaturales" data-ciclo="c1" data-tooltip="Ambiente · 3° Grado · Hábitat, alimentación y reproducción">
-          <span class="card-ico"><svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#22d3ee"/><text x="18" y="24" text-anchor="middle" font-size="18">🐾</text></svg></span>
-          <div class="card-name">Los Animales</div>
-          <span class="card-area" style="background:rgba(255,255,255,.08);color:#22d3ee">Cs. Naturales</span>
-        </a>
-        <a class="card" href="primer%20ciclo/empiezan_y_terminan_igual/index.html" target="_blank" data-area="lengua" data-ciclo="c1" data-tooltip="Lengua · 1° Grado · Ordenar palabras y reconocer sílabas">
-          <span class="card-ico"><svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#4ade80"/><text x="18" y="24" text-anchor="middle" font-size="18">🔤</text></svg></span>
-          <div class="card-name">Empiezan y Terminan Igual</div>
-          <span class="card-area" style="background:rgba(255,255,255,.08);color:#4ade80">Lengua</span>
+        <a class="card" href="primer%20ciclo/antes_y_despues/index.html" target="_blank" data-area="ambiente" data-ciclo="c1" data-tooltip="Ambiente · Nivel Inicial y 1° y 2° Grado · Cómo cambiaron los objetos y la vida cotidiana a través del tiempo.">
+          <span class="card-ico"><svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#22d3ee"/><text x="18" y="24" text-anchor="middle" font-size="18">🌿</text></svg></span>
+          <div class="card-name">Antes y Después</div>
+          <span class="card-area" style="background:rgba(255,255,255,.08);color:#22d3ee">Ambiente</span>
         </a>
   </div>
 
   <div class="ciclo-header" style="margin-top:32px">
     <span class="ciclo-badge c2">2&deg; Ciclo</span>
     <span class="ciclo-title">Segundo Ciclo</span>
-    <span class="ciclo-count" id="cnt-c2">24 paquetes</span>
+    <span class="ciclo-count" id="cnt-c2">25 paquetes</span>
     <div class="ciclo-line"></div>
   </div>
   <div class="cards-grid" id="grid-c2">
@@ -513,6 +490,11 @@
           <div class="card-name">Turismo Aventura</div>
           <span class="card-area" style="background:rgba(255,255,255,.08);color:#a78bfa">Cs. Sociales</span>
         </a>
+        <a class="card" href="segundo%20ciclo/Clasificacion%20de%20animales/index.html" target="_blank" data-area="csnaturales" data-ciclo="c2" data-tooltip="Cs. Naturales · 4° Grado · Clasificación de animales por alimentación y características.">
+          <span class="card-ico"><svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#4ade80"/><text x="18" y="24" text-anchor="middle" font-size="18">🦁</text></svg></span>
+          <div class="card-name">Clasificación de Animales</div>
+          <span class="card-area" style="background:rgba(255,255,255,.08);color:#22d3ee">Cs. Naturales</span>
+        </a>
   </div>
 
   <div class="empty" id="empty-msg">No se encontraron actividades para ese filtro.</div>
@@ -524,7 +506,7 @@
     <div class="paso"><div class="paso-num">1</div><div class="paso-content"><h3>Abrí la actividad</h3><p>Hac&eacute; clic en cualquier tarjeta para iniciar en el navegador.</p></div></div>
     <div class="paso"><div class="paso-num">2</div><div class="paso-content"><h3>Gir&aacute; la pantalla</h3><p>En algunas actividades conviene girar el celular en modo horizontal para ver mejor todos los elementos.</p></div></div>
     <div class="paso"><div class="paso-num">3</div><div class="paso-content"><h3>Realiz&aacute; la actividad</h3><p>Le&eacute; la consigna, arrastr&aacute;, hac&eacute; clic o escrib&iacute; seg&uacute;n corresponda.</p></div></div>
-    <div class="paso"><div class="paso-num">4</div><div class="paso-content"><h3>Consult&aacute; tus resultados</h3><p>Al finalizar, hac&eacute; clic en el <strong style="color:var(--c1)">&#10003; tilde</strong> (esquina inferior derecha) para ver aciertos, intentos y tiempo. &Uacute;til para conocer tu desempe&ntilde;o.</p></div></div>
+    <div class="paso"><div class="paso-num">4</div><div class="paso-content"><h3>Consult&aacute; tus resultados</h3><p>Al finalizar, hac&eacute; clic en el <strong style="color:var(--c1)">&#10003; tilde</strong> (esquina inferior derecha) para ver aciertos, intentos y tiempo.</p></div></div>
     <div class="paso"><div class="paso-num">5</div><div class="paso-content"><h3>Volv&eacute; a intentarlo</h3><p>&iexcl;Pod&eacute;s repetir todas las veces que quieras para mejorar tu puntaje!</p></div></div>
   </div>
 </div>
