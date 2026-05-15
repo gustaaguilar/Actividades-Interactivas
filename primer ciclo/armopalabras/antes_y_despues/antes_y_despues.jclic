@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="antes_y_despues" version="0.1.3">
+ <settings>
+  <title>Antes y DespuÃ©s - Nivel Inicial</title>
+  <revision description="created" date="5/14/26" />
+  <author name="Gustavo Aguilar" />
+  <descriptors />
+  <cover file="project-cover.jpg" />
+  <thumb file="project-thumb.jpg" />
+  <icon16 file="favicon.ico" />
+  <icon72 file="icon-72.png" />
+  <icon192 file="icon-192.png" />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="4" navButtons="none" />
+  <item id="start" name="portada" delay="3" navButtons="none" />
+  <item name="puzzle_tel" delay="3" navButtons="none" />
+  <item name="puzzle_pc" delay="3" navButtons="none" />
+  <item name="puzzle_auto" delay="3" navButtons="none" />
+  <item name="puzzle_plancha" delay="3" navButtons="none" />
+  <item name="puzzle_farol" delay="3" navButtons="none" />
+  <item name="puzzle_dama" delay="3" navButtons="none" />
+  <item name="puzzle_caballero" delay="3" navButtons="none" />
+  <item name="puzzle_vendedor" delay="3" navButtons="none" />
+  <item name="puzzle_agua" delay="3" navButtons="none" />
+  <item name="memo1" delay="3" navButtons="none" />
+  <item name="memo2" delay="3" navButtons="none" />
+  <item name="asociar1" delay="3" navButtons="none" />
+  <item name="asociar2" delay="3" navButtons="none" />
+  <item name="identi_tel" delay="3" navButtons="none" />
+  <item name="identi_dama" delay="3" navButtons="none" />
+  <item name="identi_caballero" delay="3" navButtons="none" />
+  <item name="identi_farol" delay="3" navButtons="none" />
+  <item name="i01cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@associations.SimpleAssociation" name="asociar1">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCEEFF" />
+     </style>
+     <p> </p>
+     <media type="PLAY_AUDIO" level="1" file="cons_asociar1.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¡Excelente!</p>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <gradient source="0x0066CC" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="120.0" cellHeight="120.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="tel_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_tel_antes.mp3" />
+    </cell>
+    <cell image="pc_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pc_antes.mp3" />
+    </cell>
+    <cell image="auto_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_auto_antes.mp3" />
+    </cell>
+    <cell image="plancha_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_plancha_antes.mp3" />
+    </cell>
+    <cell image="farol_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_farol_antes.mp3" />
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="120.0" cellHeight="120.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFF99" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="tel_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_tel_despues.mp3" />
+    </cell>
+    <cell image="pc_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pc_despues.mp3" />
+    </cell>
+    <cell image="auto_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_auto_despues.mp3" />
+    </cell>
+    <cell image="plancha_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_plancha_despues.mp3" />
+    </cell>
+    <cell image="farol_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_farol_despues.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="asociar2">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCEEFF" />
+     </style>
+     <p> </p>
+     <media type="PLAY_AUDIO" level="1" file="cons_asociar2.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¡Excelente!</p>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <gradient source="0x0066CC" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="120.0" cellHeight="120.0" border="true" id="primary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="dama_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_dama_antes.mp3" />
+    </cell>
+    <cell image="caballero_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_caballero_antes.mp3" />
+    </cell>
+    <cell image="vendedor_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_vendedor_antes.mp3" />
+    </cell>
+    <cell image="agua_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_agua_antes.mp3" />
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="120.0" cellHeight="120.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFF99" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="dama_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_dama_despues.mp3" />
+    </cell>
+    <cell image="caballero_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_caballero_despues.mp3" />
+    </cell>
+    <cell image="vendedor_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_vendedor_despues.mp3" />
+    </cell>
+    <cell image="agua_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_agua_despues.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_caballero" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCEEFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_identi_caballero2.mp3" />
+     <p> </p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x004080" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="300.0" cellHeight="300.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell id="0" image="caballero_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_caballero_antes.mp3" />
+    </cell>
+    <cell id="1" image="caballero_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_caballero_despues.mp3" />
+    </cell>
+   </cells>
+   <cells rows="1" cols="2" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <ids>0 1</ids>
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_dama" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCEEFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_identi_dama.mp3" />
+     <p> </p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x004080" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="300.0" cellHeight="300.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell id="1" image="dama_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_dama_antes.mp3" />
+    </cell>
+    <cell id="0" image="dama_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_dama_despues.mp3" />
+    </cell>
+   </cells>
+   <cells rows="1" cols="2" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <ids>0 1</ids>
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_farol" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCEEFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_identi_farol.mp3" />
+     <p> </p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x004080" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="300.0" cellHeight="300.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell id="1" image="farol_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_farol_antes.mp3" />
+    </cell>
+    <cell id="0" image="farol_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_farol_despues.mp3" />
+    </cell>
+   </cells>
+   <cells rows="1" cols="2" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <ids>0 1</ids>
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="identi_tel" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color background="0xCCEEFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_identi_tel.mp3" />
+     <p> </p>
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x004080" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="300.0" cellHeight="300.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell id="1" image="tel_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_tel_antes.mp3" />
+    </cell>
+    <cell id="0" image="tel_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_tel_despues.mp3" />
+    </cell>
+   </cells>
+   <cells rows="1" cols="2" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <ids>0 1</ids>
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo1">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>Encontrá los pares de antes y después.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_memo1.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Excelente!</p>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <gradient source="0x0066CC" dest="0x004080" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="120.0" cellHeight="120.0" border="true" id="primary">
+    <style margin="2">
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell image="tel_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_tel_antes.mp3" />
+    </cell>
+    <cell image="tel_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_tel_despues.mp3" />
+    </cell>
+    <cell image="pc_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pc_antes.mp3" />
+    </cell>
+    <cell image="pc_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pc_despues.mp3" />
+    </cell>
+    <cell image="auto_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_auto_antes.mp3" />
+    </cell>
+    <cell image="auto_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_auto_despues.mp3" />
+    </cell>
+    <cell image="plancha_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_plancha_antes.mp3" />
+    </cell>
+    <cell image="plancha_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_plancha_despues.mp3" />
+    </cell>
+    <cell image="farol_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_farol_antes.mp3" />
+    </cell>
+    <cell image="farol_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_farol_despues.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo2">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>Seguimos jugando. Encontrá los pares que van juntos.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_memo2.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Excelente!</p>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <gradient source="0x0066CC" dest="0x004080" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="2" cols="4" cellWidth="140.0" cellHeight="140.0" border="true" id="primary">
+    <style margin="2">
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="4" rows="2" />
+    <cell image="dama_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_dama_antes.mp3" />
+    </cell>
+    <cell image="dama_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_dama_despues.mp3" />
+    </cell>
+    <cell image="caballero_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_caballero_antes.mp3" />
+    </cell>
+    <cell image="caballero_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_caballero_despues.mp3" />
+    </cell>
+    <cell image="vendedor_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_vendedor_antes.mp3" />
+    </cell>
+    <cell image="vendedor_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_vendedor_despues.mp3" />
+    </cell>
+    <cell image="agua_antes.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_agua_antes.mp3" />
+    </cell>
+    <cell image="agua_despues.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_agua_despues.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portada">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+      <gradient source="0x0066CC" dest="0x004080" angle="275" />
+     </style>
+     <p>Antes y Después</p>
+     <p>Armá el rompecabezas para comenzar.</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_portada.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Muy bien! ¡A jugar!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="portada.png">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_agua">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¿Cómo era antes? ¿Cómo es ahora?</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle_agua.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="2" cellWidth="200.0" cellHeight="180.0" border="true" image="par_agua.png">
+    <style transparent="true" margin="2" borderStroke="2.0" markerStroke="4.0">
+     <color foreground="0xFFFFFF" background="0x1a7acc" inactive="0x005580" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_auto">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¿Cómo era antes? ¿Cómo es ahora?</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle_auto.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="2" cellWidth="200.0" cellHeight="180.0" border="true" image="par_auto.png">
+    <style transparent="true" margin="2" borderStroke="2.0" markerStroke="4.0">
+     <color foreground="0xFFFFFF" background="0x1a7acc" inactive="0x005580" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_caballero">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¿Cómo era antes? ¿Cómo es ahora?</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle_caballero.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="2" cellWidth="200.0" cellHeight="180.0" border="true" image="par_caballero.png">
+    <style transparent="true" margin="2" borderStroke="2.0" markerStroke="4.0">
+     <color foreground="0xFFFFFF" background="0x1a7acc" inactive="0x005580" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_dama">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¿Cómo era antes? ¿Cómo es ahora?</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle_dama.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="2" cellWidth="200.0" cellHeight="180.0" border="true" image="par_dama.png">
+    <style transparent="true" margin="2" borderStroke="2.0" markerStroke="4.0">
+     <color foreground="0xFFFFFF" background="0x1a7acc" inactive="0x005580" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_farol">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¿Cómo era antes? ¿Cómo es ahora?</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle_farol.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="2" cellWidth="200.0" cellHeight="180.0" border="true" image="par_farol.png">
+    <style transparent="true" margin="2" borderStroke="2.0" markerStroke="4.0">
+     <color foreground="0xFFFFFF" background="0x1a7acc" inactive="0x005580" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_pc">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¿Cómo era antes? ¿Cómo es ahora?</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle_pc.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="2" cellWidth="200.0" cellHeight="180.0" border="true" image="par_pc.png">
+    <style transparent="true" margin="2" borderStroke="2.0" markerStroke="4.0">
+     <color foreground="0xFFFFFF" background="0x1a7acc" inactive="0x005580" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_plancha">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¿Cómo era antes? ¿Cómo es ahora?</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle_plancha.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="2" cellWidth="200.0" cellHeight="180.0" border="true" image="par_plancha.png">
+    <style transparent="true" margin="2" borderStroke="2.0" markerStroke="4.0">
+     <color foreground="0xFFFFFF" background="0x1a7acc" inactive="0x005580" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_tel">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¿Cómo era antes? ¿Cómo es ahora?</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle_tel.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="2" cellWidth="200.0" cellHeight="180.0" border="true" image="par_tel.png">
+    <style transparent="true" margin="2" borderStroke="2.0" markerStroke="4.0">
+     <color foreground="0xFFFFFF" background="0x1a7acc" inactive="0x005580" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="puzzle_vendedor">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x004080" />
+     </style>
+     <p>¿Cómo era antes? ¿Cómo es ahora?</p>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle_vendedor.mp3" />
+    </cell>
+    <cell type="final">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFF00" background="0x004080" />
+     </style>
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x004080">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="2" cols="2" cellWidth="200.0" cellHeight="180.0" border="true" image="par_vendedor.png">
+    <style transparent="true" margin="2" borderStroke="2.0" markerStroke="4.0">
+     <color foreground="0xFFFFFF" background="0x1a7acc" inactive="0x005580" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="2" />
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="i01cierre" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="Armá el rompecabezas.mp3" />
+     <p>Armamos el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="i01-muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x00CC00" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="Armá el rompecabezas.mp3" />
+     <p>Armá el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="Muy bien.mp3" />
+     <p>¡Muy bien!</p>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC00CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="favicon.ico" file="favicon.ico" />
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="project-cover.jpg" file="project-cover.jpg" />
+  <media name="project-thumb.jpg" file="project-thumb.jpg" />
+  <media name="Armá el rompecabezas.mp3" file="arma_el_rompecabezas.mp3" />
+  <media name="bravo.mp3" file="bravo.mp3" />
+  <media name="cons_asociar1.mp3" file="cons_asociar1.mp3" />
+  <media name="cons_asociar2.mp3" file="cons_asociar2.mp3" />
+  <media name="cons_cierre.mp3" file="cons_cierre.mp3" />
+  <media name="cons_identi_caballero.mp3" file="cons_identi_caballero.mp3" />
+  <media name="cons_identi_caballero2.mp3" file="cons_identi_caballero2.mp3" />
+  <media name="cons_identi_dama.mp3" file="cons_identi_dama.mp3" />
+  <media name="cons_identi_dama2.mp3" file="cons_identi_dama2.mp3" />
+  <media name="cons_identi_farol.mp3" file="cons_identi_farol.mp3" />
+  <media name="cons_identi_farol2.mp3" file="cons_identi_farol2.mp3" />
+  <media name="cons_identi_tel.mp3" file="cons_identi_tel.mp3" />
+  <media name="cons_identi_tel2.mp3" file="cons_identi_tel2.mp3" />
+  <media name="cons_memo1.mp3" file="cons_memo1.mp3" />
+  <media name="cons_memo2.mp3" file="cons_memo2.mp3" />
+  <media name="cons_portada.mp3" file="cons_portada.mp3" />
+  <media name="cons_puzzle_agua.mp3" file="cons_puzzle_agua.mp3" />
+  <media name="cons_puzzle_auto.mp3" file="cons_puzzle_auto.mp3" />
+  <media name="cons_puzzle_caballero.mp3" file="cons_puzzle_caballero.mp3" />
+  <media name="cons_puzzle_dama.mp3" file="cons_puzzle_dama.mp3" />
+  <media name="cons_puzzle_farol.mp3" file="cons_puzzle_farol.mp3" />
+  <media name="cons_puzzle_pc.mp3" file="cons_puzzle_pc.mp3" />
+  <media name="cons_puzzle_plancha.mp3" file="cons_puzzle_plancha.mp3" />
+  <media name="cons_puzzle_tel.mp3" file="cons_puzzle_tel.mp3" />
+  <media name="cons_puzzle_vendedor.mp3" file="cons_puzzle_vendedor.mp3" />
+  <media name="consigna_ordena.mp3" file="consigna_ordena.mp3" />
+  <media name="excelente.mp3" file="excelente.mp3" />
+  <media name="i01-muy_bien.mp3" file="i01-muy_bien.mp3" />
+  <media name="intentalo.mp3" file="intentalo.mp3" />
+  <media name="Muy bien.mp3" file="i02-muy_bien.mp3" />
+  <media name="muy_bien.mp3" file="muy_bien.mp3" />
+  <media name="nom_agua_antes.mp3" file="nom_agua_antes.mp3" />
+  <media name="nom_agua_despues.mp3" file="nom_agua_despues.mp3" />
+  <media name="nom_auto_antes.mp3" file="nom_auto_antes.mp3" />
+  <media name="nom_auto_despues.mp3" file="nom_auto_despues.mp3" />
+  <media name="nom_caballero_antes.mp3" file="nom_caballero_antes.mp3" />
+  <media name="nom_caballero_despues.mp3" file="nom_caballero_despues.mp3" />
+  <media name="nom_dama_antes.mp3" file="nom_dama_antes.mp3" />
+  <media name="nom_dama_despues.mp3" file="nom_dama_despues.mp3" />
+  <media name="nom_farol_antes.mp3" file="nom_farol_antes.mp3" />
+  <media name="nom_farol_despues.mp3" file="nom_farol_despues.mp3" />
+  <media name="nom_pc_antes.mp3" file="nom_pc_antes.mp3" />
+  <media name="nom_pc_despues.mp3" file="nom_pc_despues.mp3" />
+  <media name="nom_plancha_antes.mp3" file="nom_plancha_antes.mp3" />
+  <media name="nom_plancha_despues.mp3" file="nom_plancha_despues.mp3" />
+  <media name="nom_tel_antes.mp3" file="nom_tel_antes.mp3" />
+  <media name="nom_tel_despues.mp3" file="nom_tel_despues.mp3" />
+  <media name="nom_vendedor_antes.mp3" file="nom_vendedor_antes.mp3" />
+  <media name="nom_vendedor_despues.mp3" file="nom_vendedor_despues.mp3" />
+  <media name="pal_antes.mp3" file="pal_antes.mp3" />
+  <media name="pal_despues.mp3" file="pal_despues.mp3" />
+  <media name="agua_antes.png" file="agua_antes.png" />
+  <media name="agua_despues.png" file="agua_despues.png" />
+  <media name="auto_antes.png" file="auto_antes.png" />
+  <media name="auto_despues.png" file="auto_despues.png" />
+  <media name="caballero_antes.png" file="caballero_antes.png" />
+  <media name="caballero_despues.png" file="caballero_despues.png" />
+  <media name="dama_antes.png" file="dama_antes.png" />
+  <media name="dama_despues.png" file="dama_despues.png" />
+  <media name="farol_antes.png" file="farol_antes.png" />
+  <media name="farol_despues.png" file="farol_despues.png" />
+  <media name="icon-192.png" file="icon-192.png" />
+  <media name="icon-72.png" file="icon-72.png" />
+  <media name="par_agua.png" file="par_agua.png" />
+  <media name="par_auto.png" file="par_auto.png" />
+  <media name="par_caballero.png" file="par_caballero.png" />
+  <media name="par_dama.png" file="par_dama.png" />
+  <media name="par_farol.png" file="par_farol.png" />
+  <media name="par_pc.png" file="par_pc.png" />
+  <media name="par_plancha.png" file="par_plancha.png" />
+  <media name="par_tel.png" file="par_tel.png" />
+  <media name="par_vendedor.png" file="par_vendedor.png" />
+  <media name="pc_antes.png" file="pc_antes.png" />
+  <media name="pc_despues.png" file="pc_despues.png" />
+  <media name="plancha_antes.png" file="plancha_antes.png" />
+  <media name="plancha_despues.png" file="plancha_despues.png" />
+  <media name="portada.png" file="portada.png" />
+  <media name="tel_antes.png" file="tel_antes.png" />
+  <media name="tel_despues.png" file="tel_despues.png" />
+  <media name="vendedor_antes.png" file="vendedor_antes.png" />
+  <media name="vendedor_despues.png" file="vendedor_despues.png" />
+ </mediaBag>
+</JClicProject>
+
