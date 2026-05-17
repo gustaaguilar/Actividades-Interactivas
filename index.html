@@ -115,37 +115,24 @@
 
 <div class="counter-banner">
   <div class="counter-inner">
-    <span class="counter-num">63</span>
+    <span class="counter-num">64</span>
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
   </div>
 </div>
 <!-- CONTADOR DE VISITAS -->
 <div style="background:linear-gradient(135deg,#0a1628,#0f2040);border-bottom:1px solid rgba(74,222,128,.1);padding:8px 16px;text-align:center">
-  <div style="display:inline-flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center">
-    <span style="font-size:.75rem;color:rgba(255,255,255,.5)">
-      &#128101; Visitaron este sitio: <strong id="visit-count" style="color:#4ade80;font-size:.9rem">...</strong>
-    </span>
+  <div style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center">
+    <span style="font-size:.75rem;color:rgba(255,255,255,.5)">&#128101; Visitaron este sitio:</span>
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=gustaaguilar.Actividades-Interactivas&left_color=0f172a&right_color=22ad5c&left_text=visitas"
+         alt="visitas"
+         style="height:22px;vertical-align:middle;border-radius:4px"
+         onerror="this.style.display='none'" />
   </div>
 </div>
-<script>
-  // Usar GoatCounter API para obtener el total de visitas
-  fetch('https://quesepantodos.goatcounter.com/counter/TOTAL.json')
-    .then(r => r.json())
-    .then(d => {
-      const el = document.getElementById('visit-count');
-      if (el && d && d.count) {
-        el.textContent = Number(d.count).toLocaleString('es-AR');
-      }
-    })
-    .catch(() => {
-      const el = document.getElementById('visit-count');
-      if (el) el.textContent = '—';
-    });
-</script>
 
 <div class="novedades">
   <span class="nov-badge">&#x1F195; Nuevo</span>
-  <span class="nov-text"><strong>Clasificaci&oacute;n de Animales</strong> &mdash; Cs. Naturales 4&deg; Grado &middot; Clasificaci&oacute;n de animales por alimentaci&oacute;n y caracter&iacute;sticas.</span>
+  <span class="nov-text"><strong>N&uacute;meros del 10 al 19</strong> &mdash; Matem&aacute;tica 1&deg; Grado &middot; Reconocimiento y escritura de los n&uacute;meros del 10 al 19.</span>
 </div>
 
 <header>
@@ -185,7 +172,7 @@
   <div class="ciclo-header">
     <span class="ciclo-badge">1&deg; Ciclo</span>
     <span class="ciclo-title">Primer Ciclo</span>
-    <span class="ciclo-count" id="cnt-c1">36 paquetes</span>
+    <span class="ciclo-count" id="cnt-c1">37 paquetes</span>
     <div class="ciclo-line"></div>
   </div>
   <div class="cards-grid" id="grid-c1">
@@ -368,6 +355,11 @@
           <span class="card-ico"><svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#22d3ee"/><text x="18" y="24" text-anchor="middle" font-size="18">🌿</text></svg></span>
           <div class="card-name">Antes y Después</div>
           <span class="card-area" style="background:rgba(255,255,255,.08);color:#22d3ee">Ambiente</span>
+        </a>
+          <a class="card" href="primer%20ciclo/numeros_10_al_19/index.html" target="_blank" data-area="matematica" data-ciclo="c1" data-tooltip="Matem&aacute;tica &middot; 1&deg; Grado &middot; Reconocimiento y escritura de los n&uacute;meros del 10 al 19.">
+          <span class="card-ico"><svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#f97316"/><text x="18" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="white">123</text></svg></span>
+          <div class="card-name">N&uacute;meros del 10 al 19</div>
+          <span class="card-area" style="background:rgba(255,255,255,.08);color:#f97316">Matem&aacute;tica</span>
         </a>
   </div>
 
