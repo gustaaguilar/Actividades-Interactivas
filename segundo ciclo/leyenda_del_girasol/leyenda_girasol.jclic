@@ -1,0 +1,1346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="leyenda_girasol" version="0.1.3">
+ <settings>
+  <title>La Leyenda del Girasol</title>
+  <revision description="created" date="12/5/27" />
+  <author name="Gustavo Aguilar" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="3" navButtons="none" />
+  <item name="portada_leyenda" delay="3" navButtons="none" />
+  <item name="que_es_leyenda" delay="8" navButtons="none" />
+  <item name="caracteristicas" delay="8" navButtons="none" />
+  <item name="estructura" delay="8" navButtons="none" />
+  <item name="personajes" delay="4" navButtons="none" />
+  <item name="secuencia_1" delay="4" navButtons="none" />
+  <item name="secuencia_2" delay="5" navButtons="none" />
+  <item name="secuencia_3" delay="7" navButtons="none" />
+  <item name="comprension_1" delay="3" navButtons="none" />
+  <item name="comprension_2" delay="3" navButtons="none" />
+  <item name="comprension_3" delay="7" navButtons="none" />
+  <item name="el_girasol" delay="7" navButtons="none" />
+  <item name="parrafo_asoc" delay="7" navButtons="none" />
+  <item name="prop_leyenda" delay="7" navButtons="none" />
+  <item name="sopa_leyenda" delay="3" navButtons="none" />
+  <item name="memo_personajes" delay="5" navButtons="none" />
+  <item name="verdadero_falso" delay="5" navButtons="none" />
+  <item name="origen" delay="3" navButtons="none" />
+  <item name="cierre" delay="3" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@associations.SimpleAssociation" name="caracteristicas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_caracteristicas.mp3" />
+     <p>Uní cada característica con sí es leyenda o no es leyenda.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x663300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_aldea.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="374.0" cellHeight="90.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="caract_si1.mp3" />
+     <p>Narra hechos sobrenaturales o naturales.</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="caract_si2.mp3" />
+     <p>Se transmite de generación en generación.</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="caract_no1.mp3" />
+     <p>Tiene un autor conocido.</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="caract_no2.mp3" />
+     <p>Termina siempre con una moraleja.</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="200.0" cellHeight="90.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0x006600" background="0xEEFFEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <p>✓ SÍ es leyenda</p>
+    </cell>
+    <cell>
+     <p>✓ SÍ es leyenda</p>
+    </cell>
+    <cell>
+     <p>✗ NO es leyenda</p>
+    </cell>
+    <cell>
+     <p>✗ NO es leyenda</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="false" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x006600" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_cierre.mp3" />
+     <p>¡Felicitaciones! Terminaste todas las actividades.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x006633">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="comprension_1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_comprension1.mp3" />
+     <p>¿Quiénes eran Pirayú y Mandió?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x664400" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_bosque.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="636.0" cellHeight="114.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x99FFFF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="resp_carandai.mp3" />
+     <p>Eran los dioses guaraníes del sol y la lluvia.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="resp_pirayu_mandio.mp3" />
+     <p>Eran dos jóvenes de tribus guaraníes vecinas.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="def_leyenda_incorrecta2.mp3" />
+     <p>Eran el jefe y su hija de la tribu guaraní.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="comprension_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_comprension2.mp3" />
+     <p>¿Por qué era imposible que Carandai se casara?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x664400" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_aldea.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="520.0" cellHeight="95.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="prop_incorrecto1.mp3" />
+     <p>Porque era muy joven para casarse según la tribu.</p>
+    </cell>
+    <cell id="0">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="prop_incorrecto2.mp3" />
+     <p>Porque estaba enamorado de otra persona de su tribu.</p>
+    </cell>
+    <cell id="1">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="resp_carandai.mp3" />
+     <p>Era hijo del jefe y tenía prohibido casarse con alguien de otra tribu.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="comprension_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_comprension3.mp3" />
+     <p>¿Quién ayudó a Pirayú y cómo?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xCC6600" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_girasol.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="654.0" cellHeight="111.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color background="0xFF0033" inactive="0xFF0033" />
+     <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="resp_ayuda.mp3" />
+     <p>El Sol la envolvió en luz brillante y envió nubes para ayudar a su gente.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="prop_incorrecto1.mp3" />
+     <p>Mandió regresó con su tribu y trajo agua para la aldea.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="prop_incorrecto2.mp3" />
+     <p>El jefe de la otra tribu envió guerreros con provisiones.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="el_girasol" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_el_girasol.mp3" />
+     <p>¿Quién te parece es el girasol de la leyenda?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0xCC6600" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_girasol.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="469.0" cellHeight="211.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_pirayu.png">
+     <style margin="0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_pirayu.mp3" />
+     <p>Pirayú</p>
+    </cell>
+    <cell id="1" imgAlign="right,middle" avoidOverlapping="true" image="img_carandai.png">
+     <style margin="0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="resp_girasol.mp3" />
+     <p>Carandai</p>
+    </cell>
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_el_sol.png">
+     <style margin="0">
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_el_sol.mp3" />
+     <p>El Sol</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="estructura" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_estructura.mp3" />
+     <p>Ordená las partes de la leyenda.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_biblioteca.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="270.0" cellHeight="120.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_leyenda.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_titulo.mp3" />
+     <p>TÍTULO</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_estructura.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_inicio.mp3" />
+     <p>INICIO</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_parrafo.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_problema.mp3" />
+     <p>PROBLEMA</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_vf.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_final.mp3" />
+     <p>FINAL</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="448.0" cellHeight="115.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color background="0x660066" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="desc_titulo.mp3" />
+     <p>El nombre que identifica la leyenda.</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="desc_inicio.mp3" />
+     <p>Presenta el lugar, el tiempo y los personajes.</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="desc_problema.mp3" />
+     <p>Cuenta el conflicto o situación difícil.</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x660066" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="desc_final.mp3" />
+     <p>Explica cómo se resolvió el problema.</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_personajes" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0x664400" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_memo_personajes.mp3" />
+     <p>Encontrá los pares de personaje e imagen.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x664400" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_bosque.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="5" cellWidth="130.0" cellHeight="117.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="26" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="5" rows="2" />
+    <cell avoidOverlapping="true" image="img_pirayu.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pirayu.mp3" />
+     <p>Pirayú</p>
+    </cell>
+    <cell avoidOverlapping="true" image="img_mandio.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_mandio.mp3" />
+     <p>Mandió</p>
+    </cell>
+    <cell avoidOverlapping="true" image="img_carandai.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_carandai.mp3" />
+     <p>Carandai</p>
+    </cell>
+    <cell avoidOverlapping="true" image="img_el_sol.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_el_sol.mp3" />
+     <p>El Sol</p>
+    </cell>
+    <cell avoidOverlapping="true" image="img_girasol.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_el_girasol.mp3" />
+     <p>El girasol</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_pirayu.mp3" />
+     <p>Pirayú</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_mandio.mp3" />
+     <p>Mandió</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_carandai.mp3" />
+     <p>Carandai</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_el_sol.mp3" />
+     <p>El Sol</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" inactive="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_el_girasol.mp3" />
+     <p>El girasol</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="origen" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x000066" background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_origen.mp3" />
+     <p>Ordená las palabras para formar la oración.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x664400" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_girasol.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="9" cellWidth="86.0" cellHeight="60.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0x000066" background="0xCCEEFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="9" rows="1" />
+    <cell>
+     <p>El</p>
+    </cell>
+    <cell>
+     <p>girasol</p>
+    </cell>
+    <cell>
+     <p>nació</p>
+    </cell>
+    <cell>
+     <p>porque</p>
+    </cell>
+    <cell>
+     <p>Carandai</p>
+    </cell>
+    <cell>
+     <p>se</p>
+    </cell>
+    <cell>
+     <p>convirtió</p>
+    </cell>
+    <cell>
+     <p>en</p>
+    </cell>
+    <cell>
+     <p>flor.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="parrafo_asoc" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_parrafo_asoc.mp3" />
+     <p>Uní cada párrafo con lo que cuenta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_aula.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="220.0" cellHeight="110.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_generaciones.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_inicio.mp3" />
+     <p>Párrafo 1</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_proposito.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_problema.mp3" />
+     <p>Párrafo 2</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_girasol.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_final.mp3" />
+     <p>Párrafo 3</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="373.0" cellHeight="110.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="26" bold="true" />
+     <color background="0xEEFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="parr_personajes.mp3" />
+     <p>Presenta el lugar, el tiempo y cómo son los personajes.</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="parr_prohibicion.mp3" />
+     <p>Cuenta la prohibición del casamiento.</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="parr_desenlace.mp3" />
+     <p>Explica cómo se resolvió y el origen del girasol.</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="personajes" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_personajes.mp3" />
+     <p>Uní cada personaje con su descripción.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x996600" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_bosque.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="260.0" cellHeight="130.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_pirayu.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pirayu.mp3" />
+     <p>Pirayú</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_mandio.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_mandio.mp3" />
+     <p>Mandió</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_carandai.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_carandai.mp3" />
+     <p>Carandai</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_el_sol.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_el_sol.mp3" />
+     <p>El Sol</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="371.0" cellHeight="130.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFCC" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="desc_pirayu.mp3" />
+     <p>Niña guaraní valiente y generosa.</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="desc_mandio.mp3" />
+     <p>Joven guaraní enamorado de Carandai.</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="desc_carandai.mp3" />
+     <p>Joven guerrero al que le prohibieron casarse.</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="desc_el_sol.mp3" />
+     <p>Ser poderoso que ayudó a la aldea.</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portada_leyenda" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_portada_leyenda.mp3" />
+     <p>¡Armá el rompecabezas de la leyenda!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xCC6600">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="portada-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x003300" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_portadaclic.mp3" />
+     <p>¡Armá el rompecabezas!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x006633">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="prop_leyenda" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_prop_leyenda.mp3" />
+     <p>Pulsá sobre el propósito correcto de una leyenda.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_aula.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="592.0" cellHeight="114.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="prop_incorrecto1.mp3" />
+     <p>Entretener con historias de aventuras inventadas.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="prop_correcto.mp3" />
+     <p>Explicar tradiciones y costumbres de generación en generación.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="prop_incorrecto2.mp3" />
+     <p>Enseñar reglas de gramática y escritura.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="que_es_leyenda" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_que_es_leyenda.mp3" />
+     <p>Pulsá sobre la definición correcta de leyenda.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x996600" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_bosque.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="642.0" cellHeight="115.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0xFF00FF" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="def_leyenda_incorrecta1.mp3" />
+     <p>Son historias inventadas por un autor con personajes de fantasía.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="def_leyenda_correcta.mp3" />
+     <p>Son historias de hechos sobrenaturales o naturales que pasaron de generación en generación.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="def_leyenda_incorrecta2.mp3" />
+     <p>Son textos que explican hechos científicos con datos comprobables.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="secuencia_1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_secuencia1.mp3" />
+     <p>Ordená las viñetas del inicio de la historia.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x664400" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_bosque.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="380.0" cellHeight="185.0" border="true">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="vineta1.png">
+     <media type="PLAY_AUDIO" level="1" file="vineta1.mp3" />
+     <p>En una aldea guaraní vivía Pirayú, una niña valiente y generosa.</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="vineta2.png">
+     <media type="PLAY_AUDIO" level="1" file="vineta2.mp3" />
+     <p>Pirayú y Mandió, de tribus vecinas, se hicieron amigos bajo el sol.</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="vineta3.png">
+     <media type="PLAY_AUDIO" level="1" file="vineta3.mp3" />
+     <p>El jefe prohibió que Carandai se casara con alguien de otra tribu.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="secuencia_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_secuencia2.mp3" />
+     <p>Ordená las viñetas del problema.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x664400" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_aldea.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="380.0" cellHeight="185.0" border="true">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="vineta4.png">
+     <media type="PLAY_AUDIO" level="1" file="vineta4.mp3" />
+     <p>Las dos tribus se separaron y no volvieron a saber una de la otra.</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="vineta5.png">
+     <media type="PLAY_AUDIO" level="1" file="vineta5.mp3" />
+     <p>La aldea de Pirayú sufrió una terrible sequía.</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="vineta6.png">
+     <media type="PLAY_AUDIO" level="1" file="vineta6.mp3" />
+     <p>Pirayú pidió ayuda al Sol con toda su fuerza.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="secuencia_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_secuencia3.mp3" />
+     <p>Ordená las viñetas del final.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x664400" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_girasol.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="380.0" cellHeight="185.0" border="true">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="vineta7.png">
+     <media type="PLAY_AUDIO" level="1" file="vineta7.mp3" />
+     <p>El Sol envolvió a la niña en una luz muy brillante.</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="vineta8.png">
+     <media type="PLAY_AUDIO" level="1" file="vineta8.mp3" />
+     <p>Las nubes enviadas por el Sol trajeron lluvia a la aldea.</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="vineta9.png">
+     <media type="PLAY_AUDIO" level="1" file="vineta9.mp3" />
+     <p>Donde Carandai había estado, nació un hermoso girasol que siempre mira al sol.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopa_leyenda" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A3A1A" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_sopa.mp3" />
+     <p>Encontrá: PIRAYÚ - MANDIÓ - CARANDAI - SOL - GIRASOL</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A3A1A" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="i01-muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0x1A3A1A">
+     <gradient source="0x2A5A2A" dest="0x0A1A0A" angle="0" />
+     <image name="portada-resized.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x000099" border="true" />
+   </settings>
+   <textGrid rows="10" columns="10" cellWidth="44.0" cellHeight="44.0" border="true">
+    <style margin="2">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFF00" background="0x1A3A1A" />
+    </style>
+    <text>
+     <row>PIRAYU***C</row>
+     <row>T*W*Z****A</row>
+     <row>**MANDIO*R</row>
+     <row>G*K*B****A</row>
+     <row>I*X*M****N</row>
+     <row>R*P*SOL**D</row>
+     <row>A*Q*K****A</row>
+     <row>S*W*R****I</row>
+     <row>O*X*Y*Z***</row>
+     <row>L*Y*Z*****</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">PIRAYU</clue>
+    <clue id="1">MANDIO</clue>
+    <clue id="2">CARANDAI</clue>
+    <clue id="3">SOL</clue>
+    <clue id="4">GIRASOL</clue>
+   </clues>
+   <cells rows="5" cols="1" cellWidth="120.0" cellHeight="120.0" border="true" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="img_pirayu.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pirayu.mp3" />
+    </cell>
+    <cell image="img_mandio.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_mandio.mp3" />
+    </cell>
+    <cell image="img_carandai.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_carandai.mp3" />
+    </cell>
+    <cell image="img_el_sol.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_el_sol.mp3" />
+    </cell>
+    <cell image="img_girasol.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_el_girasol.mp3" />
+    </cell>
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="verdadero_falso" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_verdadero_falso.mp3" />
+     <p>Pulsá sobre la afirmación verdadera.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_girasol.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="520.0" cellHeight="95.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0xFFCCCC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="vf_falso1.mp3" />
+     <p>La leyenda fue escrita por un autor guaraní conocido.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="vf_verdadero.mp3" />
+     <p>La leyenda explica el origen del girasol.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="vf_falso2.mp3" />
+     <p>El Sol castigó a Pirayú por pedir ayuda.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i02-bienhecho.jpg" file="i02-bienhecho.jpg" />
+  <media name="portada-resized.jpg" file="portada-resized.jpg" />
+  <media name="caract_no1.mp3" file="caract_no1.mp3" />
+  <media name="caract_no2.mp3" file="caract_no2.mp3" />
+  <media name="caract_si1.mp3" file="caract_si1.mp3" />
+  <media name="caract_si2.mp3" file="caract_si2.mp3" />
+  <media name="cons_caracteristicas.mp3" file="cons_caracteristicas.mp3" />
+  <media name="cons_cierre.mp3" file="cons_cierre.mp3" />
+  <media name="cons_comprension1.mp3" file="cons_comprension1.mp3" />
+  <media name="cons_comprension2.mp3" file="cons_comprension2.mp3" />
+  <media name="cons_comprension3.mp3" file="cons_comprension3.mp3" />
+  <media name="cons_el_girasol.mp3" file="cons_el_girasol.mp3" />
+  <media name="cons_estructura.mp3" file="cons_estructura.mp3" />
+  <media name="cons_memo_personajes.mp3" file="cons_memo_personajes.mp3" />
+  <media name="cons_origen.mp3" file="cons_origen.mp3" />
+  <media name="cons_parrafo_asoc.mp3" file="cons_parrafo_asoc.mp3" />
+  <media name="cons_personajes.mp3" file="cons_personajes.mp3" />
+  <media name="cons_portada_leyenda.mp3" file="cons_portada_leyenda.mp3" />
+  <media name="cons_portadaclic.mp3" file="cons_portadaclic.mp3" />
+  <media name="cons_prop_leyenda.mp3" file="cons_prop_leyenda.mp3" />
+  <media name="cons_que_es_leyenda.mp3" file="cons_que_es_leyenda.mp3" />
+  <media name="cons_secuencia1.mp3" file="cons_secuencia1.mp3" />
+  <media name="cons_secuencia2.mp3" file="cons_secuencia2.mp3" />
+  <media name="cons_secuencia3.mp3" file="cons_secuencia3.mp3" />
+  <media name="cons_sopa.mp3" file="cons_sopa.mp3" />
+  <media name="cons_verdadero_falso.mp3" file="cons_verdadero_falso.mp3" />
+  <media name="def_leyenda_correcta.mp3" file="def_leyenda_correcta.mp3" />
+  <media name="def_leyenda_incorrecta1.mp3" file="def_leyenda_incorrecta1.mp3" />
+  <media name="def_leyenda_incorrecta2.mp3" file="def_leyenda_incorrecta2.mp3" />
+  <media name="desc_carandai.mp3" file="desc_carandai.mp3" />
+  <media name="desc_el_sol.mp3" file="desc_el_sol.mp3" />
+  <media name="desc_final.mp3" file="desc_final.mp3" />
+  <media name="desc_inicio.mp3" file="desc_inicio.mp3" />
+  <media name="desc_mandio.mp3" file="desc_mandio.mp3" />
+  <media name="desc_pirayu.mp3" file="desc_pirayu.mp3" />
+  <media name="desc_problema.mp3" file="desc_problema.mp3" />
+  <media name="desc_titulo.mp3" file="desc_titulo.mp3" />
+  <media name="excelente.mp3" file="excelente.mp3" />
+  <media name="i01-muy_bien.mp3" file="i01-muy_bien.mp3" />
+  <media name="intentalo.mp3" file="intentalo.mp3" />
+  <media name="nom_carandai.mp3" file="nom_carandai.mp3" />
+  <media name="nom_el_girasol.mp3" file="nom_el_girasol.mp3" />
+  <media name="nom_el_sol.mp3" file="nom_el_sol.mp3" />
+  <media name="nom_final.mp3" file="nom_final.mp3" />
+  <media name="nom_inicio.mp3" file="nom_inicio.mp3" />
+  <media name="nom_mandio.mp3" file="nom_mandio.mp3" />
+  <media name="nom_pirayu.mp3" file="nom_pirayu.mp3" />
+  <media name="nom_problema.mp3" file="nom_problema.mp3" />
+  <media name="nom_titulo.mp3" file="nom_titulo.mp3" />
+  <media name="oracion_origen.mp3" file="oracion_origen.mp3" />
+  <media name="parr_desenlace.mp3" file="parr_desenlace.mp3" />
+  <media name="parr_personajes.mp3" file="parr_personajes.mp3" />
+  <media name="parr_prohibicion.mp3" file="parr_prohibicion.mp3" />
+  <media name="prop_correcto.mp3" file="prop_correcto.mp3" />
+  <media name="prop_incorrecto1.mp3" file="prop_incorrecto1.mp3" />
+  <media name="prop_incorrecto2.mp3" file="prop_incorrecto2.mp3" />
+  <media name="resp_ayuda.mp3" file="resp_ayuda.mp3" />
+  <media name="resp_carandai.mp3" file="resp_carandai.mp3" />
+  <media name="resp_girasol.mp3" file="resp_girasol.mp3" />
+  <media name="resp_pirayu_mandio.mp3" file="resp_pirayu_mandio.mp3" />
+  <media name="vf_falso1.mp3" file="vf_falso1.mp3" />
+  <media name="vf_falso2.mp3" file="vf_falso2.mp3" />
+  <media name="vf_verdadero.mp3" file="vf_verdadero.mp3" />
+  <media name="vineta1.mp3" file="vineta1.mp3" />
+  <media name="vineta2.mp3" file="vineta2.mp3" />
+  <media name="vineta3.mp3" file="vineta3.mp3" />
+  <media name="vineta4.mp3" file="vineta4.mp3" />
+  <media name="vineta5.mp3" file="vineta5.mp3" />
+  <media name="vineta6.mp3" file="vineta6.mp3" />
+  <media name="vineta7.mp3" file="vineta7.mp3" />
+  <media name="vineta8.mp3" file="vineta8.mp3" />
+  <media name="vineta9.mp3" file="vineta9.mp3" />
+  <media name="fondo_aldea.png" file="fondo_aldea.png" />
+  <media name="fondo_aula.png" file="fondo_aula.png" />
+  <media name="fondo_biblioteca.png" file="fondo_biblioteca.png" />
+  <media name="fondo_bosque.png" file="fondo_bosque.png" />
+  <media name="fondo_girasol.png" file="fondo_girasol.png" />
+  <media name="fondo_selva.png" file="fondo_selva.png" />
+  <media name="img_carandai.png" file="img_carandai.png" />
+  <media name="img_el_sol.png" file="img_el_sol.png" />
+  <media name="img_estructura.png" file="img_estructura.png" />
+  <media name="img_generaciones.png" file="img_generaciones.png" />
+  <media name="img_girasol.png" file="img_girasol.png" />
+  <media name="img_leyenda.png" file="img_leyenda.png" />
+  <media name="img_mandio.png" file="img_mandio.png" />
+  <media name="img_narracion.png" file="img_narracion.png" />
+  <media name="img_parrafo.png" file="img_parrafo.png" />
+  <media name="img_pirayu.png" file="img_pirayu.png" />
+  <media name="img_proposito.png" file="img_proposito.png" />
+  <media name="img_vf.png" file="img_vf.png" />
+  <media name="portada_leyenda.png" file="portada_leyenda.png" />
+  <media name="vineta1.png" file="vineta1.png" />
+  <media name="vineta2.png" file="vineta2.png" />
+  <media name="vineta3.png" file="vineta3.png" />
+  <media name="vineta4.png" file="vineta4.png" />
+  <media name="vineta5.png" file="vineta5.png" />
+  <media name="vineta6.png" file="vineta6.png" />
+  <media name="vineta7.png" file="vineta7.png" />
+  <media name="vineta8.png" file="vineta8.png" />
+  <media name="vineta9.png" file="vineta9.png" />
+ </mediaBag>
+</JClicProject>
+
