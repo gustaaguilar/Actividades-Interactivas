@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <JClicProject name="arbol_de_los_frutos" version="0.1.3">
  <settings>
-  <title>El Árbol de los Frutos Compartidos</title>
+  <title>El Ã�rbol de los Frutos Compartidos</title>
   <revision description="created" date="11/5/27" />
   <author name="Gustavo Aguilar" />
   <descriptors />
+  <cover file="project-cover.jpg" />
+  <thumb file="project-thumb.jpg" />
+  <icon16 file="favicon.ico" />
+  <icon72 file="icon-72.png" />
+  <icon192 file="icon-192.png" />
   <meta_langs>es</meta_langs>
   <descriptions>
    <description language="es" />
@@ -1260,7 +1265,7 @@
     <clue id="1">FRESA</clue>
     <clue id="2">FRUTERO</clue>
     <clue id="3">FREIR</clue>
-    <clue id="4">FRIJOLES</clue>
+    <clue id="4">FRIJOL</clue>
    </clues>
    <cells rows="5" cols="1" cellWidth="124.0" cellHeight="123.0" border="true" id="secondary">
     <style />
@@ -1627,11 +1632,14 @@
   </activity>
  </activities>
  <mediaBag>
+  <media name="favicon.ico" file="favicon.ico" />
   <media name="2-resized.jpg" file="2-resized.jpg" />
   <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
   <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
   <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
   <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="project-cover.jpg" file="project-cover.jpg" />
+  <media name="project-thumb.jpg" file="project-thumb.jpg" />
   <media name="cons_cierre.mp3" file="cons_cierre.mp3" />
   <media name="cons_fabula.mp3" file="cons_fabula.mp3" />
   <media name="cons_identi_fr1.mp3" file="cons_identi_fr1.mp3" />
@@ -1709,6 +1717,8 @@
   <media name="fondo_arbol.png" file="fondo_arbol.png" />
   <media name="fondo_aula.png" file="fondo_aula.png" />
   <media name="fondo_bosque.png" file="fondo_bosque.png" />
+  <media name="icon-192.png" file="icon-192.png" />
+  <media name="icon-72.png" file="icon-72.png" />
   <media name="img_alumno.png" file="img_alumno.png" />
   <media name="img_ardilla.png" file="img_ardilla.png" />
   <media name="img_colaboracion.png" file="img_colaboracion.png" />

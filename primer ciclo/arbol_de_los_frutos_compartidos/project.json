@@ -1,5 +1,5 @@
 {
-  "title": "El Árbol de los Frutos Compartidos",
+  "title": "El Ã�rbol de los Frutos Compartidos",
   "author": "Gustavo Aguilar",
   "date": "5/11/27",
   "description": {},
@@ -9,12 +9,12 @@
   "meta_langs": [
     "es"
   ],
-  "mainFile": "arbol_de_los_frutos.jclic",
   "cover": "project-cover.jpg",
   "thumbnail": "project-thumb.jpg",
+  "mainFile": "arbol_de_los_frutos.jclic",
   "activities": 24,
   "mediaFiles": 117,
-  "totalSize": 7640667,
+  "totalSize": 7641588,
   "files": [
     "2-resized.jpg",
     "arbol_de_los_frutos.jclic",
