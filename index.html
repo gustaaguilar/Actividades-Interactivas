@@ -101,11 +101,45 @@
   .footer-mail:hover{background:rgba(74,222,128,.1);border-color:var(--c1)}
   .footer-year{font-size:.65rem;color:rgba(255,255,255,.25);margin-top:14px;display:block}
   @media(max-width:380px){.cards-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* ===== Badge flotante Junio mes del Mundial ===== */
+  .badge-mundial{position:fixed;top:14px;right:14px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:4px;padding:11px 17px;background:linear-gradient(135deg,#0a1628,#0f2040,#0a1628);border:1px solid rgba(74,222,128,.3);border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.5);user-select:none;animation:badgeIn .5s ease-out}
+  .badge-mundial-top{display:flex;align-items:center;gap:8px}
+  .badge-mundial-flag{border-radius:2px;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+  .badge-mundial-titulo{font-size:.92rem;font-weight:800;background:linear-gradient(120deg,#4ade80,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap}
+  .badge-mundial-copa{font-size:1.05rem;line-height:1}
+  .badge-mundial-vamos{font-size:.78rem;font-weight:700;color:#75AADB;letter-spacing:.5px}
+  @keyframes badgeIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+  @media (max-width:600px){
+    .badge-mundial{top:0;right:0;left:0;width:100%;flex-direction:row;justify-content:center;gap:8px;padding:6px 10px;border-radius:0;border:none;border-bottom:1px solid rgba(74,222,128,.3);box-shadow:0 2px 8px rgba(0,0,0,.4)}
+    .badge-mundial-top{gap:6px}
+    .badge-mundial-titulo{font-size:.8rem}
+    .badge-mundial-copa{font-size:.9rem}
+    .badge-mundial-vamos{font-size:.72rem}
+    .badge-mundial-vamos::before{content:"\00B7  ";color:var(--dim)}
+    .badge-mundial-flag{width:22px;height:15px}
+    body{padding-top:34px}
+  }
 </style>
 <script data-goatcounter="https://quesepantodos.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
+
+<!-- BADGE FLOTANTE: Junio, mes del Mundial -->
+<div class="badge-mundial" role="note" aria-label="Junio, mes del Mundial. Vamos Argentina.">
+  <div class="badge-mundial-top">
+    <svg width="28" height="19" viewBox="0 0 28 19" aria-hidden="true" class="badge-mundial-flag">
+      <rect width="28" height="6.33" y="0" fill="#75AADB"/>
+      <rect width="28" height="6.33" y="6.33" fill="#FFFFFF"/>
+      <rect width="28" height="6.34" y="12.66" fill="#75AADB"/>
+      <circle cx="14" cy="9.5" r="2.6" fill="#F6B40E" stroke="#85340A" stroke-width="0.4"/>
+    </svg>
+    <span class="badge-mundial-titulo">Junio, mes del Mundial</span>
+    <span class="badge-mundial-copa" aria-hidden="true">&#127942;</span>
+  </div>
+  <span class="badge-mundial-vamos">&iexcl;Vamos Argentina!</span>
+</div>
 
 <div class="site-title-bar">
   <div class="site-title">QueSepanTodos.com</div>
