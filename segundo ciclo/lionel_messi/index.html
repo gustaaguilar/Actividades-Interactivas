@@ -12,8 +12,74 @@
     <link rel="icon" sizes="192x192" href="icon-192.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://clic.xtec.cat/dist/jclic.js/jclic.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        overflow-x: hidden;
+      }
+      .JClic {
+        transform-origin: top left;
+        transition: transform 0.3s ease;
+      }
+    </style>
   </head>
   <body style="margin:0">
-    <div class ="JClic" data-project="messi.jclic"></div>
+    <div class="JClic" data-project="messi.jclic"></div>
+
+    <script>
+    (function () {
+      var ultimoAncho = 0;
+
+      function reescalar() {
+        var el = document.querySelector('.JClic');
+        if (!el) return;
+
+        // Quitar escala previa para medir el tamaño real
+        el.style.transform = 'none';
+
+        // Esperar un frame para que el DOM refleje el tamaño sin escala
+        requestAnimationFrame(function () {
+          var anchoNatural = el.offsetWidth;
+          if (!anchoNatural || anchoNatural === ultimoAncho) return;
+          ultimoAncho = anchoNatural;
+
+          var disponible = window.innerWidth;
+
+          if (disponible >= anchoNatural) {
+            el.style.transform = '';
+            el.style.marginBottom = '';
+            return;
+          }
+
+          var escala = disponible / anchoNatural;
+          var altoNatural = el.offsetHeight;
+
+          el.style.transform = 'scale(' + escala + ')';
+          el.style.transformOrigin = 'top left';
+          // Compensar el espacio vacío que deja la reducción
+          el.style.marginBottom = '-' + Math.round(altoNatural * (1 - escala)) + 'px';
+        });
+      }
+
+      // Al girar el dispositivo
+      window.addEventListener('orientationchange', function () {
+        ultimoAncho = 0; // forzar recálculo
+        setTimeout(reescalar, 450);
+      });
+
+      // Al cambiar tamaño de ventana (cubre todos los casos)
+      window.addEventListener('resize', function () {
+        ultimoAncho = 0;
+        setTimeout(reescalar, 150);
+      });
+
+      // Al cargar: varios intentos porque JClic tarda en renderizar
+      window.addEventListener('load', function () {
+        setTimeout(reescalar, 800);
+        setTimeout(reescalar, 2000);
+        setTimeout(reescalar, 4000);
+      });
+    })();
+    </script>
   </body>
 </html>
