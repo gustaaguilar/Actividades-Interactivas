@@ -83,7 +83,7 @@
       <color foreground="0x0000CC" background="0xFFFFFF" />
       <gradient source="0x66CCFF" dest="0xFFFFFF" angle="275" />
      </style>
-     <media type="PLAY_AUDIO" level="1" file="bienvenida.mp3" />
+     <media type="PLAY_AUDIO" level="1" file="bienvenida_rotar.mp3" />
      <p>La vida de Lionel Messi</p>
     </cell>
     <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
@@ -335,7 +335,7 @@
     </container>
     <window bgColor="0xC0C0C0" transparent="true" border="false" />
    </settings>
-   <cells rows="2" cols="5" cellWidth="235.0" cellHeight="56.0" border="true">
+   <cells rows="2" cols="5" cellWidth="235.0" cellHeight="52.0" border="true">
     <style margin="1" borderStroke="3.5" markerStroke="2.7">
      <font family="Arial" size="22" bold="true" />
      <color foreground="0xFFFFFF" background="0x009999" inactive="0x006766" border="0xFFFFFF" />
@@ -1526,6 +1526,7 @@
  <mediaBag>
   <media name="2-resized.jpg" file="2-resized.jpg" />
   <media name="bienvenida.mp3" file="bienvenida.mp3" />
+  <media name="bienvenida_rotar.mp3" file="bienvenida_rotar.mp3" />
   <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
   <media name="cons_completa.mp3" file="cons_completa.mp3" />
   <media name="cons_identi_1.mp3" file="cons_identi_1.mp3" />

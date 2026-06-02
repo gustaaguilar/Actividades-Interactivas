@@ -27,40 +27,5 @@
     <div id="jclic-wrapper">
       <div class="JClic" data-project="messi.jclic"></div>
     </div>
-
-    <script>
-    /*
-      Al rotar el dispositivo, jclic.js agranda el contenedor pero a veces
-      no recalcula el tamaño del texto de las celdas. En lugar de reconstruir
-      el player (que reinicia la actividad), forzamos a la libreria a recalcular
-      el render disparando varios eventos 'resize' espaciados, SIN tocar el DOM
-      del player. Asi el texto se reajusta y la actividad sigue viva.
-    */
-    (function () {
-      function forzarRecalculo() {
-        // Varios resize escalonados: jclic.js recalcula el layout en cada uno,
-        // re-renderizando el texto al nuevo tamaño del contenedor.
-        var tiempos = [150, 400, 800, 1200];
-        tiempos.forEach(function (t) {
-          setTimeout(function () {
-            window.dispatchEvent(new Event('resize'));
-          }, t);
-        });
-      }
-
-      window.addEventListener('orientationchange', forzarRecalculo);
-
-      // Respaldo: algunos navegadores moviles no emiten 'orientationchange'
-      // de forma fiable; tambien escuchamos el cambio via matchMedia.
-      if (window.matchMedia) {
-        var mq = window.matchMedia('(orientation: portrait)');
-        if (mq.addEventListener) {
-          mq.addEventListener('change', forzarRecalculo);
-        } else if (mq.addListener) {
-          mq.addListener(forzarRecalculo);
-        }
-      }
-    })();
-    </script>
   </body>
 </html>
