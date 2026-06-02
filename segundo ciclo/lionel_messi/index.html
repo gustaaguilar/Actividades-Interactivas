@@ -29,49 +29,37 @@
     </div>
 
     <script>
+    /*
+      Al rotar el dispositivo, jclic.js agranda el contenedor pero a veces
+      no recalcula el tamaño del texto de las celdas. En lugar de reconstruir
+      el player (que reinicia la actividad), forzamos a la libreria a recalcular
+      el render disparando varios eventos 'resize' espaciados, SIN tocar el DOM
+      del player. Asi el texto se reajusta y la actividad sigue viva.
+    */
     (function () {
-      var PROJECT = "messi.jclic";
-      var reloadTimer = null;
+      function forzarRecalculo() {
+        // Varios resize escalonados: jclic.js recalcula el layout en cada uno,
+        // re-renderizando el texto al nuevo tamaño del contenedor.
+        var tiempos = [150, 400, 800, 1200];
+        tiempos.forEach(function (t) {
+          setTimeout(function () {
+            window.dispatchEvent(new Event('resize'));
+          }, t);
+        });
+      }
 
-      function reconstruirJClic() {
-        var wrapper = document.getElementById('jclic-wrapper');
-        if (!wrapper) return;
+      window.addEventListener('orientationchange', forzarRecalculo);
 
-        // Destruir el player actual borrando el contenedor y recreándolo
-        wrapper.innerHTML = '<div class="JClic" data-project="' + PROJECT + '"></div>';
-
-        // jclic.js escanea el DOM al cargar; hay que reiniciarlo manualmente
-        // La forma más efectiva es recargar el script de jclic
-        var viejoScript = document.querySelector('script[src*="jclic"]');
-        if (viejoScript) {
-          var nuevoScript = document.createElement('script');
-          nuevoScript.type = 'text/javascript';
-          nuevoScript.src = viejoScript.src + '?r=' + Date.now(); // cache-bust
-          document.head.appendChild(nuevoScript);
+      // Respaldo: algunos navegadores moviles no emiten 'orientationchange'
+      // de forma fiable; tambien escuchamos el cambio via matchMedia.
+      if (window.matchMedia) {
+        var mq = window.matchMedia('(orientation: portrait)');
+        if (mq.addEventListener) {
+          mq.addEventListener('change', forzarRecalculo);
+        } else if (mq.addListener) {
+          mq.addListener(forzarRecalculo);
         }
       }
-
-      var anchoAnterior = window.innerWidth;
-
-      function manejarCambio() {
-        var anchoActual = window.innerWidth;
-        // Solo reconstruir si el ancho cambió (rotación real, no scroll)
-        if (anchoActual === anchoAnterior) return;
-        anchoAnterior = anchoActual;
-
-        clearTimeout(reloadTimer);
-        reloadTimer = setTimeout(reconstruirJClic, 500);
-      }
-
-      window.addEventListener('orientationchange', function () {
-        clearTimeout(reloadTimer);
-        reloadTimer = setTimeout(function () {
-          anchoAnterior = 0; // forzar detección de cambio
-          manejarCambio();
-        }, 500);
-      });
-
-      window.addEventListener('resize', manejarCambio);
     })();
     </script>
   </body>
