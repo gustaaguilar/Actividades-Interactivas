@@ -16,69 +16,62 @@
       body {
         margin: 0;
         overflow-x: hidden;
+        background: #fff;
       }
-      .JClic {
-        transform-origin: top left;
-        transition: transform 0.3s ease;
+      #jclic-wrapper {
+        width: 100%;
       }
     </style>
   </head>
-  <body style="margin:0">
-    <div class="JClic" data-project="messi.jclic"></div>
+  <body>
+    <div id="jclic-wrapper">
+      <div class="JClic" data-project="messi.jclic"></div>
+    </div>
 
     <script>
     (function () {
-      var ultimoAncho = 0;
+      var PROJECT = "messi.jclic";
+      var reloadTimer = null;
 
-      function reescalar() {
-        var el = document.querySelector('.JClic');
-        if (!el) return;
+      function reconstruirJClic() {
+        var wrapper = document.getElementById('jclic-wrapper');
+        if (!wrapper) return;
 
-        // Quitar escala previa para medir el tamaño real
-        el.style.transform = 'none';
+        // Destruir el player actual borrando el contenedor y recreándolo
+        wrapper.innerHTML = '<div class="JClic" data-project="' + PROJECT + '"></div>';
 
-        // Esperar un frame para que el DOM refleje el tamaño sin escala
-        requestAnimationFrame(function () {
-          var anchoNatural = el.offsetWidth;
-          if (!anchoNatural || anchoNatural === ultimoAncho) return;
-          ultimoAncho = anchoNatural;
-
-          var disponible = window.innerWidth;
-
-          if (disponible >= anchoNatural) {
-            el.style.transform = '';
-            el.style.marginBottom = '';
-            return;
-          }
-
-          var escala = disponible / anchoNatural;
-          var altoNatural = el.offsetHeight;
-
-          el.style.transform = 'scale(' + escala + ')';
-          el.style.transformOrigin = 'top left';
-          // Compensar el espacio vacío que deja la reducción
-          el.style.marginBottom = '-' + Math.round(altoNatural * (1 - escala)) + 'px';
-        });
+        // jclic.js escanea el DOM al cargar; hay que reiniciarlo manualmente
+        // La forma más efectiva es recargar el script de jclic
+        var viejoScript = document.querySelector('script[src*="jclic"]');
+        if (viejoScript) {
+          var nuevoScript = document.createElement('script');
+          nuevoScript.type = 'text/javascript';
+          nuevoScript.src = viejoScript.src + '?r=' + Date.now(); // cache-bust
+          document.head.appendChild(nuevoScript);
+        }
       }
 
-      // Al girar el dispositivo
+      var anchoAnterior = window.innerWidth;
+
+      function manejarCambio() {
+        var anchoActual = window.innerWidth;
+        // Solo reconstruir si el ancho cambió (rotación real, no scroll)
+        if (anchoActual === anchoAnterior) return;
+        anchoAnterior = anchoActual;
+
+        clearTimeout(reloadTimer);
+        reloadTimer = setTimeout(reconstruirJClic, 500);
+      }
+
       window.addEventListener('orientationchange', function () {
-        ultimoAncho = 0; // forzar recálculo
-        setTimeout(reescalar, 450);
+        clearTimeout(reloadTimer);
+        reloadTimer = setTimeout(function () {
+          anchoAnterior = 0; // forzar detección de cambio
+          manejarCambio();
+        }, 500);
       });
 
-      // Al cambiar tamaño de ventana (cubre todos los casos)
-      window.addEventListener('resize', function () {
-        ultimoAncho = 0;
-        setTimeout(reescalar, 150);
-      });
-
-      // Al cargar: varios intentos porque JClic tarda en renderizar
-      window.addEventListener('load', function () {
-        setTimeout(reescalar, 800);
-        setTimeout(reescalar, 2000);
-        setTimeout(reescalar, 4000);
-      });
+      window.addEventListener('resize', manejarCambio);
     })();
     </script>
   </body>
