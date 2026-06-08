@@ -1,0 +1,2017 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="mundial_pc_final" version="0.1.3">
+ <settings>
+  <title>Mundial 2026 Primer Ciclo</title>
+  <revision description="created" date="4/5/28" />
+  <author name="Gustavo Aguilar" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="5" navButtons="none" />
+  <item name="portada_mundial" delay="5" navButtons="none" />
+  <item name="vocabulario_fut" delay="5" navButtons="none" />
+  <item name="cuantos_gorras" delay="5" navButtons="none" />
+  <item name="cuantos_copas" delay="5" navButtons="none" />
+  <item name="cuantos_pelotas" delay="5" navButtons="none" />
+  <item name="cuantos_canchas" delay="5" navButtons="none" />
+  <item name="cuantos_mascotas" delay="5" navButtons="none" />
+  <item name="cuantos_camisetas" delay="5" navButtons="none" />
+  <item name="ordenar_camisetas" delay="5" navButtons="none" />
+  <item name="el_mayor_1" delay="5" navButtons="none" />
+  <item name="el_mayor_2" delay="5" navButtons="none" />
+  <item name="el_mayor_3" delay="5" navButtons="none" />
+  <item name="el_mayor_4" delay="5" navButtons="none" />
+  <item name="el_mayor_5" delay="5" navButtons="none" />
+  <item name="el_mayor_6" delay="5" navButtons="none" />
+  <item name="copas_ganadas" delay="5" navButtons="none" />
+  <item name="mas_copas" delay="5" navButtons="none" />
+  <item name="arg_copas" delay="5" navButtons="none" />
+  <item name="palabras_mundial" delay="5" navButtons="none" />
+  <item name="silaba_inicial" delay="5" navButtons="none" />
+  <item name="conteo_jugadores" delay="5" navButtons="none" />
+  <item name="sedes_2026" delay="5" navButtons="none" />
+  <item name="calendario_arg" delay="5" navButtons="none" />
+  <item name="dias_entre_partidos" delay="5" navButtons="none" />
+  <item name="sopa_mundial" delay="5" navButtons="none" />
+  <item name="memo_vocabulario" delay="5" navButtons="none" />
+  <item name="final" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@panels.Identify" name="arg_copas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_arg_copas.mp3" />
+     <p>¿Cuántas copas ganó Argentina?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="0" file="Pa la Seleccion frag.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_arg_copas.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="445.0" cellHeight="250.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_5copas.png">
+     <media type="PLAY_AUDIO" level="1" file="cinco_copas.mp3" />
+     <p>5 copas</p>
+    </cell>
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_4copas.png">
+     <media type="PLAY_AUDIO" level="1" file="cuatro_copas.mp3" />
+     <p>4 copas</p>
+    </cell>
+    <cell id="1" imgAlign="right,middle" avoidOverlapping="true" image="img_3copas.png">
+     <p>3 copas</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="calendario_arg" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_calendario.mp3" />
+     <p>El primer partido de Argentina es el 16 de junio. ¿Qué número es dieciséis?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_aula.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="162.0" cellHeight="154.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="cont_6.mp3" />
+     <p>6</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="resp_16.mp3" />
+     <p>16</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="cont_9.mp3" />
+     <p>9</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="conteo_jugadores" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_jugadores.mp3" />
+     <p>¿Cuántos jugadores tiene un equipo de fútbol?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_cancha.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="431.0" cellHeight="271.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" image="jugadores_9.png">
+     <media type="PLAY_AUDIO" level="1" file="nueve_jugadores.mp3" />
+    </cell>
+    <cell id="1" image="jugadores_11.png">
+     <media type="PLAY_AUDIO" level="1" file="once_jugadores.mp3" />
+    </cell>
+    <cell id="0" image="jugadores_13.png">
+     <media type="PLAY_AUDIO" level="1" file="trece_jugadores.mp3" />
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="copas_ganadas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_copas_ganadas.mp3" />
+     <p>Uní cada país con la cantidad de copas que ganó.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x660033" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_podio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xCC0000" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="289.0" cellHeight="157.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell txtAlign="left,middle" imgAlign="right,middle" avoidOverlapping="true" image="img_brasil.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_brasil.mp3" />
+     <p>Brasil</p>
+    </cell>
+    <cell txtAlign="left,middle" imgAlign="right,middle" avoidOverlapping="true" image="img_argentina.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_argentina.mp3" />
+     <p>Argentina</p>
+    </cell>
+    <cell txtAlign="left,middle" imgAlign="right,middle" avoidOverlapping="true" image="img_alemania.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_alemania.mp3" />
+     <p>Alemania</p>
+    </cell>
+    <cell txtAlign="left,middle" imgAlign="right,middle" avoidOverlapping="true" image="img_copa.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_francia.mp3" />
+     <p>Francia</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="263.0" cellHeight="157.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0x660000" background="0xFFEEEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell txtAlign="left,middle" imgAlign="right,middle" avoidOverlapping="true" image="img_5copas.png">
+     <media type="PLAY_AUDIO" level="1" file="cinco_copas.mp3" />
+     <p>5 copas</p>
+    </cell>
+    <cell txtAlign="left,middle" imgAlign="right,middle" avoidOverlapping="true" image="img_3copas.png">
+     <media type="PLAY_AUDIO" level="1" file="tres_copas.mp3" />
+     <p>3 copas</p>
+    </cell>
+    <cell txtAlign="left,middle" imgAlign="right,middle" avoidOverlapping="true" image="img_4copas.png">
+     <media type="PLAY_AUDIO" level="1" file="cuatro_copas.mp3" />
+     <p>4 copas</p>
+    </cell>
+    <cell txtAlign="left,middle" imgAlign="right,middle" avoidOverlapping="true" image="img_copa.png">
+     <media type="PLAY_AUDIO" level="1" file="dos_copas.mp3" />
+     <p>2 copas</p>
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <cell image="i01-bienhecho.jpg">
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+    <cell image="i01-bienhecho.jpg">
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+    <cell image="i01-bienhecho.jpg">
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+    <cell image="i01-bienhecho.jpg">
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="cuantos_camisetas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_cuantos3.mp3" />
+     <p>¿Cuántas camisetas hay?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_vestuario.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="154.0" cellHeight="147.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="img_6camisetas.png">
+     <media type="PLAY_AUDIO" level="1" file="seis_camisetas.mp3" />
+    </cell>
+    <cell image="img_5camisetas.png">
+     <media type="PLAY_AUDIO" level="1" file="cinco_camisetas.mp3" />
+    </cell>
+    <cell image="img_2camisetas.png">
+     <media type="PLAY_AUDIO" level="1" file="dos_camisetas.mp3" />
+    </cell>
+    <cell image="img_0camisetas.png">
+     <media type="PLAY_AUDIO" level="1" file="cero_camisetas.mp3" />
+    </cell>
+    <cell image="img_4camisetas.png">
+     <media type="PLAY_AUDIO" level="1" file="cuatro_camisetas.mp3" />
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="100.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="50" bold="true" />
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_6.mp3" />
+     <p>6</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_5.mp3" />
+     <p>5</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_2.mp3" />
+     <p>2</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_0.mp3" />
+     <p>0</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_4.mp3" />
+     <p>4</p>
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="cuantos_canchas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_cuantos_canchas.mp3" />
+     <p>¿Cuántas canchas hay?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_cancha.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="142.0" cellHeight="140.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="img_8canchas.png">
+     <media type="PLAY_AUDIO" level="1" file="ocho_canchas.mp3" />
+    </cell>
+    <cell image="img_4canchas.png">
+     <media type="PLAY_AUDIO" level="1" file="cuatro_canchas.mp3" />
+    </cell>
+    <cell image="img_10canchas.png">
+     <media type="PLAY_AUDIO" level="1" file="diez_canchas.mp3" />
+    </cell>
+    <cell image="img_3canchas.png">
+     <media type="PLAY_AUDIO" level="1" file="tres_canchas.mp3" />
+    </cell>
+    <cell image="img_1cancha.png">
+     <media type="PLAY_AUDIO" level="1" file="una_cancha.mp3" />
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="100.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="50" bold="true" />
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_8.mp3" />
+     <p>8</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_4.mp3" />
+     <p>4</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_10.mp3" />
+     <p>10</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_3.mp3" />
+     <p>3</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_1.mp3" />
+     <p>1</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="cuantos_copas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_cuantos2.mp3" />
+     <p>¿Cuántas copas hay?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_podio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="140.0" cellHeight="142.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="img_8copas.png">
+     <media type="PLAY_AUDIO" level="1" file="ocho_copas.mp3" />
+    </cell>
+    <cell image="img_4copas_c.png">
+     <media type="PLAY_AUDIO" level="1" file="cuatro_copas2.mp3" />
+    </cell>
+    <cell image="img_5copas_c.png">
+     <media type="PLAY_AUDIO" level="1" file="cinco_copas2.mp3" />
+    </cell>
+    <cell image="img_3copas_c.png">
+     <media type="PLAY_AUDIO" level="1" file="tres_copas2.mp3" />
+    </cell>
+    <cell image="img_9copas.png">
+     <media type="PLAY_AUDIO" level="1" file="nueve_copas.mp3" />
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="100.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="50" bold="true" />
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_8.mp3" />
+     <p>8</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_4.mp3" />
+     <p>4</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_5.mp3" />
+     <p>5</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_3.mp3" />
+     <p>3</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_9.mp3" />
+     <p>9</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="cuantos_gorras" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_cuantos_gorras.mp3" />
+     <p>¿Cuántas gorras hay?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="151.0" cellHeight="141.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="img_5gorras.png">
+     <media type="PLAY_AUDIO" level="1" file="cinco_gorras.mp3" />
+    </cell>
+    <cell image="img_9gorras.png">
+     <media type="PLAY_AUDIO" level="1" file="nueve_gorras.mp3" />
+    </cell>
+    <cell image="img_7gorras.png">
+     <media type="PLAY_AUDIO" level="1" file="siete_gorras.mp3" />
+    </cell>
+    <cell image="img_2gorras.png">
+     <media type="PLAY_AUDIO" level="1" file="dos_gorras.mp3" />
+    </cell>
+    <cell image="img_4gorras.png">
+     <media type="PLAY_AUDIO" level="1" file="cuatro_gorras.mp3" />
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="100.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="50" bold="true" />
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_5.mp3" />
+     <p>5</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_9.mp3" />
+     <p>9</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_7.mp3" />
+     <p>7</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_2.mp3" />
+     <p>2</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_4.mp3" />
+     <p>4</p>
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="i02-bienhecho.jpg">
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+    <cell image="i01-bienhecho.jpg">
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+    <cell image="i01-bienhecho.jpg">
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+    <cell image="i01-bienhecho.jpg">
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+    <cell image="i01-bienhecho.jpg">
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="cuantos_mascotas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_cuantos_mascotas.mp3" />
+     <p>¿Cuántas mascotas hay?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="140.0" cellHeight="142.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="img_8mascotas.png">
+     <media type="PLAY_AUDIO" level="1" file="ocho_mascotas.mp3" />
+    </cell>
+    <cell image="img_2mascotas.png">
+     <media type="PLAY_AUDIO" level="1" file="dos_mascotas.mp3" />
+    </cell>
+    <cell image="img_0mascotas.png">
+     <media type="PLAY_AUDIO" level="1" file="cero_mascotas.mp3" />
+    </cell>
+    <cell image="img_9mascotas.png">
+     <media type="PLAY_AUDIO" level="1" file="nueve_mascotas.mp3" />
+    </cell>
+    <cell image="img_7mascotas.png">
+     <media type="PLAY_AUDIO" level="1" file="siete_mascotas.mp3" />
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="100.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="50" bold="true" />
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_8.mp3" />
+     <p>8</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_2.mp3" />
+     <p>2</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_0.mp3" />
+     <p>0</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_9.mp3" />
+     <p>9</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_7.mp3" />
+     <p>7</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="cuantos_pelotas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_cuantos1.mp3" />
+     <p>¿Cuántas pelotas hay?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_cancha.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="145.0" cellHeight="145.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="img_4pelotas.png">
+     <media type="PLAY_AUDIO" level="1" file="cuatro_pelotas.mp3" />
+    </cell>
+    <cell image="img_3pelotas.png">
+     <media type="PLAY_AUDIO" level="1" file="tres_pelotas.mp3" />
+    </cell>
+    <cell image="img_5pelotas.png">
+     <media type="PLAY_AUDIO" level="1" file="cinco_pelotas.mp3" />
+    </cell>
+    <cell image="img_1pelota.png">
+     <media type="PLAY_AUDIO" level="1" file="una_pelota.mp3" />
+    </cell>
+    <cell image="img_7pelotas.png">
+     <media type="PLAY_AUDIO" level="1" file="siete_pelotas.mp3" />
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="100.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="50" bold="true" />
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_4.mp3" />
+     <p>4</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_3.mp3" />
+     <p>3</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_5.mp3" />
+     <p>5</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_1.mp3" />
+     <p>1</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cont_7.mp3" />
+     <p>7</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="dias_entre_partidos" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_dias.mp3" />
+     <p>¿Cuántos días pasan entre el 16 y el 22 de junio?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_aula.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="400.0" cellHeight="195.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_cal16.png">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cont_4.mp3" />
+     <p>4 días</p>
+    </cell>
+    <cell id="1" imgAlign="right,middle" avoidOverlapping="true" image="img_cal22.png">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="resp_6dias.mp3" />
+     <p>6 días</p>
+    </cell>
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_familia_tv.png">
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cont_8.mp3" />
+     <p>8 días</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="el_mayor_1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_el_mayor2.mp3" />
+     <p>Pulsá sobre la camiseta con el número más grande.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="300.0" cellHeight="300.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell id="0" image="mayor_10_arg.png">
+     <media type="PLAY_AUDIO" level="1" file="num_10.mp3" />
+    </cell>
+    <cell id="1" image="mayor_12_bra.png">
+     <media type="PLAY_AUDIO" level="1" file="num_12.mp3" />
+    </cell>
+   </cells>
+   <cells rows="1" cols="2" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="el_mayor_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_el_mayor2.mp3" />
+     <p>Pulsá sobre la camiseta con el número más grande.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="300.0" cellHeight="300.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell id="1" image="mayor_9_fra.png">
+     <media type="PLAY_AUDIO" level="1" file="num_9.mp3" />
+    </cell>
+    <cell id="0" image="mayor_6_ale.png">
+     <media type="PLAY_AUDIO" level="1" file="num_6.mp3" />
+    </cell>
+   </cells>
+   <cells rows="1" cols="2" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="el_mayor_3" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_el_mayor2.mp3" />
+     <p>Pulsá sobre la camiseta con el número más grande.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="240.0" cellHeight="280.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell id="1" image="mayor_26_mex.png">
+     <media type="PLAY_AUDIO" level="1" file="num_26.mp3" />
+    </cell>
+    <cell id="0" image="mayor_16_esp.png">
+     <media type="PLAY_AUDIO" level="1" file="num_16.mp3" />
+    </cell>
+   </cells>
+   <cells rows="1" cols="2" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="el_mayor_4" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_el_mayor2.mp3" />
+     <p>Pulsá sobre la camiseta con el número más grande.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="300.0" cellHeight="300.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell id="0" image="mayor_14_uru.png">
+     <media type="PLAY_AUDIO" level="1" file="num_14.mp3" />
+    </cell>
+    <cell id="1" image="mayor_24_por.png">
+     <media type="PLAY_AUDIO" level="1" file="num_24.mp3" />
+    </cell>
+   </cells>
+   <cells rows="1" cols="2" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="el_mayor_5" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_el_mayor2.mp3" />
+     <p>Pulsá sobre la camiseta con el número más grande.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="300.0" cellHeight="300.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell id="1" image="mayor_18_ing.png">
+     <media type="PLAY_AUDIO" level="1" file="num_18.mp3" />
+    </cell>
+    <cell id="0" image="mayor_15_hol.png">
+     <media type="PLAY_AUDIO" level="1" file="num_15.mp3" />
+    </cell>
+   </cells>
+   <cells rows="1" cols="2" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="el_mayor_6" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_el_mayor2.mp3" />
+     <p>Pulsá sobre la camiseta con el número más grande.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="2" cellWidth="300.0" cellHeight="300.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell id="0" image="mayor_11_arg.png">
+     <media type="PLAY_AUDIO" level="1" file="num_11.mp3" />
+    </cell>
+    <cell id="1" image="mayor_21_cro.png">
+     <media type="PLAY_AUDIO" level="1" file="num_21.mp3" />
+    </cell>
+   </cells>
+   <cells rows="1" cols="2" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="final" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x006600" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="arma_el_rompecabezas.mp3" />
+     <p>¡Armá el rompecabezas!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="palaseleccionfinal.mp3" />
+     <p>¡Felicitaciones! Terminaste todas las actividades.</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003399">
+     <gradient source="0x00FFFF" dest="0xFFFFFF" angle="91" cycles="2" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="fondo_arg_copas.png">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="mas_copas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_mas_copas.mp3" />
+     <p>¿Qué país ganó más copas mundiales?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x660033" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_podio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xCC0000" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="437.0" cellHeight="223.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_argentina.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_argentina.mp3" />
+     <p>Argentina</p>
+    </cell>
+    <cell id="1" imgAlign="right,middle" avoidOverlapping="true" image="img_brasil.png">
+     <media type="PLAY_AUDIO" level="1" file="resp_brasil.mp3" />
+     <p>Brasil</p>
+    </cell>
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_mexico.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_mexico.mp3" />
+     <p>México</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_vocabulario" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_memo.mp3" />
+     <p>Encontrá los pares de imagen y palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xCC0000" border="true" />
+   </settings>
+   <cells rows="2" cols="6" cellWidth="133.0" cellHeight="136.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="26" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="2" />
+    <cell image="img_pelota.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pelota.mp3" />
+    </cell>
+    <cell image="img_arco.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_arco.mp3" />
+    </cell>
+    <cell image="img_copa.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_copa.mp3" />
+    </cell>
+    <cell image="img_botin.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_botin.mp3" />
+    </cell>
+    <cell image="img_estadio.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_estadio.mp3" />
+    </cell>
+    <cell image="img_camiseta.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_camiseta.mp3" />
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_pelota.mp3" />
+     <p>pelota</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_arco.mp3" />
+     <p>arco</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_copa.mp3" />
+     <p>copa</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_botin.mp3" />
+     <p>botín</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_estadio.mp3" />
+     <p>estadio</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_camiseta.mp3" />
+     <p>camiseta</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="ordenar_camisetas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0x000066" background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_ordenar.mp3" />
+     <p>Ordená las camisetas de menor a mayor según el número.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_vestuario.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="8" cellWidth="113.0" cellHeight="112.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="14" bold="true" />
+     <color foreground="0x000066" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="8" rows="1" />
+    <cell avoidOverlapping="true" image="cam_1_martinez.png">
+     <media type="PLAY_AUDIO" level="1" file="cam_1_martinez.mp3" />
+     <p>1</p>
+    </cell>
+    <cell avoidOverlapping="true" image="cam_3_tagliafico.png">
+     <media type="PLAY_AUDIO" level="1" file="cam_3_tagliafico.mp3" />
+     <p>3</p>
+    </cell>
+    <cell avoidOverlapping="true" image="cam_4_molina.png">
+     <media type="PLAY_AUDIO" level="1" file="cam_4_molina.mp3" />
+     <p>4</p>
+    </cell>
+    <cell avoidOverlapping="true" image="cam_6_otamendi.png">
+     <media type="PLAY_AUDIO" level="1" file="cam_6_otamendi.mp3" />
+     <p>6</p>
+    </cell>
+    <cell avoidOverlapping="true" image="cam_8_macallister.png">
+     <media type="PLAY_AUDIO" level="1" file="cam_8_macallister.mp3" />
+     <p>8</p>
+    </cell>
+    <cell avoidOverlapping="true" image="cam_9_alvarez.png">
+     <media type="PLAY_AUDIO" level="1" file="cam_9_alvarez.mp3" />
+     <p>9</p>
+    </cell>
+    <cell avoidOverlapping="true" image="cam_10_messi.png">
+     <media type="PLAY_AUDIO" level="1" file="cam_10_messi.mp3" />
+     <p>10</p>
+    </cell>
+    <cell avoidOverlapping="true" image="cam_11_dimaria.png">
+     <media type="PLAY_AUDIO" level="1" file="cam_11_dimaria.mp3" />
+     <p>11</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="palabras_mundial" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_palabras.mp3" />
+     <p>Uní cada imagen con su palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xCC0000" transparent="true" border="true" />
+   </settings>
+   <cells rows="6" cols="1" cellWidth="121.0" cellHeight="123.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell image="img_pelota.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pelota.mp3" />
+    </cell>
+    <cell image="img_copa.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_copa.mp3" />
+    </cell>
+    <cell image="img_arco.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_arco.mp3" />
+    </cell>
+    <cell image="img_camiseta.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_camiseta.mp3" />
+    </cell>
+    <cell image="img_botin.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_botin.mp3" />
+    </cell>
+    <cell image="img_estadio.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_estadio.mp3" />
+    </cell>
+   </cells>
+   <cells rows="6" cols="1" cellWidth="248.0" cellHeight="101.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_pelota.mp3" />
+     <p>pelota</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_copa.mp3" />
+     <p>copa</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_arco.mp3" />
+     <p>arco</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_camiseta.mp3" />
+     <p>camiseta</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_botin.mp3" />
+     <p>botín</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_estadio.mp3" />
+     <p>estadio</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portada_mundial">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003399" background="0xCCEEFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_portada_mundial.mp3" />
+     <p>¡Armá el rompecabezas del Mundial 2026!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x001A66">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="portada_pc.png">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x003399" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="arma_el_rompecabezas.mp3" />
+     <p>¡Armá el rompecabezas!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003399">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="sedes_2026" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_sedes.mp3" />
+     <p>Uní cada bandera con el país sede del Mundial 2026.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_mapa.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="171.0" cellHeight="171.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="img_canada.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_canada.mp3" />
+    </cell>
+    <cell image="img_eeuu.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_eeuu.mp3" />
+    </cell>
+    <cell image="img_mexico.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_mexico.mp3" />
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="220.0" cellHeight="130.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0x006600" background="0xEEFFEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_canada.mp3" />
+     <p>Canadá</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_eeuu.mp3" />
+     <p>Estados Unidos</p>
+    </cell>
+    <cell>
+     <style>
+      <font family="Arial" size="36" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_mexico.mp3" />
+     <p>México</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="silaba_inicial" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_silaba.mp3" />
+     <p>Pulsá sobre la palabra que empieza con PE.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006633" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_aula.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="603.0" cellHeight="246.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="72" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_copa.png">
+     <media type="PLAY_AUDIO" level="1" file="resp_inc_copa.mp3" />
+     <p>copa</p>
+    </cell>
+    <cell id="1" imgAlign="right,middle" avoidOverlapping="true" image="img_pelota.png">
+     <media type="PLAY_AUDIO" level="1" file="resp_pe_pelota.mp3" />
+     <p>pelota</p>
+    </cell>
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_arco.png">
+     <media type="PLAY_AUDIO" level="1" file="resp_inc_arco.mp3" />
+     <p>arco</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopa_mundial" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A4A1A" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_sopa.mp3" />
+     <p>Encontrá: PELOTA - COPA - ARCO - CAMISETA - ESTADIO</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="28" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A4A1A" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0x33CCFF">
+     <gradient source="0x00CC00" dest="0x0A2A0A" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFF9900" transparent="true" border="false" />
+   </settings>
+   <textGrid rows="9" columns="5" cellWidth="54.0" cellHeight="61.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <text>
+     <row>PELOTA***</row>
+     <row>**COPA***</row>
+     <row>ARCO*****</row>
+     <row>*CAMISETA</row>
+     <row>*ESTADIO*</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">PELOTA</clue>
+    <clue id="1">COPA</clue>
+    <clue id="2">ARCO</clue>
+    <clue id="3">CAMISETA</clue>
+    <clue id="4">ESTADIO</clue>
+   </clues>
+   <cells rows="5" cols="1" cellWidth="120.0" cellHeight="120.0" border="true" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="img_pelota.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pelota.mp3" />
+    </cell>
+    <cell image="img_copa.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_copa.mp3" />
+    </cell>
+    <cell image="img_arco.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_arco.mp3" />
+    </cell>
+    <cell image="img_camiseta.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_camiseta.mp3" />
+    </cell>
+    <cell image="img_estadio.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_estadio.mp3" />
+    </cell>
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="vocabulario_fut" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_vocabulario.mp3" />
+     <p>Uní cada imagen con su nombre.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_estadio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="6" cols="1" cellWidth="131.0" cellHeight="125.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell image="img_pelota.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_pelota.mp3" />
+    </cell>
+    <cell image="img_arco.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_arco.mp3" />
+    </cell>
+    <cell image="img_copa.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_copa.mp3" />
+    </cell>
+    <cell image="img_botin.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_botin.mp3" />
+    </cell>
+    <cell image="img_estadio.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_estadio.mp3" />
+    </cell>
+    <cell image="img_camiseta.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_camiseta.mp3" />
+    </cell>
+   </cells>
+   <cells rows="6" cols="1" cellWidth="200.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_pelota.mp3" />
+     <p>pelota</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_arco.mp3" />
+     <p>arco</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_copa.mp3" />
+     <p>copa</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_botin.mp3" />
+     <p>botín</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_estadio.mp3" />
+     <p>estadio</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_camiseta.mp3" />
+     <p>camiseta</p>
+    </cell>
+   </cells>
+   <cells rows="6" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i02-bienhecho.jpg" file="i02-bienhecho.jpg" />
+  <media name="arma_el_rompecabezas.mp3" file="arma_el_rompecabezas.mp3" />
+  <media name="cam_10_messi.mp3" file="cam_10_messi.mp3" />
+  <media name="cam_11_dimaria.mp3" file="cam_11_dimaria.mp3" />
+  <media name="cam_1_martinez.mp3" file="cam_1_martinez.mp3" />
+  <media name="cam_3_tagliafico.mp3" file="cam_3_tagliafico.mp3" />
+  <media name="cam_4_molina.mp3" file="cam_4_molina.mp3" />
+  <media name="cam_6_otamendi.mp3" file="cam_6_otamendi.mp3" />
+  <media name="cam_8_macallister.mp3" file="cam_8_macallister.mp3" />
+  <media name="cam_9_alvarez.mp3" file="cam_9_alvarez.mp3" />
+  <media name="cero_camisetas.mp3" file="cero_camisetas.mp3" />
+  <media name="cero_mascotas.mp3" file="cero_mascotas.mp3" />
+  <media name="cinco_camisetas.mp3" file="cinco_camisetas.mp3" />
+  <media name="cinco_copas.mp3" file="cinco_copas.mp3" />
+  <media name="cinco_copas2.mp3" file="cinco_copas2.mp3" />
+  <media name="cinco_gorras.mp3" file="cinco_gorras.mp3" />
+  <media name="cinco_pelotas.mp3" file="cinco_pelotas.mp3" />
+  <media name="cons_arg_copas.mp3" file="cons_arg_copas.mp3" />
+  <media name="cons_calendario.mp3" file="cons_calendario.mp3" />
+  <media name="cons_copas_ganadas.mp3" file="cons_copas_ganadas.mp3" />
+  <media name="cons_cuantos1.mp3" file="cons_cuantos1.mp3" />
+  <media name="cons_cuantos2.mp3" file="cons_cuantos2.mp3" />
+  <media name="cons_cuantos3.mp3" file="cons_cuantos3.mp3" />
+  <media name="cons_cuantos_canchas.mp3" file="cons_cuantos_canchas.mp3" />
+  <media name="cons_cuantos_gorras.mp3" file="cons_cuantos_gorras.mp3" />
+  <media name="cons_cuantos_mascotas.mp3" file="cons_cuantos_mascotas.mp3" />
+  <media name="cons_dias.mp3" file="cons_dias.mp3" />
+  <media name="cons_el_mayor2.mp3" file="cons_el_mayor2.mp3" />
+  <media name="cons_jugadores.mp3" file="cons_jugadores.mp3" />
+  <media name="cons_mas_copas.mp3" file="cons_mas_copas.mp3" />
+  <media name="cons_memo.mp3" file="cons_memo.mp3" />
+  <media name="cons_ordenar.mp3" file="cons_ordenar.mp3" />
+  <media name="cons_palabras.mp3" file="cons_palabras.mp3" />
+  <media name="cons_portada_mundial.mp3" file="cons_portada_mundial.mp3" />
+  <media name="cons_sedes.mp3" file="cons_sedes.mp3" />
+  <media name="cons_silaba.mp3" file="cons_silaba.mp3" />
+  <media name="cons_sopa.mp3" file="cons_sopa.mp3" />
+  <media name="cons_vocabulario.mp3" file="cons_vocabulario.mp3" />
+  <media name="cont_0.mp3" file="cont_0.mp3" />
+  <media name="cont_1.mp3" file="cont_1.mp3" />
+  <media name="cont_10.mp3" file="cont_10.mp3" />
+  <media name="cont_2.mp3" file="cont_2.mp3" />
+  <media name="cont_3.mp3" file="cont_3.mp3" />
+  <media name="cont_4.mp3" file="cont_4.mp3" />
+  <media name="cont_5.mp3" file="cont_5.mp3" />
+  <media name="cont_6.mp3" file="cont_6.mp3" />
+  <media name="cont_7.mp3" file="cont_7.mp3" />
+  <media name="cont_8.mp3" file="cont_8.mp3" />
+  <media name="cont_9.mp3" file="cont_9.mp3" />
+  <media name="cuatro_camisetas.mp3" file="cuatro_camisetas.mp3" />
+  <media name="cuatro_canchas.mp3" file="cuatro_canchas.mp3" />
+  <media name="cuatro_copas.mp3" file="cuatro_copas.mp3" />
+  <media name="cuatro_copas2.mp3" file="cuatro_copas2.mp3" />
+  <media name="cuatro_gorras.mp3" file="cuatro_gorras.mp3" />
+  <media name="cuatro_pelotas.mp3" file="cuatro_pelotas.mp3" />
+  <media name="diez_canchas.mp3" file="diez_canchas.mp3" />
+  <media name="dos_camisetas.mp3" file="dos_camisetas.mp3" />
+  <media name="dos_copas.mp3" file="dos_copas.mp3" />
+  <media name="dos_gorras.mp3" file="dos_gorras.mp3" />
+  <media name="dos_mascotas.mp3" file="dos_mascotas.mp3" />
+  <media name="muy_bien.mp3" file="muy_bien.mp3" />
+  <media name="nom_alemania.mp3" file="nom_alemania.mp3" />
+  <media name="nom_arco.mp3" file="nom_arco.mp3" />
+  <media name="nom_argentina.mp3" file="nom_argentina.mp3" />
+  <media name="nom_botin.mp3" file="nom_botin.mp3" />
+  <media name="nom_brasil.mp3" file="nom_brasil.mp3" />
+  <media name="nom_camiseta.mp3" file="nom_camiseta.mp3" />
+  <media name="nom_canada.mp3" file="nom_canada.mp3" />
+  <media name="nom_copa.mp3" file="nom_copa.mp3" />
+  <media name="nom_eeuu.mp3" file="nom_eeuu.mp3" />
+  <media name="nom_estadio.mp3" file="nom_estadio.mp3" />
+  <media name="nom_francia.mp3" file="nom_francia.mp3" />
+  <media name="nom_mexico.mp3" file="nom_mexico.mp3" />
+  <media name="nom_pelota.mp3" file="nom_pelota.mp3" />
+  <media name="nueve_copas.mp3" file="nueve_copas.mp3" />
+  <media name="nueve_gorras.mp3" file="nueve_gorras.mp3" />
+  <media name="nueve_jugadores.mp3" file="nueve_jugadores.mp3" />
+  <media name="nueve_mascotas.mp3" file="nueve_mascotas.mp3" />
+  <media name="num_10.mp3" file="num_10.mp3" />
+  <media name="num_11.mp3" file="num_11.mp3" />
+  <media name="num_12.mp3" file="num_12.mp3" />
+  <media name="num_14.mp3" file="num_14.mp3" />
+  <media name="num_15.mp3" file="num_15.mp3" />
+  <media name="num_16.mp3" file="num_16.mp3" />
+  <media name="num_18.mp3" file="num_18.mp3" />
+  <media name="num_21.mp3" file="num_21.mp3" />
+  <media name="num_24.mp3" file="num_24.mp3" />
+  <media name="num_26.mp3" file="num_26.mp3" />
+  <media name="num_6.mp3" file="num_6.mp3" />
+  <media name="num_9.mp3" file="num_9.mp3" />
+  <media name="ocho_canchas.mp3" file="ocho_canchas.mp3" />
+  <media name="ocho_copas.mp3" file="ocho_copas.mp3" />
+  <media name="ocho_mascotas.mp3" file="ocho_mascotas.mp3" />
+  <media name="once_jugadores.mp3" file="once_jugadores.mp3" />
+  <media name="Pa la Seleccion frag.mp3" file="Pa la Seleccion frag.mp3" />
+  <media name="palaseleccionfinal.mp3" file="palaseleccionfinal.mp3" />
+  <media name="resp_16.mp3" file="resp_16.mp3" />
+  <media name="resp_6dias.mp3" file="resp_6dias.mp3" />
+  <media name="resp_brasil.mp3" file="resp_brasil.mp3" />
+  <media name="resp_inc_arco.mp3" file="resp_inc_arco.mp3" />
+  <media name="resp_inc_copa.mp3" file="resp_inc_copa.mp3" />
+  <media name="resp_pe_pelota.mp3" file="resp_pe_pelota.mp3" />
+  <media name="seis_camisetas.mp3" file="seis_camisetas.mp3" />
+  <media name="siete_gorras.mp3" file="siete_gorras.mp3" />
+  <media name="siete_mascotas.mp3" file="siete_mascotas.mp3" />
+  <media name="siete_pelotas.mp3" file="siete_pelotas.mp3" />
+  <media name="trece_jugadores.mp3" file="trece_jugadores.mp3" />
+  <media name="tres_canchas.mp3" file="tres_canchas.mp3" />
+  <media name="tres_copas.mp3" file="tres_copas.mp3" />
+  <media name="tres_copas2.mp3" file="tres_copas2.mp3" />
+  <media name="tres_pelotas.mp3" file="tres_pelotas.mp3" />
+  <media name="una_cancha.mp3" file="una_cancha.mp3" />
+  <media name="una_pelota.mp3" file="una_pelota.mp3" />
+  <media name="cam_10_messi.png" file="cam_10_messi.png" />
+  <media name="cam_11_dimaria.png" file="cam_11_dimaria.png" />
+  <media name="cam_1_martinez.png" file="cam_1_martinez.png" />
+  <media name="cam_3_tagliafico.png" file="cam_3_tagliafico.png" />
+  <media name="cam_4_molina.png" file="cam_4_molina.png" />
+  <media name="cam_6_otamendi.png" file="cam_6_otamendi.png" />
+  <media name="cam_8_macallister.png" file="cam_8_macallister.png" />
+  <media name="cam_9_alvarez.png" file="cam_9_alvarez.png" />
+  <media name="fondo_arg_copas.png" file="fondo_arg_copas.png" />
+  <media name="fondo_aula.png" file="fondo_aula.png" />
+  <media name="fondo_cancha.png" file="fondo_cancha.png" />
+  <media name="fondo_estadio.png" file="fondo_estadio.png" />
+  <media name="fondo_mapa.png" file="fondo_mapa.png" />
+  <media name="fondo_podio.png" file="fondo_podio.png" />
+  <media name="fondo_vestuario.png" file="fondo_vestuario.png" />
+  <media name="img_0camisetas.png" file="img_0camisetas.png" />
+  <media name="img_0mascotas.png" file="img_0mascotas.png" />
+  <media name="img_10canchas.png" file="img_10canchas.png" />
+  <media name="img_1cancha.png" file="img_1cancha.png" />
+  <media name="img_1pelota.png" file="img_1pelota.png" />
+  <media name="img_2camisetas.png" file="img_2camisetas.png" />
+  <media name="img_2gorras.png" file="img_2gorras.png" />
+  <media name="img_2mascotas.png" file="img_2mascotas.png" />
+  <media name="img_3canchas.png" file="img_3canchas.png" />
+  <media name="img_3copas.png" file="img_3copas.png" />
+  <media name="img_3copas_c.png" file="img_3copas_c.png" />
+  <media name="img_3pelotas.png" file="img_3pelotas.png" />
+  <media name="img_4camisetas.png" file="img_4camisetas.png" />
+  <media name="img_4canchas.png" file="img_4canchas.png" />
+  <media name="img_4copas.png" file="img_4copas.png" />
+  <media name="img_4copas_c.png" file="img_4copas_c.png" />
+  <media name="img_4gorras.png" file="img_4gorras.png" />
+  <media name="img_4pelotas.png" file="img_4pelotas.png" />
+  <media name="img_5camisetas.png" file="img_5camisetas.png" />
+  <media name="img_5copas.png" file="img_5copas.png" />
+  <media name="img_5copas_c.png" file="img_5copas_c.png" />
+  <media name="img_5gorras.png" file="img_5gorras.png" />
+  <media name="img_5pelotas.png" file="img_5pelotas.png" />
+  <media name="img_6camisetas.png" file="img_6camisetas.png" />
+  <media name="img_7gorras.png" file="img_7gorras.png" />
+  <media name="img_7mascotas.png" file="img_7mascotas.png" />
+  <media name="img_7pelotas.png" file="img_7pelotas.png" />
+  <media name="img_8canchas.png" file="img_8canchas.png" />
+  <media name="img_8copas.png" file="img_8copas.png" />
+  <media name="img_8mascotas.png" file="img_8mascotas.png" />
+  <media name="img_9copas.png" file="img_9copas.png" />
+  <media name="img_9gorras.png" file="img_9gorras.png" />
+  <media name="img_9mascotas.png" file="img_9mascotas.png" />
+  <media name="img_alemania.png" file="img_alemania.png" />
+  <media name="img_arco.png" file="img_arco.png" />
+  <media name="img_argentina.png" file="img_argentina.png" />
+  <media name="img_botin.png" file="img_botin.png" />
+  <media name="img_brasil.png" file="img_brasil.png" />
+  <media name="img_cal16.png" file="img_cal16.png" />
+  <media name="img_cal22.png" file="img_cal22.png" />
+  <media name="img_camiseta.png" file="img_camiseta.png" />
+  <media name="img_canada.png" file="img_canada.png" />
+  <media name="img_copa.png" file="img_copa.png" />
+  <media name="img_eeuu.png" file="img_eeuu.png" />
+  <media name="img_estadio.png" file="img_estadio.png" />
+  <media name="img_familia_tv.png" file="img_familia_tv.png" />
+  <media name="img_mexico.png" file="img_mexico.png" />
+  <media name="img_pelota.png" file="img_pelota.png" />
+  <media name="jugadores_11.png" file="jugadores_11.png" />
+  <media name="jugadores_13.png" file="jugadores_13.png" />
+  <media name="jugadores_9.png" file="jugadores_9.png" />
+  <media name="mayor_10_arg.png" file="mayor_10_arg.png" />
+  <media name="mayor_11_arg.png" file="mayor_11_arg.png" />
+  <media name="mayor_12_bra.png" file="mayor_12_bra.png" />
+  <media name="mayor_14_uru.png" file="mayor_14_uru.png" />
+  <media name="mayor_15_hol.png" file="mayor_15_hol.png" />
+  <media name="mayor_16_esp.png" file="mayor_16_esp.png" />
+  <media name="mayor_18_ing.png" file="mayor_18_ing.png" />
+  <media name="mayor_21_cro.png" file="mayor_21_cro.png" />
+  <media name="mayor_24_por.png" file="mayor_24_por.png" />
+  <media name="mayor_26_mex.png" file="mayor_26_mex.png" />
+  <media name="mayor_6_ale.png" file="mayor_6_ale.png" />
+  <media name="mayor_9_fra.png" file="mayor_9_fra.png" />
+  <media name="portada_pc.png" file="portada_pc.png" />
+ </mediaBag>
+</JClicProject>
+
