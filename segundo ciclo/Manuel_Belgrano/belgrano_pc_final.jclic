@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <JClicProject name="belgrano_pc_final" version="0.1.3">
  <settings>
-  <title>Manuel Belgrano · Rumbo al 20 de Junio</title>
+  <title>Manuel Belgrano Â· Rumbo al 20 de Junio</title>
   <revision description="created" date="1/6/27" />
   <author name="Gustavo Aguilar" />
   <descriptors />
+  <cover file="project-cover.jpg" />
+  <thumb file="project-thumb.jpg" />
+  <icon16 file="favicon.ico" />
+  <icon72 file="icon-72.png" />
+  <icon192 file="icon-192.png" />
   <meta_langs>es</meta_langs>
   <descriptions>
    <description language="es" />
@@ -19,8 +24,8 @@
   <item name="1770_nombre" delay="5" navButtons="none" />
   <item name="1770_padres" delay="5" navButtons="none" />
   <item name="1770_nacio" delay="5" navButtons="none" />
-  <item name="linea_vida_1" delay="12" navButtons="none" />
-  <item name="linea_vida_2" delay="12" navButtons="none" />
+  <item name="linea_vida_1" delay="6" navButtons="none" />
+  <item name="linea_vida_2" delay="6" navButtons="none" />
   <item name="estudios" delay="5" navButtons="none" />
   <item name="puzzle_estudios" delay="5" navButtons="none" />
   <item name="consulado" delay="5" navButtons="none" />
@@ -36,13 +41,13 @@
   <item name="vocabulario" delay="5" navButtons="none" />
   <item name="completar" delay="5" navButtons="none" />
   <item name="cualidades" delay="5" navButtons="none" />
-  <item name="sopa_letras" delay="12" navButtons="none" />
-  <item name="memotest_img" delay="5" navButtons="none" />
-  <item name="memojuego_texto" delay="5" navButtons="none" />
+  <item name="sopa_letras" delay="3" navButtons="none" />
+  <item name="memotest_img" delay="3" navButtons="none" />
+  <item name="memojuego_texto" delay="3" navButtons="none" />
   <item name="puzzle_partes" delay="10" navButtons="none" />
   <item name="partes_bandera" delay="5" navButtons="none" />
   <item name="ensena_patria" delay="5" navButtons="none" />
-  <item name="cierre" delay="5" navButtons="none" />
+  <item name="cierre" navButtons="none" />
  </sequence>
  <activities>
   <activity class="@puzzles.DoublePuzzle" name="1770_nacio" code="">
@@ -175,7 +180,7 @@
      <p>Jesús</p>
     </cell>
     <cell avoidOverlapping="true">
-     <p>Belgrano</p>
+     <p>Belgrano.</p>
     </cell>
    </cells>
    <scramble times="31" />
@@ -243,7 +248,7 @@
      <p>Domingo</p>
     </cell>
     <cell avoidOverlapping="true">
-     <p>Belgrano</p>
+     <p>Belgrano.</p>
     </cell>
    </cells>
    <scramble times="31" />
@@ -428,7 +433,7 @@
     </container>
     <window bgColor="0xFFFFFF" border="true" />
    </settings>
-   <cells rows="2" cols="3" border="true" image="foto_gustavo.jpg">
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
     <style />
     <shaper class="@Rectangular" cols="3" rows="2" />
    </cells>
@@ -959,9 +964,9 @@
     </container>
     <window bgColor="0x003399" border="true" />
    </settings>
-   <cells rows="7" cols="1" cellWidth="259.0" cellHeight="78.0" border="true" id="primary">
+   <cells rows="7" cols="1" cellWidth="197.0" cellHeight="78.0" border="true" id="primary">
     <style margin="4" borderStroke="0.7" markerStroke="5.0">
-     <font family="Arial" size="26" bold="true" />
+     <font family="Arial" size="22" bold="true" />
      <color background="0xFFFFFF" inactive="0xFFFFFF" />
      <gradient source="0x00CCCC" dest="0xFFFFFF" angle="87" cycles="2" />
     </style>
@@ -995,7 +1000,7 @@
      <p>Regatón</p>
     </cell>
    </cells>
-   <cells rows="7" cols="1" cellWidth="360.0" cellHeight="78.0" border="true" id="secondary">
+   <cells rows="7" cols="1" cellWidth="364.0" cellHeight="92.0" border="true" id="secondary">
     <style borderStroke="0.7" markerStroke="5.0">
      <font family="Arial" size="22" bold="true" />
      <color foreground="0x660000" background="0xFFEEEE" inactive="0xFFFFFF" />
@@ -1446,7 +1451,7 @@
     </container>
     <window bgColor="0xFF9900" transparent="true" border="false" />
    </settings>
-   <textGrid rows="12" columns="12" cellWidth="46.0" cellHeight="46.0" border="true">
+   <textGrid rows="12" columns="12" cellWidth="42.0" cellHeight="40.0" border="true">
     <style margin="2" borderStroke="0.7" markerStroke="5.0">
      <font family="Arial" size="22" bold="true" />
      <color foreground="0xFFFFFF" background="0x009999" />
@@ -1599,7 +1604,7 @@
    </settings>
    <cells rows="5" cols="1" cellWidth="300.0" cellHeight="78.0" border="true" id="primary">
     <style margin="4" borderStroke="0.7" markerStroke="5.0">
-     <font family="Arial" size="18" bold="true" />
+     <font family="Arial" size="20" bold="true" />
      <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
     </style>
     <shaper class="@Rectangular" cols="1" rows="5" />
@@ -1619,9 +1624,9 @@
      <p>Nombrado general del ejército</p>
     </cell>
    </cells>
-   <cells rows="5" cols="1" cellWidth="360.0" cellHeight="78.0" border="true" id="secondary">
+   <cells rows="5" cols="1" cellWidth="380.0" cellHeight="144.0" border="true" id="secondary">
     <style borderStroke="0.7" markerStroke="5.0">
-     <font family="Arial" size="16" bold="true" />
+     <font family="Arial" size="20" bold="true" />
      <color foreground="0x660000" background="0xFFEEEE" inactive="0xFFFFFF" />
     </style>
     <shaper class="@Rectangular" cols="1" rows="5" />
@@ -1641,6 +1646,8 @@
      <p>Aunque no era militar profesional, fue nombrado general de la expedición al Paraguay.</p>
     </cell>
    </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
   </activity>
   <activity class="@associations.SimpleAssociation" name="vocabulario" code="">
    <description />
@@ -1712,6 +1719,8 @@
   </activity>
  </activities>
  <mediaBag>
+  <media name="favicon.ico" file="favicon.ico" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
   <media name="fondo_1770.jpg" file="fondo_1770.jpg" />
   <media name="fondo_bandera_izada.jpg" file="fondo_bandera_izada.jpg" />
   <media name="fondo_banderitas.jpg" file="fondo_banderitas.jpg" />
@@ -1726,6 +1735,8 @@
   <media name="foto_gustavo.jpg" file="foto_gustavo.jpg" />
   <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
   <media name="i02-bienhecho.jpg" file="i02-bienhecho.jpg" />
+  <media name="project-cover.jpg" file="project-cover.jpg" />
+  <media name="project-thumb.jpg" file="project-thumb.jpg" />
   <media name="puzzle_bandera.jpg" file="puzzle_bandera.jpg" />
   <media name="puzzle_bandera_izada.jpg" file="puzzle_bandera_izada.jpg" />
   <media name="puzzle_batallas.jpg" file="puzzle_batallas.jpg" />
@@ -1792,6 +1803,8 @@
   <media name="bandera.png" file="bandera.png" />
   <media name="belgrano_general.png" file="belgrano_general.png" />
   <media name="belgrano_retrato.png" file="belgrano_retrato.png" />
+  <media name="icon-192.png" file="icon-192.png" />
+  <media name="icon-72.png" file="icon-72.png" />
   <media name="parana.png" file="parana.png" />
   <media name="rosario.png" file="rosario.png" />
   <media name="salta.png" file="salta.png" />

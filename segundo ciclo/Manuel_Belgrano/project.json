@@ -1,20 +1,22 @@
 {
-  "title": "Manuel Belgrano · Rumbo al 20 de Junio",
+  "title": "Manuel Belgrano Â· Rumbo al 20 de Junio",
   "author": "Gustavo Aguilar",
   "date": "6/01/27",
-  "description": {},
+  "description": {
+    "es": ""
+  },
   "license": {
     "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
   },
   "meta_langs": [
     "es"
   ],
-  "mainFile": "belgrano_pc_final.jclic",
   "cover": "project-cover.jpg",
   "thumbnail": "project-thumb.jpg",
+  "mainFile": "belgrano_pc_final.jclic",
   "activities": 32,
-  "mediaFiles": 97,
-  "totalSize": 7425384,
+  "mediaFiles": 98,
+  "totalSize": 7468068,
   "files": [
     "abogado.png",
     "bandera.png",
@@ -24,6 +26,7 @@
     "belgrano_retrato.png",
     "bienvenida_belgrano.mp4",
     "bienvenida_rotar.mp3",
+    "cierre-resized2.jpg",
     "cons_bandera_izada.mp3",
     "cons_batallas.mp3",
     "cons_bienvenida_video.mp3",
