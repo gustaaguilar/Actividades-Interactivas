@@ -1,0 +1,1846 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="pasapalabra" version="0.1.3">
+ <settings>
+  <title>Pasapalabra Mundialista 2026</title>
+  <revision description="created" date="6/5/28" />
+  <author name="Gustavo Aguilar" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="5" navButtons="none" />
+  <item name="portada_pp" delay="5" navButtons="none" />
+  <item name="texto_1" delay="5" navButtons="none" />
+  <item name="texto_2" delay="5" navButtons="none" />
+  <item name="rosco_a" delay="5" navButtons="none" />
+  <item name="rosco_b" delay="5" navButtons="none" />
+  <item name="rosco_c" delay="5" navButtons="none" />
+  <item name="rosco_d" delay="5" navButtons="none" />
+  <item name="rosco_e" delay="5" navButtons="none" />
+  <item name="rosco_f" delay="5" navButtons="none" />
+  <item name="rosco_g" delay="5" navButtons="none" />
+  <item name="rosco_h" delay="5" navButtons="none" />
+  <item name="rosco_m" delay="5" navButtons="none" />
+  <item name="rosco_n" delay="5" navButtons="none" />
+  <item name="rosco_o" delay="5" navButtons="none" />
+  <item name="rosco_p" delay="5" navButtons="none" />
+  <item name="rosco_q" delay="5" navButtons="none" />
+  <item name="rosco_r" delay="5" navButtons="none" />
+  <item name="rosco_s" delay="5" navButtons="none" />
+  <item name="rosco_t" delay="5" navButtons="none" />
+  <item name="rosco_u" delay="5" navButtons="none" />
+  <item name="rosco_v" delay="5" navButtons="none" />
+  <item name="rosco_w" delay="5" navButtons="none" />
+  <item name="rosco_x" delay="5" navButtons="none" />
+  <item name="rosco_y" delay="5" navButtons="none" />
+  <item name="rosco_z" delay="5" navButtons="none" />
+  <item name="verdadero_falso" delay="5" navButtons="none" />
+  <item name="op_zagueros" delay="5" navButtons="none" />
+  <item name="op_costado" delay="5" navButtons="none" />
+  <item name="op_worldcup" delay="5" navButtons="none" />
+  <item name="sopa_mundial" delay="6" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x0066CC" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="arma_el_rompecabezas.mp3" />
+     <p>Armá el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i03-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="felicitaciones_pasapalabra.mp3" />
+     <p>¡Felicitaciones! Terminaste todas las actividades.</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x0066CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="op_costado" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x663399" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_op_costado.mp3" />
+     <p>¿Qué ocurre si la pelota sale por un costado?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x330033">
+     <image name="fondo_sopa.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="207.0" cellHeight="163.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x663399" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="correcta_costado.mp3" />
+     <p>Se hace un lateral</p>
+    </cell>
+    <cell id="0">
+     <p>Se cobra penal</p>
+    </cell>
+    <cell id="0">
+     <p>Termina el partido</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="op_worldcup" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x663399" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_op_worldcup.mp3" />
+     <p>¿Qué significa "World Cup"?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x330033">
+     <image name="fondo_sopa.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="207.0" cellHeight="163.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x663399" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="correcta_worldcup.mp3" />
+     <p>Copa del Mundo</p>
+    </cell>
+    <cell id="0">
+     <p>Copa de clubes</p>
+    </cell>
+    <cell id="0">
+     <p>Campeón mundial</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="op_zagueros" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x663399" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_op_zagueros.mp3" />
+     <p>¿Qué hacen los arqueros?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x330033">
+     <image name="fondo_sopa.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="207.0" cellHeight="163.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x663399" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="correcta_zagueros.mp3" />
+     <p>Protegen el arco</p>
+    </cell>
+    <cell id="0">
+     <p>Alcanzan las pelotas</p>
+    </cell>
+    <cell id="0">
+     <p>Observan la tele</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portada_pp">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x0066CC" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="bienvenida.mp3" />
+     <p>Pasapalabra Mundialista 2026</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x0066CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="portada_pp.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x0000CC" background="0xFFFFFF" />
+      <gradient source="0x0066CC" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="arma_el_rompecabezas.mp3" />
+     <p>Armá el rompecabezas</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFFFF" />
+      <gradient source="0xCCFFFF" dest="0xFFFFFF" angle="275" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x0066CC">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_a" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_a.mp3" />
+     <p>Selección sudamericana campeona del mundo en 2022.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_a.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_a.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="255" y="320" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="133.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>Argentina</p>
+    </cell>
+    <cell id="0">
+     <p>Uruguay</p>
+    </cell>
+    <cell id="0">
+     <p>Francia</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_b" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_b.mp3" />
+     <p>Calzado especial que usan los futbolistas para jugar.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_b.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_b.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="215" y="320" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="133.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>botines</p>
+    </cell>
+    <cell id="0">
+     <p>camiseta</p>
+    </cell>
+    <cell id="0">
+     <p>balón</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_c" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_c.mp3" />
+     <p>País organizador del Mundial 2026 junto con México y Estados Unidos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_c.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_c.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="270" y="320" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="133.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>Canadá</p>
+    </cell>
+    <cell id="0">
+     <p>Curazao</p>
+    </cell>
+    <cell id="0">
+     <p>Qatar</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_d" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_d.mp3" />
+     <p>Persona que organiza el equipo y decide la estrategia.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_d.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_d.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="180" y="310" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="133.0" cellHeight="74.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>director técnico</p>
+    </cell>
+    <cell id="0">
+     <p>delantero</p>
+    </cell>
+    <cell id="0">
+     <p>capitán</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_e" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_e.mp3" />
+     <p>Lugar donde se juegan los partidos.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_e.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_e.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="375" y="330" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="123.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>estadio</p>
+    </cell>
+    <cell id="0">
+     <p>vestuario</p>
+    </cell>
+    <cell id="0">
+     <p>escenario</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_f" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_f.mp3" />
+     <p>Organización que dirige la Copa Mundial.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_f.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_f.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="307" y="331" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="133.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>FIFA</p>
+    </cell>
+    <cell id="0">
+     <p>UEFA</p>
+    </cell>
+    <cell id="0">
+     <p>AFA</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_g" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_g.mp3" />
+     <p>Se consigue cuando la pelota cruza completamente la línea del arco.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_g.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_g.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="370" y="322" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="121.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>gol</p>
+    </cell>
+    <cell id="0">
+     <p>penal</p>
+    </cell>
+    <cell id="0">
+     <p>córner</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_h" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_h.mp3" />
+     <p>Apellido del delantero noruego famoso por sus goles.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_h.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_h.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="124" y="323" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="118.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>Haaland</p>
+    </cell>
+    <cell id="0">
+     <p>Mbappé</p>
+    </cell>
+    <cell id="0">
+     <p>Yamal</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_m" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_m.mp3" />
+     <p>Jugador que conecta la defensa y el ataque.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_m.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_m.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="308" y="336" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="145.0" cellHeight="54.0" border="true" id="primary">
+    <style margin="1" borderStroke="3.5" markerStroke="2.7">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>mediocampista</p>
+    </cell>
+    <cell id="0">
+     <p>marroquí</p>
+    </cell>
+    <cell id="0">
+     <p>arquero</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_n" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_n.mp3" />
+     <p>Número típico del delantero goleador.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_n.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_n.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="310" y="337" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="133.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5" markerStroke="2.7">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>nueve</p>
+    </cell>
+    <cell id="0">
+     <p>cinco</p>
+    </cell>
+    <cell id="0">
+     <p>uno</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_o" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_o.mp3" />
+     <p>Regla que evita sacar ventaja cerca del arco rival.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_o.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_o.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="338" y="330" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="126.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>offside</p>
+    </cell>
+    <cell id="0">
+     <p>oponente</p>
+    </cell>
+    <cell id="0">
+     <p>lateral</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_p" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_p.mp3" />
+     <p>Tiro directo al arco por una falta dentro del área.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_p.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_p.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="341" y="331" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="112.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>penal</p>
+    </cell>
+    <cell id="0">
+     <p>patear</p>
+    </cell>
+    <cell id="0">
+     <p>tiro libre</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_q" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_q.mp3" />
+     <p>País organizador del Mundial 2022.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_q.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_q.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="363" y="339" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="108.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>Qatar</p>
+    </cell>
+    <cell id="0">
+     <p>Rusia</p>
+    </cell>
+    <cell id="0">
+     <p>Brasil</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_r" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_r.mp3" />
+     <p>Disparo fuerte hacia el arco rival.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_r.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_r.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="288" y="340" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="130.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>remate</p>
+    </cell>
+    <cell id="0">
+     <p>pase</p>
+    </cell>
+    <cell id="0">
+     <p>regate</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_s" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_s.mp3" />
+     <p>Jugador que comienza el partido en el banco.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_s.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_s.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="364" y="330" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="112.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>suplente</p>
+    </cell>
+    <cell id="0">
+     <p>titular</p>
+    </cell>
+    <cell id="0">
+     <p>senegal</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_t" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_t.mp3" />
+     <p>Cartulina amarilla o roja usada por el árbitro.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_t.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_t.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="307" y="332" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="122.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>tarjeta</p>
+    </cell>
+    <cell id="0">
+     <p>tirar</p>
+    </cell>
+    <cell id="0">
+     <p>silbato</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_u" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_u.mp3" />
+     <p>Selección sudamericana bicampeona del mundo.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_u.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_u2-resized.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="342" y="357" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="124.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>Uruguay</p>
+    </cell>
+    <cell id="0">
+     <p>Uzbekistán</p>
+    </cell>
+    <cell id="0">
+     <p>Ucrania</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_v" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_v.mp3" />
+     <p>Sistema de video que revisa jugadas polémicas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_v.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_v.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="371" y="357" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="100.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>VAR</p>
+    </cell>
+    <cell id="0">
+     <p>VPN</p>
+    </cell>
+    <cell id="0">
+     <p>FIFA</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_w" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_w.mp3" />
+     <p>Así se dice "Copa del Mundo" en inglés.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_w.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_w.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="332" y="334" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="123.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="2" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>World Cup</p>
+    </cell>
+    <cell id="0">
+     <p>Champions</p>
+    </cell>
+    <cell id="0">
+     <p>Web</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_x" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_x.mp3" />
+     <p>Sanción por la que un jugador debe abandonar el partido.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_x.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_x.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="280" y="338" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="147.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="0" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>expulsión</p>
+    </cell>
+    <cell id="0">
+     <p>amonestación</p>
+    </cell>
+    <cell id="0">
+     <p>falta</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_y" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_y.mp3" />
+     <p>Lo consumen los jugadores argentinos y uruguayos durante las concentraciones del Mundial.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_y.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="10" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_y.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="285" y="376" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="125.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="0" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>yerba mate</p>
+    </cell>
+    <cell id="0">
+     <p>café</p>
+    </cell>
+    <cell id="0">
+     <p>gaseosa</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="rosco_z" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="pista_z.mp3" />
+     <p>Jugador defensor que se ubica cerca del propio arco para evitar que el rival haga un gol.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="correcta_z.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <image name="rosco_z.jpg" tiled="false" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false">
+     <position x="275" y="380" />
+    </window>
+   </settings>
+   <cells rows="1" cols="3" cellWidth="135.0" cellHeight="60.0" border="true" id="primary">
+    <style margin="0" borderStroke="3.5">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell id="1">
+     <p>zaguero</p>
+    </cell>
+    <cell id="0">
+     <p>delantero</p>
+    </cell>
+    <cell id="0">
+     <p>arquero</p>
+    </cell>
+   </cells>
+   <cells rows="1" cols="3" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="1" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopa_mundial" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006699" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_sopa.mp3" />
+     <p>Encontrá las 8 palabras del Mundial.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="muy_bien.mp3" />
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x006699" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <textGrid rows="11" columns="11" cellWidth="38.0" cellHeight="38.0" border="true">
+    <style margin="4">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x003366" />
+    </style>
+    <text>
+     <row>****ESTADIO</row>
+     <row>**MUNDIAL**</row>
+     <row>***********</row>
+     <row>****ARBITRO</row>
+     <row>***********</row>
+     <row>**ARGENTINA</row>
+     <row>**MESSI*GOL</row>
+     <row>PENAL******</row>
+     <row>***********</row>
+     <row>***********</row>
+     <row>****FIFA***</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">GOL</clue>
+    <clue id="1">ARBITRO</clue>
+    <clue id="2">ESTADIO</clue>
+    <clue id="3">PENAL</clue>
+    <clue id="4">FIFA</clue>
+    <clue id="5">MESSI</clue>
+    <clue id="6">MUNDIAL</clue>
+    <clue id="7">ARGENTINA</clue>
+   </clues>
+   <cells rows="4" cols="2" cellWidth="104.0" cellHeight="102.0" border="true" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="4" />
+    <cell image="img_gol.png">
+     <media type="PLAY_AUDIO" level="1" file="audio_gol.mp3" />
+    </cell>
+    <cell image="img_arbitro.png">
+     <media type="PLAY_AUDIO" level="1" file="audio_arbitro.mp3" />
+    </cell>
+    <cell image="img_estadio.png">
+     <media type="PLAY_AUDIO" level="1" file="audio_estadio.mp3" />
+    </cell>
+    <cell image="img_penal.png">
+     <media type="PLAY_AUDIO" level="1" file="audio_penal.mp3" />
+    </cell>
+    <cell image="img_fifa.png">
+     <media type="PLAY_AUDIO" level="1" file="audio_fifa.mp3" />
+    </cell>
+    <cell image="img_messi.png">
+     <media type="PLAY_AUDIO" level="1" file="audio_messi.mp3" />
+    </cell>
+    <cell image="img_mundial.png">
+     <media type="PLAY_AUDIO" level="1" file="audio_mundial.mp3" />
+    </cell>
+    <cell image="img_argentina.png">
+     <media type="PLAY_AUDIO" level="1" file="audio_argentina.mp3" />
+    </cell>
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="texto_1">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="texto_1.mp3" />
+     <p>Escuchá y seguí la lectura (parte 1).</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFFFF" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="1" cols="2" border="true" image="fondo_texto.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+   </cells>
+   <scramble times="20" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="texto_2">
+   <messages>
+    <cell type="initial">
+     <style borderStroke="0.7" markerStroke="5.0">
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="texto_2.mp3" />
+     <p>Escuchá y seguí la lectura (parte 2).</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color background="0xFFFFFF" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="1" cols="2" border="true" image="fondo_texto.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="1" />
+   </cells>
+   <scramble times="20" />
+  </activity>
+  <activity class="@panels.Identify" name="verdadero_falso" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x990000" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_vf.mp3" />
+     <p>Hacé clic en las afirmaciones verdaderas.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006633" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="excelente.mp3" />
+     <p>¡Excelente!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0x003366">
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="91" cycles="2" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="3" cols="2" cellWidth="187.0" cellHeight="143.0" border="true" id="primary">
+    <style margin="3" borderStroke="3.5" markerStroke="2.7">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFFFF" background="0x1A3A6A" border="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="2" rows="3" />
+    <cell id="0">
+     <p>El Mundial 2026 se jugará en un solo país.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="vf_uruguay.mp3" />
+     <p>Uruguay fue campeón del mundo.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="vf_var.mp3" />
+     <p>El VAR ayuda a revisar jugadas difíciles.</p>
+    </cell>
+    <cell id="0">
+     <p>El lateral se realiza con los pies.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="vf_messi.mp3" />
+     <p>Lionel Messi es mencionado en el texto.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="vf_offside.mp3" />
+     <p>El offside es una regla del fútbol.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="2" cellWidth="50.0" cellHeight="30.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="2" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="fondo_sopa.jpg" file="fondo_sopa.jpg" />
+  <media name="fondo_texto.jpg" file="fondo_texto.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i02-i01-bienhecho.jpg" file="i02-i01-bienhecho.jpg" />
+  <media name="i03-i01-bienhecho.jpg" file="i03-i01-bienhecho.jpg" />
+  <media name="portada_pp.jpg" file="portada_pp.jpg" />
+  <media name="rosco_a.jpg" file="rosco_a.jpg" />
+  <media name="rosco_b.jpg" file="rosco_b.jpg" />
+  <media name="rosco_c.jpg" file="rosco_c.jpg" />
+  <media name="rosco_d.jpg" file="rosco_d.jpg" />
+  <media name="rosco_e.jpg" file="rosco_e.jpg" />
+  <media name="rosco_f.jpg" file="rosco_f.jpg" />
+  <media name="rosco_g.jpg" file="rosco_g.jpg" />
+  <media name="rosco_h.jpg" file="rosco_h.jpg" />
+  <media name="rosco_m.jpg" file="rosco_m.jpg" />
+  <media name="rosco_n.jpg" file="rosco_n.jpg" />
+  <media name="rosco_o.jpg" file="rosco_o.jpg" />
+  <media name="rosco_p.jpg" file="rosco_p.jpg" />
+  <media name="rosco_q.jpg" file="rosco_q.jpg" />
+  <media name="rosco_r.jpg" file="rosco_r.jpg" />
+  <media name="rosco_s.jpg" file="rosco_s.jpg" />
+  <media name="rosco_t.jpg" file="rosco_t.jpg" />
+  <media name="rosco_u2-resized.jpg" file="rosco_u2-resized.jpg" />
+  <media name="rosco_v.jpg" file="rosco_v.jpg" />
+  <media name="rosco_w.jpg" file="rosco_w.jpg" />
+  <media name="rosco_x.jpg" file="rosco_x.jpg" />
+  <media name="rosco_y.jpg" file="rosco_y.jpg" />
+  <media name="rosco_z.jpg" file="rosco_z.jpg" />
+  <media name="arma_el_rompecabezas.mp3" file="arma_el_rompecabezas.mp3" />
+  <media name="audio_arbitro.mp3" file="audio_arbitro.mp3" />
+  <media name="audio_argentina.mp3" file="audio_argentina.mp3" />
+  <media name="audio_estadio.mp3" file="audio_estadio.mp3" />
+  <media name="audio_fifa.mp3" file="audio_fifa.mp3" />
+  <media name="audio_gol.mp3" file="audio_gol.mp3" />
+  <media name="audio_messi.mp3" file="audio_messi.mp3" />
+  <media name="audio_mundial.mp3" file="audio_mundial.mp3" />
+  <media name="audio_penal.mp3" file="audio_penal.mp3" />
+  <media name="bienvenida.mp3" file="bienvenida.mp3" />
+  <media name="cons_op_costado.mp3" file="cons_op_costado.mp3" />
+  <media name="cons_op_worldcup.mp3" file="cons_op_worldcup.mp3" />
+  <media name="cons_op_zagueros.mp3" file="cons_op_zagueros.mp3" />
+  <media name="cons_sopa.mp3" file="cons_sopa.mp3" />
+  <media name="cons_vf.mp3" file="cons_vf.mp3" />
+  <media name="correcta_a.mp3" file="correcta_a.mp3" />
+  <media name="correcta_b.mp3" file="correcta_b.mp3" />
+  <media name="correcta_c.mp3" file="correcta_c.mp3" />
+  <media name="correcta_costado.mp3" file="correcta_costado.mp3" />
+  <media name="correcta_d.mp3" file="correcta_d.mp3" />
+  <media name="correcta_e.mp3" file="correcta_e.mp3" />
+  <media name="correcta_f.mp3" file="correcta_f.mp3" />
+  <media name="correcta_g.mp3" file="correcta_g.mp3" />
+  <media name="correcta_h.mp3" file="correcta_h.mp3" />
+  <media name="correcta_m.mp3" file="correcta_m.mp3" />
+  <media name="correcta_n.mp3" file="correcta_n.mp3" />
+  <media name="correcta_o.mp3" file="correcta_o.mp3" />
+  <media name="correcta_p.mp3" file="correcta_p.mp3" />
+  <media name="correcta_q.mp3" file="correcta_q.mp3" />
+  <media name="correcta_r.mp3" file="correcta_r.mp3" />
+  <media name="correcta_s.mp3" file="correcta_s.mp3" />
+  <media name="correcta_t.mp3" file="correcta_t.mp3" />
+  <media name="correcta_u.mp3" file="correcta_u.mp3" />
+  <media name="correcta_v.mp3" file="correcta_v.mp3" />
+  <media name="correcta_w.mp3" file="correcta_w.mp3" />
+  <media name="correcta_worldcup.mp3" file="correcta_worldcup.mp3" />
+  <media name="correcta_x.mp3" file="correcta_x.mp3" />
+  <media name="correcta_y.mp3" file="correcta_y.mp3" />
+  <media name="correcta_z.mp3" file="correcta_z.mp3" />
+  <media name="correcta_zagueros.mp3" file="correcta_zagueros.mp3" />
+  <media name="excelente.mp3" file="excelente.mp3" />
+  <media name="felicitaciones_pasapalabra.mp3" file="felicitaciones_pasapalabra.mp3" />
+  <media name="muy_bien.mp3" file="muy_bien.mp3" />
+  <media name="pista_a.mp3" file="pista_a.mp3" />
+  <media name="pista_b.mp3" file="pista_b.mp3" />
+  <media name="pista_c.mp3" file="pista_c.mp3" />
+  <media name="pista_d.mp3" file="pista_d.mp3" />
+  <media name="pista_e.mp3" file="pista_e.mp3" />
+  <media name="pista_f.mp3" file="pista_f.mp3" />
+  <media name="pista_g.mp3" file="pista_g.mp3" />
+  <media name="pista_h.mp3" file="pista_h.mp3" />
+  <media name="pista_m.mp3" file="pista_m.mp3" />
+  <media name="pista_n.mp3" file="pista_n.mp3" />
+  <media name="pista_o.mp3" file="pista_o.mp3" />
+  <media name="pista_p.mp3" file="pista_p.mp3" />
+  <media name="pista_q.mp3" file="pista_q.mp3" />
+  <media name="pista_r.mp3" file="pista_r.mp3" />
+  <media name="pista_s.mp3" file="pista_s.mp3" />
+  <media name="pista_t.mp3" file="pista_t.mp3" />
+  <media name="pista_u.mp3" file="pista_u.mp3" />
+  <media name="pista_v.mp3" file="pista_v.mp3" />
+  <media name="pista_w.mp3" file="pista_w.mp3" />
+  <media name="pista_x.mp3" file="pista_x.mp3" />
+  <media name="pista_y.mp3" file="pista_y.mp3" />
+  <media name="pista_z.mp3" file="pista_z.mp3" />
+  <media name="texto_1.mp3" file="texto_1.mp3" />
+  <media name="texto_2.mp3" file="texto_2.mp3" />
+  <media name="vf_messi.mp3" file="vf_messi.mp3" />
+  <media name="vf_offside.mp3" file="vf_offside.mp3" />
+  <media name="vf_uruguay.mp3" file="vf_uruguay.mp3" />
+  <media name="vf_var.mp3" file="vf_var.mp3" />
+  <media name="img_arbitro.png" file="img_arbitro.png" />
+  <media name="img_argentina.png" file="img_argentina.png" />
+  <media name="img_estadio.png" file="img_estadio.png" />
+  <media name="img_fifa.png" file="img_fifa.png" />
+  <media name="img_gol.png" file="img_gol.png" />
+  <media name="img_messi.png" file="img_messi.png" />
+  <media name="img_mundial.png" file="img_mundial.png" />
+  <media name="img_penal.png" file="img_penal.png" />
+ </mediaBag>
+</JClicProject>
+
