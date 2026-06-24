@@ -1,0 +1,1326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="ingles_pc_final" version="0.1.3">
+ <settings>
+  <title>English · Technology &amp; Weather</title>
+  <revision description="created" date="3/6/27" />
+  <author name="Gustavo Aguilar" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="5" navButtons="none" />
+  <item name="welcome" delay="5" navButtons="none" />
+  <item name="tech_match_1" delay="5" navButtons="none" />
+  <item name="tech_match_2" delay="5" navButtons="none" />
+  <item name="tech_tap" delay="5" navButtons="none" />
+  <item name="tech_memory" delay="5" navButtons="none" />
+  <item name="tech_wordsearch" delay="5" navButtons="none" />
+  <item name="tech_puzzle" delay="5" navButtons="none" />
+  <item name="tech_sentence" delay="5" navButtons="none" />
+  <item name="weather_match_1" delay="5" navButtons="none" />
+  <item name="weather_match_2" delay="5" navButtons="none" />
+  <item name="weather_howis" delay="6" navButtons="none" />
+  <item name="weather_memory" delay="4" navButtons="none" />
+  <item name="weather_wordsearch" delay="5" navButtons="none" />
+  <item name="weather_puzzle" delay="5" navButtons="none" />
+  <item name="weather_sentence" delay="5" navButtons="none" />
+  <item name="review_match" delay="5" navButtons="none" />
+  <item name="review_tap" delay="6" navButtons="none" />
+  <item name="review_wordsearch" delay="5" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_portadaclic.mp3" />
+     <p>Build the puzzle! / ¡Armá el rompecabezas!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_cierre.mp3" />
+     <p>Congratulations! You finished English. / ¡Felicitaciones! Terminaste Inglés.</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00CCFF" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_portadaclic.mp3" />
+     <p>Build the puzzle! / ¡Armá el rompecabezas!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00CCFF" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="foto_gustavo.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="review_match" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x660033" background="0xFFEEEE" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_review_match.mp3" />
+     <p>Match English with Spanish. / Uní el inglés con el español.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x660033" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_review.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x003399" border="true" />
+   </settings>
+   <cells rows="6" cols="1" cellWidth="300.0" cellHeight="70.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="26" bold="true" />
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="computer2.mp3" />
+     <p>Computer</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="mouse2.mp3" />
+     <p>Mouse</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="laptop2.mp3" />
+     <p>Laptop</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="sunny2.mp3" />
+     <p>Sunny</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="rainy2.mp3" />
+     <p>Rainy</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="cloudy2.mp3" />
+     <p>Cloudy</p>
+    </cell>
+   </cells>
+   <cells rows="6" cols="1" cellWidth="300.0" cellHeight="70.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="26" bold="true" />
+     <color foreground="0x660000" background="0xFFEEEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="computadora2.mp3" />
+     <p>computadora</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="raton2.mp3" />
+     <p>ratón</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="portatil2.mp3" />
+     <p>portátil</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="soleado2.mp3" />
+     <p>soleado</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="lluvioso2.mp3" />
+     <p>lluvioso</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="nublado2.mp3" />
+     <p>nublado</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="review_tap" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="tap_review.mp3" />
+     <p>Tap the correct word. RAINY / Tocá la palabra correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x3AAEE0" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_review.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="150.0" cellHeight="150.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell id="0" avoidOverlapping="true" image="computer.png" />
+    <cell id="1" avoidOverlapping="true" image="rainy.png">
+     <media type="PLAY_AUDIO" level="1" file="rainy.mp3" />
+    </cell>
+    <cell id="0" avoidOverlapping="true" image="mouse.png" />
+    <cell id="0" avoidOverlapping="true" image="sunny.png" />
+    <cell id="0" avoidOverlapping="true" image="laptop.png" />
+    <cell id="0" avoidOverlapping="true" image="cloudy.png" />
+   </cells>
+   <cells rows="2" cols="3" cellWidth="40.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="review_wordsearch" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A4A1A" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_wordsearch_review.mp3" />
+     <p>Encontrá: COMPUTER – LAPTOP -  MOUSE – EMAIL – SUNNY – RAINY – CLOUDY - WINDY</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A4A1A" />
+     </style>
+     <p>Great job!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00CC00" dest="0x0A2A0A" angle="0" />
+     <image name="fondo_review.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFF9900" transparent="true" border="false" />
+   </settings>
+   <textGrid rows="12" columns="12" cellWidth="46.0" cellHeight="46.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <text>
+     <row>IZEKGKDHBGWR</row>
+     <row>COMPUTERYKUH</row>
+     <row>LTPKHYVGAXLI</row>
+     <row>UKLAPTOPGLUS</row>
+     <row>BQIYTHSZWECU</row>
+     <row>ZBWEMAILWKLN</row>
+     <row>CQBZFJSXTWON</row>
+     <row>YOJRSIRQLAUY</row>
+     <row>VDEAKCMATRDU</row>
+     <row>WINDYRJAIVYB</row>
+     <row>FKOMOUSECNFC</row>
+     <row>OSDISFDBSPYA</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">COMPUTER</clue>
+    <clue id="1">LAPTOP</clue>
+    <clue id="2">MOUSE</clue>
+    <clue id="3">EMAIL</clue>
+    <clue id="4">SUNNY</clue>
+    <clue id="5">RAINY</clue>
+    <clue id="6">CLOUDY</clue>
+    <clue id="7">WINDY</clue>
+   </clues>
+   <cells rows="8" cols="1" cellWidth="110.0" cellHeight="90.0" border="true" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="8" />
+    <cell image="computer.png">
+     <media type="PLAY_AUDIO" level="1" file="computer.mp3" />
+    </cell>
+    <cell image="laptop.png">
+     <media type="PLAY_AUDIO" level="1" file="laptop.mp3" />
+    </cell>
+    <cell image="mouse.png">
+     <media type="PLAY_AUDIO" level="1" file="mouse.mp3" />
+    </cell>
+    <cell image="email.png">
+     <media type="PLAY_AUDIO" level="1" file="email.mp3" />
+    </cell>
+    <cell image="sunny.png">
+     <media type="PLAY_AUDIO" level="1" file="sunny.mp3" />
+    </cell>
+    <cell image="rainy.png">
+     <media type="PLAY_AUDIO" level="1" file="rainy.mp3" />
+    </cell>
+    <cell image="cloudy.png">
+     <media type="PLAY_AUDIO" level="1" file="cloudy.mp3" />
+    </cell>
+    <cell image="windy.png">
+     <media type="PLAY_AUDIO" level="1" file="windy.mp3" />
+    </cell>
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="tech_match_1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x660033" background="0xFFEEEE" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_match.mp3" />
+     <p>Match each picture with its word. / Uní cada imagen con su palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x660033" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_tech.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x003399" border="true" />
+   </settings>
+   <cells rows="6" cols="1" cellWidth="120.0" cellHeight="120.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell image="computer.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="computer.mp3" />
+    </cell>
+    <cell image="keyboard.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="keyboard.mp3" />
+    </cell>
+    <cell image="email.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="email.mp3" />
+    </cell>
+    <cell image="laptop.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="laptop.mp3" />
+    </cell>
+    <cell image="printer.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="printer.mp3" />
+    </cell>
+    <cell image="mouse.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="mouse.mp3" />
+    </cell>
+   </cells>
+   <cells rows="6" cols="1" cellWidth="260.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0x660000" background="0xFFEEEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Computer</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Keyboard</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Email</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Laptop</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Printer</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Mouse</p>
+    </cell>
+   </cells>
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="tech_match_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x660033" background="0xFFEEEE" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_match.mp3" />
+     <p>Match each picture with its word. / Uní cada imagen con su palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x660033" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_tech.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x003399" border="true" />
+   </settings>
+   <cells rows="6" cols="1" cellWidth="120.0" cellHeight="120.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell image="mobile.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="mobile.mp3" />
+    </cell>
+    <cell image="speakers.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="speakers.mp3" />
+    </cell>
+    <cell image="joystick.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="joystick.mp3" />
+    </cell>
+    <cell image="headphones.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="headphones.mp3" />
+    </cell>
+    <cell image="pendrive.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="pendrive.mp3" />
+    </cell>
+    <cell image="webcam.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="webcam.mp3" />
+    </cell>
+   </cells>
+   <cells rows="6" cols="1" cellWidth="260.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0x660000" background="0xFFEEEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="6" />
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Mobile</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Speakers</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Joystick</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Headphones</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Pendrive</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Webcam</p>
+    </cell>
+   </cells>
+  </activity>
+  <activity class="@memory.MemoryGame" name="tech_memory" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_memory.mp3" />
+     <p>Find the matching pairs. / Encontrá las parejas iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x3AAEE0" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_tech.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x003399" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="202.0" cellHeight="204.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="30" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell image="computer.png">
+     <media type="PLAY_AUDIO" level="1" file="computer.mp3" />
+    </cell>
+    <cell image="laptop.png">
+     <media type="PLAY_AUDIO" level="1" file="laptop.mp3" />
+    </cell>
+    <cell image="mouse.png">
+     <media type="PLAY_AUDIO" level="1" file="mouse.mp3" />
+    </cell>
+    <cell image="printer.png">
+     <media type="PLAY_AUDIO" level="1" file="printer.mp3" />
+    </cell>
+    <cell image="webcam.png">
+     <media type="PLAY_AUDIO" level="1" file="webcam.mp3" />
+    </cell>
+    <cell image="mobile.png">
+     <media type="PLAY_AUDIO" level="1" file="mobile.mp3" />
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="tech_puzzle" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle.mp3" />
+     <p>Build the puzzle! / ¡Armá el rompecabezas!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="well_done.mp3" />
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00CCFF" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="scene_tech.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="tech_sentence" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0x000066" background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="sentence_tech2.mp3" />
+     <p>Put the words in order. / Ordená las palabras.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="well_done.mp3" />
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x3AAEE0" dest="0xFFFFFF" angle="0" />
+     <image name="bg_sentence_tech.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="false" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="112.0" cellHeight="64.0" border="true">
+    <style margin="0" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0x000066" background="0xFFFFFF" inactive="0xFFFFFF" />
+     <gradient source="0x33CC00" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell avoidOverlapping="true">
+     <p>I</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>use</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>my</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>computer</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>every</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>day.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@panels.Identify" name="tech_tap" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="tap_tech.mp3" />
+     <p>Tap the correct word. HEADPHONES / Tocá la palabra correcta.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x3AAEE0" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_tech.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="150.0" cellHeight="150.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell id="0" avoidOverlapping="true" image="computer.png" />
+    <cell id="0" avoidOverlapping="true" image="laptop.png" />
+    <cell id="0" avoidOverlapping="true" image="mouse.png" />
+    <cell id="1" avoidOverlapping="true" image="headphones.png">
+     <media type="PLAY_AUDIO" level="1" file="headphones.mp3" />
+    </cell>
+    <cell id="0" avoidOverlapping="true" image="printer.png" />
+    <cell id="0" avoidOverlapping="true" image="webcam.png" />
+   </cells>
+   <cells rows="2" cols="3" cellWidth="40.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell />
+    <cell />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="tech_wordsearch" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="16" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A4A1A" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_wordsearch_tech.mp3" />
+     <p>Encontrá: COMPUTER – LAPTOP -  MOUSE – PRINTER – WEBCAM – EMAIL – MOBILE – SPEAKERS</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A4A1A" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00CC00" dest="0x0A2A0A" angle="0" />
+     <image name="fondo_tech.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFF9900" transparent="true" border="false" />
+   </settings>
+   <textGrid rows="12" columns="12" cellWidth="46.0" cellHeight="46.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <text>
+     <row>GZBHFPLQTTCF</row>
+     <row>CVFPGAQTEYOT</row>
+     <row>CISEJIDGRKMM</row>
+     <row>JLPGMWQQEXPE</row>
+     <row>LNEXKAESTKUP</row>
+     <row>HUAGQMIBULTR</row>
+     <row>UMKHLOVLCDEI</row>
+     <row>UOEGABUZIARN</row>
+     <row>IURGPINHBSMT</row>
+     <row>QSSPTLQTPOLE</row>
+     <row>BESUOEDGFVZR</row>
+     <row>QWFRPEAEZJQY</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">COMPUTER</clue>
+    <clue id="1">LAPTOP</clue>
+    <clue id="2">MOUSE</clue>
+    <clue id="3">PRINTER</clue>
+    <clue id="4">WEBCAM</clue>
+    <clue id="5">EMAIL</clue>
+    <clue id="6">MOBILE</clue>
+    <clue id="7">SPEAKERS</clue>
+   </clues>
+   <cells rows="8" cols="1" cellWidth="110.0" cellHeight="90.0" border="true" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="8" />
+    <cell image="computer.png">
+     <media type="PLAY_AUDIO" level="1" file="computer.mp3" />
+    </cell>
+    <cell image="laptop.png">
+     <media type="PLAY_AUDIO" level="1" file="laptop.mp3" />
+    </cell>
+    <cell image="mouse.png">
+     <media type="PLAY_AUDIO" level="1" file="mouse.mp3" />
+    </cell>
+    <cell image="printer.png">
+     <media type="PLAY_AUDIO" level="1" file="printer.mp3" />
+    </cell>
+    <cell image="webcam.png">
+     <media type="PLAY_AUDIO" level="1" file="webcam.mp3" />
+    </cell>
+    <cell image="email.png">
+     <media type="PLAY_AUDIO" level="1" file="email.mp3" />
+    </cell>
+    <cell image="mobile.png">
+     <media type="PLAY_AUDIO" level="1" file="mobile.mp3" />
+    </cell>
+    <cell image="speakers.png">
+     <media type="PLAY_AUDIO" level="1" file="speakers.mp3" />
+    </cell>
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="weather_howis" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="howis_weather.mp3" />
+     <p>How's the weather? SUNNY / ¿Cómo está el clima?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x3AAEE0" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_weather.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="150.0" cellHeight="150.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell id="0" avoidOverlapping="true" image="stormy.png" />
+    <cell id="0" avoidOverlapping="true" image="cloudy.png" />
+    <cell id="1" avoidOverlapping="true" image="sunny.png">
+     <media type="PLAY_AUDIO" level="1" file="sunny.mp3" />
+    </cell>
+    <cell id="0" avoidOverlapping="true" image="rainy.png" />
+    <cell id="0" avoidOverlapping="true" image="snowy.png" />
+    <cell id="0" avoidOverlapping="true" image="windy.png" />
+   </cells>
+   <cells rows="2" cols="3" cellWidth="40.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="weather_match_1" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x660033" background="0xFFEEEE" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_match.mp3" />
+     <p>Match each picture with its word. / Uní cada imagen con su palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x660033" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_weather.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x003399" border="true" />
+   </settings>
+   <cells rows="5" cols="1" cellWidth="120.0" cellHeight="120.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell image="stormy.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="stormy.mp3" />
+    </cell>
+    <cell image="cloudy.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="cloudy.mp3" />
+    </cell>
+    <cell image="windy.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="windy.mp3" />
+    </cell>
+    <cell image="rainy.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="rainy.mp3" />
+    </cell>
+    <cell image="cold.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="cold.mp3" />
+    </cell>
+   </cells>
+   <cells rows="5" cols="1" cellWidth="260.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0x660000" background="0xFFEEEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="5" />
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Stormy</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Cloudy</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Windy</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Rainy</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Cold</p>
+    </cell>
+   </cells>
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="weather_match_2" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x660033" background="0xFFEEEE" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_match.mp3" />
+     <p>Match each picture with its word. / Uní cada imagen con su palabra.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x660033" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_weather.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x003399" border="true" />
+   </settings>
+   <cells rows="4" cols="1" cellWidth="120.0" cellHeight="120.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color foreground="0x003399" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell image="hot.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="hot.mp3" />
+    </cell>
+    <cell image="sunny.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="sunny.mp3" />
+    </cell>
+    <cell image="snowy.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="snowy.mp3" />
+    </cell>
+    <cell image="partly_cloudy.png" avoidOverlapping="true">
+     <media type="PLAY_AUDIO" level="1" file="partly_cloudy.mp3" />
+    </cell>
+   </cells>
+   <cells rows="4" cols="1" cellWidth="260.0" cellHeight="100.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0x660000" background="0xFFEEEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="4" />
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Hot</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Sunny</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Snowy</p>
+    </cell>
+    <cell txtAlign="middle,middle" avoidOverlapping="true">
+     <p>Partly cloudy</p>
+    </cell>
+   </cells>
+  </activity>
+  <activity class="@memory.MemoryGame" name="weather_memory" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_memory.mp3" />
+     <p>Find the matching pairs. / Encontrá las parejas iguales.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x3AAEE0" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_weather.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0x003399" border="true" />
+   </settings>
+   <cells rows="2" cols="3" cellWidth="160.0" cellHeight="130.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="26" bold="true" />
+     <color foreground="0x003366" background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="3" rows="2" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="sunny.mp3" />
+     <p>SUNNY</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="rainy.mp3" />
+     <p>RAINY</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="cloudy.mp3" />
+     <p>CLOUDY</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="windy.mp3" />
+     <p>WINDY</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="snowy.mp3" />
+     <p>SNOWY</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="stormy.mp3" />
+     <p>STORMY</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="weather_puzzle" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_puzzle.mp3" />
+     <p>Build the puzzle! / ¡Armá el rompecabezas!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="well_done.mp3" />
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00CCFF" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="scene_weather.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.DoublePuzzle" name="weather_sentence" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0x000066" background="0xCCFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="sentence_weather2.mp3" />
+     <p>Put the words in order. / Ordená las palabras.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="well_done.mp3" />
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x3AAEE0" dest="0xFFFFFF" angle="0" />
+     <image name="bg_sentence_weather.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="1" cols="6" cellWidth="96.0" cellHeight="64.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0x000066" background="0xFFFFFF" inactive="0xFFFFFF" />
+     <gradient source="0xFF0000" dest="0xFFFFFF" angle="89" cycles="2" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="1" />
+    <cell avoidOverlapping="true">
+     <p>It</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>is</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>sunny</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>and</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>hot</p>
+    </cell>
+    <cell avoidOverlapping="true">
+     <p>today.</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="weather_wordsearch" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A4A1A" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_wordsearch_weather.mp3" />
+     <p>Encontrá: SUNNY – RAINY – CLOUDY – WINDY – STORMY – SNOWY – COLD - HOT</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A4A1A" />
+     </style>
+     <p>Well done!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00CC00" dest="0x0A2A0A" angle="0" />
+     <image name="fondo_weather.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFF9900" transparent="true" border="false" />
+   </settings>
+   <textGrid rows="12" columns="12" cellWidth="46.0" cellHeight="46.0" border="true">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0xFFFFFF" background="0x009999" />
+    </style>
+    <text>
+     <row>NVENVIGXXCZF</row>
+     <row>SXRAINYTQRKW</row>
+     <row>ZUFKPHREDGNI</row>
+     <row>KONSFHYALLAN</row>
+     <row>SYJNRSEPBMVD</row>
+     <row>STYPYJCZWWKY</row>
+     <row>NNPCFZWDYDPW</row>
+     <row>OTHOCHCLOUDY</row>
+     <row>WBZLDSSFHOTH</row>
+     <row>YTWDPCDNGFMD</row>
+     <row>FIUZSTORMYXX</row>
+     <row>DMRZDJQGOOFO</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">SUNNY</clue>
+    <clue id="1">RAINY</clue>
+    <clue id="2">CLOUDY</clue>
+    <clue id="3">WINDY</clue>
+    <clue id="4">STORMY</clue>
+    <clue id="5">SNOWY</clue>
+    <clue id="6">COLD</clue>
+    <clue id="7">HOT</clue>
+   </clues>
+   <cells rows="8" cols="1" cellWidth="110.0" cellHeight="90.0" border="true" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="8" />
+    <cell image="sunny.png">
+     <media type="PLAY_AUDIO" level="1" file="sunny.mp3" />
+    </cell>
+    <cell image="rainy.png">
+     <media type="PLAY_AUDIO" level="1" file="rainy.mp3" />
+    </cell>
+    <cell image="cloudy.png">
+     <media type="PLAY_AUDIO" level="1" file="cloudy.mp3" />
+    </cell>
+    <cell image="windy.png">
+     <media type="PLAY_AUDIO" level="1" file="windy.mp3" />
+    </cell>
+    <cell image="stormy.png">
+     <media type="PLAY_AUDIO" level="1" file="stormy.mp3" />
+    </cell>
+    <cell image="snowy.png">
+     <media type="PLAY_AUDIO" level="1" file="snowy.mp3" />
+    </cell>
+    <cell image="cold.png">
+     <media type="PLAY_AUDIO" level="1" file="cold.mp3" />
+    </cell>
+    <cell image="hot.png">
+     <media type="PLAY_AUDIO" level="1" file="hot.mp3" />
+    </cell>
+   </cells>
+   <layout position="AB" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="welcome" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="22" bold="true" />
+      <color foreground="0x003366" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_welcome.mp3" />
+     <p>Welcome to English! / ¡Bienvenido a Inglés!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003399" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="well_done.mp3" />
+     <p>Let's start! / ¡Empecemos!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x00CCFF" dest="0xFFFFFF" angle="0" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="welcome_img.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="bg_sentence_tech.jpg" file="bg_sentence_tech.jpg" />
+  <media name="bg_sentence_weather.jpg" file="bg_sentence_weather.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="fondo_review.jpg" file="fondo_review.jpg" />
+  <media name="fondo_tech.jpg" file="fondo_tech.jpg" />
+  <media name="fondo_weather.jpg" file="fondo_weather.jpg" />
+  <media name="foto_gustavo.jpg" file="foto_gustavo.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="scene_tech.jpg" file="scene_tech.jpg" />
+  <media name="scene_weather.jpg" file="scene_weather.jpg" />
+  <media name="welcome_img.jpg" file="welcome_img.jpg" />
+  <media name="C:/Users/gusta/Downloads/Inglés/arreglos/ultimo/audios solos/computadora2.mp3" file="c__users_gusta_downloads_ingles_arreglos_ultimo_audios_solos_computadora2.mp3" />
+  <media name="C:/Users/gusta/Downloads/Inglés/arreglos/ultimo/audios solos/computer2.mp3" file="c__users_gusta_downloads_ingles_arreglos_ultimo_audios_solos_computer2.mp3" />
+  <media name="cloudy.mp3" file="cloudy.mp3" />
+  <media name="cloudy2.mp3" file="cloudy2.mp3" />
+  <media name="cold.mp3" file="cold.mp3" />
+  <media name="computadora2.mp3" file="computadora2.mp3" />
+  <media name="computer.mp3" file="computer.mp3" />
+  <media name="computer2.mp3" file="computer2.mp3" />
+  <media name="cons_cierre.mp3" file="cons_cierre.mp3" />
+  <media name="cons_match.mp3" file="cons_match.mp3" />
+  <media name="cons_memory.mp3" file="cons_memory.mp3" />
+  <media name="cons_portadaclic.mp3" file="cons_portadaclic.mp3" />
+  <media name="cons_puzzle.mp3" file="cons_puzzle.mp3" />
+  <media name="cons_review_match.mp3" file="cons_review_match.mp3" />
+  <media name="cons_welcome.mp3" file="cons_welcome.mp3" />
+  <media name="cons_wordsearch_review.mp3" file="cons_wordsearch_review.mp3" />
+  <media name="cons_wordsearch_tech.mp3" file="cons_wordsearch_tech.mp3" />
+  <media name="cons_wordsearch_weather.mp3" file="cons_wordsearch_weather.mp3" />
+  <media name="email.mp3" file="email.mp3" />
+  <media name="headphones.mp3" file="headphones.mp3" />
+  <media name="hot.mp3" file="hot.mp3" />
+  <media name="howis_weather.mp3" file="howis_weather.mp3" />
+  <media name="joystick.mp3" file="joystick.mp3" />
+  <media name="keyboard.mp3" file="keyboard.mp3" />
+  <media name="laptop.mp3" file="laptop.mp3" />
+  <media name="laptop2.mp3" file="laptop2.mp3" />
+  <media name="lluvioso2.mp3" file="lluvioso2.mp3" />
+  <media name="mobile.mp3" file="mobile.mp3" />
+  <media name="mouse.mp3" file="mouse.mp3" />
+  <media name="mouse2.mp3" file="mouse2.mp3" />
+  <media name="nublado2.mp3" file="nublado2.mp3" />
+  <media name="partly_cloudy.mp3" file="partly_cloudy.mp3" />
+  <media name="pendrive.mp3" file="pendrive.mp3" />
+  <media name="portatil2.mp3" file="portatil2.mp3" />
+  <media name="printer.mp3" file="printer.mp3" />
+  <media name="rainy.mp3" file="rainy.mp3" />
+  <media name="rainy2.mp3" file="rainy2.mp3" />
+  <media name="raton2.mp3" file="raton2.mp3" />
+  <media name="sentence_tech2.mp3" file="sentence_tech2.mp3" />
+  <media name="sentence_weather2.mp3" file="sentence_weather2.mp3" />
+  <media name="snowy.mp3" file="snowy.mp3" />
+  <media name="soleado2.mp3" file="soleado2.mp3" />
+  <media name="speakers.mp3" file="speakers.mp3" />
+  <media name="stormy.mp3" file="stormy.mp3" />
+  <media name="sunny.mp3" file="sunny.mp3" />
+  <media name="sunny2.mp3" file="sunny2.mp3" />
+  <media name="tap_review.mp3" file="tap_review.mp3" />
+  <media name="tap_tech.mp3" file="tap_tech.mp3" />
+  <media name="webcam.mp3" file="webcam.mp3" />
+  <media name="well_done.mp3" file="well_done.mp3" />
+  <media name="windy.mp3" file="windy.mp3" />
+  <media name="cloudy.png" file="cloudy.png" />
+  <media name="cold.png" file="cold.png" />
+  <media name="computer.png" file="computer.png" />
+  <media name="email.png" file="email.png" />
+  <media name="headphones.png" file="headphones.png" />
+  <media name="hot.png" file="hot.png" />
+  <media name="joystick.png" file="joystick.png" />
+  <media name="keyboard.png" file="keyboard.png" />
+  <media name="laptop.png" file="laptop.png" />
+  <media name="mobile.png" file="mobile.png" />
+  <media name="mouse.png" file="mouse.png" />
+  <media name="partly_cloudy.png" file="partly_cloudy.png" />
+  <media name="pendrive.png" file="pendrive.png" />
+  <media name="printer.png" file="printer.png" />
+  <media name="rainy.png" file="rainy.png" />
+  <media name="snowy.png" file="snowy.png" />
+  <media name="speakers.png" file="speakers.png" />
+  <media name="stormy.png" file="stormy.png" />
+  <media name="sunny.png" file="sunny.png" />
+  <media name="webcam.png" file="webcam.png" />
+  <media name="windy.png" file="windy.png" />
+ </mediaBag>
+</JClicProject>
+
