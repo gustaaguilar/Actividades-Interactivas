@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coloreo por Código - Campeones del Mundo</title>
+<style>
+  :root{
+    --piel: #ffd9b3;
+    --cafe: #8b5a2b;
+    --celeste: #6ec6ff;
+    --amarillo: #ffe066;
+    --rosa: #ff8fc7;
+    --limon: #d4f04f;
+    --bg: #0b1e3d;
+    --panel: #14294f;
+    --acento: #ffd400;
+    --texto: #ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Trebuchet MS', 'Segoe UI', sans-serif;
+    background: linear-gradient(160deg, var(--bg) 0%, #1a3a6b 100%);
+    color:var(--texto);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:16px;
+  }
+  h1{
+    text-align:center;
+    font-size:clamp(22px, 4vw, 36px);
+    margin:6px 0 2px;
+    color:var(--acento);
+    text-shadow: 2px 2px 0 #003366;
+  }
+  .subtitulo{
+    text-align:center;
+    font-size:clamp(13px,2.2vw,17px);
+    margin-bottom:14px;
+    opacity:0.9;
+    max-width:700px;
+  }
+  .top-bar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom:14px;
+  }
+  .btn{
+    background:var(--acento);
+    color:#1a1a1a;
+    border:none;
+    border-radius:30px;
+    padding:10px 20px;
+    font-weight:bold;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:0 4px 0 #b38f00;
+    transition: transform 0.1s;
+  }
+  .btn:active{ transform: translateY(3px); box-shadow:0 1px 0 #b38f00; }
+  .btn.secundario{
+    background:#4a6da3;
+    color:#fff;
+    box-shadow:0 4px 0 #2c4870;
+  }
+  .btn.secundario:active{ box-shadow:0 1px 0 #2c4870; }
+
+  .operaciones{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:10px;
+    max-width:560px;
+    width:100%;
+    margin:0 auto 18px;
+  }
+  @media (min-width: 700px){
+    .operaciones{ grid-template-columns: repeat(6, 1fr); max-width:900px; }
+  }
+  .op-card{
+    background:var(--panel);
+    border-radius:14px;
+    padding:10px 6px;
+    text-align:center;
+    border:3px solid transparent;
+    transition: border-color .3s, background .3s;
+  }
+  .op-card.resuelta{ border-color: #2ecc71; background:#163a2c; }
+  .op-color-label{
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+  }
+  .swatch-mini{
+    width:14px;height:14px;border-radius:50%;
+    border:1px solid rgba(255,255,255,0.5);
+    display:inline-block;
+  }
+  .op-cuenta{
+    font-size:clamp(15px,2.4vw,19px);
+    font-weight:bold;
+    line-height:1.1;
+  }
+
+  .area-juego{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:flex-start;
+    width:100%;
+    max-width:1100px;
+  }
+
+  .dibujo-wrap{
+    position:relative;
+    width:min(640px, 92vw);
+    aspect-ratio:1/1;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .dibujo-wrap img{
+    position:absolute;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:1;
+    user-select:none;
+  }
+  .dibujo-wrap svg{
+    position:absolute;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+    z-index:2;
+  }
+  .zona{
+    fill: transparent;
+    stroke: none;
+    cursor:pointer;
+    transition: fill 0.25s;
+  }
+  .zona:hover{
+    fill: rgba(255,212,0,0.18);
+  }
+  .zona.pintada{
+    pointer-events:none;
+  }
+  .zona.error{
+    animation: shake 0.4s;
+  }
+  @keyframes shake{
+    0%,100%{ transform: translateX(0); }
+    20%{ transform: translateX(-4px); }
+    40%{ transform: translateX(4px); }
+    60%{ transform: translateX(-4px); }
+    80%{ transform: translateX(4px); }
+  }
+
+  .paleta{
+    background:var(--panel);
+    border-radius:18px;
+    padding:16px;
+    width:min(220px, 92vw);
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .paleta h3{
+    margin:0 0 10px;
+    font-size:16px;
+    text-align:center;
+    color:var(--acento);
+  }
+  .color-btn{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#1e3a63;
+    border:3px solid transparent;
+    border-radius:12px;
+    padding:8px 10px;
+    margin-bottom:8px;
+    cursor:pointer;
+    color:#fff;
+    font-size:14px;
+    font-weight:bold;
+  }
+  .color-btn.activo{
+    border-color:var(--acento);
+    background:#2a4d80;
+  }
+  .color-circulo{
+    width:26px;height:26px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,0.6);
+    flex-shrink:0;
+  }
+
+  .progreso-wrap{
+    margin-top:14px;
+    background:#1e3a63;
+    border-radius:10px;
+    height:16px;
+    overflow:hidden;
+  }
+  .progreso-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, #2ecc71, #27ae60);
+    transition: width 0.4s;
+  }
+  .progreso-texto{
+    text-align:center;
+    font-size:13px;
+    margin-top:6px;
+  }
+
+  .overlay-final{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:100;
+    padding:20px;
+  }
+  .overlay-final.activo{ display:flex; }
+  .card-final{
+    background:linear-gradient(160deg, #ffd400, #ff9a00);
+    color:#1a1a1a;
+    border-radius:24px;
+    padding:30px 26px;
+    max-width:420px;
+    text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+  }
+  .card-final h2{
+    margin-top:0;
+    font-size:28px;
+  }
+  .card-final p{
+    font-size:16px;
+    line-height:1.4;
+  }
+  .copa-emoji{ font-size:54px; }
+  .botones-final{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:8px;
+  }
+  .botones-final .btn.secundario{
+    background:#1a1a1a;
+    color:#fff;
+    box-shadow:0 4px 0 #000;
+  }
+
+  audio{ display:none; }
+
+  footer{
+    margin-top:20px;
+    font-size:12px;
+    opacity:0.6;
+    text-align:center;
+  }
+
+  /* ====== PORTADA (portadaclic) ====== */
+  .portada{
+    position:fixed;
+    inset:0;
+    z-index:200;
+    background: radial-gradient(circle at 50% 20%, #1a3a6b 0%, #0b1e3d 70%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    text-align:center;
+    cursor:pointer;
+  }
+  .portada.oculta{ display:none; }
+  .portada-titulo{
+    font-size:clamp(24px,5vw,42px);
+    color:var(--acento);
+    text-shadow: 2px 2px 0 #003366;
+    margin:0 0 4px;
+  }
+  .portada-subtitulo{
+    font-size:clamp(14px,2.5vw,20px);
+    color:#fff;
+    opacity:0.9;
+    margin:0 0 18px;
+  }
+  .portada-foto{
+    width:min(280px, 60vw);
+    border-radius:24px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    border:4px solid var(--acento);
+    margin-bottom:22px;
+  }
+  .portada-mensaje{
+    font-size:clamp(16px,3vw,22px);
+    color:#fff;
+    font-weight:bold;
+    margin-bottom:18px;
+    animation: pulse 1.6s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ opacity:1; }
+    50%{ opacity:0.6; }
+  }
+  .portada-boton{
+    background:var(--acento);
+    color:#1a1a1a;
+    border:none;
+    border-radius:40px;
+    padding:14px 32px;
+    font-weight:bold;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 6px 0 #b38f00;
+  }
+  .portada-boton:active{ transform: translateY(4px); box-shadow:0 2px 0 #b38f00; }
+</style>
+</head>
+<body>
+
+  <div class="portada" id="portada">
+    <h1 class="portada-titulo">🏆 Coloreo por Código</h1>
+    <p class="portada-subtitulo">Campeones del Mundo · Junio, mes del Mundial</p>
+    <img class="portada-foto" src="portada_gustavo.jpg" alt="Profe Gustavo Aguilar - Informática Educativa">
+    <p class="portada-mensaje">¡Hola! Tocá para empezar</p>
+    <button class="portada-boton" id="btnEmpezar">▶ Comenzar</button>
+  </div>
+
+  <h1>🏆 Coloreo por Código</h1>
+  <p class="subtitulo">Resolvé cada multiplicación en tu cuaderno o calculadora. Después elegí el color del resultado y tocá la parte del dibujo que le corresponde.</p>
+
+  <div class="top-bar">
+    <button class="btn secundario" id="btnBienvenida">🔊 Escuchar consigna</button>
+    <button class="btn secundario" id="btnReiniciar">🔄 Jugar de nuevo</button>
+  </div>
+
+  <div class="operaciones" id="operaciones"></div>
+
+  <div class="area-juego">
+    <div class="dibujo-wrap">
+      <img src="messi_para_colorear.png" alt="Dibujo para colorear: jugador con la copa del mundo">
+      <svg id="svgZonas" viewBox="0 0 1254 1254" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+
+    <div class="paleta">
+      <h3>Elegí un color</h3>
+      <div id="listaColores"></div>
+      <div class="progreso-wrap">
+        <div class="progreso-fill" id="progresoFill"></div>
+      </div>
+      <div class="progreso-texto" id="progresoTexto">0 / 31 zonas pintadas</div>
+    </div>
+  </div>
+
+  <div class="overlay-final" id="overlayFinal">
+    <div class="card-final">
+      <div class="copa-emoji">🏆⭐⭐</div>
+      <h2>¡Felicitaciones, campeón!</h2>
+      <p>Resolviste todas las multiplicaciones y completaste el dibujo.<br><br><strong>¡Gracias, capitán, por tantas alegrías!</strong></p>
+      <div class="botones-final">
+        <button class="btn" id="btnCerrarFinal">¡Genial!</button>
+        <button class="btn secundario" id="btnJugarDeNuevoFinal">🔄 Jugar de nuevo</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audioBienvenida" src="bienvenida_coloreo.mp3"></audio>
+  <audio id="audioFelicitacion" src="felicitacion_coloreo.mp3"></audio>
+
+  <footer>QueSepanTodos.com · Junio, mes del Mundial 🌟</footer>
+
+<script>
+const codigo = [
+  { id:"piel",     nombre:"Piel clara", hex:"#ffd9b3", a:593, b:23, resultado:13639 },
+  { id:"cafe",     nombre:"Café",       hex:"#8b5a2b", a:928, b:25, resultado:23200 },
+  { id:"celeste",  nombre:"Celeste",    hex:"#6ec6ff", a:743, b:28, resultado:20804 },
+  { id:"amarillo", nombre:"Amarillo",   hex:"#ffe066", a:453, b:16, resultado:7248  },
+  { id:"rosa",     nombre:"Rosa",       hex:"#ff8fc7", a:432, b:35, resultado:15120 },
+  { id:"limon",    nombre:"Limón",      hex:"#d4f04f", a:786, b:23, resultado:18078 },
+];
+
+const zonas = [{"id": "z2", "color": "celeste", "puntos": "116.0,22.0 29.0,23.0 21.0,29.0 19.0,146.0 90.0,93.0", "tx": 59, "ty": 62, "radio": 40.14729309082031, "resultado": 20804}, {"id": "z4", "color": "cafe", "puntos": "538.0,23.0 508.0,82.0 521.0,104.0 527.0,121.0 534.0,168.0 618.0,210.0 667.0,151.0 716.0,103.0 693.0,24.0", "tx": 603, "ty": 102, "radio": 80.5286865234375, "resultado": 23200}, {"id": "z5", "color": "piel", "puntos": "703.0,22.0 727.0,102.0 813.0,134.0 895.0,118.0 912.0,23.0", "tx": 822, "ty": 77, "radio": 56.0, "resultado": 13639}, {"id": "z6", "color": "celeste", "puntos": "905.0,121.0 943.0,170.0 973.0,200.0 980.0,201.0 1021.0,193.0 1035.0,148.0 1044.0,136.0 1052.0,136.0 1060.0,143.0 1082.0,179.0 1142.0,107.0 1144.0,100.0 1123.0,22.0 924.0,22.0 913.0,67.0", "tx": 982, "ty": 95, "radio": 73.35969543457031, "resultado": 20804}, {"id": "z7", "color": "piel", "puntos": "1134.0,23.0 1155.0,101.0 1231.0,110.0 1231.0,33.0 1225.0,25.0 1217.0,22.0", "tx": 1189, "ty": 63, "radio": 42.0, "resultado": 13639}, {"id": "z12", "color": "piel", "puntos": "94.0,104.0 19.0,160.0 19.0,383.0 109.0,441.0 178.0,419.0 186.0,354.0 155.0,342.0 122.0,371.0 109.0,373.0 103.0,366.0 104.0,315.0 62.0,286.0 62.0,276.0 68.0,270.0 112.0,257.0 121.0,216.0 129.0,205.0 140.0,206.0 167.0,245.0 174.0,246.0 175.0,155.0", "tx": 73, "ty": 188, "radio": 54.922489166259766, "resultado": 13639}, {"id": "z13", "color": "amarillo", "puntos": "1231.0,121.0 1152.0,111.0 1090.0,186.0 1138.0,186.0 1149.0,194.0 1148.0,204.0 1115.0,246.0 1129.0,295.0 1128.0,311.0 1123.0,315.0 1113.0,315.0 1063.0,292.0 1022.0,322.0 1007.0,327.0 1002.0,349.0 1040.0,370.0 1096.0,407.0 1231.0,320.0", "tx": 1176, "ty": 259, "radio": 55.725589752197266, "resultado": 7248}, {"id": "z14", "color": "rosa", "puntos": "809.0,144.0 725.0,112.0 695.0,137.0 626.0,217.0 651.0,297.0 737.0,278.0 794.0,272.0", "tx": 729, "ty": 207, "radio": 72.80003356933594, "resultado": 15120}, {"id": "z15", "color": "amarillo", "puntos": "819.0,144.0 805.0,276.0 911.0,385.0 991.0,348.0 998.0,324.0 997.0,306.0 1005.0,259.0 958.0,221.0 957.0,213.0 963.0,205.0 928.0,169.0 897.0,128.0", "tx": 885, "ty": 244, "radio": 78.0, "resultado": 7248}, {"id": "z18", "color": "limon", "puntos": "1139.0,197.0 1080.0,195.0 1048.0,146.0 1027.0,203.0 968.0,214.0 970.0,219.0 1016.0,255.0 1007.0,315.0 1013.0,315.0 1060.0,281.0 1069.0,282.0 1119.0,305.0 1105.0,242.0", "tx": 1059, "ty": 236, "radio": 46.134891510009766, "resultado": 18078}, {"id": "z22", "color": "amarillo", "puntos": "533.0,179.0 472.0,366.0 569.0,400.0 641.0,300.0 616.0,221.0", "tx": 567, "ty": 289, "radio": 67.5224838256836, "resultado": 7248}, {"id": "z23", "color": "piel", "puntos": "133.0,214.0 121.0,263.0 71.0,281.0 114.0,310.0 113.0,363.0 152.0,331.0 161.0,332.0 203.0,349.0 186.0,295.0 214.0,254.0 163.0,256.0", "tx": 148, "ty": 291, "radio": 38.9534912109375, "resultado": 13639}, {"id": "z32", "color": "limon", "puntos": "904.0,393.0 799.0,284.0 792.0,282.0 720.0,292.0 650.0,308.0 588.0,391.0 577.0,410.0 613.0,512.0 622.0,512.0 630.0,504.0 641.0,503.0 643.0,484.0 651.0,460.0 653.0,440.0 648.0,437.0 648.0,421.0 654.0,404.0 643.0,408.0 640.0,400.0 656.0,371.0 677.0,356.0 667.0,353.0 665.0,345.0 680.0,336.0 705.0,330.0 730.0,331.0 735.0,324.0 750.0,324.0 782.0,332.0 803.0,344.0 806.0,337.0 817.0,340.0 841.0,354.0 861.0,374.0 867.0,373.0 881.0,398.0 885.0,391.0 893.0,395.0 900.0,412.0 900.0,428.0 903.0,428.0", "tx": 617, "ty": 427, "radio": 32.0, "resultado": 18078}, {"id": "z34", "color": "rosa", "puntos": "1231.0,333.0 1100.0,417.0 1097.0,520.0 1171.0,538.0 1231.0,558.0", "tx": 1165, "ty": 455, "radio": 67.0, "resultado": 15120}, {"id": "z37", "color": "rosa", "puntos": "996.0,357.0 915.0,395.0 913.0,430.0 922.0,436.0 925.0,445.0 922.0,448.0 914.0,448.0 928.0,467.0 932.0,480.0 932.0,502.0 928.0,516.0 922.0,520.0 908.0,559.0 917.0,566.0 1031.0,591.0 1086.0,522.0 1090.0,416.0", "tx": 1008, "ty": 460, "radio": 80.93798828125, "resultado": 15120}, {"id": "z41", "color": "cafe", "puntos": "19.0,396.0 21.0,572.0 82.0,555.0 101.0,449.0", "tx": 58, "ty": 469, "radio": 40.0, "resultado": 23200}, {"id": "z49", "color": "cafe", "puntos": "179.0,430.0 112.0,451.0 92.0,557.0 208.0,656.0 269.0,637.0 277.0,597.0 268.0,546.0 271.0,490.0", "tx": 188, "ty": 532, "radio": 80.8976821899414, "resultado": 23200}, {"id": "z69", "color": "limon", "puntos": "1093.0,530.0 1039.0,597.0 1074.0,695.0 1146.0,728.0 1230.0,707.0 1231.0,570.0 1173.0,550.0", "tx": 1144, "ty": 631, "radio": 86.08837890625, "resultado": 18078}, {"id": "z75", "color": "celeste", "puntos": "19.0,583.0 19.0,732.0 125.0,751.0 200.0,663.0 85.0,565.0", "tx": 93, "ty": 670, "radio": 74.99693298339844, "resultado": 20804}, {"id": "z108", "color": "rosa", "puntos": "1141.0,737.0 1071.0,705.0 976.0,799.0 988.0,819.0 995.0,841.0 995.0,897.0 1017.0,905.0 1129.0,853.0", "tx": 1067, "ty": 806, "radio": 67.3069839477539, "resultado": 15120}, {"id": "z115", "color": "amarillo", "puntos": "1151.0,738.0 1140.0,853.0 1231.0,915.0 1231.0,718.0", "tx": 1187, "ty": 821, "radio": 45.0, "resultado": 7248}, {"id": "z129", "color": "celeste", "puntos": "122.0,762.0 19.0,743.0 19.0,921.0 132.0,866.0", "tx": 74, "ty": 832, "radio": 55.52558898925781, "resultado": 20804}, {"id": "z203", "color": "amarillo", "puntos": "1133.0,862.0 1024.0,913.0 1052.0,980.0 1074.0,980.0 1106.0,939.0 1115.0,937.0 1124.0,947.0 1133.0,994.0 1176.0,1008.0 1185.0,1014.0 1187.0,1023.0 1180.0,1032.0 1139.0,1058.0 1138.0,1104.0 1163.0,1123.0 1231.0,1104.0 1231.0,928.0", "tx": 1177, "ty": 954, "radio": 51.928688049316406, "resultado": 7248}, {"id": "z209", "color": "cafe", "puntos": "137.0,875.0 19.0,933.0 19.0,1121.0 182.0,1164.0 288.0,1046.0 249.0,936.0", "tx": 62, "ty": 1087, "radio": 44.0, "resultado": 23200}, {"id": "z222", "color": "piel", "puntos": "990.0,907.0 980.0,935.0 950.0,986.0 910.0,1075.0 1000.0,1097.0 1023.0,1079.0 1041.0,1037.0 1014.0,997.0 1013.0,988.0 1021.0,980.0 1040.0,978.0 1014.0,915.0", "tx": 981, "ty": 1040, "radio": 51.13179016113281, "resultado": 13639}, {"id": "z226", "color": "cafe", "puntos": "1113.0,948.0 1078.0,990.0 1023.0,991.0 1051.0,1033.0 1051.0,1040.0 1032.0,1082.0 1031.0,1090.0 1086.0,1074.0 1120.0,1106.0 1128.0,1109.0 1130.0,1052.0 1177.0,1021.0 1123.0,1000.0", "tx": 1093, "ty": 1031, "radio": 42.94729232788086, "resultado": 23200}, {"id": "z257", "color": "celeste", "puntos": "1007.0,1107.0 1053.0,1229.0 1129.0,1230.0 1154.0,1131.0 1135.0,1116.0 1131.0,1120.0 1120.0,1119.0 1082.0,1084.0 1037.0,1100.0 1028.0,1100.0 1020.0,1094.0", "tx": 1089, "ty": 1165, "radio": 55.922489166259766, "resultado": 20804}, {"id": "z258", "color": "amarillo", "puntos": "906.0,1085.0 876.0,1171.0 865.0,1230.0 1042.0,1230.0 997.0,1108.0", "tx": 947, "ty": 1165, "radio": 66.0, "resultado": 7248}, {"id": "z259", "color": "rosa", "puntos": "1231.0,1115.0 1164.0,1134.0 1141.0,1230.0 1219.0,1230.0 1227.0,1226.0 1231.0,1219.0", "tx": 1191, "ty": 1190, "radio": 40.3472900390625, "resultado": 15120}, {"id": "z260", "color": "cafe", "puntos": "19.0,1132.0 19.0,1219.0 26.0,1228.0 196.0,1230.0 180.0,1175.0", "tx": 62, "ty": 1187, "radio": 43.3472900390625, "resultado": 23200}, {"id": "z3", "color": "limon", "puntos": "101.0,95.0 182.0,146.0 298.0,121.0 312.0,89.0 334.0,63.0 354.0,49.0 385.0,37.0 419.0,34.0 444.0,38.0 472.0,50.0 501.0,73.0 526.0,23.0 128.0,23.0", "tx": 193, "ty": 82, "radio": 60.316287994384766, "resultado": 18078}];
+
+let colorActivo = null;
+const totalZonas = zonas.length;
+let zonasPintadas = 0;
+
+/* ====== Generar cuentas nuevas al azar ======
+   Numero de 3 cifras (100-999) por numero de 1 cifra (2-9),
+   evitando resultados duplicados entre los 6 colores. */
+function generarCuentasNuevas(){
+  const resultadosUsados = new Set();
+  codigo.forEach(c => {
+    let a, b, resultado;
+    do {
+      a = Math.floor(Math.random() * 900) + 100; // 100-999
+      b = Math.floor(Math.random() * 8) + 2;      // 2-9
+      resultado = a * b;
+    } while (resultadosUsados.has(resultado));
+    resultadosUsados.add(resultado);
+    c.a = a;
+    c.b = b;
+    c.resultado = resultado;
+  });
+}
+
+function renderOperaciones(){
+  codigo.forEach(c => {
+    const card = document.getElementById("op-" + c.id);
+    card.querySelector(".op-cuenta").innerHTML = `${c.a}<br>x ${c.b}`;
+  });
+}
+
+function renderNumerosEnZonas(){
+  zonas.forEach(z => {
+    const texto = document.getElementById("txt-" + z.id);
+    if (!texto) return;
+    const c = codigo.find(c => c.id === z.color);
+    texto.textContent = c.resultado.toLocaleString("es-AR");
+  });
+}
+
+const contOperaciones = document.getElementById("operaciones");
+codigo.forEach(c => {
+  const div = document.createElement("div");
+  div.className = "op-card";
+  div.id = "op-" + c.id;
+  div.innerHTML = `
+    <div class="op-color-label">
+      <span class="swatch-mini" style="background:${c.hex}"></span> ${c.nombre}
+    </div>
+    <div class="op-cuenta">${c.a}<br>x ${c.b}</div>
+  `;
+  contOperaciones.appendChild(div);
+});
+
+const contColores = document.getElementById("listaColores");
+codigo.forEach(c => {
+  const btn = document.createElement("button");
+  btn.className = "color-btn";
+  btn.id = "color-" + c.id;
+  btn.innerHTML = `<span class="color-circulo" style="background:${c.hex}"></span> ${c.nombre}`;
+  btn.addEventListener("click", () => seleccionarColor(c.id));
+  contColores.appendChild(btn);
+});
+
+function seleccionarColor(colorId){
+  colorActivo = colorId;
+  document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("activo"));
+  document.getElementById("color-" + colorId).classList.add("activo");
+}
+
+const svg = document.getElementById("svgZonas");
+zonas.forEach(z => {
+  const poly = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+  poly.setAttribute("points", z.puntos);
+  poly.setAttribute("class", "zona");
+  poly.setAttribute("id", z.id);
+  poly.dataset.color = z.color;
+  poly.addEventListener("click", () => intentarPintar(poly, z.color));
+  svg.appendChild(poly);
+
+  // Numero de resultado dentro de la zona (igual que el afiche original)
+  if (z.tx !== undefined){
+    const fontSize = z.radio < 45 ? 16 : (z.radio < 60 ? 20 : 24);
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", z.tx);
+    text.setAttribute("y", z.ty);
+    text.setAttribute("font-size", fontSize);
+    text.setAttribute("text-anchor", "middle");
+    text.setAttribute("dominant-baseline", "middle");
+    text.setAttribute("font-family", "'Trebuchet MS', sans-serif");
+    text.setAttribute("font-weight", "bold");
+    text.setAttribute("fill", "#1a1a1a");
+    text.setAttribute("class", "numero-zona");
+    text.setAttribute("id", "txt-" + z.id);
+    text.style.pointerEvents = "none";
+    text.textContent = z.resultado.toLocaleString("es-AR");
+    svg.appendChild(text);
+  }
+});
+
+function intentarPintar(elemento, colorCorrecto){
+  if (elemento.classList.contains("pintada")) return;
+  if (!colorActivo){
+    elemento.classList.add("error");
+    setTimeout(() => elemento.classList.remove("error"), 400);
+    return;
+  }
+  if (colorActivo === colorCorrecto){
+    const hex = codigo.find(c => c.id === colorCorrecto).hex;
+    elemento.style.fill = hex;
+    elemento.style.fillOpacity = "0.92";
+    elemento.classList.add("pintada");
+    const texto = document.getElementById("txt-" + elemento.id);
+    if (texto) texto.style.display = "none";
+    zonasPintadas++;
+    actualizarProgreso();
+    marcarOperacionResuelta(colorCorrecto);
+    if (zonasPintadas === totalZonas){
+      setTimeout(mostrarFinal, 500);
+    }
+  } else {
+    elemento.classList.add("error");
+    setTimeout(() => elemento.classList.remove("error"), 400);
+  }
+}
+
+function marcarOperacionResuelta(colorId){
+  const restantes = zonas.filter(z => z.color === colorId &&
+    !document.getElementById(z.id).classList.contains("pintada"));
+  if (restantes.length === 0){
+    document.getElementById("op-" + colorId).classList.add("resuelta");
+  }
+}
+
+function actualizarProgreso(){
+  const pct = Math.round((zonasPintadas / totalZonas) * 100);
+  document.getElementById("progresoFill").style.width = pct + "%";
+  document.getElementById("progresoTexto").textContent = `${zonasPintadas} / ${totalZonas} zonas pintadas`;
+}
+
+const audioBienvenida = document.getElementById("audioBienvenida");
+const audioFelicitacion = document.getElementById("audioFelicitacion");
+
+document.getElementById("btnBienvenida").addEventListener("click", () => {
+  audioBienvenida.currentTime = 0;
+  audioBienvenida.play();
+});
+
+/* ====== PORTADA: ocultar y disparar audio de bienvenida al iniciar ====== */
+const portada = document.getElementById("portada");
+function iniciarActividad(){
+  portada.classList.add("oculta");
+  audioBienvenida.currentTime = 0;
+  audioBienvenida.play();
+}
+portada.addEventListener("click", iniciarActividad);
+document.getElementById("btnEmpezar").addEventListener("click", (e) => {
+  e.stopPropagation();
+  iniciarActividad();
+});
+
+function mostrarFinal(){
+  document.getElementById("overlayFinal").classList.add("activo");
+  audioFelicitacion.currentTime = 0;
+  audioFelicitacion.play();
+}
+
+document.getElementById("btnCerrarFinal").addEventListener("click", () => {
+  document.getElementById("overlayFinal").classList.remove("activo");
+});
+
+document.getElementById("btnJugarDeNuevoFinal").addEventListener("click", () => {
+  document.getElementById("overlayFinal").classList.remove("activo");
+  jugarDeNuevo();
+});
+
+function jugarDeNuevo(){
+  generarCuentasNuevas();
+  renderOperaciones();
+  renderNumerosEnZonas();
+  document.querySelectorAll(".zona").forEach(z => {
+    z.classList.remove("pintada");
+    z.style.fill = "";
+    z.style.fillOpacity = "";
+  });
+  document.querySelectorAll(".numero-zona").forEach(t => t.style.display = "");
+  document.querySelectorAll(".op-card").forEach(c => c.classList.remove("resuelta"));
+  document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("activo"));
+  colorActivo = null;
+  zonasPintadas = 0;
+  actualizarProgreso();
+  document.getElementById("overlayFinal").classList.remove("activo");
+}
+
+document.getElementById("btnReiniciar").addEventListener("click", jugarDeNuevo);
+
+window.addEventListener("load", () => {
+  actualizarProgreso();
+});
+</script>
+</body>
+</html>
