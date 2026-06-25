@@ -145,6 +145,31 @@
     height:100%;
     z-index:2;
   }
+  .loader-dibujo{
+    position:absolute;
+    inset:0;
+    z-index:5;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+  }
+  .loader-dibujo.oculto{ display:none; }
+  .loader-spinner{
+    width:48px;height:48px;
+    border:5px solid #e2e8f0;
+    border-top-color:var(--acento);
+    border-radius:50%;
+    animation: girar 0.8s linear infinite;
+  }
+  @keyframes girar{ to{ transform: rotate(360deg); } }
+  .loader-texto{
+    font-size:14px;
+    color:#1a3a6b;
+    font-weight:bold;
+  }
   .zona{
     fill: transparent;
     stroke: none;
@@ -358,7 +383,11 @@
 
   <div class="area-juego">
     <div class="dibujo-wrap">
-      <img src="messi_para_colorear.png" alt="Dibujo para colorear: jugador con la copa del mundo">
+      <div class="loader-dibujo" id="loaderDibujo">
+        <div class="loader-spinner"></div>
+        <span class="loader-texto">Cargando dibujo...</span>
+      </div>
+      <img src="messi_para_colorear.png" alt="Dibujo para colorear: jugador con la copa del mundo" id="imgDibujo">
       <svg id="svgZonas" viewBox="0 0 1254 1254" preserveAspectRatio="xMidYMid meet"></svg>
     </div>
 
@@ -404,6 +433,46 @@ const zonas = [{"id": "z2", "color": "celeste", "puntos": "116.0,22.0 29.0,23.0 
 let colorActivo = null;
 const totalZonas = zonas.length;
 let zonasPintadas = 0;
+
+/* ====== SONIDOS de acierto/error (tonos sintéticos, sin archivos externos) ====== */
+let audioCtx = null;
+function getAudioCtx(){
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return audioCtx;
+}
+function sonidoAcierto(){
+  const ctx = getAudioCtx();
+  const ahora = ctx.currentTime;
+  // Dos notas ascendentes cortas tipo "ding"
+  [523.25, 783.99].forEach((freq, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.25, ahora + i*0.09);
+    gain.gain.exponentialRampToValueAtTime(0.001, ahora + i*0.09 + 0.22);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(ahora + i*0.09);
+    osc.stop(ahora + i*0.09 + 0.22);
+  });
+}
+function sonidoError(){
+  const ctx = getAudioCtx();
+  const ahora = ctx.currentTime;
+  // Tono grave corto tipo "buzz"
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = "sawtooth";
+  osc.frequency.setValueAtTime(160, ahora);
+  osc.frequency.exponentialRampToValueAtTime(90, ahora + 0.18);
+  gain.gain.setValueAtTime(0.2, ahora);
+  gain.gain.exponentialRampToValueAtTime(0.001, ahora + 0.2);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start(ahora);
+  osc.stop(ahora + 0.2);
+}
 
 /* ====== Generar cuentas nuevas al azar ======
    Numero de 3 cifras (100-999) por numero de 1 cifra (2-9),
@@ -503,6 +572,7 @@ zonas.forEach(z => {
 function intentarPintar(elemento, colorCorrecto){
   if (elemento.classList.contains("pintada")) return;
   if (!colorActivo){
+    sonidoError();
     elemento.classList.add("error");
     setTimeout(() => elemento.classList.remove("error"), 400);
     return;
@@ -514,6 +584,7 @@ function intentarPintar(elemento, colorCorrecto){
     elemento.classList.add("pintada");
     const texto = document.getElementById("txt-" + elemento.id);
     if (texto) texto.style.display = "none";
+    sonidoAcierto();
     zonasPintadas++;
     actualizarProgreso();
     marcarOperacionResuelta(colorCorrecto);
@@ -521,6 +592,7 @@ function intentarPintar(elemento, colorCorrecto){
       setTimeout(mostrarFinal, 500);
     }
   } else {
+    sonidoError();
     elemento.classList.add("error");
     setTimeout(() => elemento.classList.remove("error"), 400);
   }
@@ -599,6 +671,19 @@ document.getElementById("btnReiniciar").addEventListener("click", jugarDeNuevo);
 window.addEventListener("load", () => {
   actualizarProgreso();
 });
+
+/* ====== LOADER: ocultar cuando la imagen termine de cargar ====== */
+const imgDibujo = document.getElementById("imgDibujo");
+const loaderDibujo = document.getElementById("loaderDibujo");
+function ocultarLoader(){
+  loaderDibujo.classList.add("oculto");
+}
+if (imgDibujo.complete && imgDibujo.naturalWidth > 0){
+  ocultarLoader();
+} else {
+  imgDibujo.addEventListener("load", ocultarLoader);
+  imgDibujo.addEventListener("error", ocultarLoader);
+}
 </script>
 </body>
 </html>
