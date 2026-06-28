@@ -267,7 +267,7 @@
     .pantalla { display: none !important; }
   }
 
-  @media (max-height: 650px) and (min-width: 901px) {
+  @media (max-height: 800px) and (min-width: 901px) {
     body { padding: 6px; }
     h1 { font-size: 1.2em; margin: 2px 0; }
     #contador-bar { padding: 4px 18px; margin-bottom: 4px; }
@@ -278,7 +278,30 @@
     .tarjeta { padding: 6px 6px; margin-bottom: 6px; }
     .cuenta-vertical { font-size: 1.05em; }
     #btn-reiniciar { margin: 4px auto; padding: 5px 16px; font-size: 0.9em; }
-    #pantalla-inicio img, #pantalla-final img { max-width: 220px; }
+
+    .contenido-pantalla {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      height: calc(100vh - 70px);
+    }
+    #pantalla-inicio img, #pantalla-final img {
+      max-width: none;
+      width: auto;
+      height: auto;
+      max-height: min(60vh, 320px);
+      margin: 0;
+      flex: 0 1 auto;
+    }
+    .columna-texto {
+      flex: 1 1 auto;
+      max-width: 46%;
+      height: 100%;
+      justify-content: center;
+      gap: 10px;
+    }
+    .pantalla.activa#pantalla-inicio h1, .pantalla.activa#pantalla-final h1 { display: none; }
   }
 </style>
 </head>
