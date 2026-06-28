@@ -369,7 +369,7 @@
 </div>
 
 <script>
-const ZONES = [{"id": "zona_1", "paths": ["M 48,0 L 0,0 L 0,68 Z"], "cx": 16.0, "cy": 22.8, "area": 1725}, {"id": "zona_2", "paths": ["M 62,0 L 145,116 L 222,108 L 284,41 L 280,0 Z"], "cx": 181.7, "cy": 47.3, "area": 18236}, {"id": "zona_3", "paths": ["M 465,0 L 487,49 L 569,24 L 577,1 Z"], "cx": 518.2, "cy": 18.2, "area": 3763}, {"id": "zona_4", "paths": ["M 758,76 L 769,90 L 934,92 L 978,50 L 948,0 L 770,0 Z"], "cx": 862.5, "cy": 45.4, "area": 18112}, {"id": "zona_5", "paths": ["M 948,0 L 978,50 L 1054,59 L 1059,58 L 1092,0 Z"], "cx": 1021.1, "cy": 24.7, "area": 6280}, {"id": "zona_6", "paths": ["M 1058,59 L 1086,106 L 1274,88 L 1246,0 L 1092,0 Z"], "cx": 1164.1, "cy": 50.8, "area": 18579}, {"id": "zona_7", "paths": ["M 1246,0 L 1273,86 L 1283,98 L 1367,90 L 1367,0 Z"], "cx": 1313.2, "cy": 44.8, "area": 10165}, {"id": "zona_8", "paths": ["M 48,0 L 0,68 L 0,190 L 82,199 L 145,116 L 63,1 Z"], "cx": 60.0, "cy": 109.6, "area": 19668}, {"id": "zona_9", "paths": ["M 222,108 L 145,116 L 82,199 L 105,239 L 249,246 L 261,245 L 266,236 Z"], "cx": 177.2, "cy": 185.0, "area": 18185}, {"id": "zona_10", "paths": ["M 1367,90 L 1283,98 L 1255,222 L 1288,271 L 1367,249 Z"], "cx": 1317.2, "cy": 179.7, "area": 16547}, {"id": "zona_11", "paths": ["M 0,190 L 0,343 L 94,377 L 108,371 L 105,239 L 83,200 L 77,198 Z"], "cx": 53.3, "cy": 281.1, "area": 17418}, {"id": "zona_12", "paths": ["M 0,343 L 0,509 L 18,511 L 95,377 Z"], "cx": 32.4, "cy": 417.6, "area": 9375}, {"id": "zona_13", "paths": ["M 0,509 L 0,715 L 64,697 L 87,681 L 89,635 L 89,591 L 18,511 Z"], "cx": 38.5, "cy": 619.7, "area": 14275}, {"id": "zona_14", "paths": ["M 1139,575 L 1115,688 L 1148,724 L 1307,706 L 1300,572 L 1179,542 Z"], "cx": 1213.3, "cy": 638.1, "area": 27920}, {"id": "zona_15", "paths": ["M 1367,528 L 1343,529 L 1300,572 L 1307,707 L 1309,710 L 1367,713 Z"], "cx": 1336.8, "cy": 624.6, "area": 11026}, {"id": "zona_16", "paths": ["M 66,696 L 0,715 L 0,767 L 73,767 Z"], "cx": 36.7, "cy": 736.5, "area": 4439}, {"id": "zona_17", "paths": ["M 589,694 L 560,680 L 439,715 L 433,767 L 594,767 Z"], "cx": 519.6, "cy": 731.0, "area": 11284}, {"id": "zona_18", "paths": ["M 589,694 L 594,767 L 723,767 L 708,696 Z"], "cx": 653.2, "cy": 731.5, "area": 9115}, {"id": "zona_19", "paths": ["M 708,696 L 723,767 L 933,767 L 934,743 L 740,662 Z"], "cx": 803.0, "cy": 728.6, "area": 15029}, {"id": "zona_20", "paths": ["M 1148,724 L 1115,688 L 963,690 L 934,743 L 933,767 L 1138,767 Z"], "cx": 1041.2, "cy": 729.8, "area": 15386}, {"id": "zona_21", "paths": ["M 1309,710 L 1307,706 L 1148,724 L 1138,767 L 1308,767 Z"], "cx": 1230.6, "cy": 741.0, "area": 8789}, {"id": "zona_22", "paths": ["M 1309,710 L 1308,767 L 1367,767 L 1367,713 Z"], "cx": 1337.5, "cy": 739.4, "area": 3363}];
+const ZONES = [{"id": "zona_1", "paths": ["M 48,0 L 0,0 L 0,68 Z"], "cx": 16.0, "cy": 22.8, "area": 1725, "bbox_w": 48.0, "bbox_h": 68.0}, {"id": "zona_2", "paths": ["M 62,0 L 145,116 L 222,108 L 284,41 L 280,0 Z"], "cx": 181.7, "cy": 47.3, "area": 18236, "bbox_w": 222.0, "bbox_h": 116.0}, {"id": "zona_3", "paths": ["M 465,0 L 487,49 L 569,24 L 577,1 Z"], "cx": 518.2, "cy": 18.2, "area": 3763, "bbox_w": 112.0, "bbox_h": 49.0}, {"id": "zona_4", "paths": ["M 758,76 L 769,90 L 934,92 L 978,50 L 948,0 L 770,0 Z"], "cx": 862.5, "cy": 45.4, "area": 18112, "bbox_w": 220.0, "bbox_h": 92.0}, {"id": "zona_5", "paths": ["M 948,0 L 978,50 L 1054,59 L 1059,58 L 1092,0 Z"], "cx": 1021.1, "cy": 24.7, "area": 6280, "bbox_w": 144.0, "bbox_h": 59.0}, {"id": "zona_6", "paths": ["M 1058,59 L 1086,106 L 1274,88 L 1246,0 L 1092,0 Z"], "cx": 1164.1, "cy": 50.8, "area": 18579, "bbox_w": 216.0, "bbox_h": 106.0}, {"id": "zona_7", "paths": ["M 1246,0 L 1273,86 L 1283,98 L 1367,90 L 1367,0 Z"], "cx": 1313.2, "cy": 44.8, "area": 10165, "bbox_w": 121.0, "bbox_h": 98.0}, {"id": "zona_8", "paths": ["M 48,0 L 0,68 L 0,190 L 82,199 L 145,116 L 63,1 Z"], "cx": 60.0, "cy": 109.6, "area": 19668, "bbox_w": 145.0, "bbox_h": 199.0}, {"id": "zona_9", "paths": ["M 222,108 L 145,116 L 82,199 L 105,239 L 249,246 L 261,245 L 266,236 Z"], "cx": 177.2, "cy": 185.0, "area": 18185, "bbox_w": 184.0, "bbox_h": 138.0}, {"id": "zona_10", "paths": ["M 1367,90 L 1283,98 L 1255,222 L 1288,271 L 1367,249 Z"], "cx": 1317.2, "cy": 179.7, "area": 16547, "bbox_w": 112.0, "bbox_h": 181.0}, {"id": "zona_11", "paths": ["M 0,190 L 0,343 L 94,377 L 108,371 L 105,239 L 83,200 L 77,198 Z"], "cx": 53.3, "cy": 281.1, "area": 17418, "bbox_w": 108.0, "bbox_h": 187.0}, {"id": "zona_12", "paths": ["M 0,343 L 0,509 L 18,511 L 95,377 Z"], "cx": 32.4, "cy": 417.6, "area": 9375, "bbox_w": 95.0, "bbox_h": 168.0}, {"id": "zona_13", "paths": ["M 0,509 L 0,715 L 64,697 L 87,681 L 89,635 L 89,591 L 18,511 Z"], "cx": 38.5, "cy": 619.7, "area": 14275, "bbox_w": 89.0, "bbox_h": 206.0}, {"id": "zona_14", "paths": ["M 1139,575 L 1115,688 L 1148,724 L 1307,706 L 1300,572 L 1179,542 Z"], "cx": 1213.3, "cy": 638.1, "area": 27920, "bbox_w": 192.0, "bbox_h": 182.0}, {"id": "zona_15", "paths": ["M 1367,528 L 1343,529 L 1300,572 L 1307,707 L 1309,710 L 1367,713 Z"], "cx": 1336.8, "cy": 624.6, "area": 11026, "bbox_w": 67.0, "bbox_h": 185.0}, {"id": "zona_16", "paths": ["M 66,696 L 0,715 L 0,767 L 73,767 Z"], "cx": 36.7, "cy": 736.5, "area": 4439, "bbox_w": 73.0, "bbox_h": 71.0}, {"id": "zona_17", "paths": ["M 589,694 L 560,680 L 439,715 L 433,767 L 594,767 Z"], "cx": 519.6, "cy": 731.0, "area": 11284, "bbox_w": 161.0, "bbox_h": 87.0}, {"id": "zona_18", "paths": ["M 589,694 L 594,767 L 723,767 L 708,696 Z"], "cx": 653.2, "cy": 731.5, "area": 9115, "bbox_w": 134.0, "bbox_h": 73.0}, {"id": "zona_19", "paths": ["M 708,696 L 723,767 L 933,767 L 934,743 L 740,662 Z"], "cx": 803.0, "cy": 728.6, "area": 15029, "bbox_w": 226.0, "bbox_h": 105.0}, {"id": "zona_20", "paths": ["M 1148,724 L 1115,688 L 963,690 L 934,743 L 933,767 L 1138,767 Z"], "cx": 1041.2, "cy": 729.8, "area": 15386, "bbox_w": 215.0, "bbox_h": 79.0}, {"id": "zona_21", "paths": ["M 1309,710 L 1307,706 L 1148,724 L 1138,767 L 1308,767 Z"], "cx": 1230.6, "cy": 741.0, "area": 8789, "bbox_w": 171.0, "bbox_h": 61.0}, {"id": "zona_22", "paths": ["M 1309,710 L 1308,767 L 1367,767 L 1367,713 Z"], "cx": 1337.5, "cy": 739.4, "area": 3363, "bbox_w": 59.0, "bbox_h": 57.0}];
 const COLORS = ["#FFADAD","#FFD6A5","#FDFFB6","#CAFFBF","#9BF6FF"];
 const MAX_CUENTAS = 5;
 
@@ -436,15 +436,18 @@ function inicializarJuego() {
   actualizarContador();
 }
 
-function tamanioFuentePorArea(area, cantidadDigitos) {
-  let base;
-  if (area < 1500) base = 26;
-  else if (area < 4000) base = 36;
-  else if (area < 9000) base = 46;
-  else base = 56;
-  // Los números de 2 cifras ocupan ~1.7x más ancho que uno de 1 cifra; reducimos para que entren
-  if (cantidadDigitos >= 2) base = base * 0.62;
-  return Math.round(base);
+function tamanioFuentePorEspacio(bboxW, bboxH, cantidadDigitos) {
+  const FACTOR_ANCHO_CARACTER = 0.62; // ancho aproximado de un dígito en bold, relativo al font-size
+  const MARGEN_SEGURIDAD = 0.68; // usar como máximo el 68% del espacio disponible
+
+  const anchoDisponible = bboxW * MARGEN_SEGURIDAD;
+  const altoDisponible = bboxH * MARGEN_SEGURIDAD;
+
+  const tamanioPorAncho = anchoDisponible / (cantidadDigitos * FACTOR_ANCHO_CARACTER);
+  const tamanioPorAlto = altoDisponible;
+
+  const tamanioFinal = Math.min(tamanioPorAncho, tamanioPorAlto);
+  return Math.max(10, Math.min(60, Math.round(tamanioFinal)));
 }
 
 function renderZonas() {
@@ -471,7 +474,7 @@ function renderZonas() {
     texto.setAttribute('y', zona.cy);
     texto.setAttribute('text-anchor', 'middle');
     texto.setAttribute('dominant-baseline', 'middle');
-    texto.setAttribute('font-size', tamanioFuentePorArea(zona.area, resultadoTexto.length));
+    texto.setAttribute('font-size', tamanioFuentePorEspacio(zona.bbox_w, zona.bbox_h, resultadoTexto.length));
     texto.setAttribute('font-weight', 'bold');
     texto.setAttribute('font-family', 'Trebuchet MS, sans-serif');
     texto.setAttribute('fill', '#1864AB');
