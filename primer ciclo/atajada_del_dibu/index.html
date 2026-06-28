@@ -436,11 +436,15 @@ function inicializarJuego() {
   actualizarContador();
 }
 
-function tamanioFuentePorArea(area) {
-  if (area < 1500) return 26;
-  if (area < 4000) return 36;
-  if (area < 9000) return 46;
-  return 56;
+function tamanioFuentePorArea(area, cantidadDigitos) {
+  let base;
+  if (area < 1500) base = 26;
+  else if (area < 4000) base = 36;
+  else if (area < 9000) base = 46;
+  else base = 56;
+  // Los números de 2 cifras ocupan ~1.7x más ancho que uno de 1 cifra; reducimos para que entren
+  if (cantidadDigitos >= 2) base = base * 0.62;
+  return Math.round(base);
 }
 
 function renderZonas() {
@@ -461,12 +465,13 @@ function renderZonas() {
 
     const tarjetaId = estado.zonaToTarjeta[zona.id];
     const tarjeta = estado.tarjetas.find(t => t.id === tarjetaId);
+    const resultadoTexto = tarjeta ? String(tarjeta.resultado) : '';
     const texto = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     texto.setAttribute('x', zona.cx);
     texto.setAttribute('y', zona.cy);
     texto.setAttribute('text-anchor', 'middle');
     texto.setAttribute('dominant-baseline', 'middle');
-    texto.setAttribute('font-size', tamanioFuentePorArea(zona.area));
+    texto.setAttribute('font-size', tamanioFuentePorArea(zona.area, resultadoTexto.length));
     texto.setAttribute('font-weight', 'bold');
     texto.setAttribute('font-family', 'Trebuchet MS, sans-serif');
     texto.setAttribute('fill', '#1864AB');
@@ -476,7 +481,7 @@ function renderZonas() {
     texto.setAttribute('class', 'numero-zona');
     texto.setAttribute('data-zona-id', zona.id);
     texto.style.pointerEvents = 'none';
-    texto.textContent = tarjeta ? tarjeta.resultado : '';
+    texto.textContent = resultadoTexto;
     g.appendChild(texto);
 
     svg.appendChild(g);
@@ -621,20 +626,6 @@ function reproducirAudioCierre() {
   const audio = new Audio('audio_cierre.mp3');
   audio.play().catch(() => {});
 }
-
-let audioBienvenidaReproducido = false;
-function intentarReproducirBienvenida() {
-  const pantallaInicio = document.getElementById('pantalla-inicio');
-  if (!audioBienvenidaReproducido && pantallaInicio.classList.contains('activa')) {
-    reproducirAudioBienvenida();
-    audioBienvenidaReproducido = true;
-  }
-}
-document.getElementById('pantalla-inicio').addEventListener('click', intentarReproducirBienvenida, { once: true });
-window.addEventListener('load', () => {
-  // Intento silencioso de autoplay; si el navegador lo bloquea, sonará en el primer clic/touch de arriba
-  intentarReproducirBienvenida();
-});
 
 function esPortraitChico() {
   return window.matchMedia('(max-width: 900px) and (orientation: portrait)').matches;
