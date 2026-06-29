@@ -384,9 +384,18 @@ function inicializarJuego() {
 
 function mostrarDiagnostico() {
   if (!location.search.includes('diag=1')) return;
+  // Remedir dos veces con delay para evitar capturar el layout a medio calcular
+  medirDiagnostico();
+  setTimeout(medirDiagnostico, 300);
+  setTimeout(medirDiagnostico, 1000);
+}
+
+function medirDiagnostico() {
+  if (!location.search.includes('diag=1')) return;
   const svg = document.getElementById('svg-zonas');
   const cont = document.getElementById('dibujo-container');
   const img = document.getElementById('escena-img');
+  if (!svg || !cont || !img) return;
   const svgRect = svg.getBoundingClientRect();
   const contRect = cont.getBoundingClientRect();
   const imgRect = img.getBoundingClientRect();
@@ -394,14 +403,15 @@ function mostrarDiagnostico() {
     'window: ' + window.innerWidth + 'x' + window.innerHeight,
     'devicePixelRatio: ' + window.devicePixelRatio,
     'orientation: ' + (window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'),
-    'dibujo-container: ' + Math.round(contRect.width) + 'x' + Math.round(contRect.height),
-    'escena-img: ' + Math.round(imgRect.width) + 'x' + Math.round(imgRect.height),
-    'svg-zonas: ' + Math.round(svgRect.width) + 'x' + Math.round(svgRect.height),
+    'dibujo-container: ' + contRect.width.toFixed(1) + 'x' + contRect.height.toFixed(1),
+    'escena-img: ' + imgRect.width.toFixed(1) + 'x' + imgRect.height.toFixed(1),
+    'svg-zonas: ' + svgRect.width.toFixed(1) + 'x' + svgRect.height.toFixed(1),
     'svg viewBox: ' + svg.getAttribute('viewBox'),
     'svg vs img top: ' + (svgRect.top - imgRect.top).toFixed(2),
     'svg vs img left: ' + (svgRect.left - imgRect.left).toFixed(2),
     'svg vs img width diff: ' + (svgRect.width - imgRect.width).toFixed(2),
-    'svg vs img height diff: ' + (svgRect.height - imgRect.height).toFixed(2)
+    'svg vs img height diff: ' + (svgRect.height - imgRect.height).toFixed(2),
+    '--- tocá una celda para ver el detalle del clic ---'
   ];
   let panel = document.getElementById('panel-diagnostico');
   if (!panel) {
@@ -421,9 +431,38 @@ function mostrarDiagnostico() {
     panel.style.whiteSpace = 'pre';
     document.body.appendChild(panel);
   }
-  panel.textContent = datos.join('\n');
+  window._diagBase = datos;
+  panel.textContent = datos.join('\n') + '\n' + (window._diagClick || '');
 }
 window.addEventListener('resize', mostrarDiagnostico);
+
+document.addEventListener('click', function(ev) {
+  if (!location.search.includes('diag=1')) return;
+  const target = ev.target.closest('path.zona, path[data-zona-id]');
+  if (!target) return;
+  const svg = document.getElementById('svg-zonas');
+  const svgRect = svg.getBoundingClientRect();
+  const pathRect = target.getBoundingClientRect();
+  const vb = svg.viewBox.baseVal;
+  const scaleX = vb.width / svgRect.width;
+  const scaleY = vb.height / svgRect.height;
+  const clickXenSvg = (ev.clientX - svgRect.left) * scaleX;
+  const clickYenSvg = (ev.clientY - svgRect.top) * scaleY;
+  const zonaId = target.getAttribute('data-zona-id');
+  window._diagClick = [
+    '--- ÚLTIMO CLIC ---',
+    'zona tocada: ' + zonaId,
+    'clic pantalla: ' + ev.clientX.toFixed(1) + ',' + ev.clientY.toFixed(1),
+    'clic en coords viewBox: ' + clickXenSvg.toFixed(1) + ',' + clickYenSvg.toFixed(1),
+    'path bbox pantalla: ' + pathRect.left.toFixed(1) + ',' + pathRect.top.toFixed(1) + ' ' + pathRect.width.toFixed(1) + 'x' + pathRect.height.toFixed(1),
+    'svg bbox pantalla: ' + svgRect.left.toFixed(1) + ',' + svgRect.top.toFixed(1) + ' ' + svgRect.width.toFixed(1) + 'x' + svgRect.height.toFixed(1),
+    'escala svg->viewBox: ' + scaleX.toFixed(4) + ' / ' + scaleY.toFixed(4)
+  ].join('\n');
+  const panel = document.getElementById('panel-diagnostico');
+  if (panel && window._diagBase) {
+    panel.textContent = window._diagBase.join('\n') + '\n' + window._diagClick;
+  }
+}, true);
 
 function tamanioFuentePorArea(area) {
   if (area < 1500) return 18;
