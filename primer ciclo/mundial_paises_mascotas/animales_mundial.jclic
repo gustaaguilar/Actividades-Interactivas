@@ -1,0 +1,1449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="animales_mundial" version="0.1.3">
+ <settings>
+  <title>Banderas, mascotas y animales del Mundial 2026</title>
+  <revision description="created" date="5/5/28" />
+  <author name="Gustavo Aguilar" />
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es" />
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="portadaclic" delay="5" navButtons="none" />
+  <item name="portada_animales" delay="5" navButtons="none" />
+  <item name="sedes_paises" delay="5" navButtons="none" />
+  <item name="banderas_colores" delay="5" navButtons="none" />
+  <item name="que_es_mascota" delay="8" navButtons="none" />
+  <item name="mascotas_paises" delay="5" navButtons="none" />
+  <item name="mascotas_animales" delay="5" navButtons="none" />
+  <item name="sopa_mascotas" delay="5" navButtons="none" />
+  <item name="aguila_caracteristicas" delay="5" navButtons="none" />
+  <item name="aguila_vive" delay="5" navButtons="none" />
+  <item name="aguila_come" delay="5" navButtons="none" />
+  <item name="jaguar_caracteristicas" delay="5" navButtons="none" />
+  <item name="jaguar_come" delay="5" navButtons="none" />
+  <item name="alce_caracteristicas" delay="5" navButtons="none" />
+  <item name="alce_come" delay="5" navButtons="none" />
+  <item name="animales_especie" delay="5" navButtons="none" />
+  <item name="animales_donde_viven" delay="5" navButtons="none" />
+  <item name="otros_animales_canada" delay="6" navButtons="none" />
+  <item name="otros_animales_mexico" delay="7" navButtons="none" />
+  <item name="otros_animales_eeuu" delay="5" navButtons="none" />
+  <item name="memo_animales" delay="5" navButtons="none" />
+  <item name="cierre" navButtons="none" />
+ </sequence>
+ <activities>
+  <activity class="@associations.SimpleAssociation" name="aguila_caracteristicas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_aguila_caract.mp3" />
+     <p>Uní cada característica con la parte del cuerpo del águila calva.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_rio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="275.0" cellHeight="156.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_aguila.png">
+     <media type="PLAY_AUDIO" level="1" file="aguila_cabeza.mp3" />
+     <p>cabeza</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_aguila.png">
+     <media type="PLAY_AUDIO" level="1" file="aguila_pico.mp3" />
+     <p>pico</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_aguila.png">
+     <media type="PLAY_AUDIO" level="1" file="aguila_cuerpo.mp3" />
+     <p>cuerpo</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="301.0" cellHeight="110.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xEEFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="aguila_cabeza.mp3" />
+     <p>blanca</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="aguila_pico.mp3" />
+     <p>amarillo ganchudo</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="aguila_cuerpo.mp3" />
+     <p>marrón con plumas</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="aguila_come" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_aguila_come.mp3" />
+     <p>¿Qué come el águila calva?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_rio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="536.0" cellHeight="115.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="aguila_come_inc1.mp3" />
+     <p>Come frutas y semillas.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="aguila_come_correcto.mp3" />
+     <p>Se alimenta principalmente de peces.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="aguila_come_inc2.mp3" />
+     <p>Come raíces y plantas acuáticas.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="aguila_vive" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_aguila_vive.mp3" />
+     <p>¿Dónde vive el águila calva?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_rio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="513.0" cellHeight="100.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="26" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="aguila_vive_correcto.mp3" />
+     <p>Cerca de ríos y lagos.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="aguila_vive_inc1.mp3" />
+     <p>En las selvas tropicales.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="aguila_vive_inc2.mp3" />
+     <p>En los desiertos cálidos.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="alce_caracteristicas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_alce_caract.mp3" />
+     <p>Uní cada característica con el alce.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_bosque_frio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="312.0" cellHeight="158.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_alce.png">
+     <media type="PLAY_AUDIO" level="1" file="alce_pelo.mp3" />
+     <p>su pelo</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_alce.png">
+     <media type="PLAY_AUDIO" level="1" file="alce_astas.mp3" />
+     <p>sus astas</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_alce.png">
+     <media type="PLAY_AUDIO" level="1" file="alce_habitat.mp3" />
+     <p>hábitat</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="280.0" cellHeight="134.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color background="0xEEFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="alce_pelo.mp3" />
+     <p>grueso y marrón, nariz larga</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="alce_astas.mp3" />
+     <p>grandes, se renuevan cada año</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="alce_habitat.mp3" />
+     <p>bosques fríos y montañas</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="alce_come" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_alce_come.mp3" />
+     <p>¿Qué come el alce?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_bosque_frio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="535.0" cellHeight="140.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="26" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="alce_come_inc1.mp3" />
+     <p>Es carnívoro. Come peces, conejos y ciervos.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="alce_come_correcto.mp3" />
+     <p>Es herbívoro. Come raíces, ramas, hojas y plantas acuáticas.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="alce_come_inc2.mp3" />
+     <p>Come insectos, frutas y pequeños animales.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="animales_donde_viven" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_animales_habitat.mp3" />
+     <p>Uní cada animal con el lugar donde vive.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_selva.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="308.0" cellHeight="175.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_aguila.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_aguila.mp3" />
+     <p>águila calva</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_jaguar.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_jaguar.mp3" />
+     <p>jaguar</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_alce.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_alce.mp3" />
+     <p>alce</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="314.0" cellHeight="136.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="24" bold="true" />
+     <color background="0xEEFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="habitat_rios_lagos.mp3" />
+     <p>cerca de ríos y lagos</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="habitat_selva.mp3" />
+     <p>selvas y bosques tropicales</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="habitat_bosque_frio.mp3" />
+     <p>bosques fríos y montañas</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="animales_especie" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_animales_especie.mp3" />
+     <p>Uní cada animal con su especie.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_selva.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="334.0" cellHeight="184.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_aguila.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_aguila.mp3" />
+     <p>águila calva</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_jaguar.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_jaguar.mp3" />
+     <p>jaguar</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_alce.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_alce.mp3" />
+     <p>alce</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="237.0" cellHeight="131.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="28" bold="true" />
+     <color background="0xEEFFEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="especie_ave.mp3" />
+     <p>ave</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="especie_mamifero.mp3" />
+     <p>mamífero</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="especie_mamifero.mp3" />
+     <p>mamífero</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="banderas_colores" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_banderas_colores.mp3" />
+     <p>¿De qué color es la hoja en la bandera de Canadá?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_pradera.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="385.0" cellHeight="197.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="36" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_bandera_mexico.png">
+     <media type="PLAY_AUDIO" level="1" file="color_verde.mp3" />
+     <p>verde</p>
+    </cell>
+    <cell id="1" imgAlign="right,middle" avoidOverlapping="true" image="img_bandera_canada.png">
+     <media type="PLAY_AUDIO" level="1" file="resp_color_canada.mp3" />
+     <p>roja</p>
+    </cell>
+    <cell id="0" imgAlign="right,middle" avoidOverlapping="true" image="img_bandera_eeuu.png">
+     <media type="PLAY_AUDIO" level="1" file="color_azul.mp3" />
+     <p>azul</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="cierre">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x006600" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_portadaclic.mp3" />
+     <p>¡Armá el rompecabezas!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Felicitaciones! Terminaste todas las actividades.</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003399">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="cierre-resized2.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="jaguar_caracteristicas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_jaguar_caract.mp3" />
+     <p>Uní cada característica con el jaguar.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_selva.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="317.0" cellHeight="154.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_jaguar.png">
+     <media type="PLAY_AUDIO" level="1" file="jaguar_pelo.mp3" />
+     <p>su pelo</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_jaguar.png">
+     <media type="PLAY_AUDIO" level="1" file="jaguar_especie.mp3" />
+     <p>especie</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_jaguar.png">
+     <media type="PLAY_AUDIO" level="1" file="jaguar_habitat.mp3" />
+     <p>hábitat</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="280.0" cellHeight="110.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="17" bold="true" />
+     <color background="0xEEFFEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="jaguar_pelo.mp3" />
+     <p>amarillo con manchas negras</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="jaguar_especie.mp3" />
+     <p>mamífero carnívoro, el más grande de América</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="jaguar_habitat.mp3" />
+     <p>selvas y bosques tropicales</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@panels.Identify" name="jaguar_come" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_jaguar_come.mp3" />
+     <p>¿Qué come el jaguar?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_selva.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="420.0" cellHeight="100.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="jaguar_come_correcto.mp3" />
+     <p>Es carnívoro. Come venados, armadillos y peces.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="jaguar_come_inc1.mp3" />
+     <p>Come frutas, hojas y plantas acuáticas.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="jaguar_come_inc2.mp3" />
+     <p>Come insectos y pequeños roedores solamente.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="mascotas_animales" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_mascotas_animales.mp3" />
+     <p>Uní cada mascota con el animal que es.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_selva.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="294.0" cellHeight="130.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_clutch.png">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_clutch.mp3" />
+     <p>Clutch</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_zayu.png">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_zayu.mp3" />
+     <p>Zayu</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_maple.png">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_maple.mp3" />
+     <p>Maple</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="220.0" cellHeight="130.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0x006600" background="0xEEFFEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_águila.png">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_aguila.mp3" />
+     <p>Águila calva</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_jaguar.png">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_jaguar.mp3" />
+     <p>Jaguar</p>
+    </cell>
+    <cell imgAlign="right,middle" avoidOverlapping="true" image="img_alce.png">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="nom_alce.mp3" />
+     <p>Alce</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="mascotas_paises" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_mascotas_paises.mp3" />
+     <p>Uní cada mascota con el país que representa.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_pradera.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="203.0" cellHeight="203.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell avoidOverlapping="true" image="img_clutch.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_clutch.mp3" />
+     <p>Clutch</p>
+    </cell>
+    <cell avoidOverlapping="true" image="img_zayu.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_zayu.mp3" />
+     <p>Zayu</p>
+    </cell>
+    <cell avoidOverlapping="true" image="img_maple.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_maple.mp3" />
+     <p>Maple</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="345.0" cellHeight="130.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="48" bold="true" />
+     <color foreground="0x660000" background="0xFFEEEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_eeuu.mp3" />
+     <p>Estados Unidos</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_mexico.mp3" />
+     <p>México</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_canada.mp3" />
+     <p>Canadá</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@memory.MemoryGame" name="memo_animales">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0x003366" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_memo_animales.mp3" />
+     <p>Encontrá los pares de imagen y nombre de animal.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_selva.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="2" cols="6" cellWidth="90.0" cellHeight="90.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="6" rows="2" />
+    <cell image="img_aguila.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_aguila.mp3" />
+    </cell>
+    <cell image="img_jaguar.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_jaguar.mp3" />
+    </cell>
+    <cell image="img_alce.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_alce.mp3" />
+    </cell>
+    <cell image="img_mapache.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_mapache.mp3" />
+    </cell>
+    <cell image="img_castor.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_castor.mp3" />
+    </cell>
+    <cell image="img_oso_polar.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_oso_polar.mp3" />
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_aguila.mp3" />
+     <p>águila calva</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_jaguar.mp3" />
+     <p>jaguar</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_alce.mp3" />
+     <p>alce</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_mapache.mp3" />
+     <p>mapache</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_castor.mp3" />
+     <p>castor</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_oso_polar.mp3" />
+     <p>oso polar</p>
+    </cell>
+   </cells>
+   <scramble times="31" />
+   <layout position="AUB" />
+  </activity>
+  <activity class="@panels.Identify" name="otros_animales_canada">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_otros_canada.mp3" />
+     <p>¿Cuál de estos animales es autóctono de Canadá?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_bosque_frio.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="380.0" cellHeight="120.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" avoidOverlapping="true" image="img_ajolote.png" imgAlign="right">
+     <media type="PLAY_AUDIO" level="1" file="resp_canada_inc1.mp3" />
+     <p>ajolote</p>
+    </cell>
+    <cell id="1" avoidOverlapping="true" image="img_castor.png" imgAlign="right">
+     <media type="PLAY_AUDIO" level="1" file="resp_canada_correcto.mp3" />
+     <p>castor</p>
+    </cell>
+    <cell id="0" avoidOverlapping="true" image="img_bisonte.png" imgAlign="right">
+     <media type="PLAY_AUDIO" level="1" file="resp_canada_inc2.mp3" />
+     <p>bisonte</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="otros_animales_eeuu">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_otros_eeuu.mp3" />
+     <p>¿Cuál de estos animales es autóctono de Estados Unidos?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_pradera.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="380.0" cellHeight="120.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" avoidOverlapping="true" image="img_alce.png" imgAlign="right">
+     <media type="PLAY_AUDIO" level="1" file="resp_eeuu_inc1.mp3" />
+     <p>alce</p>
+    </cell>
+    <cell id="1" avoidOverlapping="true" image="img_bisonte.png" imgAlign="right">
+     <media type="PLAY_AUDIO" level="1" file="resp_eeuu_correcto.mp3" />
+     <p>bisonte americano</p>
+    </cell>
+    <cell id="0" avoidOverlapping="true" image="img_jaguar.png" imgAlign="right">
+     <media type="PLAY_AUDIO" level="1" file="resp_eeuu_inc2.mp3" />
+     <p>jaguar</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@panels.Identify" name="otros_animales_mexico">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="18" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_otros_mexico.mp3" />
+     <p>¿Cuál de estos animales es autóctono de México?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003300" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_selva.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="380.0" cellHeight="120.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="20" bold="true" />
+     <color background="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0" avoidOverlapping="true" image="img_oso_polar.png" imgAlign="right">
+     <media type="PLAY_AUDIO" level="1" file="resp_mexico_inc1.mp3" />
+     <p>oso polar</p>
+    </cell>
+    <cell id="0" avoidOverlapping="true" image="img_bisonte.png" imgAlign="right">
+     <media type="PLAY_AUDIO" level="1" file="resp_mexico_inc2.mp3" />
+     <p>bisonte americano</p>
+    </cell>
+    <cell id="1" avoidOverlapping="true" image="img_ajolote.png" imgAlign="right">
+     <media type="PLAY_AUDIO" level="1" file="resp_mexico_correcto.mp3" />
+     <p>ajolote</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portada_animales">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003399" background="0xCCEEFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_portada_animales.mp3" />
+     <p>¡Armá el rompecabezas de los animales del Mundial!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i02-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x001A66">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="portada_animales.png">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@puzzles.ExchangePuzzle" name="portadaclic">
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0x003399" background="0xFFFFFF" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_portadaclic.mp3" />
+     <p>¡Armá el rompecabezas!</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0x003399">
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFFFFFF" border="true" />
+   </settings>
+   <cells rows="2" cols="3" border="true" image="2-resized.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="3" rows="2" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+  <activity class="@panels.Identify" name="que_es_mascota" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_que_es_mascota.mp3" />
+     <p>¿Qué es una mascota del mundial?</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_pradera.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="500.0" cellHeight="100.0" border="true" id="primary">
+    <style margin="4" borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="18" bold="true" />
+     <color background="0xFFFFFF" />
+     <gradient source="0x00CCCC" dest="0xFFFFFF" angle="0" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="def_mascota_incorrecta1.mp3" />
+     <p>Son jugadores famosos que representan a su selección.</p>
+    </cell>
+    <cell id="1">
+     <media type="PLAY_AUDIO" level="1" file="def_mascota_correcta.mp3" />
+     <p>Son personajes que aparecen en cada mundial y acompañan todo el torneo.</p>
+    </cell>
+    <cell id="0">
+     <media type="PLAY_AUDIO" level="1" file="def_mascota_incorrecta2.mp3" />
+     <p>Son trofeos que se entregan al campeón del torneo.</p>
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="50.0" cellHeight="40.0" border="true" id="solvedPrimary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell />
+    <cell image="i01-bienhecho.jpg" />
+    <cell />
+   </cells>
+   <scramble times="31" primary="true" />
+  </activity>
+  <activity class="@associations.SimpleAssociation" name="sedes_paises" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0x003300" background="0xFFFFCC" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_sedes_paises.mp3" />
+     <p>Uní cada bandera con el nombre del país sede.</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="24" bold="true" />
+      <color foreground="0xFFFFFF" background="0x006600" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <gradient source="0x003366" dest="0xFFFFFF" angle="0" />
+     <image name="fondo_pradera.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" transparent="true" border="true" />
+   </settings>
+   <cells rows="3" cols="1" cellWidth="151.0" cellHeight="154.0" border="true" id="primary">
+    <style margin="2" borderStroke="0.7" markerStroke="5.0">
+     <color background="0xFFFFFF" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="img_bandera_canada.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_canada.mp3" />
+    </cell>
+    <cell image="img_bandera_eeuu.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_eeuu.mp3" />
+    </cell>
+    <cell image="img_bandera_mexico.png">
+     <media type="PLAY_AUDIO" level="1" file="nom_mexico.mp3" />
+    </cell>
+   </cells>
+   <cells rows="3" cols="1" cellWidth="220.0" cellHeight="130.0" border="true" id="secondary">
+    <style borderStroke="0.7" markerStroke="5.0">
+     <font family="Arial" size="22" bold="true" />
+     <color foreground="0x006600" background="0xEEFFEE" inactive="0xFFFFFF" />
+    </style>
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_canada.mp3" />
+     <p>Canadá</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_eeuu.mp3" />
+     <p>Estados Unidos</p>
+    </cell>
+    <cell>
+     <media type="PLAY_AUDIO" level="1" file="nom_mexico.mp3" />
+     <p>México</p>
+    </cell>
+   </cells>
+   <scramble times="31" primary="true" secondary="true" />
+   <layout position="AB" />
+  </activity>
+  <activity class="@textGrid.WordSearch" name="sopa_mascotas" code="">
+   <description />
+   <messages>
+    <cell type="initial">
+     <style>
+      <font family="Arial" size="20" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A4A1A" />
+     </style>
+     <media type="PLAY_AUDIO" level="1" file="cons_sopa_mascotas.mp3" />
+     <p>Encontrá: CLUTCH - MAPLE - ZAYU</p>
+    </cell>
+    <cell avoidOverlapping="true" image="i01-bienhecho.jpg" type="final">
+     <style>
+      <font family="Arial" size="26" bold="true" />
+      <color foreground="0xFFFFFF" background="0x1A4A1A" />
+     </style>
+     <p>¡Muy bien!</p>
+    </cell>
+   </messages>
+   <settings margin="8" report="true" reportActions="false">
+    <helpWindow showSolution="true" />
+    <container bgColor="0x1A4A1A">
+     <gradient source="0x2A6A2A" dest="0x0A2A0A" angle="0" />
+     <image name="fondo_selva.png" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xFF9900" border="true" />
+   </settings>
+   <textGrid rows="8" columns="5" cellWidth="48.0" cellHeight="48.0" border="true">
+    <style margin="2">
+     <font family="Arial" size="20" bold="true" />
+     <color foreground="0xFFFF00" background="0x1A4A1A" />
+    </style>
+    <text>
+     <row>CLUTCH**</row>
+     <row>********</row>
+     <row>**ZAYU**</row>
+     <row>********</row>
+     <row>*MAPLE**</row>
+    </text>
+   </textGrid>
+   <clues>
+    <clue id="0">CLUTCH</clue>
+    <clue id="1">MAPLE</clue>
+    <clue id="2">ZAYU</clue>
+   </clues>
+   <cells rows="3" cols="1" cellWidth="140.0" cellHeight="140.0" border="true" id="secondary">
+    <style />
+    <shaper class="@Rectangular" cols="1" rows="3" />
+    <cell image="img_clutch.png">
+     <media type="PLAY_AUDIO" level="1" file="desc_clutch.mp3" />
+    </cell>
+    <cell image="img_maple.png">
+     <media type="PLAY_AUDIO" level="1" file="desc_maple.mp3" />
+    </cell>
+    <cell image="img_zayu.png">
+     <media type="PLAY_AUDIO" level="1" file="desc_zayu.mp3" />
+    </cell>
+   </cells>
+   <layout position="AB" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="2-resized.jpg" file="2-resized.jpg" />
+  <media name="cierre-resized2.jpg" file="cierre-resized2.jpg" />
+  <media name="i01-bienhecho.jpg" file="i01-bienhecho.jpg" />
+  <media name="i02-bienhecho.jpg" file="i02-bienhecho.jpg" />
+  <media name="aguila_cabeza.mp3" file="aguila_cabeza.mp3" />
+  <media name="aguila_come_correcto.mp3" file="aguila_come_correcto.mp3" />
+  <media name="aguila_come_inc1.mp3" file="aguila_come_inc1.mp3" />
+  <media name="aguila_come_inc2.mp3" file="aguila_come_inc2.mp3" />
+  <media name="aguila_cuerpo.mp3" file="aguila_cuerpo.mp3" />
+  <media name="aguila_pico.mp3" file="aguila_pico.mp3" />
+  <media name="aguila_vive_correcto.mp3" file="aguila_vive_correcto.mp3" />
+  <media name="aguila_vive_inc1.mp3" file="aguila_vive_inc1.mp3" />
+  <media name="aguila_vive_inc2.mp3" file="aguila_vive_inc2.mp3" />
+  <media name="alce_astas.mp3" file="alce_astas.mp3" />
+  <media name="alce_come_correcto.mp3" file="alce_come_correcto.mp3" />
+  <media name="alce_come_inc1.mp3" file="alce_come_inc1.mp3" />
+  <media name="alce_come_inc2.mp3" file="alce_come_inc2.mp3" />
+  <media name="alce_habitat.mp3" file="alce_habitat.mp3" />
+  <media name="alce_pelo.mp3" file="alce_pelo.mp3" />
+  <media name="color_azul.mp3" file="color_azul.mp3" />
+  <media name="color_rojo.mp3" file="color_rojo.mp3" />
+  <media name="color_verde.mp3" file="color_verde.mp3" />
+  <media name="cons_aguila_caract.mp3" file="cons_aguila_caract.mp3" />
+  <media name="cons_aguila_come.mp3" file="cons_aguila_come.mp3" />
+  <media name="cons_aguila_vive.mp3" file="cons_aguila_vive.mp3" />
+  <media name="cons_alce_caract.mp3" file="cons_alce_caract.mp3" />
+  <media name="cons_alce_come.mp3" file="cons_alce_come.mp3" />
+  <media name="cons_animales_especie.mp3" file="cons_animales_especie.mp3" />
+  <media name="cons_animales_habitat.mp3" file="cons_animales_habitat.mp3" />
+  <media name="cons_banderas_colores.mp3" file="cons_banderas_colores.mp3" />
+  <media name="cons_cierre.mp3" file="cons_cierre.mp3" />
+  <media name="cons_jaguar_caract.mp3" file="cons_jaguar_caract.mp3" />
+  <media name="cons_jaguar_come.mp3" file="cons_jaguar_come.mp3" />
+  <media name="cons_mascotas_animales.mp3" file="cons_mascotas_animales.mp3" />
+  <media name="cons_mascotas_paises.mp3" file="cons_mascotas_paises.mp3" />
+  <media name="cons_memo_animales.mp3" file="cons_memo_animales.mp3" />
+  <media name="cons_otros_canada.mp3" file="cons_otros_canada.mp3" />
+  <media name="cons_otros_eeuu.mp3" file="cons_otros_eeuu.mp3" />
+  <media name="cons_otros_mexico.mp3" file="cons_otros_mexico.mp3" />
+  <media name="cons_portada_animales.mp3" file="cons_portada_animales.mp3" />
+  <media name="cons_portadaclic.mp3" file="cons_portadaclic.mp3" />
+  <media name="cons_que_es_mascota.mp3" file="cons_que_es_mascota.mp3" />
+  <media name="cons_sedes_paises.mp3" file="cons_sedes_paises.mp3" />
+  <media name="cons_sopa_mascotas.mp3" file="cons_sopa_mascotas.mp3" />
+  <media name="def_mascota_correcta.mp3" file="def_mascota_correcta.mp3" />
+  <media name="def_mascota_incorrecta1.mp3" file="def_mascota_incorrecta1.mp3" />
+  <media name="def_mascota_incorrecta2.mp3" file="def_mascota_incorrecta2.mp3" />
+  <media name="desc_clutch.mp3" file="desc_clutch.mp3" />
+  <media name="desc_maple.mp3" file="desc_maple.mp3" />
+  <media name="desc_zayu.mp3" file="desc_zayu.mp3" />
+  <media name="especie_anfibio.mp3" file="especie_anfibio.mp3" />
+  <media name="especie_ave.mp3" file="especie_ave.mp3" />
+  <media name="especie_mamifero.mp3" file="especie_mamifero.mp3" />
+  <media name="especie_reptil.mp3" file="especie_reptil.mp3" />
+  <media name="excelente.mp3" file="excelente.mp3" />
+  <media name="habitat_bosque_frio.mp3" file="habitat_bosque_frio.mp3" />
+  <media name="habitat_rios_lagos.mp3" file="habitat_rios_lagos.mp3" />
+  <media name="habitat_selva.mp3" file="habitat_selva.mp3" />
+  <media name="jaguar_come_correcto.mp3" file="jaguar_come_correcto.mp3" />
+  <media name="jaguar_come_inc1.mp3" file="jaguar_come_inc1.mp3" />
+  <media name="jaguar_come_inc2.mp3" file="jaguar_come_inc2.mp3" />
+  <media name="jaguar_especie.mp3" file="jaguar_especie.mp3" />
+  <media name="jaguar_habitat.mp3" file="jaguar_habitat.mp3" />
+  <media name="jaguar_pelo.mp3" file="jaguar_pelo.mp3" />
+  <media name="muy_bien.mp3" file="muy_bien.mp3" />
+  <media name="nom_aguila.mp3" file="nom_aguila.mp3" />
+  <media name="nom_ajolote.mp3" file="nom_ajolote.mp3" />
+  <media name="nom_alce.mp3" file="nom_alce.mp3" />
+  <media name="nom_bisonte.mp3" file="nom_bisonte.mp3" />
+  <media name="nom_caiman.mp3" file="nom_caiman.mp3" />
+  <media name="nom_canada.mp3" file="nom_canada.mp3" />
+  <media name="nom_castor.mp3" file="nom_castor.mp3" />
+  <media name="nom_clutch.mp3" file="nom_clutch.mp3" />
+  <media name="nom_eeuu.mp3" file="nom_eeuu.mp3" />
+  <media name="nom_jaguar.mp3" file="nom_jaguar.mp3" />
+  <media name="nom_lobo.mp3" file="nom_lobo.mp3" />
+  <media name="nom_mapache.mp3" file="nom_mapache.mp3" />
+  <media name="nom_maple.mp3" file="nom_maple.mp3" />
+  <media name="nom_mexico.mp3" file="nom_mexico.mp3" />
+  <media name="nom_oso_grizzly.mp3" file="nom_oso_grizzly.mp3" />
+  <media name="nom_oso_polar.mp3" file="nom_oso_polar.mp3" />
+  <media name="nom_tecolote.mp3" file="nom_tecolote.mp3" />
+  <media name="nom_zayu.mp3" file="nom_zayu.mp3" />
+  <media name="resp_canada_correcto.mp3" file="resp_canada_correcto.mp3" />
+  <media name="resp_canada_inc1.mp3" file="resp_canada_inc1.mp3" />
+  <media name="resp_canada_inc2.mp3" file="resp_canada_inc2.mp3" />
+  <media name="resp_color_canada.mp3" file="resp_color_canada.mp3" />
+  <media name="resp_eeuu_correcto.mp3" file="resp_eeuu_correcto.mp3" />
+  <media name="resp_eeuu_inc1.mp3" file="resp_eeuu_inc1.mp3" />
+  <media name="resp_eeuu_inc2.mp3" file="resp_eeuu_inc2.mp3" />
+  <media name="resp_mexico_correcto.mp3" file="resp_mexico_correcto.mp3" />
+  <media name="resp_mexico_inc1.mp3" file="resp_mexico_inc1.mp3" />
+  <media name="resp_mexico_inc2.mp3" file="resp_mexico_inc2.mp3" />
+  <media name="fondo_artico.png" file="fondo_artico.png" />
+  <media name="fondo_aula.png" file="fondo_aula.png" />
+  <media name="fondo_bosque_frio.png" file="fondo_bosque_frio.png" />
+  <media name="fondo_pradera.png" file="fondo_pradera.png" />
+  <media name="fondo_rio.png" file="fondo_rio.png" />
+  <media name="fondo_selva.png" file="fondo_selva.png" />
+  <media name="img_aguila.png" file="img_aguila.png" />
+  <media name="img_ajolote.png" file="img_ajolote.png" />
+  <media name="img_alce.png" file="img_alce.png" />
+  <media name="img_bandera_canada.png" file="img_bandera_canada.png" />
+  <media name="img_bandera_eeuu.png" file="img_bandera_eeuu.png" />
+  <media name="img_bandera_mexico.png" file="img_bandera_mexico.png" />
+  <media name="img_bisonte.png" file="img_bisonte.png" />
+  <media name="img_caiman.png" file="img_caiman.png" />
+  <media name="img_castor.png" file="img_castor.png" />
+  <media name="img_clutch.png" file="img_clutch.png" />
+  <media name="img_jaguar.png" file="img_jaguar.png" />
+  <media name="img_lobo.png" file="img_lobo.png" />
+  <media name="img_mapache.png" file="img_mapache.png" />
+  <media name="img_maple.png" file="img_maple.png" />
+  <media name="img_oso_grizzly.png" file="img_oso_grizzly.png" />
+  <media name="img_oso_polar.png" file="img_oso_polar.png" />
+  <media name="img_tecolote.png" file="img_tecolote.png" />
+  <media name="img_zayu.png" file="img_zayu.png" />
+  <media name="img_águila.png" file="0img_aguila.png" />
+  <media name="portada_animales.png" file="portada_animales.png" />
+ </mediaBag>
+</JClicProject>
+

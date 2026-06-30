@@ -149,7 +149,7 @@
 
 <div class="counter-banner">
   <div class="counter-inner">
-    <span class="counter-num">92</span>
+    <span class="counter-num" id="counter-total">92</span>
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
   </div>
 </div>
@@ -166,7 +166,7 @@
 
 <div class="novedades">
   <span class="nov-badge">&#x1F195; Nuevo</span>
-  <span class="nov-text"><strong>La Atajada del Dibu &middot; Coloreo por Código</strong> &mdash; Nueva actividad interactiva: resolv&eacute; sumas y restas y pint&aacute; la atajada del Dibu Mart&iacute;nez. Cada partida genera cuentas distintas para jugar una y otra vez &mdash; Matem&aacute;tica, 1&deg; y 2&deg; Grado.</span>
+  <span class="nov-text"><strong>Mascotas y Países del Mundial 2026</strong> &mdash; Nueva actividad interactiva: conocé a Clutch (águila calva, EE. UU.), Zayu (jaguar, México) y Maple (alce, Canadá): su especie, hábitat, alimentación y características. Además, animales autóctonos de cada país, banderas, sedes y rompecabezas &mdash; Integrador, 1&deg; y 2&deg; Grado.</span>
 </div>
 
 <header>
@@ -416,6 +416,11 @@
           <div class="card-name">La Atajada del Dibu · Coloreo por Código</div>
           <span class="card-area" style="background:rgba(255,255,255,.08);color:#22c55e">Matemática · 1° y 2°</span>
         </a>
+        <a class="card" href="primer%20ciclo/mundial_paises_mascotas/index.html" target="_blank" data-area="integrador" data-ciclo="c1" data-tooltip="Integrador · 1° y 2° Grado · 21 actividades: conocé a Clutch (águila calva), Zayu (jaguar) y Maple (alce), sus especies, hábitat y alimentación. Animales autóctonos de Canadá, México y EE. UU., banderas, sedes, memoria, sopa de letras y rompecabezas.">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#f97316"/><ellipse cx="18" cy="20" rx="9" ry="7" fill="white"/><circle cx="13" cy="14" r="3" fill="white"/><circle cx="23" cy="14" r="3" fill="white"/><circle cx="15" cy="20" r="1.6" fill="#1e293b"/><circle cx="21" cy="20" r="1.6" fill="#1e293b"/><path d="M16.5 23.5 Q18 25 19.5 23.5" fill="none" stroke="#1e293b" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+          <div class="card-name">Mascotas y Países del Mundial 2026</div>
+          <span class="card-area" style="background:rgba(255,255,255,.08);color:#a78bfa">Integrador · 1° y 2°</span>
+        </a>
   </div>
 
   <div class="ciclo-header" style="margin-top:32px">
@@ -624,6 +629,7 @@ function filtrar(){
   });
   document.getElementById('cnt-c1').textContent=v1+' paquetes';
   document.getElementById('cnt-c2').textContent=v2+' paquetes';
+  document.getElementById('counter-total').textContent=v1+v2;
   document.getElementById('empty-msg').style.display=(v1+v2===0)?'block':'none';
 }
 function setFiltro(btn){
