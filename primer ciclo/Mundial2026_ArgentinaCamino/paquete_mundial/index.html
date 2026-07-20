@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>El camino de Argentina - Mundial 2026</title>
+<style>
+  :root{
+    --verde:#4caf50; --cyan:#00bcd4; --amarillo:#ffc107; --violeta:#9c27b0; --naranja:#ff9800;
+    --azul-osc:#0a1a3f; --azul-med:#1c3d7a;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;font-family:'Trebuchet MS',sans-serif;}
+  body{
+    background:linear-gradient(160deg, var(--azul-osc) 0%, var(--azul-med) 55%, #2a5298 100%);
+    min-height:100vh; display:flex; flex-direction:column; align-items:center;
+    padding:14px; color:#222;
+  }
+  .card{
+    background:#fff; border-radius:22px; max-width:560px; width:100%;
+    box-shadow:0 12px 40px rgba(0,0,0,0.35); overflow:hidden;
+    display:flex; flex-direction:column; min-height:560px;
+  }
+  .card-top{padding:18px 20px 8px; text-align:center;}
+  .barra-progreso{height:8px; background:#e0e0e0; border-radius:6px; margin:0 20px 10px; overflow:hidden;}
+  .barra-progreso-fill{height:100%; background:linear-gradient(90deg,var(--cyan),var(--verde)); transition:width .4s;}
+  h1{font-size:1.3em; margin:6px 0; color:var(--azul-med);}
+  h2{font-size:1.15em; margin:4px 0 10px; color:var(--azul-med);}
+  .img-estacion{width:100%; display:block; aspect-ratio:4/3; object-fit:cover;}
+  .contenido{padding:16px 20px; flex:1; display:flex; flex-direction:column; gap:12px;}
+  .consigna{
+    background:#eef4ff; border-left:5px solid var(--cyan); border-radius:10px;
+    padding:10px 14px; font-size:0.98em; display:flex; align-items:center; gap:10px;
+  }
+  .btn-audio{
+    background:var(--cyan); border:none; color:#fff; width:38px; height:38px; border-radius:50%;
+    font-size:1.1em; flex-shrink:0; cursor:pointer;
+  }
+  .btn{
+    border:none; border-radius:12px; padding:12px 16px; font-size:1em; cursor:pointer;
+    color:#fff; font-weight:bold; font-family:inherit; transition:transform .15s, opacity .15s;
+  }
+  .btn:active{transform:scale(0.96);}
+  .btn-principal{background:var(--verde);}
+  .btn-secundario{background:var(--azul-med);}
+  .btn-nav{background:var(--naranja);}
+  .btn:disabled{opacity:0.4;}
+  .opciones{display:flex; flex-direction:column; gap:10px;}
+  .opcion{
+    background:#f5f5f5; border:2px solid #ddd; border-radius:12px; padding:12px 14px;
+    cursor:pointer; font-size:0.96em; text-align:left;
+  }
+  .opcion.correcta{border-color:var(--verde); background:#e6f7e9;}
+  .opcion.incorrecta{border-color:#e53935; background:#fdecea;}
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .item-match{
+    background:#f5f5f5; border:2px solid #ddd; border-radius:10px; padding:10px; font-size:0.85em;
+    text-align:center; cursor:pointer; min-height:50px; display:flex; align-items:center; justify-content:center;
+  }
+  .item-match.sel{border-color:var(--amarillo); background:#fff8e1;}
+  .item-match.ok{border-color:var(--verde); background:#e6f7e9; cursor:default;}
+  .feedback{text-align:center; font-weight:bold; padding:10px; border-radius:10px; margin-top:4px;}
+  .feedback.bien{background:#e6f7e9; color:#2e7d32;}
+  .feedback.mal{background:#fdecea; color:#c62828;}
+  .sopa-grid{display:grid; grid-template-columns:repeat(10,1fr); gap:2px; user-select:none; margin:0 auto; max-width:340px;}
+  .sopa-cell{
+    aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+    background:#f0f0f0; border-radius:4px; font-size:0.75em; font-weight:bold; cursor:pointer;
+  }
+  .sopa-cell.sel{background:var(--amarillo);}
+  .sopa-cell.encontrada{background:var(--verde); color:#fff;}
+  .lista-palabras{display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:8px;}
+  .palabra-chip{background:#eee; border-radius:16px; padding:4px 10px; font-size:0.78em;}
+  .palabra-chip.encontrada{background:var(--verde); color:#fff; text-decoration:line-through;}
+
+  /* Rompecabezas */
+  .puzzle-grid{display:grid; gap:3px; margin:0 auto; max-width:340px; aspect-ratio:4/3; border-radius:10px; overflow:hidden;}
+  .puzzle-pieza{cursor:pointer; background-repeat:no-repeat; border:2px solid #fff;}
+  .puzzle-pieza.sel{outline:4px solid var(--amarillo); z-index:2;}
+
+  /* Memojuego (texto) */
+  .memo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:0 auto; max-width:360px;}
+  .memo-card{
+    aspect-ratio:1; border-radius:10px; background:linear-gradient(135deg,var(--cyan),var(--violeta));
+    display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.6em; color:#fff;
+    padding:6px; text-align:center;
+  }
+  .memo-card .txt{font-size:0.62em; font-weight:bold; color:#333; display:none;}
+  .memo-card.volteada{background:#fff; border:3px solid var(--amarillo);}
+  .memo-card.volteada .txt{display:block;}
+  .memo-card.volteada .signo{display:none;}
+  .memo-card.encontrada{border:3px solid var(--verde); cursor:default; opacity:0.85;}
+
+  /* Palabras (frases) */
+  .chip-palabra{
+    background:var(--violeta); color:#fff; border-radius:10px; padding:10px 14px;
+    font-size:1em; font-weight:bold; cursor:pointer;
+  }
+  .chip-palabra.usada{opacity:0.25; cursor:default;}
+  .banco-palabras{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:6px;}
+  .frase-armada{
+    display:flex; flex-wrap:wrap; gap:6px; justify-content:center; min-height:70px;
+    align-items:center; background:#eef4ff; border-radius:12px; padding:10px;
+  }
+  .frase-armada span{font-weight:bold; color:var(--azul-med); font-size:1.05em;}
+
+  .footer-nav{display:flex; justify-content:space-between; padding:14px 20px; background:#f7f7f7;}
+  .contador-global{
+    text-align:center; font-size:0.8em; color:#fff; background:rgba(0,0,0,0.25);
+    border-radius:10px; padding:4px 10px; display:block; width:fit-content; margin:0 auto 8px;
+  }
+  .foto-personal{
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,var(--cyan),var(--violeta)); color:#fff; overflow:hidden;
+  }
+  .foto-clickeable{cursor:pointer;}
+  .lightbox-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,0.85); display:none;
+    align-items:center; justify-content:center; z-index:999; padding:20px;
+  }
+  .lightbox-overlay.activo{display:flex;}
+  .lightbox-overlay img{max-width:90%; max-height:75vh; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.5);}
+  .lightbox-cerrar{
+    position:absolute; top:18px; right:18px; background:#fff; color:#222; width:38px; height:38px;
+    border-radius:50%; border:none; font-size:1.3em; font-weight:bold; cursor:pointer;
+  }
+
+  @media (min-width:700px){
+    .card{max-width:720px;}
+    .img-estacion{max-width:420px; margin:0 auto; aspect-ratio:4/3;}
+    body{font-size:1.05em;}
+    .sopa-grid,.puzzle-grid,.memo-grid{max-width:480px;}
+  }
+  @media (min-width:1100px){
+    .card{max-width:900px;}
+    .img-estacion{max-width:480px;}
+    .sopa-grid,.puzzle-grid,.memo-grid{max-width:560px;}
+  }
+</style>
+</head>
+<body>
+<div class="card" id="app"></div>
+
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="cerrarFoto()">
+  <button class="lightbox-cerrar" onclick="event.stopPropagation();cerrarFoto()">✕</button>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:10px;" onclick="event.stopPropagation()">
+    <img id="lightboxImg" src="" alt="Foto de Gustavo">
+    <div id="lightboxCaption" style="color:#fff;font-size:1.05em;font-weight:bold;text-align:center;"></div>
+  </div>
+</div>
+
+<audio id="audioPlayer"></audio>
+
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+</body>
+</html>
