@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forraje Verde Hidropónico - Desarrollo Regional 4to año</title>
+<style>
+  :root {
+    --azul: #2c3e50; --celeste: #a9c4e0; --amarillo: #f1c40f;
+    --verde: #27ae60; --rojo: #e74c3c; --fondo: #eef3f8;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--fondo); color: var(--azul); }
+  .pantalla { display: none; padding: 16px; max-width: 900px; margin: 0 auto; }
+  .pantalla.activa { display: block; }
+  h1 { font-size: 1.3rem; text-align: center; margin: 8px 0; }
+  h2 { font-size: 1.1rem; text-align: center; }
+  .btn { display: inline-block; background: var(--azul); color: white; border: none; padding: 12px 22px; border-radius: 10px; font-size: 1rem; cursor: pointer; margin: 10px auto; }
+  .btn:active { transform: scale(0.97); }
+  .centro { text-align: center; }
+  .altavoz-btn { background: var(--amarillo); border: none; border-radius: 50%; width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; }
+  .altavoz-fila { display: flex; align-items: center; gap: 8px; background: #fff8e1; border: 1px solid var(--amarillo); border-radius: 20px; padding: 6px 14px 6px 6px; }
+  .altavoz-texto { font-size: 0.85rem; font-weight: bold; }
+  .portada-eyebrow { text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; color: #555; margin: 10px 0 0; text-align: center; }
+  img.contenido-img { max-width: 100%; border-radius: 10px; display: block; margin: 10px auto; }
+
+  /* ---------- Portada ---------- */
+  #pantalla-portada { text-align: center; }
+  .portada-img { width: 100%; max-width: 500px; border-radius: 12px; margin-top: 10px; }
+  .portada-fila { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 16px 0; flex-wrap: wrap; }
+  .portada-thumb-wrap { text-align: center; }
+  #portada-thumb { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; border: 3px solid var(--azul); cursor: pointer; }
+  .portada-thumb-caption { font-size: 0.75rem; margin-top: 4px; }
+  #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 100; align-items: center; justify-content: center; flex-direction: column; }
+  #lightbox.visible { display: flex; }
+  #lightbox img { max-width: 90%; max-height: 70vh; border-radius: 8px; }
+  #lightbox p { color: white; margin: 14px 0; font-size: 1.1rem; }
+  #lightbox-cerrar { position: absolute; top: 16px; right: 20px; color: white; font-size: 2rem; background: none; border: none; cursor: pointer; }
+
+  /* ---------- Union / Asociación / Objetivos ---------- */
+  .union-cols { display: flex; gap: 12px; justify-content: center; }
+  .union-cols > div { flex: 1; max-width: 340px; }
+  .union-item { background: white; border: 2px solid var(--celeste); border-radius: 8px; padding: 10px; margin: 6px 0; cursor: pointer; text-align: center; font-size: 0.88rem; }
+  .union-item.seleccionada { border-color: var(--amarillo); background: #fff8e1; }
+  .union-item.resuelta { border-color: var(--verde); opacity: 0.6; pointer-events: none; }
+  .union-item.bloqueada { pointer-events: none; }
+  .union-item.incorrecta-marca { border-color: var(--rojo); background: #fdecea; }
+
+  /* ---------- Proceso / Frase (chips) ---------- */
+  #proceso-banco, #proceso-armado, #af-banco, #af-armado {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; min-height: 50px; padding: 10px; margin: 10px 0;
+  }
+  #proceso-armado, #af-armado { border: 2px dashed var(--celeste); border-radius: 8px; }
+  .rp-chip { background: white; border: 2px solid var(--azul); border-radius: 6px; padding: 8px 12px; cursor: pointer; font-size: 0.95rem; }
+  .rp-chip.colocada { background: #eafaf0; border-color: var(--verde); pointer-events: none; }
+  .rp-chip.chip-error { background: #fdecea; border-color: var(--rojo); }
+  .af-imagen-grande { width: 100%; max-width: 700px; max-height: 55vh; object-fit: cover; border-radius: 10px; display: block; margin: 10px auto; }
+
+  /* ---------- Completar texto ---------- */
+  #completar-texto { font-size: 1.05rem; line-height: 2.2; text-align: justify; }
+  .completar-select { font-size: 0.95rem; padding: 2px 4px; margin: 0 2px; border: 2px solid var(--azul); border-radius: 4px; }
+  .completar-select.resuelta { border-color: var(--verde); background: #eafaf0; }
+  .completar-select.incorrecta-marca { border-color: var(--rojo); background: #fdecea; }
+
+  /* ---------- V/F ---------- */
+  #vof-texto { font-size: 1.1rem; text-align: center; margin: 20px 0; min-height: 60px; }
+  #vof-botones { display: flex; justify-content: center; gap: 16px; }
+  .vof-btn { padding: 14px 28px; font-size: 1.05rem; border: none; border-radius: 10px; cursor: pointer; }
+  .vof-btn[data-valor="true"] { background: var(--verde); color: white; }
+  .vof-btn[data-valor="false"] { background: var(--rojo); color: white; }
+  .feedback { text-align: center; font-weight: bold; min-height: 24px; margin-top: 10px; }
+  .progreso { text-align: center; color: #555; font-size: 0.9rem; }
+
+  /* ---------- Sopa ---------- */
+  .sopa-lista { text-align: center; margin-bottom: 10px; }
+  .sopa-palabra { display: inline-block; margin: 3px 6px; padding: 4px 8px; border: 1px solid var(--azul); border-radius: 6px; font-size: 0.85rem; }
+  .sopa-palabra-lista { background: var(--verde); color: white; text-decoration: line-through; }
+  .sopa-grilla { display: grid; grid-template-columns: repeat(var(--tam), 1fr); max-width: 420px; margin: 0 auto; user-select: none; }
+  .sopa-celda { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 1px solid #cfd8e3; font-weight: bold; font-size: 0.85rem; background: white; cursor: pointer; }
+  .sopa-sel-temp { background: var(--amarillo); }
+  .sopa-encontrada { background: var(--verde); color: white; }
+
+  /* ---------- Crucigrama ---------- */
+  .cruci-fila { margin: 14px 0; }
+  .cruci-pista { font-size: 0.9rem; margin-bottom: 6px; }
+  .cruci-audio-btn { border: none; background: var(--amarillo); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; }
+  .cruci-cajas { display: flex; gap: 4px; flex-wrap: wrap; }
+  .cruci-caja { width: 28px; height: 32px; text-align: center; text-transform: uppercase; font-size: 1rem; border: 2px solid var(--azul); border-radius: 4px; }
+  .cruci-caja.resuelta { border-color: var(--verde); background: #eafaf0; }
+  .cruci-caja.incorrecta-marca { border-color: var(--rojo); background: #fdecea; }
+
+  /* ---------- Cierre ---------- */
+  #pantalla-cierre { text-align: center; }
+  #cierre-resultado { font-size: 1.2rem; font-weight: bold; margin: 16px 0; }
+
+  @media (min-width: 1100px) {
+    .pantalla { max-width: 1000px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PANTALLA 1 - PORTADA ============ -->
+<div class="pantalla activa" id="pantalla-portada">
+  <p class="portada-eyebrow">Desarrollo Regional</p>
+  <h1>Forraje Verde Hidropónico</h1>
+  <p class="centro">Secano Lavallino</p>
+  <img class="portada-img" src="img/sustentacion_ovejas.jpg" alt="Forraje Verde Hidropónico">
+  <!-- pendiente: reemplazar por la foto real del profe + texto adjunto debajo -->
+  <div class="portada-fila">
+    <button class="btn" id="btn-comenzar">Comenzar</button>
+    <div class="altavoz-fila">
+      <button class="altavoz-btn" id="btn-altavoz-portada" title="Escuchar bienvenida">🔊</button>
+      <span class="altavoz-texto">Pulsá para iniciar la actividad</span>
+    </div>
+    <div class="portada-thumb-wrap">
+      <img id="portada-thumb" src="img/profe.jpg" alt="Profe Gustavo Aguilar">
+      <div class="portada-thumb-caption">📸 Informática Educativa · Profe Gustavo Aguilar</div>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox">
+  <button id="lightbox-cerrar">✕</button>
+  <img src="img/profe.jpg" alt="Profe Gustavo Aguilar">
+  <p>Menos prisa, más vida 🧉🫂</p>
+</div>
+
+<!-- ============ PANTALLA 2 - ¿QUÉ ES EL FVH? ============ -->
+<div class="pantalla" id="pantalla-que-es">
+  <h2>¿Qué es el Forraje Verde Hidropónico?</h2>
+  <img class="contenido-img" id="que-es-img" src="" alt="Contexto secano Lavallino">
+  <p id="que-es-texto" style="font-size:1.05rem; line-height:1.6;"></p>
+  <div class="centro"><button class="btn" id="que-es-siguiente-btn">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 3 - ASOCIACIÓN ============ -->
+<div class="pantalla" id="pantalla-asociacion">
+  <h2>Investigamos: ¿Qué? ¿Por qué? ¿Para qué?</h2>
+  <p class="centro">Uní cada pregunta con su respuesta.</p>
+  <div class="union-cols">
+    <div id="asoc-preguntas"></div>
+    <div id="asoc-respuestas"></div>
+  </div>
+  <div class="centro"><button class="btn" id="asoc-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 4 - OBJETIVOS ============ -->
+<div class="pantalla" id="pantalla-objetivos">
+  <h2>Identificá los objetivos del proyecto</h2>
+  <img class="contenido-img" src="img/placeholder_objetivos.jpg" alt="Ganado alimentándose con FVH" style="max-width:420px;">
+  <p class="centro">Tocá las 3 opciones que son objetivos reales del proyecto.</p>
+  <div id="objetivos-opciones" style="max-width:500px; margin:0 auto;"></div>
+  <p class="feedback" id="objetivos-feedback"></p>
+  <div class="centro">
+    <button class="btn" id="objetivos-siguiente-btn" style="display:none;">Siguiente →</button>
+  </div>
+</div>
+
+<!-- ============ PANTALLA 5 - ORDENÁ EL PROCESO ============ -->
+<div class="pantalla" id="pantalla-proceso">
+  <h2>Ordená el proceso productivo</h2>
+  <p class="centro">Tocá el paso que corresponda, en orden, del primero al último.</p>
+  <div id="proceso-armado"></div>
+  <div id="proceso-banco"></div>
+  <p class="feedback" id="proceso-feedback"></p>
+  <div class="centro">
+    <button class="btn" id="proceso-siguiente-btn" style="display:none;">Siguiente →</button>
+  </div>
+</div>
+
+<!-- ============ PANTALLA 6 - ARMÁ LA FRASE ============ -->
+<div class="pantalla" id="pantalla-armar-frase">
+  <h2>Armá la frase de cada etapa</h2>
+  <p class="progreso" id="af-progreso"></p>
+  <img class="af-imagen-grande" id="af-imagen" src="" alt="Etapa del proceso">
+  <div id="af-armado"></div>
+  <div id="af-banco"></div>
+  <p class="feedback" id="af-feedback"></p>
+  <div class="centro"><button class="btn" id="af-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 7 - COMPLETAR TEXTO ============ -->
+<div class="pantalla" id="pantalla-completar">
+  <h2>Completá el texto</h2>
+  <img class="contenido-img" src="img/placeholder_completar.jpg" alt="Contraste sequía y forraje verde" style="max-width:420px;">
+  <p id="completar-texto"></p>
+  <p class="feedback" id="completar-feedback"></p>
+  <div class="centro">
+    <button class="btn" id="completar-verificar-btn">Verificar</button>
+    <button class="btn" id="completar-siguiente-btn" style="display:none;">Siguiente →</button>
+  </div>
+</div>
+
+<!-- ============ PANTALLA 8 - SOPA DE LETRAS ============ -->
+<div class="pantalla" id="pantalla-sopa">
+  <h2>Sopa de letras</h2>
+  <div class="sopa-lista" id="sopa-lista"></div>
+  <div class="sopa-grilla" id="sopa-grilla"></div>
+  <div class="centro"><button class="btn" id="sopa-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 9 - CRUCIGRAMA ============ -->
+<div class="pantalla" id="pantalla-crucigrama">
+  <h2>Completá la palabra</h2>
+  <div id="crucigrama-cont"></div>
+  <p class="feedback" id="crucigrama-feedback"></p>
+  <div class="centro">
+    <button class="btn" id="crucigrama-verificar-btn">Verificar</button>
+    <button class="btn" id="crucigrama-siguiente-btn" style="display:none;">Siguiente →</button>
+  </div>
+</div>
+
+<!-- ============ PANTALLA 10 - VERDADERO O FALSO ============ -->
+<div class="pantalla" id="pantalla-vof">
+  <h2>Verdadero o Falso</h2>
+  <p class="progreso" id="vof-progreso"></p>
+  <img class="contenido-img" id="vof-imagen" src="" alt="" style="max-width:420px;">
+  <p id="vof-texto"></p>
+  <div id="vof-botones">
+    <button class="vof-btn" data-valor="true">Verdadero</button>
+    <button class="vof-btn" data-valor="false">Falso</button>
+  </div>
+  <p class="feedback" id="vof-feedback"></p>
+  <div class="centro"><button class="btn" id="vof-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 11 - CIERRE ============ -->
+<div class="pantalla" id="pantalla-cierre">
+  <img class="contenido-img" id="cierre-imagen" style="max-width:500px;" src="" alt="Resultado final">
+  <h1>¡Terminaste el recorrido!</h1>
+  <p id="cierre-texto" style="max-width:600px; margin:0 auto;"></p>
+  <p id="cierre-resultado"></p>
+  <p>Menos prisa, más vida 🧉🫂</p>
+  <button class="btn" id="btn-jugar-de-nuevo">Jugar de nuevo</button>
+</div>
+
+<script src="js/datos.js"></script>
+<script src="js/motor.js"></script>
+</body>
+</html>
