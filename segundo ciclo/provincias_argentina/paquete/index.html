@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Provincias de Argentina - QueSepanTodos.com</title>
+<style>
+  :root {
+    --azul: #2c3e50;
+    --celeste: #a9c4e0;
+    --amarillo: #f1c40f;
+    --verde: #27ae60;
+    --rojo: #e74c3c;
+    --fondo: #eef3f8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--fondo);
+    color: var(--azul);
+  }
+  .pantalla { display: none; padding: 16px; max-width: 900px; margin: 0 auto; }
+  .pantalla.activa { display: block; }
+  h1 { font-size: 1.4rem; text-align: center; margin: 8px 0; }
+  h2 { font-size: 1.15rem; text-align: center; }
+  .btn {
+    display: inline-block;
+    background: var(--azul);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px auto;
+  }
+  .btn:active { transform: scale(0.97); }
+  .centro { text-align: center; }
+
+  /* ---------- Portada ---------- */
+  #pantalla-portada { text-align: center; }
+  .portada-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
+  .portada-fila {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+  .portada-thumb-wrap { text-align: center; }
+  #portada-thumb {
+    width: 92px; height: 92px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--azul);
+    cursor: pointer;
+  }
+  .portada-thumb-caption { font-size: 0.75rem; margin-top: 4px; color: var(--azul); }
+  .altavoz-btn { background: var(--amarillo); border: none; border-radius: 50%; width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; }
+  .altavoz-fila { display: flex; align-items: center; gap: 8px; background: #fff8e1; border: 1px solid var(--amarillo); border-radius: 20px; padding: 6px 14px 6px 6px; cursor: pointer; }
+  .altavoz-texto { font-size: 0.85rem; font-weight: bold; }
+
+  /* ---------- Layout 2 columnas en pantallas grandes (Mapa / Dónde queda) ---------- */
+  @media (min-width: 1100px) {
+    .mapa-layout { display: flex; align-items: center; gap: 24px; }
+    .mapa-layout .mapa-col-svg { flex: 0 0 auto; width: 50%; }
+    .mapa-layout .mapa-col-svg svg { max-width: 380px; }
+    .mapa-layout .mapa-col-info { flex: 1; align-self: center; }
+  }
+  #lightbox {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #lightbox.visible { display: flex; }
+  #lightbox img { max-width: 90%; max-height: 70vh; border-radius: 8px; }
+  #lightbox p { color: white; margin: 14px 0; font-size: 1.1rem; }
+  #lightbox-cerrar {
+    position: absolute; top: 16px; right: 20px;
+    color: white; font-size: 2rem; background: none; border: none; cursor: pointer;
+  }
+
+  /* ---------- Mapa ---------- */
+  svg { width: 100%; max-width: 480px; display: block; margin: 0 auto; height: auto; }
+  .provincia-path {
+    fill: var(--celeste);
+    stroke: var(--azul);
+    stroke-width: 0.6;
+    cursor: pointer;
+    transition: fill .15s;
+  }
+  .provincia-path:hover, .provincia-path.activa { fill: var(--amarillo); }
+  .provincia-path.correcta { fill: var(--verde); }
+  .provincia-path.incorrecta { fill: var(--rojo); }
+  #mapa-info-panel {
+    display: none;
+    background: white;
+    border-radius: 10px;
+    padding: 14px;
+    margin-top: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+  #mapa-info-panel.visible { display: block; }
+
+  /* ---------- Unión ---------- */
+  .union-cols { display: flex; gap: 12px; justify-content: center; }
+  .union-cols > div { flex: 1; max-width: 300px; }
+  #union-imagenes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; max-width: 320px; }
+  .union-item {
+    background: white;
+    border: 2px solid var(--celeste);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 6px 0;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  #union-imagenes .union-item { margin: 0; padding: 6px; }
+  .union-item img { width: 100%; border-radius: 6px; display: block; }
+  .union-item.seleccionada { border-color: var(--amarillo); background: #fff8e1; }
+  .union-item.resuelta { border-color: var(--verde); opacity: 0.55; pointer-events: none; }
+
+  /* ---------- V/F: fondo decorativo con el mapa ---------- */
+  #pantalla-vof { position: relative; }
+  #vof-fondo-mapa { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 90%; max-width: 420px; opacity: 0.08; pointer-events: none; z-index: 0; }
+  #pantalla-vof > *:not(#vof-fondo-mapa) { position: relative; z-index: 1; }
+
+  /* ---------- V/F y Opción Múltiple ---------- */
+  #vof-texto, #om-pregunta { font-size: 1.15rem; text-align: center; margin: 20px 0; min-height: 60px; }
+  #vof-botones { display: flex; justify-content: center; gap: 16px; }
+  .vof-btn {
+    padding: 14px 28px; font-size: 1.1rem; border: none; border-radius: 10px; cursor: pointer;
+  }
+  .vof-btn[data-valor="true"] { background: var(--verde); color: white; }
+  .vof-btn[data-valor="false"] { background: var(--rojo); color: white; }
+  #om-opciones { display: flex; flex-direction: column; gap: 10px; max-width: 420px; margin: 0 auto; }
+  .om-opcion-btn {
+    padding: 12px; font-size: 1rem; border: 2px solid var(--azul); border-radius: 8px;
+    background: white; cursor: pointer;
+  }
+  .om-opcion-btn.correcta { background: var(--verde); color: white; }
+  .om-opcion-btn.incorrecta { background: var(--rojo); color: white; }
+  .mapa-mini-resultado { display: none; text-align: center; margin-top: 14px; }
+  .mapa-mini-resultado.visible { display: block; }
+  .mapa-mini-resultado svg { max-width: 220px; }
+  .mapa-mini-resultado img { max-width: 200px; border-radius: 8px; margin-top: 8px; display: inline-block; }
+  .feedback { text-align: center; font-weight: bold; min-height: 24px; margin-top: 10px; }
+  .progreso { text-align: center; color: #555; font-size: 0.9rem; }
+
+  /* ---------- Sopa de letras ---------- */
+  .sopa-lista { text-align: center; margin-bottom: 10px; }
+  .sopa-palabra {
+    display: inline-block; margin: 3px 6px; padding: 4px 8px;
+    border: 1px solid var(--azul); border-radius: 6px; font-size: 0.85rem;
+  }
+  .sopa-palabra-lista { background: var(--verde); color: white; text-decoration: line-through; }
+  .sopa-grilla {
+    display: grid;
+    grid-template-columns: repeat(var(--tam), 1fr);
+    max-width: 420px;
+    margin: 0 auto;
+    user-select: none;
+    touch-action: none;
+  }
+  .sopa-celda {
+    aspect-ratio: 1;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid #cfd8e3;
+    font-weight: bold;
+    font-size: 0.85rem;
+    background: white;
+  }
+  .sopa-sel-temp { background: #fff8e1; }
+  .sopa-encontrada { background: var(--verde); color: white; }
+
+  /* ---------- Rompecabezas ---------- */
+  #rp-banco, #rp-armado {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    min-height: 50px; padding: 10px; margin: 10px 0;
+  }
+  #rp-armado { border: 2px dashed var(--celeste); border-radius: 8px; }
+  .rp-chip {
+    background: white; border: 2px solid var(--azul); border-radius: 6px;
+    padding: 8px 12px; cursor: pointer; font-size: 0.95rem;
+  }
+  .rp-chip.colocada { background: #eafaf0; border-color: var(--verde); pointer-events: none; }
+  .rp-chip.chip-error { background: #fdecea; border-color: var(--rojo); }
+
+  /* ---------- Memoria ---------- */
+  .memoria-tablero {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .memoria-carta { aspect-ratio: 0.8; perspective: 600px; cursor: pointer; }
+  .memoria-carta-interior {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d; transition: transform 0.4s;
+  }
+  .memoria-carta.volteada .memoria-carta-interior,
+  .memoria-carta.resuelta .memoria-carta-interior { transform: rotateY(180deg); }
+  .memoria-dorso, .memoria-frente {
+    position: absolute; inset: 0;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .memoria-dorso { background: var(--azul); color: white; font-size: 1.6rem; }
+  .memoria-frente {
+    background: white; transform: rotateY(180deg);
+    font-size: 0.75rem; text-align: center; padding: 4px; border: 2px solid var(--celeste);
+  }
+  .memoria-frente img { width: 100%; height: 100%; object-fit: cover; }
+  .memoria-carta.resuelta { opacity: 0.6; }
+
+  /* ---------- Cierre ---------- */
+  #pantalla-cierre { text-align: center; }
+  #cierre-resultado { font-size: 1.2rem; font-weight: bold; margin: 16px 0; }
+
+  /* ---------- Responsive ---------- */
+  @media (min-width: 700px) {
+    .sopa-celda { font-size: 1rem; }
+  }
+  @media (min-width: 1100px) {
+    .pantalla { max-width: 1000px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PANTALLA 1 - PORTADA ============ -->
+<div class="pantalla activa" id="pantalla-portada">
+  <img class="portada-img" src="img/portada_diversidad.jpg" alt="Provincias de Argentina">
+  <h1>Provincias de Argentina</h1>
+  <p class="centro">Un recorrido interactivo por las 23 provincias de nuestro país</p>
+  <div class="portada-fila">
+    <button class="btn" id="btn-comenzar">Comenzar</button>
+    <div class="altavoz-fila" id="btn-altavoz-portada">
+      <span class="altavoz-btn">🔊</span>
+      <span class="altavoz-texto">Pulsá para iniciar la actividad</span>
+    </div>
+    <div class="portada-thumb-wrap">
+      <img id="portada-thumb" src="img/profe.jpg" alt="Profe Gustavo Aguilar">
+      <div class="portada-thumb-caption">📸 Informática Educativa · Profe Gustavo Aguilar</div>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox">
+  <button id="lightbox-cerrar">✕</button>
+  <img src="img/profe.jpg" alt="Profe Gustavo Aguilar">
+  <p>Menos prisa, más vida 🧉🫂</p>
+</div>
+
+<!-- ============ PANTALLA 2 - MAPA INTERACTIVO ============ -->
+<div class="pantalla" id="pantalla-mapa">
+  <h2>Mapa interactivo</h2>
+  <p class="centro">Tocá cualquier provincia para descubrir su nombre y una característica.</p>
+  <div class="mapa-layout">
+    <div class="mapa-col-svg" id="mapa-svg-contenedor"></div>
+    <div class="mapa-col-info">
+      <div id="mapa-info-panel">
+        <h3 id="mapa-info-nombre"></h3>
+        <p id="mapa-info-texto"></p>
+      </div>
+    </div>
+  </div>
+  <div class="centro"><button class="btn" id="mapa-siguiente-btn">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 3 - ¿DÓNDE QUEDA? ============ -->
+<div class="pantalla" id="pantalla-donde-queda">
+  <h2>¿Dónde queda?</h2>
+  <p class="progreso" id="dq-progreso"></p>
+  <div class="mapa-layout">
+    <div class="mapa-col-svg" id="dq-svg-contenedor"></div>
+    <div class="mapa-col-info">
+      <div class="altavoz-fila" id="dq-altavoz-btn" style="margin:0 auto 10px;">
+        <span class="altavoz-btn">🔊</span>
+        <span class="altavoz-texto" id="dq-pregunta-texto">¿Dónde queda...?</span>
+      </div>
+      <p class="feedback" id="dq-feedback"></p>
+    </div>
+  </div>
+  <div class="centro"><button class="btn" id="dq-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 4 - UNIÓN ============ -->
+<div class="pantalla" id="pantalla-union">
+  <h2>Uní cada provincia con su imagen</h2>
+  <div class="union-cols">
+    <div id="union-nombres"></div>
+    <div id="union-imagenes"></div>
+  </div>
+  <div class="centro"><button class="btn" id="union-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 5 - VERDADERO O FALSO ============ -->
+<div class="pantalla" id="pantalla-vof">
+  <div id="vof-fondo-mapa"></div>
+  <h2>Verdadero o Falso</h2>
+  <p class="progreso" id="vof-progreso"></p>
+  <p id="vof-texto"></p>
+  <div id="vof-botones">
+    <button class="vof-btn" data-valor="true">Verdadero</button>
+    <button class="vof-btn" data-valor="false">Falso</button>
+  </div>
+  <p class="feedback" id="vof-feedback"></p>
+  <div class="centro"><button class="btn" id="vof-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 6 - OPCIÓN MÚLTIPLE ============ -->
+<div class="pantalla" id="pantalla-opcion-multiple">
+  <h2>Opción múltiple</h2>
+  <p class="progreso" id="om-progreso"></p>
+  <p id="om-pregunta"></p>
+  <div id="om-opciones"></div>
+  <p class="feedback" id="om-feedback"></p>
+  <div class="mapa-mini-resultado" id="om-mapa-mini"></div>
+  <div class="centro"><button class="btn" id="om-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLAS 7-9 - SOPAS DE LETRAS ============ -->
+<div class="pantalla" id="pantalla-sopa-0">
+  <h2 id="sopa-0-titulo"></h2>
+  <div class="sopa-lista" id="sopa-0-lista"></div>
+  <div class="sopa-grilla" id="sopa-0-grilla"></div>
+  <div class="mapa-mini-resultado" id="sopa-0-mapa-mini"></div>
+  <div class="centro"><button class="btn" id="sopa-0-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<div class="pantalla" id="pantalla-sopa-1">
+  <h2 id="sopa-1-titulo"></h2>
+  <div class="sopa-lista" id="sopa-1-lista"></div>
+  <div class="sopa-grilla" id="sopa-1-grilla"></div>
+  <div class="mapa-mini-resultado" id="sopa-1-mapa-mini"></div>
+  <div class="centro"><button class="btn" id="sopa-1-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<div class="pantalla" id="pantalla-sopa-2">
+  <h2 id="sopa-2-titulo"></h2>
+  <div class="sopa-lista" id="sopa-2-lista"></div>
+  <div class="sopa-grilla" id="sopa-2-grilla"></div>
+  <div class="mapa-mini-resultado" id="sopa-2-mapa-mini"></div>
+  <div class="centro"><button class="btn" id="sopa-2-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 10 - ROMPECABEZAS ============ -->
+<div class="pantalla" id="pantalla-rompecabezas">
+  <h2>Armá la oración</h2>
+  <p class="progreso" id="rp-progreso"></p>
+  <div id="rp-armado"></div>
+  <div id="rp-banco"></div>
+  <p class="feedback" id="rp-feedback"></p>
+  <div class="centro"><button class="btn" id="rp-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 11 - MEMOJUEGO ============ -->
+<div class="pantalla" id="pantalla-memoria">
+  <h2>Memojuego</h2>
+  <div class="memoria-tablero" id="memoria-tablero"></div>
+  <div class="centro"><button class="btn" id="memoria-siguiente-btn" style="display:none;">Siguiente →</button></div>
+</div>
+
+<!-- ============ PANTALLA 12 - CIERRE ============ -->
+<div class="pantalla" id="pantalla-cierre">
+  <h1>¡Terminaste el recorrido!</h1>
+  <p id="cierre-resultado"></p>
+  <div class="portada-thumb-wrap" style="margin:14px auto;">
+    <img id="cierre-thumb" src="img/profe.jpg" alt="Profe Gustavo Aguilar" style="width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid var(--azul);cursor:pointer;">
+    <div class="portada-thumb-caption">📸 Informática Educativa · Profe Gustavo Aguilar</div>
+  </div>
+  <button class="btn" id="btn-jugar-de-nuevo">Jugar de nuevo</button>
+</div>
+
+<script src="js/mapa_datos.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/motor.js"></script>
+</body>
+</html>
