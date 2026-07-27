@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Recursos para Docentes · QueSepanTodos.com</title>
+<style>
+  :root {
+    --bg:#080e1a;--bg2:#0f172a;--bg3:#1e293b;
+    --c1:#4ade80;--c2:#f97316;
+    --text:#e2e8f0;--dim:#64748b;
+    --card:rgba(255,255,255,.05);--cbord:rgba(255,255,255,.09);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Verdana,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+  .barra{background:linear-gradient(135deg,#0a1628,#0f2040,#0a1628);border-bottom:2px solid rgba(74,222,128,.3);padding:16px;text-align:center}
+  .barra h1{font-size:1.3rem;font-weight:900;background:linear-gradient(120deg,#4ade80,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .barra p{font-size:.75rem;color:var(--dim);margin-top:4px}
+
+  /* ---- Pantalla de PIN ---- */
+  #pantalla-pin{max-width:380px;margin:60px auto;padding:0 20px;text-align:center}
+  #pantalla-pin p{color:var(--dim);font-size:.9rem;margin-bottom:18px}
+  #pin-input{width:100%;padding:14px;border-radius:12px;border:1.5px solid var(--cbord);background:var(--card);color:var(--text);font-size:1.3rem;text-align:center;letter-spacing:4px;outline:none;margin-bottom:14px}
+  #pin-input:focus{border-color:var(--c1)}
+  #btn-entrar{width:100%;padding:13px;border:none;border-radius:12px;background:var(--c1);color:#0f172a;font-weight:800;font-size:1rem;cursor:pointer}
+  #pin-error{color:#f87171;font-size:.82rem;margin-top:10px;display:none}
+  .pin-hint{margin-top:24px;font-size:.72rem;color:var(--dim);line-height:1.5}
+
+  /* ---- Contenido (oculto hasta ingresar el PIN) ---- */
+  #contenido{display:none;max-width:760px;margin:0 auto;padding:24px 16px 60px}
+  .recurso{background:var(--card);border:1px solid var(--cbord);border-radius:16px;padding:18px 20px;margin-bottom:16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .recurso-info{flex:1;min-width:200px}
+  .recurso-nombre{font-weight:800;font-size:1.02rem;color:var(--text)}
+  .recurso-meta{font-size:.78rem;color:var(--dim);margin-top:3px}
+  .btn-descargar{background:var(--c1);color:#0f172a;border:none;border-radius:100px;padding:10px 20px;font-weight:800;font-size:.85rem;cursor:pointer;white-space:nowrap}
+  .btn-descargar:hover{filter:brightness(1.08)}
+  .seccion-titulo{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);margin:28px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--cbord)}
+
+  /* ---- Modal de confirmación ---- */
+  #modal-confirmar{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);align-items:center;justify-content:center;padding:20px;z-index:50}
+  #modal-confirmar.activo{display:flex}
+  .modal-caja{background:var(--bg2);border:1px solid var(--cbord);border-radius:16px;padding:26px;max-width:360px;text-align:center}
+  .modal-caja p{margin-bottom:20px;font-size:.95rem}
+  .modal-botones{display:flex;gap:10px;justify-content:center}
+  .modal-botones button{padding:10px 22px;border-radius:100px;border:none;font-weight:700;cursor:pointer;font-size:.88rem}
+  .btn-si{background:var(--c1);color:#0f172a}
+  .btn-no{background:var(--card);color:var(--text);border:1px solid var(--cbord) !important}
+
+  footer{text-align:center;padding:24px 16px;color:var(--dim);font-size:.75rem}
+  footer a{color:var(--c1);text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="barra">
+  <h1>📄 Recursos para Docentes</h1>
+  <p>Fichas imprimibles de las actividades de QueSepanTodos.com</p>
+</div>
+
+<!-- Pantalla de PIN -->
+<div id="pantalla-pin">
+  <p style="margin-top:30px;">Ingresá la clave de acceso para docentes:</p>
+  <input type="password" id="pin-input" placeholder="••••••••" inputmode="text" maxlength="20" />
+  <button id="btn-entrar">Ingresar</button>
+  <p id="pin-error">Clave incorrecta. Intentá de nuevo.</p>
+  <p class="pin-hint">Esta sección es solo para docentes. Si no tenés la clave, consultala con el profe Gustavo Aguilar.</p>
+</div>
+
+<!-- Contenido con recursos -->
+<div id="contenido">
+
+  <div class="seccion-titulo">Primer Ciclo · Educación Musical</div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🎵 Sonido Fuerte y Sonido Débil</div>
+      <div class="recurso-meta">Ficha imprimible · 6 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_sonido_fuerte_debil.pdf" data-nombre="Sonido Fuerte y Sonido Débil">Descargar PDF</button>
+  </div>
+
+  <div class="seccion-titulo">Primer Ciclo · Alfabetización</div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Las Vocales</div>
+      <div class="recurso-meta">Ficha imprimible · 10 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_vocales.pdf" data-nombre="Las Vocales">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Completá las Vocales</div>
+      <div class="recurso-meta">Ficha imprimible · 6 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_completovocales.pdf" data-nombre="Completá las Vocales">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">📖 Los Girasoles (Fluidez Lectora)</div>
+      <div class="recurso-meta">Ficha imprimible · 7 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_girasoles.pdf" data-nombre="Los Girasoles">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Sílabas: ma-me-mi-mo-mu</div>
+      <div class="recurso-meta">Ficha imprimible · 12 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_mamemimomu.pdf" data-nombre="Sílabas ma-me-mi-mo-mu">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Sílabas: pa-pe-pi-po-pu</div>
+      <div class="recurso-meta">Ficha imprimible · 9 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_papepipopu.pdf" data-nombre="Sílabas pa-pe-pi-po-pu">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Sílabas: la-le-li-lo-lu</div>
+      <div class="recurso-meta">Ficha imprimible · 6 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_lalelilolu.pdf" data-nombre="Sílabas la-le-li-lo-lu">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Sílabas: na-ne-ni-no-nu</div>
+      <div class="recurso-meta">Ficha imprimible · 6 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_naneninonu.pdf" data-nombre="Sílabas na-ne-ni-no-nu">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Sílabas: sa-se-si-so-su</div>
+      <div class="recurso-meta">Ficha imprimible · 12 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_sasesisosu.pdf" data-nombre="Sílabas sa-se-si-so-su">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Sílabas: ta-te-ti-to-tu</div>
+      <div class="recurso-meta">Ficha imprimible · 10 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_tatetitotu.pdf" data-nombre="Sílabas ta-te-ti-to-tu">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Sílabas: da-de-di-do-du</div>
+      <div class="recurso-meta">Ficha imprimible · 7 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_dadedidodu.pdf" data-nombre="Sílabas da-de-di-do-du">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Sílabas: fa-fe-fi-fo-fu</div>
+      <div class="recurso-meta">Ficha imprimible · 9 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_fafefifofu.pdf" data-nombre="Sílabas fa-fe-fi-fo-fu">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Sílabas: ra-re-ri-ro-ru</div>
+      <div class="recurso-meta">Ficha imprimible · 13 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_rareriroru.pdf" data-nombre="Sílabas ra-re-ri-ro-ru">Descargar PDF</button>
+  </div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🔤 Sílabas: ca-co-cu-ce-ci</div>
+      <div class="recurso-meta">Ficha imprimible · 9 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_cacocuceci.pdf" data-nombre="Sílabas ca-co-cu-ce-ci">Descargar PDF</button>
+  </div>
+
+  <div class="seccion-titulo">Ciencias Sociales</div>
+
+  <div class="recurso">
+    <div class="recurso-info">
+      <div class="recurso-nombre">🗺️ Provincias de Argentina</div>
+      <div class="recurso-meta">Ficha imprimible · 8 páginas · PDF</div>
+    </div>
+    <button class="btn-descargar" data-archivo="fichas/ficha_provincias_argentina.pdf" data-nombre="Provincias de Argentina">Descargar PDF</button>
+  </div>
+
+  <div class="seccion-titulo">Segundo Ciclo</div>
+  <p style="color:var(--dim);font-size:.85rem;">Próximamente: Familia de Instrumentos.</p>
+
+</div>
+
+<!-- Modal de confirmación -->
+<div id="modal-confirmar">
+  <div class="modal-caja">
+    <p id="modal-texto">¿Confirmás la descarga?</p>
+    <div class="modal-botones">
+      <button class="btn-si" id="modal-si">Sí, descargar</button>
+      <button class="btn-no" id="modal-no">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">&larr; Volver al sitio</a>
+</footer>
+
+<script>
+  // Clave simple de acceso (no es seguridad real, solo un filtro anti-toque-accidental)
+  const PIN_CORRECTO = "DOCENTE2026";
+
+  document.getElementById('btn-entrar').addEventListener('click', intentarEntrar);
+  document.getElementById('pin-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') intentarEntrar();
+  });
+
+  function intentarEntrar() {
+    const valor = document.getElementById('pin-input').value.trim().toUpperCase();
+    if (valor === PIN_CORRECTO) {
+      document.getElementById('pantalla-pin').style.display = 'none';
+      document.getElementById('contenido').style.display = 'block';
+      sessionStorage.setItem('docente_ok', '1');
+    } else {
+      document.getElementById('pin-error').style.display = 'block';
+    }
+  }
+
+  // si ya se validó en esta sesión de navegación, no pedir de nuevo
+  if (sessionStorage.getItem('docente_ok') === '1') {
+    document.getElementById('pantalla-pin').style.display = 'none';
+    document.getElementById('contenido').style.display = 'block';
+  }
+
+  // Confirmación de descarga
+  let archivoPendiente = null;
+  document.querySelectorAll('.btn-descargar').forEach(btn => {
+    btn.addEventListener('click', () => {
+      archivoPendiente = btn.dataset.archivo;
+      document.getElementById('modal-texto').textContent =
+        `¿Confirmás la descarga de la ficha "${btn.dataset.nombre}"?`;
+      document.getElementById('modal-confirmar').classList.add('activo');
+    });
+  });
+  document.getElementById('modal-no').addEventListener('click', () => {
+    document.getElementById('modal-confirmar').classList.remove('activo');
+    archivoPendiente = null;
+  });
+  document.getElementById('modal-si').addEventListener('click', () => {
+    if (archivoPendiente) {
+      const a = document.createElement('a');
+      a.href = archivoPendiente;
+      a.download = '';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+    document.getElementById('modal-confirmar').classList.remove('activo');
+    archivoPendiente = null;
+  });
+</script>
+
+</body>
+</html>
