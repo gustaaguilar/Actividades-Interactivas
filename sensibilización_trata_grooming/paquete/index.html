@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informarse protege. Hablar ayuda. Actuar transforma.</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<!-- ============ PORTADA ============ -->
+<div class="pantalla activa" id="pantalla-portada">
+    <div class="portada-contenido">
+        <h1 id="titulo-portada"></h1>
+        <p class="subtitulo" id="subtitulo-portada"></p>
+        <button class="btn-comenzar" onclick="iniciarPaquete()">Comenzar</button>
+    </div>
+    <div class="fila-profe">
+        <img src="img/profe.jpg" alt="Profe Gustavo Aguilar" class="foto-profe" onclick="abrirLightbox()">
+        <span>📸 Informática Educativa · Profe Gustavo Aguilar</span>
+    </div>
+</div>
+
+<!-- ============ LIGHTBOX ============ -->
+<div id="lightbox">
+    <img src="img/profe.jpg" alt="Profe Gustavo Aguilar">
+    <p>Menos prisa, más vida 🧉🫂.</p>
+    <button onclick="cerrarLightbox()">Cerrar</button>
+</div>
+
+<!-- ============ SELECCION DE CICLO ============ -->
+<div class="pantalla" id="pantalla-seleccion">
+    <h2 class="titulo-pantalla">¿Con qué grupo vamos a trabajar hoy?</h2>
+    <p class="bajada">Elegí el ciclo para comenzar la actividad.</p>
+    <div class="opciones-ciclo">
+        <div class="tarjeta-ciclo" onclick="elegirCiclo('primero')">
+            <div class="icono">🎒</div>
+            <h3>Primer Ciclo</h3>
+            <p>La mochila de los cuidados</p>
+        </div>
+        <div class="tarjeta-ciclo" onclick="elegirCiclo('segundoTercero')">
+            <div class="icono">🧭</div>
+            <h3>Segundo y Tercer Ciclo</h3>
+            <p>Navegación segura</p>
+        </div>
+    </div>
+    <div class="fila-fuente">
+        <img src="img/logo_dge.jpg" alt="DGE - Dirección de Acompañamiento Escolar" id="fuente-logo" class="logo-dge">
+        <p id="fuente-texto" class="texto-fuente"></p>
+    </div>
+</div>
+
+<!-- =========================================================
+     PRIMER CICLO
+========================================================== -->
+
+<div class="pantalla" id="pantalla-pc-intro-mochila">
+    <h2 class="titulo-pantalla">La mochila de los cuidados</h2>
+    <img src="img/mochila_intro.jpg" alt="La mochila de los cuidados" class="img-alusiva">
+    <p class="bajada">Hoy no la vamos a llenar con útiles escolares. La vamos a llenar con los cuidados que necesitamos para crecer felices y seguros.</p>
+    <button class="btn" onclick="irAMochila()">Empezar</button>
+</div>
+
+<div class="pantalla" id="pantalla-pc-mochila">
+    <h2 class="titulo-pantalla">🎒 La mochila de los cuidados</h2>
+    <div class="escena-mochila">
+        <div class="contador-mochila" id="contador-mochila">0 / 10</div>
+        <div class="grid-imagenes" id="grid-mochila"></div>
+        <button class="btn" id="btn-cierre-mochila" style="display:none" onclick="irACierreMochila()">Continuar</button>
+    </div>
+
+    <!-- Modal de pregunta -->
+    <div class="panel-pregunta" id="panel-pregunta-mochila">
+        <p id="texto-pregunta-mochila"></p>
+        <div class="opciones-pregunta-mochila" id="opciones-pregunta-mochila"></div>
+        <p class="feedback-mochila" id="feedback-mochila"></p>
+    </div>
+</div>
+
+<div class="pantalla" id="pantalla-pc-cierre-mochila">
+    <h2 class="titulo-pantalla">🎒 Nuestra mochila está completa</h2>
+    <img src="img/mochila_cierre.jpg" alt="Mochila completa" class="img-alusiva">
+    <p class="bajada">Hoy esta mochila no está llena de útiles escolares. Está llena de cuidados, protección y afecto: todo aquello que niñas y niños necesitan para crecer, desarrollarse y sentirse seguros junto a las personas que los cuidan y acompañan.</p>
+    <button class="btn" onclick="irACaperucita()">Continuar</button>
+</div>
+
+<div class="pantalla" id="pantalla-pc-intro-caperucita">
+    <h2 class="titulo-pantalla">Caperucita en internet</h2>
+    <p class="bajada">¿Sabías que hay datos nuestros que podemos compartir, y otros que debemos cuidar mucho? Miremos juntos este video y después vamos a jugar a clasificar datos.</p>
+    <button class="btn secundario" onclick="abrirVideoCaperucita()">▶ Ver video "Caperucita Roja 2.0"</button>
+    <p class="credito-video" id="credito-caperucita"></p>
+    <button class="btn" onclick="irAClasificar()">Ir a la actividad</button>
+</div>
+
+<div class="pantalla" id="pantalla-pc-clasificar">
+    <h2 class="titulo-pantalla">¿Lo comparto o lo cuido?</h2>
+    <img src="img/chico_pensativo.jpg" alt="Pensando qué compartir" class="img-alusiva chica" id="img-clasificar">
+    <p class="progreso-clasificar" id="progreso-clasificar"></p>
+    <div class="pila-datos">
+        <div class="dato-actual" id="dato-actual-texto"></div>
+        <div class="opciones-clasificar">
+            <div class="caja-clasificar caja-compartir" onclick="clasificarDato('compartir')">✅ Lo puedo compartir</div>
+            <div class="caja-clasificar caja-cuidar" onclick="clasificarDato('cuidar')">🔒 Lo debo cuidar</div>
+        </div>
+    </div>
+</div>
+
+<!-- ---- REGLAS: puzzle de palabras (3 pantallas dinámicas en 1) ---- -->
+<div class="pantalla" id="pantalla-pc-reglas">
+    <h2 class="titulo-pantalla">🧩 Nuestras reglas para cuidarnos</h2>
+    <p class="progreso-regla" id="progreso-regla"></p>
+    <img src="img/regla_1.jpg" alt="Regla" class="img-alusiva" id="img-regla">
+    <p class="bajada">Tocá las palabras en el orden correcto para armar la frase.</p>
+
+    <div class="frase-armada" id="frase-armada"></div>
+    <div class="banco-palabras" id="banco-palabras"></div>
+
+    <div class="mensaje-regla-completa" id="mensaje-regla-completa">
+        <p>¡Muy bien! 🎉</p>
+    </div>
+    <button class="btn" id="btn-siguiente-regla" style="display:none" onclick="siguienteRegla()">Siguiente →</button>
+</div>
+
+<!-- =========================================================
+     SEGUNDO Y TERCER CICLO
+========================================================== -->
+
+<div class="pantalla" id="pantalla-st-intro-navegacion">
+    <h2 class="titulo-pantalla">🧭 Navegación segura</h2>
+    <p class="bajada">Vamos a convertirnos en detectives digitales. Primero, miremos juntos este video.</p>
+    <button class="btn secundario" onclick="abrirVideoNavegacion()">▶ Ver RAP digital</button>
+    <button class="btn" onclick="irARuleta()">Ir a la ruleta</button>
+</div>
+
+<div class="pantalla" id="pantalla-st-ruleta">
+    <h2 class="titulo-pantalla">🧭 ¿Qué tan segura es esta situación?</h2>
+    <p class="credito-video" id="credito-navegacion"></p>
+    <p class="bajada">Girá la ruleta y analicemos juntos la situación que aparece.</p>
+    <div class="contenedor-ruleta">
+        <div class="flecha-ruleta">🔻</div>
+        <svg id="svg-ruleta" class="ruleta-svg" viewBox="0 0 300 300"></svg>
+    </div>
+    <button class="btn" onclick="girarRuleta()">Girar la ruleta</button>
+
+    <div class="situacion-caja" id="situacion-caja">
+        <p class="texto-situacion" id="texto-situacion"></p>
+        <div class="opciones-tipo">
+            <button class="btn-tipo seguro" onclick="elegirTipoRuleta('seguro')">Seguro</button>
+            <button class="btn-tipo dudoso" onclick="elegirTipoRuleta('dudoso')">Dudoso</button>
+            <button class="btn-tipo riesgoso" onclick="elegirTipoRuleta('riesgoso')">Riesgoso</button>
+        </div>
+        <div class="resultado-tipo" id="resultado-tipo-ruleta"></div>
+    </div>
+
+    <div class="barra-navegacion">
+        <button class="btn suave" onclick="irACuestionario()">Continuar →</button>
+    </div>
+</div>
+
+<div class="pantalla" id="pantalla-st-cuestionario">
+    <h2 class="titulo-pantalla">📝 Pensemos juntos</h2>
+    <p class="progreso-clasificar" id="progreso-cuestionario"></p>
+    <div class="pila-datos">
+        <div class="dato-actual" id="pregunta-cuestionario-texto"></div>
+        <div class="opciones-cuestionario" id="opciones-cuestionario"></div>
+        <p class="feedback-cuestionario" id="feedback-cuestionario"></p>
+    </div>
+</div>
+
+<div class="pantalla" id="pantalla-st-cierre-cuestionario">
+    <h2 class="titulo-pantalla">✅ ¡Muy bien!</h2>
+    <p class="bajada" id="resumen-cuestionario"></p>
+    <p class="bajada">Recordá: hablar en familia sobre lo que hacemos en internet, cuidar nuestra imagen, y contarle a un adulto de confianza cuando algo nos preocupa, son las mejores formas de cuidarnos.</p>
+    <button class="btn" id="btn-continuar-cuestionario" onclick="irAMural()">Continuar →</button>
+</div>
+
+<div class="pantalla" id="pantalla-st-mural">
+    <h2 class="titulo-pantalla">🧩 Nuestros acuerdos para navegar seguros/as</h2>
+    <p class="bajada">Pulsá en cada compromiso y elegí la opción correcta que explica por qué es importante.</p>
+    <div class="grid-mural" id="grid-mural"></div>
+    <button class="btn" onclick="irAMemojuego()">Continuar →</button>
+
+    <!-- Modal situación mural -->
+    <div class="modal-mural" id="modal-situacion-mural">
+        <div class="modal-mural-contenido">
+            <p id="situacion-mural-texto"></p>
+            <div class="opciones-situacion-mural" id="opciones-situacion-mural"></div>
+            <p class="feedback-mural" id="feedback-mural"></p>
+            <button class="btn suave" onclick="cerrarModalMural()">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<div class="pantalla" id="pantalla-st-memojuego">
+    <h2 class="titulo-pantalla">🧠 Memojuego de los cuidados</h2>
+    <p class="bajada">Tocá dos cartas para darlas vuelta. Si forman una pareja, vas a escuchar de qué se trata.</p>
+    <div class="contador-memojuego" id="contador-memojuego">0 / 10</div>
+    <div class="grid-memojuego" id="grid-memojuego"></div>
+</div>
+
+<div class="pantalla" id="pantalla-st-rompecabezas">
+    <h2 class="titulo-pantalla">🧩 Armemos la imagen final</h2>
+    <p class="bajada">Tocá dos piezas para intercambiarlas de lugar, hasta armar la imagen completa.</p>
+    <div class="grid-rompecabezas" id="grid-rompecabezas"></div>
+    <button class="btn" id="btn-finalizar-rompecabezas" style="display:none" onclick="finalizarRompecabezas()">Finalizar</button>
+</div>
+
+<!-- =========================================================
+     CIERRE COMUN
+========================================================== -->
+<div class="pantalla" id="pantalla-cierre-final">
+    <h2 class="titulo-pantalla">💚 Recordá siempre</h2>
+    <div class="caja-linea145">
+        <div class="numero" id="linea145-numero"></div>
+        <p id="linea145-texto"></p>
+    </div>
+    <p class="lema-final">Informarse protege. Hablar ayuda. Actuar transforma.</p>
+    <button class="btn" onclick="volverASeleccion()" style="margin-top:16px;">Volver al inicio</button>
+
+    <div class="fila-profe">
+        <img src="img/profe.jpg" alt="Profe Gustavo Aguilar" class="foto-profe">
+        <span>📸 Informática Educativa<br>Prof. Gustavo Aguilar</span>
+    </div>
+</div>
+
+<script src="js/datos.js"></script>
+<script src="js/motor.js"></script>
+</body>
+</html>

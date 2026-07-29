@@ -65,6 +65,7 @@
   .ciclo-header{display:flex;align-items:center;gap:12px;margin:28px 0 14px}
   .ciclo-badge{background:var(--c1);color:#0f172a;font-weight:800;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:100px;white-space:nowrap}
   .ciclo-badge.c2{background:var(--c2)}
+  .ciclo-badge.c3{background:#3b82f6}
   .ciclo-title{font-size:1.1rem;font-weight:800;color:var(--text)}
   .ciclo-count{font-size:.7rem;font-weight:700;color:var(--dim);background:var(--card);border:1px solid var(--cbord);border-radius:100px;padding:3px 10px}
   .ciclo-line{flex:1;height:1px;background:var(--cbord)}
@@ -167,7 +168,7 @@
 
 <div class="novedades">
   <span class="nov-badge">&#x1F195; Nuevo</span>
-  <span class="nov-text"><strong>Sonido Fuerte y Sonido Débil</strong> &mdash; Nueva actividad interactiva de Música para Primer Ciclo: reconocé y diferenciá sonidos fuertes y sonidos débiles con clasificación por audio, memojuegos y 8 rompecabezas &mdash; 25 estaciones con audio.</span>
+  <span class="nov-text"><strong>Informarse protege. Hablar ayuda. Actuar transforma.</strong> &mdash; Nuevo paquete interactivo de sensibilización contra la Trata, la Explotación y el Grooming para Primer y Segundo Ciclo y Educación Especial: mochila de los cuidados, memojuego, ruleta de navegación segura, cuestionario y rompecabezas final. Basado en material de la Dirección de Acompañamiento Escolar (DGE).</span>
 </div>
 
 <header>
@@ -206,6 +207,20 @@
 </div>
 
 <div class="wrapper">
+  <div class="ciclo-header">
+    <span class="ciclo-badge c3">Transversal</span>
+    <span class="ciclo-title">Primer y Segundo Ciclo &middot; Educación Especial</span>
+    <span class="ciclo-count" id="cnt-transversal">1 paquete</span>
+    <div class="ciclo-line"></div>
+  </div>
+  <div class="cards-grid" id="grid-transversal">
+        <a class="card" href="sensibilizaci%C3%B3n_trata_grooming/paquete/index.html" target="_blank" data-area="integrador" data-ciclo="transversal" data-tooltip="Integrador · Primer y Segundo Ciclo y Educación Especial · Jornada Provincial de Sensibilización y Formación contra la Trata, la Explotación y el Grooming: mochila de los cuidados, clasificación de datos personales, puzzles de reglas, ruleta de navegación segura, cuestionario, mural de compromisos, memojuego y rompecabezas final. Basado en material de la Dirección de Acompañamiento Escolar (DGE).">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,3 L31,8 L31,17 Q31,27 18,33 Q5,27 5,17 L5,8 Z" fill="#3b82f6"/><path d="M18,11 C15,8 9,10 9,15 C9,20 18,26 18,26 C18,26 27,20 27,15 C27,10 21,8 18,11 Z" fill="white"/></svg></span>
+          <div class="card-name">Informarse protege. Hablar ayuda. Actuar transforma.</div>
+          <span class="card-area" style="background:rgba(255,255,255,.08);color:#3b82f6">Integrador · 1° y 2° Ciclo</span>
+        </a>
+  </div>
+
   <div class="ciclo-header">
     <span class="ciclo-badge">1&deg; Ciclo</span>
     <span class="ciclo-title">Primer Ciclo</span>
@@ -653,19 +668,20 @@
 let filtroActivo='all';
 function filtrar(){
   const q=document.getElementById('buscador').value.toLowerCase().trim();
-  let v1=0,v2=0;
+  let v1=0,v2=0,v3=0;
   document.querySelectorAll('.card').forEach(card=>{
     const txt=card.querySelector('.card-name').textContent.toLowerCase()+card.querySelector('.card-area').textContent.toLowerCase();
     const ca=card.dataset.area||'';
     const ci=card.dataset.ciclo||'';
     const show=(!q||txt.includes(q))&&(filtroActivo==='all'||ca===filtroActivo);
     card.style.display=show?'':'none';
-    if(show){if(ci==='c1')v1++;else v2++;}
+    if(show){if(ci==='c1')v1++;else if(ci==='c2')v2++;else v3++;}
   });
   document.getElementById('cnt-c1').textContent=v1+' paquetes';
   document.getElementById('cnt-c2').textContent=v2+' paquetes';
-  document.getElementById('counter-total').textContent=v1+v2;
-  document.getElementById('empty-msg').style.display=(v1+v2===0)?'block':'none';
+  document.getElementById('cnt-transversal').textContent=v3+(v3===1?' paquete':' paquetes');
+  document.getElementById('counter-total').textContent=v1+v2+v3;
+  document.getElementById('empty-msg').style.display=(v1+v2+v3===0)?'block':'none';
 }
 function setFiltro(btn){
   document.querySelectorAll('.filtro-btn').forEach(b=>b.classList.remove('active'));
