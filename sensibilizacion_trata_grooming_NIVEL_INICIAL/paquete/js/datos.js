@@ -30,7 +30,7 @@ DATOS.cuento = {
 DATOS.personasConfianza = [
     { id: "mama",    nombre: "Mamá",    img: "img/mama.jpg",    audio: "audio/confianza_mama.mp3",    audioMemo: "audio/memo_mama.mp3" },
     { id: "papa",    nombre: "Papá",    img: "img/papa.jpg",    audio: "audio/confianza_papa.mp3",    audioMemo: "audio/memo_papa.mp3" },
-    { id: "seño",    nombre: "La seño", img: "img/seño.jpg",    audio: "audio/confianza_seño.mp3",    audioMemo: "audio/memo_seño.mp3" },
+    { id: "seño",    nombre: "La seño", img: "img/maestra.jpg",    audio: "audio/confianza_maestra.mp3",    audioMemo: "audio/memo_maestra.mp3" },
     { id: "abuela",  nombre: "Abuela",  img: "img/abuela.jpg",  audio: "audio/confianza_abuela.mp3",  audioMemo: "audio/memo_abuela.mp3" },
     { id: "abuelo",  nombre: "Abuelo",  img: "img/abuelo.jpg",  audio: "audio/confianza_abuelo.mp3",  audioMemo: "audio/memo_abuelo.mp3" },
     { id: "hermano", nombre: "Hermano/a mayor", img: "img/hermano.jpg", audio: "audio/confianza_hermano.mp3", audioMemo: "audio/memo_hermano.mp3" }
