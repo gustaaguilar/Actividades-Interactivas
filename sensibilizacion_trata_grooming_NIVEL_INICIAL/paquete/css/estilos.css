@@ -1,0 +1,191 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --color-fondo: #FFF8EF;
+    --color-primario: #E8734A;
+    --color-secundario: #4CAF7D;
+    --color-alerta: #E05A4E;
+    --color-duda: #F0A73C;
+    --color-texto: #3A2E2A;
+    --color-card: #FFFFFF;
+    --sombra: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+body {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.pantalla {
+    display: none;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+    animation: aparecer .4s ease;
+}
+.pantalla.activa { display: flex; }
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- PORTADA ---------- */
+#pantalla-portada {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+}
+#pantalla-portada::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(58,46,42,0.55), rgba(58,46,42,0.75));
+}
+.portada-contenido { position: relative; z-index: 2; max-width: 720px; }
+.portada-contenido h1 { font-size: 2rem; margin-bottom: 12px; text-shadow: 0 2px 8px rgba(0,0,0,.4); }
+.portada-contenido p.subtitulo { font-size: 1.05rem; margin-bottom: 32px; opacity: .95; }
+.btn-comenzar {
+    background: var(--color-primario); color: white; border: none;
+    padding: 16px 40px; font-size: 1.2rem; border-radius: 40px; cursor: pointer;
+    box-shadow: var(--sombra);
+}
+.fila-profe { position: relative; z-index: 2; margin-top: 40px; display: flex; align-items: center; gap: 12px; justify-content: center; }
+.foto-profe { width: 92px; height: 92px; border-radius: 50%; border: 3px solid white; object-fit: cover; cursor: pointer; box-shadow: var(--sombra); }
+.fila-profe span { font-size: .95rem; opacity: .95; }
+
+/* ---------- LIGHTBOX ---------- */
+#lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; align-items: center; justify-content: center; flex-direction: column; padding: 20px; text-align: center; }
+#lightbox.activo { display: flex; }
+#lightbox img { max-width: 90%; max-height: 75vh; border-radius: 12px; }
+#lightbox p { color: white; margin-top: 16px; font-size: 1rem; }
+#lightbox button { margin-top: 20px; background: var(--color-primario); border: none; color: white; padding: 10px 24px; border-radius: 30px; cursor: pointer; }
+
+/* ---------- GENERAL ---------- */
+h2.titulo-pantalla { font-size: 1.6rem; color: var(--color-primario); margin-bottom: 8px; }
+p.bajada { max-width: 640px; font-size: 1.05rem; margin-bottom: 24px; line-height: 1.5; }
+.btn { background: var(--color-primario); color: white; border: none; padding: 14px 32px; font-size: 1.1rem; border-radius: 30px; cursor: pointer; margin: 6px; box-shadow: 0 3px 10px rgba(0,0,0,.15); }
+.btn.secundario { background: var(--color-secundario); }
+.credito-video { font-size: .8rem; opacity: .75; max-width: 480px; margin: 4px 0 12px; }
+.progreso { font-weight: bold; color: var(--color-primario); margin-bottom: 10px; }
+
+/* ---------- FUENTE / CITA DGE ---------- */
+.fila-fuente { margin-top: 32px; display: flex; align-items: center; gap: 12px; max-width: 460px; }
+.logo-dge { width: 70px; height: auto; flex-shrink: 0; }
+.texto-fuente { font-size: .8rem; opacity: .8; text-align: left; }
+
+/* ---------- ¿A QUIEN LE CUENTO? ---------- */
+.caja-situacion-cuento {
+    background: var(--color-card); border-radius: 16px; padding: 20px;
+    max-width: 560px; box-shadow: var(--sombra); margin-bottom: 20px; font-size: 1.15rem; font-weight: bold;
+}
+.grid-personas-confianza {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 14px; max-width: 700px; width: 100%;
+}
+.tarjeta-persona {
+    background: var(--color-card); border-radius: 16px; overflow: hidden; cursor: pointer;
+    box-shadow: var(--sombra); transition: transform .15s;
+}
+.tarjeta-persona:active { transform: scale(0.95); }
+.tarjeta-persona img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.nombre-persona { padding: 10px; font-weight: bold; color: var(--color-primario); }
+
+/* ---------- MURAL DE CUALIDADES ---------- */
+.contador-mural { font-weight: bold; color: var(--color-secundario); margin-bottom: 12px; font-size: 1.1rem; }
+.grid-cualidades {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px; max-width: 700px; width: 100%;
+}
+.tarjeta-cualidad {
+    background: var(--color-card); border-radius: 16px; padding: 20px 12px; cursor: pointer;
+    box-shadow: var(--sombra); transition: transform .15s, opacity .3s;
+}
+.tarjeta-cualidad .icono-cualidad { font-size: 2.2rem; margin-bottom: 8px; }
+.tarjeta-cualidad .texto-cualidad { font-weight: bold; font-size: .95rem; }
+.tarjeta-cualidad.elegida { background: var(--color-secundario); color: white; opacity: 0.85; }
+
+/* ---------- EL SEMAFORO ---------- */
+.img-situacion-semaforo { width: 100%; max-width: 420px; border-radius: 16px; box-shadow: var(--sombra); margin-bottom: 16px; }
+.opciones-semaforo { display: flex; gap: 16px; justify-content: center; margin-top: 8px; }
+.btn-semaforo {
+    width: 70px; height: 70px; border-radius: 50%; border: none; cursor: pointer;
+    font-size: 2rem; box-shadow: var(--sombra); transition: transform .15s;
+}
+.btn-semaforo:active { transform: scale(0.9); }
+.btn-semaforo.verde { background: var(--color-secundario); }
+.btn-semaforo.amarillo { background: var(--color-duda); }
+.btn-semaforo.rojo { background: var(--color-alerta); }
+.resultado-semaforo {
+    display: none; margin-top: 16px; padding: 14px 20px; border-radius: 12px;
+    color: white; font-weight: bold; max-width: 420px;
+}
+.resultado-semaforo.activo { display: block; }
+
+/* ---------- CIERRE ---------- */
+.img-alusiva { width: 100%; max-width: 420px; border-radius: 16px; box-shadow: var(--sombra); margin: 8px 0 16px; }
+.caja-linea145 { background: var(--color-card); border-radius: 20px; padding: 32px; max-width: 520px; box-shadow: var(--sombra); border: 3px solid var(--color-secundario); }
+.caja-linea145 .numero { font-size: 3rem; font-weight: bold; color: var(--color-secundario); margin-bottom: 8px; }
+.lema-final { margin-top: 24px; font-size: 1.2rem; font-style: italic; color: var(--color-primario); font-weight: bold; }
+
+/* ---------- MEMOJUEGO ---------- */
+.grid-memojuego {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    max-width: 420px;
+    width: 100%;
+}
+.carta-memo {
+    aspect-ratio: 3/4;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--sombra);
+    background: var(--color-primario);
+}
+.carta-memo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dorso-carta {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: white;
+}
+.carta-memo.resuelta { opacity: 0.5; pointer-events: none; }
+
+/* ---------- BOTON DE PARLANTE (repetir audio) ---------- */
+.btn-audio {
+    background: var(--color-secundario);
+    color: white;
+    border: none;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: var(--sombra);
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+.btn-audio:active { transform: scale(0.9); }
+.caja-situacion-cuento {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.fila-imagen-semaforo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .portada-contenido h1 { font-size: 1.5rem; }
+    .grid-personas-confianza, .grid-cualidades { grid-template-columns: repeat(2, 1fr); }
+}

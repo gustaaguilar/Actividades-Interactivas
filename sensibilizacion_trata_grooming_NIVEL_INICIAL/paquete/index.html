@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informarse protege. Hablar ayuda. Actuar transforma. - Nivel Inicial</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<!-- ============ PORTADA ============ -->
+<div class="pantalla activa" id="pantalla-portada">
+    <div class="portada-contenido">
+        <h1 id="titulo-portada"></h1>
+        <p class="subtitulo" id="subtitulo-portada"></p>
+        <button class="btn-comenzar" onclick="iniciarPaquete()">Comenzar</button>
+    </div>
+    <div class="fila-profe">
+        <img src="img/profe.jpg" alt="Profe Gustavo Aguilar" class="foto-profe" onclick="abrirLightbox()">
+        <span>📸 Informática Educativa · Profe Gustavo Aguilar</span>
+    </div>
+</div>
+
+<!-- ============ LIGHTBOX ============ -->
+<div id="lightbox">
+    <img src="img/profe.jpg" alt="Profe Gustavo Aguilar">
+    <p>Menos prisa, más vida 🧉🫂.</p>
+    <button onclick="cerrarLightbox()">Cerrar</button>
+</div>
+
+<!-- ============ CUENTO INTRO ============ -->
+<div class="pantalla" id="pantalla-cuento-intro">
+    <h2 class="titulo-pantalla">📖 Los guarda secretos</h2>
+    <p class="bajada">Hoy vamos a escuchar un cuento muy especial sobre el cuidado. Miremos juntos el video.</p>
+    <button class="btn secundario" onclick="abrirVideoCuento()">▶ Ver el cuento</button>
+    <p class="credito-video" id="credito-cuento"></p>
+    <button class="btn" onclick="irAQuienLeCuento()">Ir a la actividad</button>
+</div>
+
+<!-- ============ ¿A QUIEN LE CUENTO? ============ -->
+<div class="pantalla" id="pantalla-a-quien-le-cuento">
+    <h2 class="titulo-pantalla">💬 ¿A quién le cuento?</h2>
+    <p class="progreso" id="progreso-cuento"></p>
+    <div class="caja-situacion-cuento">
+        <span id="texto-situacion-cuento"></span>
+        <button class="btn-audio" onclick="repetirAudioCuento()" aria-label="Repetir audio">🔊</button>
+    </div>
+    <div class="grid-personas-confianza" id="grid-personas-confianza"></div>
+</div>
+
+<!-- ============ MEMOJUEGO DE PERSONAS DE CONFIANZA ============ -->
+<div class="pantalla" id="pantalla-memojuego">
+    <h2 class="titulo-pantalla">🧠 Memojuego de las personas de confianza</h2>
+    <p class="bajada">Tocá dos cartas para darlas vuelta. Si forman una pareja, vas a escuchar de quién se trata.</p>
+    <div class="contador-mural" id="contador-memojuego">0 / 6</div>
+    <div class="grid-memojuego" id="grid-memojuego"></div>
+</div>
+
+<!-- ============ MURAL DE CUALIDADES ============ -->
+<div class="pantalla" id="pantalla-mural">
+    <h2 class="titulo-pantalla">🌟 Mi cuerpo es valioso</h2>
+    <p class="bajada">Tocá las cosas que te gustan. ¡Todos somos valiosos!</p>
+    <div class="contador-mural" id="contador-mural">0 / 8</div>
+    <div class="grid-cualidades" id="grid-cualidades"></div>
+    <button class="btn" id="btn-cierre-mural" style="display:none" onclick="irACierreMural()">Continuar</button>
+</div>
+
+<div class="pantalla" id="pantalla-cierre-mural">
+    <h2 class="titulo-pantalla">💚 Todos somos valiosos</h2>
+    <p class="bajada">Cada persona merece cuidado, respeto y protección.</p>
+    <button class="btn" onclick="irASemaforo()">Continuar</button>
+</div>
+
+<!-- ============ EL SEMAFORO DE LOS LIMITES ============ -->
+<div class="pantalla" id="pantalla-semaforo">
+    <h2 class="titulo-pantalla">🚦 El semáforo de los límites</h2>
+    <p class="progreso" id="progreso-semaforo"></p>
+    <div class="fila-imagen-semaforo">
+        <img src="" alt="Situación" class="img-situacion-semaforo" id="img-situacion-semaforo">
+        <button class="btn-audio" onclick="repetirAudioSemaforo()" aria-label="Repetir audio">🔊</button>
+    </div>
+    <div class="opciones-semaforo">
+        <button class="btn-semaforo verde" onclick="elegirColorSemaforo('verde')">🟢</button>
+        <button class="btn-semaforo amarillo" onclick="elegirColorSemaforo('amarillo')">🟡</button>
+        <button class="btn-semaforo rojo" onclick="elegirColorSemaforo('rojo')">🔴</button>
+    </div>
+    <div class="resultado-semaforo" id="resultado-semaforo"></div>
+</div>
+
+<!-- ============ CIERRE FINAL ============ -->
+<div class="pantalla" id="pantalla-cierre-final">
+    <h2 class="titulo-pantalla">💚 Recordá siempre</h2>
+    <img src="" alt="Cierre" class="img-alusiva" id="img-cierre-final">
+    <div class="caja-linea145">
+        <div class="numero" id="linea145-numero"></div>
+        <p id="linea145-texto"></p>
+    </div>
+    <p class="lema-final">Informarse protege. Hablar ayuda. Actuar transforma.</p>
+    <button class="btn" onclick="volverAlInicio()" style="margin-top:16px;">Volver al inicio</button>
+
+    <div class="fila-profe">
+        <img src="img/profe.jpg" alt="Profe Gustavo Aguilar" class="foto-profe">
+        <span>📸 Informática Educativa<br>Prof. Gustavo Aguilar</span>
+    </div>
+
+    <div class="fila-fuente">
+        <img src="img/logo_dge.jpg" alt="DGE" id="fuente-logo" class="logo-dge">
+        <p id="fuente-texto" class="texto-fuente"></p>
+    </div>
+</div>
+
+<script src="js/datos.js"></script>
+<script src="js/motor.js"></script>
+</body>
+</html>
