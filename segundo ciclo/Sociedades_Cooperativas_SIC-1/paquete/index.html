@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Sociedades Cooperativas — SIC</title>
+<style>
+  :root{
+    --azul:#1f4e79;
+    --azul-claro:#3d7ab5;
+    --verde:#3c8c5c;
+    --gris:#f2f4f6;
+    --gris-oscuro:#4a4a4a;
+    --rojo:#c0392b;
+    --blanco:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;height:100%;font-family:'Segoe UI',Arial,sans-serif;background:var(--gris);color:var(--gris-oscuro);}
+  #app{max-width:720px;margin:0 auto;min-height:100%;background:var(--blanco);display:flex;flex-direction:column;box-shadow:0 0 20px rgba(0,0,0,.08);}
+
+  /* Barra de progreso */
+  #progreso-wrap{height:6px;background:#e0e0e0;width:100%;}
+  #progreso-bar{height:100%;background:var(--verde);width:0%;transition:width .3s ease;}
+
+  main{flex:1;padding:14px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+
+  img.pantalla-img{width:100%;max-width:420px;max-height:220px;object-fit:cover;border-radius:12px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+  img.img-sopa{max-width:200px;max-height:120px;margin-bottom:8px;}
+  img.img-cierre{max-width:170px;max-height:100px;margin-bottom:6px;}
+
+  h1{color:var(--azul);font-size:1.35em;margin:6px 0;}
+  h2{color:var(--azul);font-size:1.1em;margin:6px 0 4px;}
+  p.texto{font-size:1em;line-height:1.4;max-width:520px;margin:6px 0;}
+
+  button{font-family:inherit;cursor:pointer;border:none;}
+
+  .btn-principal{
+    background:var(--azul);color:#fff;padding:12px 28px;border-radius:30px;
+    font-size:1.05em;font-weight:600;margin-top:12px;transition:background .2s;
+  }
+  .btn-principal:hover{background:var(--azul-claro);}
+  .btn-principal:disabled{background:#aaa;cursor:not-allowed;}
+
+  .btn-audio{
+    background:var(--verde);color:#fff;width:44px;height:44px;border-radius:50%;
+    font-size:1.2em;display:inline-flex;align-items:center;justify-content:center;margin:8px;
+  }
+
+  /* Portada */
+  #pantalla-portada{padding-top:10px;}
+  .foto-thumb{
+    width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid var(--azul);
+    cursor:pointer;margin-top:14px;
+  }
+  .firma{font-size:.85em;color:#777;margin-top:6px;}
+  .fila-comenzar{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:12px;}
+
+  /* Lightbox */
+  #lightbox{
+    display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);
+    z-index:999;align-items:center;justify-content:center;flex-direction:column;
+  }
+  #lightbox.activo{display:flex;}
+  #lightbox img{max-width:85%;max-height:70%;border-radius:12px;}
+  #lightbox p{color:#fff;font-size:1.1em;margin-top:16px;}
+  #lightbox-cerrar{margin-top:20px;background:#fff;color:#000;padding:10px 24px;border-radius:20px;}
+
+  /* Opciones tipo formulario / quiz */
+  .opciones{width:100%;max-width:520px;margin-top:8px;}
+  .opcion{
+    display:block;width:100%;text-align:left;background:var(--gris);border:2px solid #ddd;
+    border-radius:10px;padding:11px 14px;margin-bottom:8px;font-size:.98em;transition:all .15s;
+  }
+  .opcion:active{transform:scale(.98);}
+  .opcion.correcta{background:#d4edda;border-color:var(--verde);color:#1e5631;font-weight:600;}
+  .opcion.incorrecta{background:#f8d7da;border-color:var(--rojo);color:#7a1f1f;}
+  .opcion.deshabilitada{pointer-events:none;opacity:.7;}
+
+  /* Casos - botones de clase */
+  .clases-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:520px;margin-top:12px;}
+  .clase-btn{background:var(--gris);border:2px solid #ddd;border-radius:10px;padding:12px 8px;font-size:.95em;}
+  .clase-btn.correcta{background:#d4edda;border-color:var(--verde);}
+  .clase-btn.incorrecta{background:#f8d7da;border-color:var(--rojo);}
+
+  /* Sopa de letras */
+  #sopa-grid{display:grid;gap:2px;margin:14px auto;touch-action:none;user-select:none;}
+  .sopa-celda{
+    width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+    background:var(--gris);border-radius:4px;font-weight:600;font-size:.9em;
+  }
+  .sopa-celda.seleccion{background:#ffe08a;}
+  .sopa-celda.encontrada{background:#a9dfbf;color:#1e5631;}
+  .lista-palabras{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px;max-width:520px;}
+  .palabra-chip{background:var(--gris);border:1px solid #ccc;border-radius:16px;padding:6px 14px;font-size:.9em;}
+  .palabra-chip.encontrada{background:#a9dfbf;text-decoration:line-through;color:#1e5631;}
+
+  /* Puzzle definiciones */
+  .puzzle-cols{display:flex;gap:10px;width:100%;max-width:560px;margin-top:12px;}
+  .puzzle-col{flex:1;display:flex;flex-direction:column;gap:8px;}
+  .puzzle-item{
+    background:var(--gris);border:2px solid #ddd;border-radius:8px;padding:10px 8px;font-size:.85em;
+    min-height:56px;display:flex;align-items:center;justify-content:center;text-align:center;
+  }
+  .puzzle-item.seleccionado{border-color:var(--azul);background:#dceafc;}
+  .puzzle-item.acoplado{background:#d4edda;border-color:var(--verde);color:#1e5631;pointer-events:none;}
+
+  /* Cierre - video */
+  .video-card{
+    background:var(--gris);border-radius:14px;padding:12px;max-width:480px;margin-top:10px;
+    border:2px solid #ddd;
+  }
+  .video-card h3{color:var(--azul);margin:0 0 6px;font-size:1em;}
+  .video-card p{font-size:.88em;margin:0 0 10px;}
+  .btn-video{background:#c13584;color:#fff;padding:12px 26px;border-radius:24px;font-size:1em;font-weight:600;text-decoration:none;display:inline-block;}
+
+  .contador{font-size:.85em;color:#999;margin-bottom:8px;}
+  .puntaje{font-size:1.25em;color:var(--azul);font-weight:700;margin:6px 0;}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div id="progreso-wrap"><div id="progreso-bar"></div></div>
+  <main id="main"></main>
+</div>
+
+<div id="lightbox">
+  <img id="lightbox-img" src="img/profe.jpg" alt="Foto">
+  <p>Menos prisa, más vida 🧉🫂</p>
+  <button id="lightbox-cerrar">Cerrar</button>
+</div>
+
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+</body>
+</html>
