@@ -72,7 +72,7 @@ var DATA = {
           audio: "audio/legajo2_q1.mp3",
           audio_feedback: "audio/legajo2_q1_fb.mp3",
           pregunta: "¿Ante qué organismo se inscribe una Cooperativa?",
-          opciones: ["IGJ", "INAC", "AFIP", "CNV"],
+          opciones: ["IGJ", "INAES", "AFIP", "CNV"],
           correcta: 1
         },
         {
@@ -247,7 +247,7 @@ var DATA = {
         { palabra: "RESERVA", audio: "audio/palabra_reserva.mp3" },
         { palabra: "ESTATUTO", audio: "audio/palabra_estatuto.mp3" },
         { palabra: "EXCEDENTE", audio: "audio/palabra_excedente.mp3" },
-        { palabra: "INAC", audio: "audio/palabra_inac.mp3" }
+        { palabra: "INAES", audio: "audio/palabra_inaes.mp3" }
       ]
     },
     {
@@ -284,7 +284,7 @@ var DATA = {
       imagen: "img/puzzle_tandaB.jpg",
       pares: [
         { termino: "Asamblea", definicion: "Reunión de socios donde se deciden los asuntos sociales.", audio: "audio/def_asamblea.mp3" },
-        { termino: "I.N.A.C.", definicion: "Organismo donde se inscribe la Cooperativa al constituirse.", audio: "audio/def_inac.mp3" },
+        { termino: "I.N.A.E.S.", definicion: "Organismo donde se inscribe la Cooperativa al constituirse.", audio: "audio/def_inaes.mp3" },
         { termino: "Reserva", definicion: "Parte del excedente que no es distribuible, con un mínimo del 5%.", audio: "audio/def_reserva.mp3" },
         { termino: "Consejo de Administración", definicion: "Órgano que administra la cooperativa, elegido por los socios.", audio: "audio/def_consejo_admin.mp3" }
       ]
