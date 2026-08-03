@@ -295,6 +295,7 @@ var DATA = {
     {
       pregunta: "¿Qué es una Cooperativa?",
       imagen: "img/concepto.jpg",
+      audio: "audio/quiz_q1_preg.mp3",
       audio_feedback: "audio/quiz_q1_fb.mp3",
       opciones: [
         "Una entidad fundada en el esfuerzo propio y la ayuda mutua",
@@ -305,8 +306,9 @@ var DATA = {
       correcta: 0
     },
     {
-      pregunta: "¿Cuál es el capital mínimo de socios de una Cooperativa?",
+      pregunta: "¿Cuál es el número mínimo de socios de una Cooperativa?",
       imagen: "img/quiz_q2_socios.jpg",
+      audio: "audio/quiz_q2_preg.mp3",
       audio_feedback: "audio/quiz_q2_fb.mp3",
       opciones: ["5", "10", "15", "No tiene mínimo"],
       correcta: 1
@@ -314,6 +316,7 @@ var DATA = {
     {
       pregunta: "Un grupo de personas compra alimentos al por mayor para vendérselos entre sí a precio de costo. ¿Qué tipo de Cooperativa es?",
       imagen: "img/caso1_consumo.jpg",
+      audio: "audio/quiz_q3_preg.mp3",
       audio_feedback: "audio/caso_acierto_consumo.mp3",
       opciones: ["Trabajo", "Crédito", "Consumo", "Seguros"],
       correcta: 2
@@ -321,6 +324,7 @@ var DATA = {
     {
       pregunta: "Un grupo de albañiles se organiza para repartirse changas de construcción. ¿Qué tipo de Cooperativa es?",
       imagen: "img/caso2_trabajo.jpg",
+      audio: "audio/quiz_q4_preg.mp3",
       audio_feedback: "audio/caso_acierto_trabajo.mp3",
       opciones: ["Trabajo", "Edificación", "Servicios Públicos", "Consumo"],
       correcta: 0
@@ -328,6 +332,7 @@ var DATA = {
     {
       pregunta: "¿Qué porcentaje mínimo de los excedentes debe reservarse?",
       imagen: "img/quiz_q5_reserva.jpg",
+      audio: "audio/quiz_q5_preg.mp3",
       audio_feedback: "audio/quiz_q5_fb.mp3",
       opciones: ["2%", "5%", "10%", "20%"],
       correcta: 1
@@ -335,6 +340,7 @@ var DATA = {
     {
       pregunta: "¿Qué ley regula a las Cooperativas en Argentina?",
       imagen: "img/quiz_q6_ley.jpg",
+      audio: "audio/quiz_q6_preg.mp3",
       audio_feedback: "audio/quiz_q6_fb.mp3",
       opciones: ["Ley 19.550", "Ley 24.240", "Ley 20.337", "Ley 11.723"],
       correcta: 2

@@ -560,6 +560,9 @@ function renderQuiz() {
       b.onclick = function () { elegirOpcionQuiz(idx, q, cont); };
       cont.appendChild(b);
     });
+    main.insertBefore(crearBotonAudio(q.audio), cont);
+
+    reproducirAudio(q.audio);
   }
 
   function elegirOpcionQuiz(idx, q, cont) {
