@@ -449,9 +449,9 @@ var DATOS = {
       titulo: "Trivia: pregunta 6 de 10",
       preguntas: [
         {
-          pregunta: "¿Qué países integran el MERCOSUR en esta actividad?",
+          pregunta: "¿Qué países integran el MERCOSUR?",
           audioPregunta: "assets/audio/p19_q6.mp3",
-          opciones: ["Argentina, Brasil, Paraguay y Uruguay", "Argentina, Chile, Perú y Bolivia", "Brasil, Colombia, Ecuador y Venezuela"],
+          opciones: ["Argentina, Brasil, Paraguay, Uruguay, Chile y Bolivia", "Argentina, Chile, Perú y Bolivia", "Brasil, Colombia, Ecuador y Venezuela"],
           correcta: 0,
           audioOpciones: ["assets/audio/p19_q6o1.mp3", "assets/audio/p19_q6o2.mp3", "assets/audio/p19_q6o3.mp3"],
           imagen: "assets/images/mapa_mercosur_trivia.jpg"

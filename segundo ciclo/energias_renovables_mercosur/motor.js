@@ -1246,6 +1246,10 @@ function renderMapaSvg(datos, cont) {
       if (!visitados[cod]) {
         visitados[cod] = true;
         el.classList.add("completado");
+        if (cod === "ARG") {
+          var malvinas = mapaWrap.querySelector("#pais-FLK");
+          if (malvinas) malvinas.classList.add("completado");
+        }
       }
       panel.innerHTML = "<img class='mapa-bandera' src='" + info.bandera + "' alt='" + info.nombre + "'>" +
         "<h3>" + info.nombre + "</h3><p>" + info.dato + "</p>" +
