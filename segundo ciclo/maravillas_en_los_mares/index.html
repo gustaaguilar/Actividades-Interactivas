@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maravillas en los mares - Lengua 5° Grado</title>
+<style>
+  :root {
+    --azul-principal: #1b6ec2;
+    --azul-oscuro: #0d3b66;
+    --celeste: #6fc3df;
+    --naranja: #f4a259;
+    --verde-ok: #3aa655;
+    --rojo-error: #d64545;
+    --fondo: #eaf6fb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    background: var(--fondo);
+    color: #1a1a1a;
+  }
+  #barra-superior {
+    background: var(--azul-oscuro);
+    color: white;
+    padding: 8px 16px;
+  }
+  #barra-superior-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    gap: 10px;
+  }
+  #barra-progreso-track {
+    background: rgba(255,255,255,0.25);
+    height: 6px;
+    border-radius: 4px;
+    margin-top: 6px;
+    overflow: hidden;
+  }
+  #barraProgreso {
+    background: var(--naranja);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+  #marcadorPuntaje { font-weight: bold; }
+  #btnAltavoz {
+    background: var(--naranja); border: none; border-radius: 50%;
+    width: 34px; height: 34px; font-size: 1.1em; cursor: pointer; flex-shrink: 0;
+  }
+  #contenedor {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px;
+    min-height: 70vh;
+  }
+  #app { animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+  .pantalla { display: flex; flex-direction: column; gap: 14px; }
+  .titulo, .titulo-principal, .titulo-cierre {
+    color: var(--azul-oscuro);
+    text-align: center;
+  }
+  .titulo-principal { font-size: 2em; }
+  .subtitulo { text-align: center; color: #35688c; font-style: italic; }
+  .cuerpo-texto { font-size: 1.1em; line-height: 1.6; white-space: pre-line; }
+  .instruccion { font-style: italic; color: #45607a; }
+
+  img { max-width: 100%; border-radius: 12px; display: block; margin: 0 auto; }
+  .imagen-portada, .imagen-grande, .imagen-cierre, .imagen-ilustrativa { box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+
+  .perfil-container { text-align: center; margin-top: 10px; }
+  .perfil-thumb { width: 92px; height: 92px; object-fit: cover; border-radius: 50%; border: 3px solid var(--azul-principal); cursor: pointer; }
+  .perfil-label { font-size: 0.85em; color: #35688c; }
+
+  .lightbox-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    z-index: 999; gap: 16px;
+  }
+  .lightbox-img { max-width: 90vw; max-height: 70vh; border-radius: 16px; }
+  .lightbox-cerrar {
+    position: absolute; top: 20px; right: 24px; background: white; border: none;
+    border-radius: 50%; width: 40px; height: 40px; font-size: 1.2em; cursor: pointer;
+  }
+  .lightbox-tagline { color: white; font-size: 1.1em; }
+
+  .grupo-personajes { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .tarjeta-personaje {
+    background: white; border-radius: 14px; padding: 12px; width: 45%; min-width: 140px; text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.3s ease;
+  }
+  .tarjeta-sombreada { opacity: 0.35; filter: grayscale(60%); transform: scale(0.96); }
+  .tarjeta-iluminada { opacity: 1; filter: none; transform: scale(1.04); box-shadow: 0 4px 18px rgba(27,110,194,0.35); }
+  .img-personaje { width: 90px; height: 90px; object-fit: contain; margin: 0 auto; }
+  .nombre-personaje { color: var(--azul-principal); margin: 8px 0 4px; font-size: 1em; }
+  .frase-personaje { font-size: 0.9em; }
+
+  .lista-preguntas li, .lista-pistas li { margin-bottom: 8px; }
+
+  .caja-sabiasque {
+    background: #fff7e0; border: 2px dashed var(--naranja); border-radius: 14px; padding: 16px;
+  }
+  .sabiasque-titulo { color: #a4650a; margin-top: 0; }
+  .sabiasque-img { width: 70px; margin-bottom: 10px; }
+  .sabiasque-img-contenido { margin-top: 12px; max-width: 220px; }
+
+  .zona-comparacion-visual { display: flex; align-items: flex-end; justify-content: center; gap: 24px; margin-top: 14px; flex-wrap: wrap; }
+  .item-comparacion { text-align: center; }
+  .img-comparacion-media { width: 110px; transition: width 0.2s ease; }
+  .item-comparacion.comparacion-grande .img-comparacion-media { width: 230px; }
+  .item-grande .img-comparacion-grande { width: 230px; }
+  .item-chico .img-comparacion-chico { width: 110px; }
+  .etiqueta-comparacion { font-size: 0.85em; color: #35688c; margin-top: 4px; }
+  .imagen-pequena-apoyo { max-width: 130px; margin: 4px auto 10px; display: block; }
+
+  .lista-opciones { display: flex; flex-direction: column; gap: 10px; }
+  .opcion-btn {
+    background: white; border: 2px solid var(--azul-principal); border-radius: 10px;
+    padding: 10px; font-size: 1em; cursor: pointer; text-align: left;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .opcion-imagen { width: 48px; height: 48px; object-fit: contain; border-radius: 8px; flex-shrink: 0; }
+  .opcion-btn:disabled { opacity: 0.6; }
+  .opcion-btn.correcta { background: var(--verde-ok); color: white; border-color: var(--verde-ok); }
+  .opcion-btn.incorrecta { background: var(--rojo-error); color: white; border-color: var(--rojo-error); }
+  .opcion-larga { white-space: pre-line; }
+
+  .feedback { padding: 10px; border-radius: 8px; font-weight: bold; }
+  .feedback-correcto { background: #e3f8e9; color: var(--verde-ok); }
+  .feedback-incorrecto { background: #fdeaea; color: var(--rojo-error); }
+
+  .zona-preguntas-secuencial { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+  .bloque-pregunta-mc { background: white; border-radius: 10px; padding: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .bloque-revelado { animation: fadeIn 0.35s ease; }
+  .bloque-pregunta-mc .opcion-btn.correcta,
+  .bloque-pregunta-mc .opcion-btn:disabled.correcta { opacity: 1; }
+  .bloque-pregunta-mc .lista-opciones .opcion-btn:disabled { opacity: 0.75; }
+  .icono-pregunta-mc { width: 60px; height: 60px; object-fit: contain; margin-bottom: 6px; }
+  .pregunta-texto, .pregunta { font-weight: bold; }
+  .contexto-caja { background: #f0f7fb; border-left: 4px solid var(--celeste); padding: 10px; border-radius: 6px; white-space: pre-line; }
+
+  .zona-respuesta-ordenar {
+    min-height: 60px; background: white; border: 2px dashed var(--celeste); border-radius: 10px;
+    padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .zona-respuesta-ordenar.respuesta-correcta { border-color: var(--verde-ok); background: #e3f8e9; }
+  .zona-respuesta-ordenar.respuesta-incorrecta { border-color: var(--rojo-error); background: #fdeaea; }
+  .zona-banco-palabras { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .chip-palabra-ordenar {
+    background: var(--azul-principal); color: white; border: none; border-radius: 20px;
+    padding: 8px 14px; font-size: 0.95em; cursor: pointer;
+  }
+  .chip-en-respuesta { background: var(--naranja); }
+  .chip-palabra-ordenar.error-temp { background: var(--rojo-error); }
+
+  .zona-asociar { display: flex; gap: 16px; justify-content: space-between; }
+  .col-asociar { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .asociar-item {
+    background: white; border: 2px solid var(--azul-principal); border-radius: 10px; padding: 10px; cursor: pointer;
+  }
+  .asociar-item-imagen { display: flex; align-items: center; gap: 8px; text-align: left; }
+  .asociar-item-img { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
+  .asociar-item.seleccionado { background: var(--celeste); }
+  .asociar-item.emparejado { background: var(--verde-ok); color: white; opacity: 0.85; }
+  .asociar-item.error-temp { background: var(--rojo-error); color: white; }
+
+  .grid-sopa { display: grid; gap: 3px; margin: 0 auto; width: 100%; max-width: 460px; box-sizing: border-box; }
+  .celda-sopa {
+    aspect-ratio: 1; background: white; border: 1px solid #cfe3ef; font-weight: bold;
+    cursor: pointer; border-radius: 4px; font-size: 0.8em;
+  }
+  .celda-sopa.seleccionada { background: var(--celeste); }
+  .celda-sopa.celda-encontrada { background: var(--verde-ok); color: white; }
+  .lista-palabras-sopa { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
+  .chip-palabra { background: white; border: 1px solid var(--azul-principal); border-radius: 20px; padding: 4px 12px; font-size: 0.85em; }
+  .chip-palabra.chip-encontrada { background: var(--verde-ok); color: white; text-decoration: line-through; }
+
+  .grid-memojuego { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .carta-memo {
+    background: var(--azul-principal); color: transparent; border: none; border-radius: 10px;
+    padding: 18px 8px; min-height: 60px; cursor: pointer; font-size: 0.85em;
+  }
+  .carta-memo.volteada, .carta-memo.resuelta { background: white; color: #1a1a1a; border: 2px solid var(--azul-principal); }
+  .carta-memo.resuelta { background: #e3f8e9; border-color: var(--verde-ok); }
+
+  .caja-puntaje-final {
+    background: white; border-radius: 12px; padding: 16px; text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .puntaje-detalle { font-size: 1.1em; margin: 6px 0; }
+  .puntaje-porcentaje { font-weight: bold; color: var(--azul-principal); font-size: 1.2em; }
+
+  .boton-volver-jugar {
+    background: var(--naranja); color: white; border: none; border-radius: 10px;
+    padding: 12px 20px; font-size: 1em; cursor: pointer; margin: 0 auto;
+  }
+
+  /* Pantalla de cierre: compacta para que el puntaje y el botón entren sin scroll */
+  .cierre-pantalla { gap: 8px; }
+  .cierre-pantalla .imagen-cierre { max-width: 220px; max-height: 150px; object-fit: cover; margin: 0 auto; }
+  .cierre-pantalla .titulo-cierre { margin: 4px 0; font-size: 1.35em; }
+  .cierre-pantalla .cuerpo-texto { font-size: 0.92em; line-height: 1.35; margin: 0; }
+  .cierre-pantalla .caja-puntaje-final { padding: 10px; }
+  .cierre-pantalla .caja-puntaje-final h3 { margin: 0 0 4px; font-size: 1em; }
+  .cierre-pantalla .puntaje-detalle { font-size: 0.95em; margin: 4px 0; }
+  .cierre-pantalla .puntaje-porcentaje { font-size: 1.05em; }
+  .cierre-pantalla .perfil-container { margin-top: 2px; }
+
+  #barra-inferior {
+    position: sticky; bottom: 0; background: white; border-top: 1px solid #d5e5ee;
+    display: flex; justify-content: flex-end; align-items: center; padding: 10px 16px;
+  }
+  #barra-inferior button {
+    background: var(--azul-principal); color: white; border: none; border-radius: 10px;
+    padding: 12px 18px; font-size: 1em; cursor: pointer;
+  }
+  #btnSiguiente.deshabilitado, #btnSiguiente:disabled { background: #b9c8d1; cursor: not-allowed; }
+
+  .audio-en-curso #app { pointer-events: none; opacity: 0.85; }
+</style>
+</head>
+<body>
+  <div id="barra-superior">
+    <div id="barra-superior-fila">
+      <span>🌊 Maravillas en los mares</span>
+      <button id="btnAltavoz" title="Escuchar de nuevo">🔊</button>
+      <span id="marcadorPuntaje">✅ 0  ❌ 0</span>
+      <span id="indicador">1 / 24</span>
+    </div>
+    <div id="barra-progreso-track">
+      <div id="barraProgreso"></div>
+    </div>
+  </div>
+  <div id="contenedor">
+    <div id="app"></div>
+  </div>
+  <div id="barra-inferior">
+    <button id="btnAnterior" style="display:none;">◀ Anterior</button>
+    <button id="btnSiguiente" disabled class="deshabilitado">Siguiente ▶</button>
+  </div>
+
+  <script src="datos.js"></script>
+  <script src="motor.js"></script>
+</body>
+</html>
