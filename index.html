@@ -152,7 +152,7 @@
 
 <div class="counter-banner">
   <div class="counter-inner">
-    <span class="counter-num" id="counter-total">89</span>
+    <span class="counter-num" id="counter-total">91</span>
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
   </div>
 </div>
@@ -169,7 +169,7 @@
 
 <div class="novedades">
   <span class="nov-badge">🆕 Nuevo</span>
-  <span class="nov-text"><strong>🥐 La Panadería de Mateo</strong> — Matemática, 3er grado: nueva actividad interactiva basada en la secuencia "La Panadería de Mateo" del cuadernillo Aventureros de la Matemática 3 (DGE — PEAMM). 24 pantallas con juegos, audio y puntaje para repasar ubicación espacial, la hora, sistema de numeración, cuerpos geométricos, multiplicación y medidas de capacidad y peso.</span>
+  <span class="nov-text"><strong>🏫 Preparados nos cuidamos</strong> — Integrador, Primer y Segundo Ciclo: nueva actividad interactiva sobre qué hacer frente a un sismo, basada en el Plan de Contingencia de Defensa Civil y DGE Mendoza. Zonas seguras, Posición de Seguridad, roles de la comunidad educativa, corte de suministros, el plano real de evacuación de una escuela y desafío final. 27 pantallas con audio.</span>
 </div>
 
 <header>
@@ -209,6 +209,20 @@
 </div>
 
 <div class="wrapper">
+  <div class="ciclo-header">
+    <span class="ciclo-badge c3">Transversal</span>
+    <span class="ciclo-title">Defensa Civil y Autoprotección</span>
+    <span class="ciclo-count" id="cnt-defensa-civil">1 paquete</span>
+    <div class="ciclo-line"></div>
+  </div>
+  <div class="cards-grid" id="grid-defensa-civil">
+        <a class="card" href="Preparados_Nos_Cuidamos_Sismo/index.html" target="_blank" data-area="integrador" data-ciclo="transversal" data-tooltip="Integrador · Primer y Segundo Ciclo · Preparados nos cuidamos: qué hacer frente a un sismo. Basado en el Plan de Contingencia de Defensa Civil y DGE Mendoza. Zonas seguras del aula y de la casa, Posición de Seguridad, roles de la comunidad educativa, corte de suministros, plano real de evacuación con zoom, sopa de letras y desafío final. 27 pantallas con audio.">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,3 L31,8 L31,17 Q31,27 18,33 Q5,27 5,17 L5,8 Z" fill="#f97316"/><path d="M8 19 L13 19 L15 14 L18 24 L21 17 L23 19 L28 19" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="card-name">Preparados nos cuidamos: qué hacer frente a un sismo</div>
+          <span class="card-area" style="background:rgba(249,115,22,.15);color:#f97316">Integrador · 1° y 2° Ciclo</span>
+        </a>
+  </div>
+
   <div class="ciclo-header">
     <span class="ciclo-badge c3">Transversal</span>
     <span class="ciclo-title">Campaña de Sensibilización · Trata, Explotación y Grooming</span>
@@ -715,18 +729,23 @@
 let filtroActivo='all';
 function filtrar(){
   const q=document.getElementById('buscador').value.toLowerCase().trim();
-  let v1=0,v2=0,v3=0;
+  let v1=0,v2=0,v3=0,vt=0,vdc=0;
   document.querySelectorAll('.card').forEach(card=>{
     const txt=card.querySelector('.card-name').textContent.toLowerCase()+card.querySelector('.card-area').textContent.toLowerCase();
     const ca=card.dataset.area||'';
     const ci=card.dataset.ciclo||'';
     const show=(!q||txt.includes(q))&&(filtroActivo==='all'||ca===filtroActivo);
     card.style.display=show?'':'none';
-    if(show){if(ci==='c1')v1++;else if(ci==='c2')v2++;else v3++;}
+    if(show){
+      if(ci==='c1')v1++;else if(ci==='c2')v2++;else v3++;
+      if(card.closest('#grid-transversal'))vt++;
+      if(card.closest('#grid-defensa-civil'))vdc++;
+    }
   });
   document.getElementById('cnt-c1').textContent=v1+' paquetes';
   document.getElementById('cnt-c2').textContent=v2+' paquetes';
-  document.getElementById('cnt-transversal').textContent=v3+(v3===1?' paquete':' paquetes');
+  document.getElementById('cnt-transversal').textContent=vt+(vt===1?' paquete':' paquetes');
+  document.getElementById('cnt-defensa-civil').textContent=vdc+(vdc===1?' paquete':' paquetes');
   document.getElementById('counter-total').textContent=v1+v2+v3;
   document.getElementById('empty-msg').style.display=(v1+v2+v3===0)?'block':'none';
 }
