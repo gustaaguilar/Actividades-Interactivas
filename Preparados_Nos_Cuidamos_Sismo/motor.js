@@ -113,11 +113,94 @@
   function abrirLightboxImagen(src, alt) {
     const lb = el("div", "lightbox-imagen");
     lb.innerHTML = `
-      <img src="${src}" alt="${alt || ''}" />
-      <button class="btn-cerrar-lightbox">✕ Cerrar</button>`;
+      <div class="lightbox-imagen-viewport">
+        <img src="${src}" alt="${alt || ''}" class="lightbox-imagen-img" />
+      </div>
+      <div class="lightbox-imagen-controles">
+        <button type="button" class="btn-zoom" data-accion="menos">➖</button>
+        <button type="button" class="btn-zoom" data-accion="reset">1:1</button>
+        <button type="button" class="btn-zoom" data-accion="mas">➕</button>
+        <button type="button" class="btn-cerrar-lightbox">✕ Cerrar</button>
+      </div>
+      <p class="lightbox-imagen-ayuda">Pellizcá para acercar, arrastrá para mover, doble toque para alternar zoom</p>`;
+    document.body.appendChild(lb);
+
+    const viewport = lb.querySelector(".lightbox-imagen-viewport");
+    const img = lb.querySelector(".lightbox-imagen-img");
+    const ESCALA_MIN = 1, ESCALA_MAX = 5;
+    let escala = 1, tx = 0, ty = 0;
+    let pinchInicial = null;
+    let panInicio = null;
+
+    function aplicar() {
+      img.style.transform = `translate(${tx}px, ${ty}px) scale(${escala})`;
+    }
+
+    function distancia(t1, t2) {
+      const dx = t1.clientX - t2.clientX, dy = t1.clientY - t2.clientY;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    viewport.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 2) {
+        pinchInicial = { dist: distancia(e.touches[0], e.touches[1]), escala };
+        panInicio = null;
+      } else if (e.touches.length === 1) {
+        panInicio = { x: e.touches[0].clientX - tx, y: e.touches[0].clientY - ty };
+      }
+    }, { passive: true });
+
+    viewport.addEventListener("touchmove", (e) => {
+      if (e.touches.length === 2 && pinchInicial) {
+        e.preventDefault();
+        const d = distancia(e.touches[0], e.touches[1]);
+        escala = Math.max(ESCALA_MIN, Math.min(ESCALA_MAX, pinchInicial.escala * (d / pinchInicial.dist)));
+        aplicar();
+      } else if (e.touches.length === 1 && panInicio && escala > 1) {
+        e.preventDefault();
+        tx = e.touches[0].clientX - panInicio.x;
+        ty = e.touches[0].clientY - panInicio.y;
+        aplicar();
+      }
+    }, { passive: false });
+
+    viewport.addEventListener("touchend", (e) => {
+      if (e.touches.length < 2) pinchInicial = null;
+      if (e.touches.length < 1) panInicio = null;
+    });
+
+    let ultimoTap = 0;
+    viewport.addEventListener("touchend", (e) => {
+      const ahora = Date.now();
+      if (ahora - ultimoTap < 300 && e.changedTouches.length === 1) {
+        if (escala > 1) { escala = 1; tx = 0; ty = 0; }
+        else { escala = 2.5; }
+        aplicar();
+      }
+      ultimoTap = ahora;
+    });
+
+    // Rueda del mouse, para probar en PC
+    viewport.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      escala = Math.max(ESCALA_MIN, Math.min(ESCALA_MAX, escala + (e.deltaY < 0 ? 0.3 : -0.3)));
+      if (escala === ESCALA_MIN) { tx = 0; ty = 0; }
+      aplicar();
+    }, { passive: false });
+
+    lb.querySelectorAll(".btn-zoom").forEach((btn) => {
+      btn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const accion = btn.dataset.accion;
+        if (accion === "mas") escala = Math.min(ESCALA_MAX, escala + 0.5);
+        else if (accion === "menos") escala = Math.max(ESCALA_MIN, escala - 0.5);
+        else { escala = 1; tx = 0; ty = 0; }
+        aplicar();
+      });
+    });
+
     lb.querySelector(".btn-cerrar-lightbox").addEventListener("click", () => lb.remove());
     lb.addEventListener("click", (e) => { if (e.target === lb) lb.remove(); });
-    document.body.appendChild(lb);
   }
 
   /* ---------- Flags de habilitación por pantalla ---------- */
