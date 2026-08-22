@@ -200,11 +200,21 @@ function renderCierre() {
   reproducirCola();
 }
 
-// Construye la pista en serpiente (filas alternadas) reutilizable por
-// la pantalla real de "camino" y por la pantalla demostrativa.
+// Construye la pista reutilizable por la pantalla real de "camino" y por
+// la pantalla demostrativa. Se adapta al ancho real disponible: en pantallas
+// grandes (PC/notebook) entra todo en una sola fila recta; en pantallas
+// angostas (celular) se arma en serpiente (filas alternadas) para que entre
+// completo sin scroll horizontal.
 function construirCaminoPista(pista, pasos, animalito, iconoAnimalito, espejarIcono) {
   pista.innerHTML = `<div class="camino-teo" id="teo">🐢</div>`;
-  const COLUMNAS = 5;
+
+  const ANCHO_CASILLERO = 48; // 42px de casillero + 6px de gap
+  const ANCHO_INICIO = 48;
+  const ANCHO_DESTINO = 96;
+  const anchoDisponible = pista.clientWidth || 320;
+  const anchoNecesarioUnaFila = ANCHO_INICIO + pasos * ANCHO_CASILLERO + ANCHO_DESTINO;
+  const COLUMNAS = anchoNecesarioUnaFila <= anchoDisponible ? pasos : 5;
+
   const filasCont = document.createElement("div");
   filasCont.className = "camino-filas";
   pista.appendChild(filasCont);
