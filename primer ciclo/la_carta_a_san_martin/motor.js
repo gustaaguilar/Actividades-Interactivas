@@ -1,0 +1,1273 @@
+// motor.js — Motor genérico HTML5 (base "Los Materiales", adaptado para
+// "La Carta y San Martín" — 3er grado)
+// Tipos soportados: portada, narracion, clasificar, clasificarUno,
+// sopaDeLetras, memojuego, asociar, ordenar, colocar, multiple, flipcards,
+// detective, balanza, cierre
+
+(function () {
+  "use strict";
+
+  let idx = 0;
+  let aciertos = 0;
+  let errores = 0;
+  let puntos = 0;
+  let completado = false;
+  let actividadLista = false;
+  let audioReproduciendo = false;
+
+  const PUNTOS_POR_ACIERTO = 10;
+
+  const app = document.getElementById("app");
+  const audioPlayer = document.getElementById("audioPlayer");
+  let colaAudio = [];
+
+  // ---------- COLA DE AUDIO GLOBAL ----------
+  function limpiarColaAudio() {
+    colaAudio = [];
+    audioReproduciendo = false;
+    audioPlayer.onended = null;
+    audioPlayer.pause();
+    audioPlayer.currentTime = 0;
+  }
+
+  function encolarAudio(src, alTerminar) {
+    if (!src) { if (alTerminar) alTerminar(); return; }
+    colaAudio.push({ src, alTerminar });
+    if (!audioReproduciendo) reproducirSiguienteAudio();
+  }
+
+  function reproducirSiguienteAudio() {
+    if (colaAudio.length === 0) {
+      audioReproduciendo = false;
+      intentarHabilitarSiguiente();
+      return;
+    }
+    audioReproduciendo = true;
+    const item = colaAudio.shift();
+    audioPlayer.src = item.src;
+    audioPlayer.onended = () => {
+      if (item.alTerminar) item.alTerminar();
+      reproducirSiguienteAudio();
+    };
+    audioPlayer.play().catch(() => {});
+  }
+  // Si un audio falla en cargar/reproducir, no debe trabar la pantalla para siempre.
+  audioPlayer.onerror = reproducirSiguienteAudio;
+
+  // Bloquea la interacción de una pantalla hasta que termine su/sus audio(s) de consigna,
+  // para que los chicos no puedan tocar nada antes de escuchar la instrucción completa.
+  // Acepta uno o varios audios (se filtran los vacíos) y los reproduce en cadena.
+  function reproducirInstruccionYDesbloquear(cont, ...audios) {
+    const lista = audios.filter(Boolean);
+    if (lista.length === 0 || !cont) return;
+    cont.classList.add("bloqueado-audio");
+    function tocar(i) {
+      if (i >= lista.length) { cont.classList.remove("bloqueado-audio"); return; }
+      encolarAudio(lista[i], () => tocar(i + 1));
+    }
+    tocar(0);
+  }
+
+  // ---------- UTILIDADES ----------
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function crear(tag, props, ...hijos) {
+    const el = document.createElement(tag);
+    if (props) {
+      for (const k in props) {
+        if (k === "class") el.className = props[k];
+        else if (k === "html") el.innerHTML = props[k];
+        else el.setAttribute(k, props[k]);
+      }
+    }
+    hijos.forEach((h) => {
+      if (h) el.appendChild(typeof h === "string" ? document.createTextNode(h) : h);
+    });
+    return el;
+  }
+
+  function marcarCompletado() {
+    actividadLista = true;
+    setTimeout(intentarHabilitarSiguiente, 0);
+  }
+
+  function intentarHabilitarSiguiente() {
+    if (actividadLista && !audioReproduciendo && colaAudio.length === 0) {
+      completado = true;
+      const btn = document.getElementById("btnSiguiente");
+      if (btn) btn.classList.remove("bloqueado");
+    }
+  }
+
+  function registrarAcierto() { aciertos++; puntos += PUNTOS_POR_ACIERTO; actualizarHeader(); }
+  function registrarError() { errores++; }
+
+  // ---------- NAVEGACIÓN ----------
+  function irAPantalla(nuevoIdx) {
+    limpiarColaAudio();
+    idx = nuevoIdx;
+    completado = false;
+    actividadLista = false;
+    render();
+  }
+
+  function siguiente() {
+    if (!completado) return;
+    if (idx < DATOS.pantallas.length - 1) irAPantalla(idx + 1);
+  }
+
+  // ---------- LIGHTBOX FOTO (con zoom táctil y de mouse) ----------
+  function abrirLightbox() {
+    const overlay = crear("div", { class: "lightbox-overlay" });
+    const cerrarBtn = crear("button", { class: "lightbox-cerrar", "aria-label": "Cerrar" }, "✕");
+    const cerrar = () => overlay.remove();
+    cerrarBtn.addEventListener("click", cerrar);
+    overlay.addEventListener("click", (e) => { if (e.target === overlay) cerrar(); });
+
+    const mailFila = crear(
+      "p",
+      { class: "lightbox-mail" },
+      crear("span", { class: "icono-sobre" }, "✉️"),
+      " " + DATOS.contactoMail
+    );
+
+    // --- Zona con zoom ---
+    const zoomWrap = crear("div", { class: "lightbox-zoom-wrap" });
+    const img = crear("img", { src: DATOS.fotoPerfil, class: "lightbox-img-zoom", draggable: "false" });
+    zoomWrap.appendChild(img);
+
+    let escala = 1, tx = 0, ty = 0;
+    const ESCALA_MIN = 1, ESCALA_MAX = 4;
+
+    function aplicarTransform(conTransicion) {
+      img.style.transition = conTransicion ? "transform 0.2s ease" : "none";
+      img.style.transform = `translate(${tx}px, ${ty}px) scale(${escala})`;
+    }
+    function limitarPan() {
+      const max = (escala - 1) * 90; // límite aproximado de arrastre según zoom
+      tx = Math.max(-max, Math.min(max, tx));
+      ty = Math.max(-max, Math.min(max, ty));
+    }
+    function resetZoom() {
+      escala = 1; tx = 0; ty = 0;
+      aplicarTransform(true);
+    }
+
+    // --- Pellizco / arrastre táctil ---
+    let touchDist0 = null, escala0 = 1, panInicio = null, tInicio = null;
+    zoomWrap.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 2) {
+        const [a, b] = e.touches;
+        touchDist0 = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        escala0 = escala;
+      } else if (e.touches.length === 1 && escala > 1) {
+        panInicio = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        tInicio = { x: tx, y: ty };
+      }
+    }, { passive: true });
+    zoomWrap.addEventListener("touchmove", (e) => {
+      if (e.touches.length === 2 && touchDist0) {
+        const [a, b] = e.touches;
+        const dist = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        escala = Math.max(ESCALA_MIN, Math.min(ESCALA_MAX, escala0 * (dist / touchDist0)));
+        limitarPan();
+        aplicarTransform(false);
+      } else if (e.touches.length === 1 && panInicio) {
+        tx = tInicio.x + (e.touches[0].clientX - panInicio.x);
+        ty = tInicio.y + (e.touches[0].clientY - panInicio.y);
+        limitarPan();
+        aplicarTransform(false);
+      }
+    }, { passive: true });
+    zoomWrap.addEventListener("touchend", () => { touchDist0 = null; panInicio = null; });
+
+    // --- Doble tap para resetear zoom ---
+    let ultimoTap = 0;
+    zoomWrap.addEventListener("touchend", () => {
+      const ahora = Date.now();
+      if (ahora - ultimoTap < 300) resetZoom();
+      ultimoTap = ahora;
+    });
+
+    // --- Rueda del mouse (PC) ---
+    zoomWrap.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 0.15 : -0.15;
+      escala = Math.max(ESCALA_MIN, Math.min(ESCALA_MAX, escala + delta));
+      limitarPan();
+      aplicarTransform(false);
+    }, { passive: false });
+
+    // --- Arrastre con mouse (PC), solo si hay zoom ---
+    let arrastrando = false, mInicio = null, tMouseInicio = null;
+    zoomWrap.addEventListener("mousedown", (e) => {
+      if (escala <= 1) return;
+      arrastrando = true;
+      mInicio = { x: e.clientX, y: e.clientY };
+      tMouseInicio = { x: tx, y: ty };
+      zoomWrap.classList.add("arrastrando");
+    });
+    window.addEventListener("mousemove", (e) => {
+      if (!arrastrando) return;
+      tx = tMouseInicio.x + (e.clientX - mInicio.x);
+      ty = tMouseInicio.y + (e.clientY - mInicio.y);
+      limitarPan();
+      aplicarTransform(false);
+    });
+    window.addEventListener("mouseup", () => { arrastrando = false; zoomWrap.classList.remove("arrastrando"); });
+
+    // --- Doble clic (PC) para resetear ---
+    zoomWrap.addEventListener("dblclick", resetZoom);
+
+    const caja = crear(
+      "div",
+      { class: "lightbox-caja" },
+      zoomWrap,
+      crear("p", { class: "lightbox-frase" }, "Menos prisa, más vida 🧉🫂"),
+      crear("p", { class: "lightbox-contacto" }, DATOS.contactoTexto),
+      mailFila
+    );
+    caja.addEventListener("click", (e) => e.stopPropagation());
+    overlay.appendChild(cerrarBtn);
+    overlay.appendChild(caja);
+    document.body.appendChild(overlay);
+  }
+
+  // ---------- MODAL "VOLVER A LEER" ----------
+  // Muestra de nuevo el contenido de una pantalla anterior en un modal, sin
+  // navegar y sin perder el progreso de la actividad actual.
+  function mostrarModalTexto(datos) {
+    const overlay = crear("div", { class: "modal-overlay" });
+    overlay.addEventListener("click", () => overlay.remove());
+    const cerrar = crear("button", { class: "modal-cerrar" }, "✕");
+    cerrar.addEventListener("click", (e) => { e.stopPropagation(); overlay.remove(); });
+    const caja = crear("div", { class: "modal-caja" });
+    caja.addEventListener("click", (e) => e.stopPropagation());
+    caja.appendChild(cerrar);
+    if (datos.titulo) caja.appendChild(crear("h3", { class: "modal-titulo" }, datos.titulo));
+    if (datos.imagen) caja.appendChild(crear("img", { src: datos.imagen, class: "modal-img" }));
+    if (datos.texto) caja.appendChild(crear("p", { class: "modal-texto" }, datos.texto));
+    overlay.appendChild(caja);
+    document.body.appendChild(overlay);
+    if (datos.audio) encolarAudio(datos.audio);
+  }
+
+  // Agrega el botón "📖 Volver a leer" a un contenedor, si la pantalla lo define.
+  function agregarBotonVolverALeer(cont, p) {
+    if (!p.volverA) return;
+    const btn = crear("button", { class: "btn-volver-leer" }, "📖 Volver a leer");
+    btn.addEventListener("click", () => mostrarModalTexto(p.volverA));
+    cont.appendChild(btn);
+  }
+  function actualizarHeader() {
+    const barra = document.getElementById("progresoBarra");
+    const texto = document.getElementById("progresoTexto");
+    const puntosEl = document.getElementById("puntosTexto");
+    const total = DATOS.pantallas.length;
+    const pct = Math.round(((idx + 1) / total) * 100);
+    if (barra) barra.style.width = pct + "%";
+    if (texto) texto.textContent = pct + "%";
+    if (puntosEl) puntosEl.textContent = puntos;
+  }
+
+  function renderHeader() {
+    const header = crear("div", { class: "header-app" });
+    header.appendChild(crear("div", { class: "header-titulo" }, (DATOS.titulo || "").toUpperCase()));
+    const progCont = crear(
+      "div",
+      { class: "header-progreso" },
+      crear("span", { class: "header-label" }, "PROGRESO"),
+      crear("div", { class: "progreso-track" }, crear("div", { id: "progresoBarra", class: "progreso-fill" })),
+      crear("span", { id: "progresoTexto", class: "progreso-pct" }, "0%")
+    );
+    header.appendChild(progCont);
+    header.appendChild(
+      crear("div", { class: "header-puntos" }, "⭐ ", crear("span", { id: "puntosTexto" }, String(puntos)), " puntos")
+    );
+    return header;
+  }
+
+  function renderModuloBadge(p) {
+    if (!p.modulo) return null;
+    return crear("div", { class: "modulo-badge" }, p.modulo);
+  }
+
+  // ---------- BARRA DE NAVEGACIÓN ----------
+  function barraNavegacion(sinBloqueo) {
+    if (sinBloqueo) marcarCompletado();
+    const esUltima = idx === DATOS.pantallas.length - 1;
+    const btn = crear(
+      "button",
+      { id: "btnSiguiente", class: "btn-siguiente" + (completado ? "" : " bloqueado") },
+      esUltima ? "Finalizar" : "Siguiente →"
+    );
+    if (!esUltima) btn.addEventListener("click", siguiente);
+    else btn.style.display = "none";
+    return btn;
+  }
+
+  // ============================================================
+  // RENDER POR TIPO
+  // ============================================================
+
+  function renderPortada(p) {
+    app.innerHTML = "";
+    const cont = crear("div", { class: "pantalla portada" });
+    cont.appendChild(crear("img", { src: p.imagen, class: "portada-img" }));
+    cont.appendChild(crear("h1", { class: "portada-titulo" }, p.titulo));
+    cont.appendChild(crear("p", { class: "portada-subtitulo" }, p.subtitulo));
+    const fotoBtn = crear("img", { src: DATOS.fotoPerfil, class: "portada-foto" });
+    fotoBtn.addEventListener("click", abrirLightbox);
+    cont.appendChild(fotoBtn);
+    cont.appendChild(crear("p", { class: "contacto-linea" }, DATOS.contactoTexto));
+    cont.appendChild(crear("p", { class: "contacto-linea" }, "✉️ " + DATOS.contactoMail));
+    const btnComenzar = crear("button", { class: "btn-comenzar" }, "Comenzar");
+    btnComenzar.addEventListener("click", siguiente);
+    cont.appendChild(btnComenzar);
+    app.appendChild(cont);
+    completado = true;
+  }
+
+  function renderNarracion(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla narracion" });
+    if (p.imagen) {
+      const imgWrap = crear("div", { class: "narracion-img-wrap" });
+      imgWrap.appendChild(crear("img", { src: p.imagen, class: "narracion-img" }));
+      if (p.animada) imgWrap.appendChild(crear("span", { class: "icono-escribiendo" }, "✍️"));
+      cont.appendChild(imgWrap);
+    }
+    cont.appendChild(crear("p", { class: "narracion-texto" }, p.texto));
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(true));
+    actualizarHeader();
+    reproducirInstruccionYDesbloquear(cont, p.audioIntro, p.audio, p.audioCierre);
+  }
+
+  function renderClasificar(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla clasificar" });
+    if (p.imagen) cont.appendChild(crear("img", { src: p.imagen, class: "clasificar-img-contexto" }));
+    cont.appendChild(crear("p", { class: "instruccion" }, p.instruccion));
+    if (p.volverA) agregarBotonVolverALeer(cont, p);
+
+    let seleccionado = null;
+    const restantes = new Set(p.items.map((_, i) => i));
+    const itemEls = [];
+
+    const filaItems = crear("div", { class: "fila-items" });
+    p.items.forEach((item, i) => {
+      const b = crear("button", { class: "item-clasificar" }, item.texto);
+      b.addEventListener("click", () => {
+        if (!restantes.has(i)) return;
+        itemEls.forEach((el) => el.classList.remove("seleccionado"));
+        b.classList.add("seleccionado");
+        seleccionado = i;
+        if (item.audio) encolarAudio(item.audio);
+      });
+      itemEls.push(b);
+      filaItems.appendChild(b);
+    });
+    cont.appendChild(filaItems);
+
+    const filaCategorias = crear("div", { class: "fila-categorias" });
+    p.categorias.forEach((cat) => {
+      const casillero = crear("div", { class: "casillero" }, crear("h3", null, cat));
+      const listaEl = crear("div", { class: "casillero-lista" });
+      casillero.appendChild(listaEl);
+      casillero.addEventListener("click", () => {
+        if (seleccionado === null) return;
+        const item = p.items[seleccionado];
+        if (item.categoria === cat) {
+          registrarAcierto();
+          if (item.audioConfirma) encolarAudio(item.audioConfirma);
+          listaEl.appendChild(crear("div", { class: "chip-correcto" }, item.texto));
+          itemEls[seleccionado].remove();
+          restantes.delete(seleccionado);
+          seleccionado = null;
+          if (restantes.size === 0) {
+            if (p.resumenFinal) mostrarResumenFinal();
+            else marcarCompletado();
+          }
+        } else {
+          registrarError();
+          casillero.classList.add("shake");
+          setTimeout(() => casillero.classList.remove("shake"), 400);
+        }
+      });
+      filaCategorias.appendChild(casillero);
+    });
+    cont.appendChild(filaCategorias);
+
+    function mostrarResumenFinal() {
+      const r = p.resumenFinal;
+      const resumenCont = crear("div", { class: "resumen-final" });
+      if (r.texto) resumenCont.appendChild(crear("p", { class: "resumen-final-texto" }, r.texto));
+      const galeria = crear("div", { class: "resumen-final-galeria" });
+      (r.imagenes || []).forEach((img) => {
+        galeria.appendChild(
+          crear("div", { class: "resumen-final-item" },
+            crear("img", { src: img.src, class: "resumen-final-img" }),
+            crear("span", null, img.etiqueta || "")
+          )
+        );
+      });
+      resumenCont.appendChild(galeria);
+      cont.appendChild(resumenCont);
+      reproducirInstruccionYDesbloquear(cont, r.audio);
+      marcarCompletado();
+    }
+
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+    reproducirInstruccionYDesbloquear(cont, p.audioPrevio, p.audio);
+  }
+
+  function renderClasificarUno(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla clasificar-uno" });
+    cont.appendChild(crear("p", { class: "instruccion" }, p.instruccion));
+
+    let actual = 0;
+    const imgCont = crear("div", { class: "cu-imagen-cont" });
+    const botonesCont = crear("div", { class: "cu-botones" });
+    cont.appendChild(imgCont);
+    cont.appendChild(botonesCont);
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+
+    function mostrarItem() {
+      if (actual >= p.items.length) { marcarCompletado(); return; }
+      const item = p.items[actual];
+      imgCont.innerHTML = "";
+      imgCont.appendChild(crear("img", { src: item.imagen, class: "cu-imagen" }));
+      imgCont.appendChild(crear("p", { class: "cu-etiqueta" }, item.etiqueta));
+      botonesCont.innerHTML = "";
+      p.categorias.forEach((cat) => {
+        const b = crear("button", { class: "btn-categoria-grande" }, cat);
+        b.addEventListener("click", () => {
+          if (item.categoria === cat) {
+            registrarAcierto();
+            b.classList.add("correcto-flash");
+            const audioConf = p.audioConfirma && p.audioConfirma[cat];
+            if (audioConf) encolarAudio(audioConf);
+          } else {
+            registrarError();
+            b.classList.add("error-flash");
+          }
+          setTimeout(() => { actual++; mostrarItem(); }, 500);
+        });
+        botonesCont.appendChild(b);
+      });
+      if (item.audioNombre) encolarAudio(item.audioNombre);
+    }
+    reproducirInstruccionYDesbloquear(cont, p.audio);
+    mostrarItem();
+  }
+
+  function renderMultiple(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla multiple" });
+    if (p.imagen) cont.appendChild(crear("img", { src: p.imagen, class: "clasificar-img-contexto" }));
+    cont.appendChild(crear("p", { class: "instruccion" }, p.instruccion));
+
+    let actual = 0;
+    const preguntaCont = crear("div", { class: "mp-pregunta-cont" });
+    cont.appendChild(preguntaCont);
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+
+    function mostrarPregunta() {
+      if (actual >= p.preguntas.length) { marcarCompletado(); return; }
+      const q = p.preguntas[actual];
+      preguntaCont.innerHTML = "";
+      preguntaCont.appendChild(crear("h3", { class: "mp-pregunta" }, q.pregunta));
+      const opcionesCont = crear("div", { class: "mp-opciones" });
+      let respondida = false;
+      shuffle(q.opciones).forEach((op) => {
+        const esObjeto = typeof op === "object";
+        const texto = esObjeto ? op.texto : op;
+        const audioOpcion = esObjeto ? op.audio : null;
+        const b = crear("button", { class: "mp-opcion" }, texto);
+        b.addEventListener("click", () => {
+          if (respondida) return;
+          if (audioOpcion) encolarAudio(audioOpcion);
+          respondida = true;
+          if (texto === q.correcta) {
+            registrarAcierto();
+            b.classList.add("correcto-flash");
+            const fundamentoEl = crear("p", { class: "mp-fundamento" }, "✅ " + (q.fundamento || "¡Correcto!"));
+            preguntaCont.appendChild(fundamentoEl);
+            encolarAudio(q.audioConfirma, () => { actual++; setTimeout(mostrarPregunta, 400); });
+          } else {
+            registrarError();
+            b.classList.add("error-flash");
+            setTimeout(() => { b.classList.remove("error-flash"); respondida = false; }, 500);
+          }
+        });
+        opcionesCont.appendChild(b);
+      });
+      preguntaCont.appendChild(opcionesCont);
+      if (q.audio) encolarAudio(q.audio);
+    }
+
+    if (p.audioInstruccion) {
+      cont.classList.add("bloqueado-audio");
+      encolarAudio(p.audioInstruccion, () => cont.classList.remove("bloqueado-audio"));
+    }
+    mostrarPregunta();
+  }
+
+  function renderAsociar(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla asociar" });
+    if (p.imagen) cont.appendChild(crear("img", { src: p.imagen, class: "clasificar-img-contexto" }));
+    cont.appendChild(crear("p", { class: "instruccion" }, p.instruccion));
+
+    const colIzq = crear("div", { class: "asociar-col" });
+    const colDer = crear("div", { class: "asociar-col" });
+    const conceptos = shuffle(p.pares.map((par, i) => ({ ...par, i })));
+    const funciones = shuffle(p.pares.map((par, i) => ({ ...par, i })));
+
+    let seleccionIzq = null;
+    const emparejados = new Set();
+    const elIzq = {}, elDer = {};
+
+    conceptos.forEach((par) => {
+      const b = crear("button", { class: "asociar-item" }, par.concepto);
+      b.addEventListener("click", () => {
+        if (emparejados.has(par.i)) return;
+        Object.values(elIzq).forEach((el) => el.classList.remove("seleccionado"));
+        b.classList.add("seleccionado");
+        seleccionIzq = par.i;
+      });
+      elIzq[par.i] = b;
+      colIzq.appendChild(b);
+    });
+
+    funciones.forEach((par) => {
+      const b = crear("button", { class: "asociar-item" }, par.funcion);
+      b.addEventListener("click", () => {
+        if (emparejados.has(par.i)) return;
+        if (seleccionIzq === null) return;
+        if (seleccionIzq === par.i) {
+          registrarAcierto();
+          elIzq[par.i].classList.add("correcto-flash");
+          b.classList.add("correcto-flash");
+          emparejados.add(par.i);
+          seleccionIzq = null;
+          if (par.audioConcepto) encolarAudio(par.audioConcepto);
+          if (par.audioFuncion) encolarAudio(par.audioFuncion);
+          if (emparejados.size === p.pares.length) marcarCompletado();
+        } else {
+          registrarError();
+          b.classList.add("error-flash");
+          setTimeout(() => b.classList.remove("error-flash"), 400);
+        }
+      });
+      elDer[par.i] = b;
+      colDer.appendChild(b);
+    });
+
+    cont.appendChild(crear("div", { class: "asociar-filas" }, colIzq, colDer));
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+    reproducirInstruccionYDesbloquear(cont, p.audio);
+  }
+
+  function renderOrdenar(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla ordenar" });
+    if (p.imagen) cont.appendChild(crear("img", { src: p.imagen, class: "clasificar-img-contexto" }));
+    cont.appendChild(crear("p", { class: "instruccion" }, p.instruccion));
+
+    const destino = crear("div", { class: "ordenar-destino" });
+    const banco = crear("div", { class: "ordenar-banco" });
+    cont.appendChild(destino);
+    cont.appendChild(banco);
+
+    let posEsperada = 0;
+    const palabrasMezcladas = shuffle(p.items.map((texto, i) => ({ texto, i })));
+    window.__ultimoOrdenarBotones = [];
+
+    palabrasMezcladas.forEach((pal) => {
+      const b = crear("button", { class: "ordenar-palabra" }, pal.texto);
+      window.__ultimoOrdenarBotones.push({ el: b, i: pal.i });
+      b.addEventListener("click", () => {
+        if (b.disabled) return;
+        if (pal.i === posEsperada) {
+          registrarAcierto();
+          b.disabled = true;
+          b.classList.add("usada");
+          destino.appendChild(crear("p", { class: "ordenar-colocada-linea" }, pal.texto));
+          posEsperada++;
+          if (posEsperada === p.items.length) {
+            if (p.oracionAudio) encolarAudio(p.oracionAudio);
+            marcarCompletado();
+          }
+        } else {
+          registrarError();
+          b.classList.add("error-flash");
+          setTimeout(() => b.classList.remove("error-flash"), 400);
+        }
+      });
+      banco.appendChild(b);
+    });
+
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+    reproducirInstruccionYDesbloquear(cont, p.audio);
+  }
+
+  // ---------- FLIPCARDS ----------
+  function renderFlipcards(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla flipcards" });
+    cont.appendChild(crear("p", { class: "instruccion" }, p.instruccion));
+
+    const grid = crear("div", { class: "flip-grid" });
+    let reveladas = 0;
+
+    p.items.forEach((item) => {
+      const card = crear("div", { class: "flip-card" });
+      const frente = crear(
+        "div",
+        { class: "flip-frente" },
+        crear("img", { src: item.imagen, class: "flip-img" }),
+        crear("span", { class: "flip-nombre" }, item.frente)
+      );
+      const dorso = crear(
+        "div",
+        { class: "flip-dorso" },
+        crear("span", { class: "flip-dorso-texto" }, item.dorsoTexto)
+      );
+      card.appendChild(frente);
+      card.appendChild(dorso);
+      card.addEventListener("click", () => {
+        if (card.classList.contains("volteada")) return;
+        card.classList.add("volteada");
+        registrarAcierto();
+        if (item.audio) encolarAudio(item.audio);
+        reveladas++;
+        if (reveladas === p.items.length) marcarCompletado();
+      });
+      grid.appendChild(card);
+    });
+
+    cont.appendChild(grid);
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+  }
+
+  // ---------- MEMOJUEGO ----------
+  function renderMemojuego(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla memojuego" });
+    cont.appendChild(crear("p", { class: "instruccion" }, p.instruccion));
+
+    const cartas = [];
+    p.pares.forEach((par, i) => {
+      cartas.push({ parId: i, lado: par.a });
+      cartas.push({ parId: i, lado: par.b });
+    });
+    const mezcladas = shuffle(cartas);
+    window.__ultimoMemoCartas = [];
+
+    let primera = null, bloqueado = false, encontrados = 0;
+    const grid = crear("div", { class: "memo-grid" });
+
+    function contenidoLado(lado) {
+      if (lado.tipo === "imagen") {
+        const wrap = crear("div", { class: "memo-cara-contenido" });
+        wrap.appendChild(crear("img", { src: lado.valor, class: "memo-img" }));
+        wrap.appendChild(crear("span", { class: "memo-etiqueta" }, lado.etiqueta || ""));
+        return wrap;
+      }
+      return crear("span", { class: "memo-texto" }, lado.valor);
+    }
+
+    mezcladas.forEach((carta) => {
+      const cardEl = crear("div", { class: "memo-carta" });
+      const back = crear("div", { class: "memo-dorso" }, "?");
+      const front = crear("div", { class: "memo-frente" }, contenidoLado(carta.lado));
+      cardEl.appendChild(back);
+      cardEl.appendChild(front);
+
+      cardEl.addEventListener("click", () => {
+        if (bloqueado || cardEl.classList.contains("volteada") || cardEl.classList.contains("resuelta")) return;
+        cardEl.classList.add("volteada");
+        if (carta.lado.audio) encolarAudio(carta.lado.audio);
+        if (primera === null) {
+          primera = { carta, el: cardEl };
+        } else {
+          bloqueado = true;
+          const segunda = { carta, el: cardEl };
+          if (primera.carta.parId === segunda.carta.parId && primera.el !== segunda.el) {
+            registrarAcierto();
+            primera.el.classList.add("resuelta");
+            segunda.el.classList.add("resuelta");
+            const parAcertado = p.pares[primera.carta.parId];
+            if (parAcertado && parAcertado.audioConfirma) encolarAudio(parAcertado.audioConfirma);
+            encontrados++;
+            primera = null; bloqueado = false;
+            if (encontrados === p.pares.length) marcarCompletado();
+          } else {
+            registrarError();
+            setTimeout(() => {
+              primera.el.classList.remove("volteada");
+              segunda.el.classList.remove("volteada");
+              primera = null; bloqueado = false;
+            }, 800);
+          }
+        }
+      });
+      grid.appendChild(cardEl);
+      window.__ultimoMemoCartas.push({ el: cardEl, parId: carta.parId });
+    });
+
+    cont.appendChild(grid);
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+    reproducirInstruccionYDesbloquear(cont, p.audio);
+  }
+
+  // ---------- SOPA DE LETRAS ----------
+  const ABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  // Direcciones permitidas: siempre de izquierda a derecha en columnas.
+  // horizontal (0,1) / vertical hacia abajo (1,0) / diagonal abajo-derecha (1,1) / diagonal arriba-derecha (-1,1)
+  const DIRECCIONES = [[0, 1], [1, 0], [1, 1], [-1, 1]];
+
+  function generarGrilla(palabras) {
+    const maxLen = Math.max(...palabras.map((w) => w.length));
+    const size = Math.max(maxLen + 2, 10);
+    const grid = Array.from({ length: size }, () => Array(size).fill(null));
+    const ubicaciones = [];
+
+    function cabe(palabra, r, c, dr, dc) {
+      for (let i = 0; i < palabra.length; i++) {
+        const rr = r + dr * i, cc = c + dc * i;
+        if (rr < 0 || rr >= size || cc < 0 || cc >= size) return false;
+        const actual = grid[rr][cc];
+        if (actual !== null && actual !== palabra[i]) return false;
+      }
+      return true;
+    }
+
+    // Se le asigna a cada palabra una dirección "preferida" distinta (rotando
+    // entre las 4 disponibles) para que no tiendan a quedar todas iguales.
+    const direccionesRotadas = shuffle(DIRECCIONES);
+
+    palabras.forEach((palabraOriginal, idxPalabra) => {
+      const palabra = palabraOriginal.replace(/[ÁÉÍÓÚ]/g, (m) => ({ Á: "A", É: "E", Í: "I", Ó: "O", Ú: "U" }[m]));
+      let colocada = false;
+      let intentos = 0;
+      const preferida = direccionesRotadas[idxPalabra % direccionesRotadas.length];
+
+      function colocarEn(r, c, dr, dc) {
+        const celdas = [];
+        for (let i = 0; i < palabra.length; i++) {
+          const rr = r + dr * i, cc = c + dc * i;
+          grid[rr][cc] = palabra[i];
+          celdas.push([rr, cc]);
+        }
+        ubicaciones.push({ palabra: palabraOriginal, celdas });
+        colocada = true;
+      }
+
+      // Primero se intenta varias veces con la dirección preferida (para lograr variedad real);
+      // si no entra, se prueba con cualquiera de las 4 direcciones permitidas.
+      while (!colocada && intentos < 80) {
+        intentos++;
+        const r = Math.floor(Math.random() * size);
+        const c = Math.floor(Math.random() * size);
+        if (cabe(palabra, r, c, preferida[0], preferida[1])) colocarEn(r, c, preferida[0], preferida[1]);
+      }
+      while (!colocada && intentos < 200) {
+        intentos++;
+        const [dr, dc] = DIRECCIONES[Math.floor(Math.random() * DIRECCIONES.length)];
+        const r = Math.floor(Math.random() * size);
+        const c = Math.floor(Math.random() * size);
+        if (cabe(palabra, r, c, dr, dc)) colocarEn(r, c, dr, dc);
+      }
+
+      if (!colocada) {
+        outer:
+        for (let r = 0; r < size && !colocada; r++) {
+          for (let c = 0; c < size && !colocada; c++) {
+            for (const [dr, dc] of DIRECCIONES) {
+              if (cabe(palabra, r, c, dr, dc)) { colocarEn(r, c, dr, dc); break outer; }
+            }
+          }
+        }
+      }
+    });
+
+    for (let r = 0; r < size; r++) {
+      for (let c = 0; c < size; c++) {
+        if (grid[r][c] === null) grid[r][c] = ABC[Math.floor(Math.random() * ABC.length)];
+      }
+    }
+    return { grid, size, ubicaciones };
+  }
+
+  function renderSopaDeLetras(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla sopa" });
+    cont.appendChild(crear("p", { class: "instruccion" }, p.instruccion));
+
+    const { grid, size, ubicaciones } = generarGrilla(p.palabras);
+    const encontradas = new Set();
+    window.__ultimaSopaUbicaciones = ubicaciones;
+
+    const listaEl = crear("div", { class: "sopa-lista" });
+    p.palabras.forEach((pal) => {
+      listaEl.appendChild(crear("span", { class: "sopa-palabra-pendiente", id: "sopa-" + pal }, pal));
+    });
+    cont.appendChild(listaEl);
+
+    const gridEl = crear("div", { class: "sopa-grid" });
+    gridEl.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+
+    let inicio = null;
+    const celdasEl = [];
+    for (let r = 0; r < size; r++) {
+      celdasEl[r] = [];
+      for (let c = 0; c < size; c++) {
+        const celda = crear("button", { class: "sopa-celda", "data-r": r, "data-c": c }, grid[r][c]);
+        celda.addEventListener("click", () => manejarClickCelda(r, c, celda));
+        gridEl.appendChild(celda);
+        celdasEl[r][c] = celda;
+      }
+    }
+
+    function limpiarSeleccionVisual() { celdasEl.flat().forEach((el) => el.classList.remove("sopa-celda-sel")); }
+
+    function manejarClickCelda(r, c, celda) {
+      // Nota: no bloqueamos el click aunque la celda ya pertenezca a una palabra
+      // encontrada, porque dos palabras pueden cruzarse compartiendo una celda
+      // y esa celda puede ser el inicio/fin de otra palabra todavía no encontrada.
+      if (inicio === null) { inicio = { r, c, el: celda }; celda.classList.add("sopa-celda-sel"); return; }
+      const fin = { r, c };
+      const dr = Math.sign(fin.r - inicio.r);
+      const dc = Math.sign(fin.c - inicio.c);
+      const esLinea = (dr === 0 && dc !== 0) || (dc === 0 && dr !== 0) || (Math.abs(fin.r - inicio.r) === Math.abs(fin.c - inicio.c) && dr !== 0);
+      if (!esLinea && !(fin.r === inicio.r && fin.c === inicio.c)) {
+        registrarError(); limpiarSeleccionVisual(); inicio = null; return;
+      }
+      const largo = Math.max(Math.abs(fin.r - inicio.r), Math.abs(fin.c - inicio.c)) + 1;
+      const celdasRuta = [];
+      for (let i = 0; i < largo; i++) celdasRuta.push([inicio.r + dr * i, inicio.c + dc * i]);
+      const letrasRuta = celdasRuta.map(([rr, cc]) => grid[rr][cc]).join("");
+      const letrasRutaInv = letrasRuta.split("").reverse().join("");
+      const match = ubicaciones.find((u) => !encontradas.has(u.palabra) && (u.palabra === letrasRuta || u.palabra === letrasRutaInv));
+      if (match) {
+        registrarAcierto();
+        encontradas.add(match.palabra);
+        celdasRuta.forEach(([rr, cc]) => celdasEl[rr][cc].classList.add("sopa-celda-encontrada"));
+        const labelEl = document.getElementById("sopa-" + match.palabra);
+        if (labelEl) labelEl.classList.add("sopa-palabra-encontrada");
+        const audioPalabra = p.audiosPalabras && p.audiosPalabras[match.palabra];
+        if (audioPalabra) encolarAudio(audioPalabra);
+        if (encontradas.size === p.palabras.length) marcarCompletado();
+      } else {
+        registrarError();
+      }
+      limpiarSeleccionVisual();
+      inicio = null;
+    }
+
+    cont.appendChild(gridEl);
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+    reproducirInstruccionYDesbloquear(cont, p.audio);
+  }
+
+  // ---------- DETECTIVE ----------
+  function renderDetective(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla detective" });
+
+    const pistasBox = crear("div", { class: "detective-pistas" });
+    p.pistas.forEach((pista) => pistasBox.appendChild(crear("p", { class: "detective-pista" }, "🔍 " + pista)));
+    cont.appendChild(pistasBox);
+
+    const cajaMisterio = crear("div", { class: "detective-caja" });
+    const imgMisterio = crear("img", { src: p.imagen, class: "detective-img oculto-blur" });
+    cajaMisterio.appendChild(imgMisterio);
+    cont.appendChild(cajaMisterio);
+
+    cont.appendChild(crear("h3", { class: "detective-pregunta" }, p.pregunta));
+
+    const opcionesCont = crear("div", { class: "detective-opciones" });
+    shuffle(p.opciones).forEach((op) => {
+      const b = crear("button", { class: "detective-opcion" }, op);
+      b.addEventListener("click", () => {
+        if (op === p.correcta) {
+          registrarAcierto();
+          b.classList.add("correcto-flash");
+          imgMisterio.classList.remove("oculto-blur");
+          if (p.audioConfirma) encolarAudio(p.audioConfirma);
+          marcarCompletado();
+        } else {
+          registrarError();
+          b.classList.add("error-flash");
+          setTimeout(() => b.classList.remove("error-flash"), 400);
+        }
+      });
+      opcionesCont.appendChild(b);
+    });
+    cont.appendChild(opcionesCont);
+
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+    reproducirInstruccionYDesbloquear(cont, p.audio);
+  }
+
+  // ---------- BALANZA ----------
+  function renderBalanza(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla balanza" });
+
+    let actual = 0;
+    const rondaCont = crear("div", { class: "balanza-ronda-cont" });
+    cont.appendChild(rondaCont);
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+
+    function mostrarRonda() {
+      if (actual >= p.rondas.length) { marcarCompletado(); return; }
+      const ronda = p.rondas[actual];
+      rondaCont.innerHTML = "";
+      rondaCont.appendChild(crear("h3", { class: "balanza-pregunta" }, ronda.pregunta));
+      const opcionesCont = crear("div", { class: "balanza-opciones" });
+      ronda.opciones.forEach((op) => {
+        const b = crear(
+          "button",
+          { class: "balanza-opcion" },
+          crear("img", { src: op.imagen, class: "balanza-img" }),
+          crear("span", null, op.texto)
+        );
+        b.addEventListener("click", () => {
+          if (op.texto === ronda.correcta) { registrarAcierto(); b.classList.add("correcto-flash"); if (ronda.audioConfirma) encolarAudio(ronda.audioConfirma); }
+          else { registrarError(); b.classList.add("error-flash"); }
+          setTimeout(() => { actual++; mostrarRonda(); }, 600);
+        });
+        opcionesCont.appendChild(b);
+      });
+      rondaCont.appendChild(opcionesCont);
+      if (ronda.audio) encolarAudio(ronda.audio);
+    }
+    mostrarRonda();
+  }
+
+  // ---------- COLOCAR EN LA IMAGEN (tap-to-place) ----------
+  // Reemplaza el drag-and-drop por tap-to-select: se toca la etiqueta del banco
+  // y después la zona correspondiente. No usa imagen de fondo (se arma con HTML/CSS)
+  // para que funcione igual en cualquier ancho de pantalla (netbooks, celulares, etc.)
+  function renderColocar(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla colocar" });
+    cont.appendChild(crear("p", { class: "instruccion" }, p.instruccion));
+    if (p.volverA) agregarBotonVolverALeer(cont, p);
+
+    let seleccionada = null;
+    const completas = new Set();
+    const slotEls = {};
+    const bancoEls = {};
+
+    const wrapClass = p.layout === "sobre" ? "colocar-sobre-grid" : "colocar-vertical";
+    const zonasCont = crear("div", { class: wrapClass });
+
+    p.zonas.forEach((zona) => {
+      const slot = crear("span", { class: "colocar-etiqueta-slot" }, "?");
+      slot.addEventListener("click", () => {
+        if (completas.has(zona.id)) return;
+        if (seleccionada === null) return;
+        if (seleccionada === zona.id) {
+          registrarAcierto();
+          completas.add(zona.id);
+          slot.textContent = p.etiquetas.find((e) => e.id === zona.id).texto;
+          slot.classList.add("rellena");
+          zonaBox.classList.add("completa");
+          bancoEls[seleccionada].classList.add("usada");
+          bancoEls[seleccionada].classList.remove("seleccionada");
+          if (zona.audioConfirma) encolarAudio(zona.audioConfirma);
+          seleccionada = null;
+          if (completas.size === p.zonas.length) marcarCompletado();
+        } else {
+          registrarError();
+          zonaBox.classList.add("shake");
+          setTimeout(() => zonaBox.classList.remove("shake"), 400);
+        }
+      });
+      slotEls[zona.id] = slot;
+      const zonaBox = crear(
+        "div",
+        { class: "colocar-zona zona-" + zona.id },
+        slot,
+        crear("p", { class: "colocar-contenido" }, zona.contenido)
+      );
+      zonasCont.appendChild(zonaBox);
+    });
+    cont.appendChild(zonasCont);
+
+    const banco = crear("div", { class: "colocar-banco" });
+    shuffle(p.etiquetas).forEach((etq) => {
+      const b = crear("button", { class: "colocar-etiqueta-banco" }, etq.texto);
+      b.addEventListener("click", () => {
+        if (completas.has(etq.id)) return;
+        Object.values(bancoEls).forEach((el) => el.classList.remove("seleccionada"));
+        b.classList.add("seleccionada");
+        seleccionada = etq.id;
+        if (etq.audio) encolarAudio(etq.audio);
+      });
+      bancoEls[etq.id] = b;
+      banco.appendChild(b);
+    });
+    cont.appendChild(banco);
+
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+    reproducirInstruccionYDesbloquear(cont, p.audioPrevio, p.audio);
+  }
+
+  // ---------- INFOGRAFÍA INTERACTIVA (pines numerados sobre una imagen real) ----------
+  // Los números se dibujan como pines posicionados (x%,y%) directamente encima de la
+  // imagen de la carta/del sobre (p.imagenFondo), no como botones sueltos en fondo
+  // blanco. Al tocar un pin se muestra su nombre + explicación en un panel debajo,
+  // con su audio. Pensada para reemplazar pantallas informativas estáticas por algo
+  // más visual y exploratorio.
+  function renderInfografia(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla infografia" });
+    cont.appendChild(crear("p", { class: "instruccion" }, p.instruccion));
+
+    const visitados = new Set();
+    const imgWrap = crear("div", { class: "infografia-img-wrap" });
+    imgWrap.appendChild(crear("img", { src: p.imagenFondo, class: "infografia-img-fondo" }));
+
+    const panel = crear("div", { class: "infografia-panel oculto" });
+
+    p.puntos.forEach((punto) => {
+      const pin = crear(
+        "button",
+        { class: "infografia-numero-pin", style: `left:${punto.x}%; top:${punto.y}%;` },
+        String(punto.numero)
+      );
+      pin.addEventListener("click", () => {
+        panel.innerHTML = "";
+        panel.appendChild(crear("h4", null, punto.titulo));
+        panel.appendChild(crear("p", null, punto.contenido));
+        panel.classList.remove("oculto");
+        const yaVisitado = visitados.has(punto.id);
+        if (!yaVisitado) {
+          visitados.add(punto.id);
+          pin.classList.add("visitado");
+          encolarAudio(punto.audioNombre, () => encolarAudio(punto.audioExplica));
+          if (visitados.size === p.puntos.length) {
+            marcarCompletado();
+            if (p.audioCierre) reproducirInstruccionYDesbloquear(cont, p.audioCierre);
+          }
+        }
+      });
+      imgWrap.appendChild(pin);
+    });
+
+    cont.appendChild(imgWrap);
+    cont.appendChild(panel);
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+    reproducirInstruccionYDesbloquear(cont, p.audioIntro);
+  }
+
+  // ---------- SECUENCIA DE TEXTO (bloques que aparecen de a uno, con audio) ----------
+  function renderSecuenciaTexto(p) {
+    app.innerHTML = "";
+    app.appendChild(renderHeader());
+    const badge = renderModuloBadge(p);
+    if (badge) app.appendChild(badge);
+    const cont = crear("div", { class: "pantalla secuencia-texto" });
+    if (p.tituloIntro) cont.appendChild(crear("p", { class: "instruccion" }, p.tituloIntro));
+    const listaCont = crear("div", { class: "secuencia-lista" });
+    cont.appendChild(listaCont);
+    app.appendChild(cont);
+    app.appendChild(barraNavegacion(false));
+    actualizarHeader();
+
+    let i = 0;
+    function mostrarSiguienteBloque() {
+      if (i >= p.bloques.length) { mostrarEjemplo(); return; }
+      const bloque = p.bloques[i];
+      listaCont.appendChild(crear("div", { class: "secuencia-bloque" }, crear("h4", null, bloque.titulo), crear("p", null, bloque.texto)));
+      i++;
+      encolarAudio(bloque.audio, mostrarSiguienteBloque);
+    }
+
+    function mostrarEjemplo() {
+      if (!p.ejemplo) { marcarCompletado(); return; }
+      const ej = p.ejemplo;
+      const ejCont = crear("div", { class: "secuencia-ejemplo" });
+      if (ej.imagen) ejCont.appendChild(crear("img", { src: ej.imagen, class: "narracion-img" }));
+      ejCont.appendChild(crear("h4", null, ej.titulo));
+      const bloquesCont = crear("div", { class: "secuencia-ejemplo-bloques" });
+      ejCont.appendChild(bloquesCont);
+      listaCont.appendChild(ejCont);
+
+      // Si el ejemplo tiene bloques (saludo/mensaje/despedida/nombre), se revelan
+      // de a uno igual que la explicación de arriba, para que se condiga con ella.
+      if (ej.bloques && ej.bloques.length) {
+        let j = 0;
+        function mostrarSiguienteBloqueEjemplo() {
+          if (j >= ej.bloques.length) { marcarCompletado(); return; }
+          const b = ej.bloques[j];
+          bloquesCont.appendChild(crear("p", { class: "secuencia-ejemplo-linea" }, b.texto));
+          j++;
+          encolarAudio(b.audio, mostrarSiguienteBloqueEjemplo);
+        }
+        if (ej.audioIntro) encolarAudio(ej.audioIntro, mostrarSiguienteBloqueEjemplo);
+        else mostrarSiguienteBloqueEjemplo();
+      } else {
+        bloquesCont.appendChild(crear("p", null, ej.texto));
+        encolarAudio(ej.audio, () => marcarCompletado());
+      }
+    }
+
+    cont.classList.add("bloqueado-audio");
+    if (p.audioIntro) {
+      encolarAudio(p.audioIntro, () => { cont.classList.remove("bloqueado-audio"); mostrarSiguienteBloque(); });
+    } else {
+      cont.classList.remove("bloqueado-audio");
+      mostrarSiguienteBloque();
+    }
+  }
+
+  // ---------- CIERRE ----------
+  function renderCierre(p) {
+    app.innerHTML = "";
+    const total = aciertos + errores;
+    const porcentaje = total > 0 ? Math.round((aciertos / total) * 100) : 0;
+
+    const cont = crear("div", { class: "pantalla cierre" });
+    cont.appendChild(crear("img", { src: p.imagen, class: "cierre-img" }));
+    cont.appendChild(crear("p", { class: "cierre-texto" }, p.texto));
+
+    const resumen = crear(
+      "div",
+      { class: "cierre-resumen" },
+      crear("p", null, `✅ Aciertos: ${aciertos}`),
+      crear("p", null, `❌ Errores: ${errores}`),
+      crear("p", { class: "cierre-porcentaje" }, `${porcentaje}% de aciertos`),
+      crear("p", { class: "cierre-puntos" }, `⭐ ${puntos} puntos`)
+    );
+    cont.appendChild(resumen);
+
+    const fotoBtn = crear("img", { src: DATOS.fotoPerfil, class: "cierre-foto" });
+    fotoBtn.addEventListener("click", abrirLightbox);
+    cont.appendChild(fotoBtn);
+    cont.appendChild(crear("p", { class: "contacto-linea" }, DATOS.contactoTexto));
+    cont.appendChild(crear("p", { class: "contacto-linea" }, "✉️ " + DATOS.contactoMail));
+
+    const btnReiniciar = crear("button", { class: "btn-comenzar" }, "🔄 Volver a jugar");
+    btnReiniciar.addEventListener("click", reiniciarJuego);
+    cont.appendChild(btnReiniciar);
+
+    app.appendChild(cont);
+    if (p.audio) encolarAudio(p.audio);
+    completado = true;
+  }
+
+  function reiniciarJuego() {
+    aciertos = 0;
+    errores = 0;
+    puntos = 0;
+    irAPantalla(0);
+  }
+
+  // ============================================================
+  // DESPACHADOR
+  // ============================================================
+  function render() {
+    const p = DATOS.pantallas[idx];
+    switch (p.tipo) {
+      case "portada": renderPortada(p); break;
+      case "narracion": renderNarracion(p); break;
+      case "clasificar": renderClasificar(p); break;
+      case "clasificarUno": renderClasificarUno(p); break;
+      case "sopaDeLetras": renderSopaDeLetras(p); break;
+      case "memojuego": renderMemojuego(p); break;
+      case "asociar": renderAsociar(p); break;
+      case "ordenar": renderOrdenar(p); break;
+      case "colocar": renderColocar(p); break;
+      case "infografia": renderInfografia(p); break;
+      case "secuenciaTexto": renderSecuenciaTexto(p); break;
+      case "multiple": renderMultiple(p); break;
+      case "flipcards": renderFlipcards(p); break;
+      case "detective": renderDetective(p); break;
+      case "balanza": renderBalanza(p); break;
+      case "cierre": renderCierre(p); break;
+      default: app.innerHTML = `<p>Tipo de pantalla no soportado: ${p.tipo}</p>`;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => { render(); });
+
+  window.__motor = { render, DATOS: () => DATOS, estado: () => ({ idx, aciertos, errores, puntos, completado }) };
+})();
