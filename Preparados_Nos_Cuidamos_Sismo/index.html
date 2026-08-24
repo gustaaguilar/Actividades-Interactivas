@@ -91,7 +91,16 @@
     display: flex; align-items: center; justify-content: center; z-index: 999;
   }
   .lightbox-perfil-inner { text-align: center; color: #fff; }
-  .lightbox-perfil-inner img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
+  .lightbox-perfil-inner .lightbox-perfil-img {
+    width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
+    cursor: zoom-in; transition: all 0.25s ease;
+  }
+  .lightbox-perfil-inner .lightbox-perfil-img.zoom-activo {
+    width: min(90vw, 480px); height: min(90vw, 480px);
+    border-radius: 16px; object-fit: contain; cursor: zoom-out;
+    background: rgba(255,255,255,0.05);
+  }
+  .lightbox-zoom-hint { font-size: 0.75em; opacity: 0.75; margin-top: 8px; }
   .tagline { font-size: 1.3em; margin-top: 14px; }
   .btn-cerrar-lightbox {
     margin-top: 16px; background: var(--rojo); color: #fff; border: none;
@@ -165,6 +174,43 @@
   .recorrido-descripcion-img { width: 90px; height: 90px; object-fit: cover; border-radius: 10px; }
   .recorrido-descripcion-texto { font-weight: bold; color: var(--azul-osc); }
 
+  /* Video complementario (YouTube embebido en la pantalla) */
+  .video-wrap {
+    position: relative; width: 100%; max-width: 480px;
+    aspect-ratio: 16 / 9; margin: 14px auto;
+    background: #0b1620; border-radius: 14px; overflow: hidden;
+  }
+  /* Los Shorts son verticales (9:16): achicamos el ancho y agrandamos
+     el alto relativo para que no queden con franjas negras enormes
+     ni desbordando la pantalla, tanto en celular como en PC/tablet. */
+  .video-wrap.video-vertical {
+    max-width: 300px; aspect-ratio: 9 / 16;
+  }
+  .video-iframe, .video-wrap iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+  }
+  .video-play-overlay {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; background: linear-gradient(180deg, #1c2b3a, #0b1620);
+    border: none; cursor: pointer; color: #fff;
+  }
+  .video-play-icono {
+    width: 62px; height: 62px; border-radius: 50%;
+    background: var(--rojo, #c62828); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6em; line-height: 1;
+  }
+  .video-play-texto { font-size: 0.95em; font-weight: bold; }
+  .video-play-overlay:hover .video-play-icono { filter: brightness(1.1); }
+  .video-fuente {
+    text-align: center; font-size: 0.85em; color: #607d8b;
+    font-style: italic; margin-top: 6px;
+  }
+  @media (max-width: 400px) {
+    .video-wrap.video-vertical { max-width: 240px; }
+  }
+
   /* Botón y lightbox para ampliar el plano */
   .btn-ampliar {
     position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.9);
@@ -174,27 +220,13 @@
   .lightbox-imagen {
     position: fixed; inset: 0; background: rgba(0,0,0,0.9);
     display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 999;
-    padding: 16px;
+    padding: 20px;
   }
-  .lightbox-imagen-viewport {
-    width: 100%; max-width: 100%; height: 70vh; overflow: hidden;
-    touch-action: none; display: flex; align-items: center; justify-content: center;
-    cursor: grab;
-  }
-  .lightbox-imagen-img {
-    max-width: 100%; max-height: 70vh; border-radius: 10px;
-    transform-origin: center center; touch-action: none; user-select: none; -webkit-user-drag: none;
-  }
-  .lightbox-imagen-controles { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
-  .btn-zoom {
-    background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 8px; padding: 10px 16px; font-size: 1.1em; cursor: pointer;
-  }
+  .lightbox-imagen img { max-width: 100%; max-height: 80vh; border-radius: 10px; }
   .lightbox-imagen .btn-cerrar-lightbox {
-    background: var(--rojo); color: #fff; border: none;
-    border-radius: 8px; padding: 10px 16px; font-size: 1em; cursor: pointer; width: auto; height: auto;
+    margin-top: 16px; background: var(--rojo); color: #fff; border: none;
+    border-radius: 50%; width: 44px; height: 44px; font-size: 1.2em; cursor: pointer;
   }
-  .lightbox-imagen-ayuda { color: rgba(255,255,255,0.6); font-size: 0.78em; margin-top: 10px; text-align: center; }
   .hotspot-zona {
     position: absolute; border: 3px dashed var(--naranja); border-radius: 10px;
     background: rgba(245,124,0,0.15); cursor: pointer;

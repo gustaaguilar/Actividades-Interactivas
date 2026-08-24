@@ -20,6 +20,18 @@ window.DATOS = {
       imagen: "img/portada.jpg"
     },
 
+    /* ---------- 0b. VIDEO INFORMATIVO (material complementario) ---------- */
+    {
+      id: "video-info",
+      tipo: "video",
+      titulo: "Antes de empezar, mirá este video",
+      texto: "El Gobierno de Mendoza preparó este video con información clave sobre qué hacer frente a un sismo. Tocá el botón de play para verlo, y cuando termines, tocá Continuar para seguir con las actividades.",
+      audioInstr: "audio/00b_instr.mp3",
+      youtubeId: "K9TyuJr9dEk",
+      vertical: true,
+      fuente: "Fuente: Gobierno de Mendoza"
+    },
+
     /* ---------- 1. ¿Qué es un sismo? ---------- */
     {
       id: "p01",
