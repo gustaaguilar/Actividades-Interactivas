@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Fracciones: de la pizza a los números</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Verdana, Arial, sans-serif;
+    background: linear-gradient(135deg, #fff4e0 0%, #ffe8cf 100%);
+    color: #3a2a1a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  #progreso-wrap {
+    width: 100%;
+    height: 8px;
+    background: #f0d9b5;
+  }
+  #progreso-barra {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff8c42, #ff6b35);
+    transition: width 0.3s ease;
+  }
+  #contenedor {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 14px 16px 84px 16px;
+  }
+  .pantalla {
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+  }
+  h1 { color: #ff6b35; font-size: 1.8em; margin-bottom: 8px; }
+  h2 { color: #ff6b35; font-size: 1.4em; margin: 0 0 8px 0; }
+  .instruccion { font-size: 1.05em; margin-bottom: 10px; color: #5a4630; }
+  .texto-narracion { font-size: 1.1em; line-height: 1.6; text-align: left; }
+  .texto-narracion strong { color: #ff6b35; }
+  img.imagen-portada, img.imagen-narracion, img.imagen-cierre, img.imagen-pregunta {
+    max-width: 100%;
+    max-height: 30vh;
+    width: auto;
+    object-fit: cover;
+    border-radius: 14px;
+    margin: 8px 0;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  }
+  .btn-primario, .btn-secundario {
+    font-size: 1.1em;
+    padding: 10px 26px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin: 8px 6px;
+    font-weight: bold;
+  }
+  .btn-primario {
+    background: #ff6b35;
+    color: white;
+  }
+  .btn-primario:hover { background: #e85a28; }
+  .btn-secundario {
+    background: white;
+    color: #ff6b35;
+    border: 2px solid #ff6b35;
+  }
+  #btn-verificar:disabled { opacity: 0.5; cursor: default; }
+
+  /* ---- Foto de perfil: texto fijo en pantalla + lightbox con zoom ---- */
+  .foto-perfil-wrap { margin-top: 10px; }
+  .foto-perfil {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff6b35;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+  .foto-perfil-caption {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 6px 0 2px 0;
+  }
+  .foto-perfil-email {
+    font-size: 0.8em;
+    color: #777;
+    margin: 0;
+  }
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 999;
+  }
+  .lightbox.oculto { display: none; }
+  .lightbox-contenido {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    max-width: 360px;
+  }
+  .lightbox-zoom-wrap {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    touch-action: none;
+    cursor: zoom-in;
+  }
+  .lightbox-imagen {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transform-origin: center center;
+    transition: transform 0.05s linear;
+  }
+  .lightbox-tagline { font-style: italic; color: #ff6b35; margin: 12px 0 4px 0; }
+  .lightbox-ayuda-zoom { font-size: 0.78em; color: #999; margin: 0 0 14px 0; }
+
+  .opciones-lista { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .opciones-lista.opciones-lista-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .opcion-btn {
+    padding: 14px;
+    font-size: 1.05em;
+    border-radius: 12px;
+    border: 2px solid #ffb98a;
+    background: white;
+    cursor: pointer;
+  }
+  .opcion-btn:hover:not(:disabled) { background: #fff1e2; }
+  .opcion-btn.correcta { background: #c8f2c8; border-color: #4caf50; }
+  .opcion-btn.incorrecta { background: #fbd0d0; border-color: #e05353; }
+  .opcion-btn:disabled { cursor: default; }
+
+  .items-clasificar, .items-ordenar { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 16px 0; }
+  .categorias-clasificar { display: flex; gap: 14px; justify-content: center; margin-top: 10px; }
+  .item-chip, .categoria-btn, .asociar-chip {
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 2px solid #ffb98a;
+    background: white;
+    cursor: pointer;
+    font-size: 1.05em;
+  }
+  .categoria-btn { background: #ff6b35; color: white; border: none; font-weight: bold; }
+  .item-chip.seleccionado, .asociar-chip.seleccionado { background: #ffe0c2; border-color: #ff6b35; }
+  .item-chip.resuelto.correcta, .asociar-chip.resuelto.correcta { background: #c8f2c8; border-color: #4caf50; }
+  .item-chip.shake, .asociar-chip.shake, .pieza-puzzle.shake { animation: shake 0.4s; }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+  .orden-numero {
+    display: inline-block;
+    background: #ff6b35;
+    color: white;
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    line-height: 22px;
+    font-size: 0.8em;
+    margin-right: 8px;
+  }
+
+  .figura-clasificar-preview {
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+  }
+  .figura-clasificar-preview .figura-fraccion-svg { width: 130px; height: auto; }
+
+  .ordenar-figuras-lista { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .ordenar-figura-fila {
+    display: flex; align-items: center; gap: 12px;
+    background: white; border-radius: 12px; padding: 8px 16px;
+    border: 2px solid #ffe0c2;
+  }
+  .orden-numero-grande {
+    background: #ff6b35; color: white; border-radius: 50%;
+    width: 30px; height: 30px; line-height: 30px; text-align: center;
+    font-weight: bold; flex-shrink: 0;
+  }
+  .ordenar-figura-fila .figura-fraccion-svg { width: 70px; height: auto; }
+
+  .asociar-columnas { display: flex; gap: 30px; justify-content: center; margin-top: 16px; }
+  .columna-izquierda, .columna-derecha { display: flex; flex-direction: column; gap: 10px; }
+
+  .feedback { margin-top: 16px; font-size: 1.05em; font-weight: bold; padding: 10px; border-radius: 10px; }
+  .feedback.oculto { display: none; }
+  .feedback.ok { background: #d9f2d9; color: #2e7d32; }
+  .feedback.error { background: #fbe1e1; color: #c62828; }
+
+  .contador-pregunta { color: #a3805a; font-size: 0.9em; margin-bottom: 4px; }
+  .pregunta-texto { font-size: 1.15em; font-weight: bold; margin: 6px 0; }
+
+  .objetivo-fraccion { font-size: 1.2em; margin: 10px 0; display: flex; align-items: center; justify-content: center; gap: 10px; }
+  .figura-svg-wrap { display: flex; justify-content: center; margin: 16px 0; }
+  .figura-svg { width: 260px; height: auto; }
+  .parte-figura {
+    fill: white;
+    stroke: #1a1a1a;
+    stroke-width: 2.5;
+    cursor: pointer;
+  }
+  .parte-figura.coloreada { fill: #ff8c42; }
+
+  /* ---- Fracción real: numerador / línea / denominador ---- */
+  .fraccion-real {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    line-height: 1.15;
+    vertical-align: middle;
+  }
+  .fr-num, .fr-den { padding: 0 4px; }
+  .fr-num { border-bottom: 2.5px solid #3a2a1a; padding-bottom: 2px; }
+  .fraccion-real-grande { font-size: 2.6em; }
+  .fraccion-real-grande .fr-num { border-bottom-width: 4px; }
+
+  .figura-fraccion-wrap { display: flex; justify-content: center; margin: 10px 0; }
+  .figura-fraccion-svg { width: 130px; height: auto; }
+
+  /* ---- Rompecabezas de fracciones ---- */
+  .puzzle-campo {
+    position: relative;
+    margin: 16px auto;
+    touch-action: none;
+  }
+  .puzzle-marco {
+    position: absolute;
+    border-radius: 4px;
+  }
+  .puzzle-marco-svg { display: block; }
+  .pieza-puzzle {
+    position: absolute;
+    cursor: grab;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+  }
+  .pieza-puzzle.arrastrando {
+    cursor: grabbing;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+  }
+  .pieza-puzzle.colocada {
+    cursor: default;
+    filter: none;
+  }
+  .pieza-puzzle svg { display: block; pointer-events: none; }
+  .pieza-puzzle { touch-action: none; }
+
+  /* ---- Narración animada (mano señaladora sincronizada al audio) ---- */
+  .escena-animada {
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+    padding: 20px 0;
+  }
+  .escena-fraccion-grande, .escena-fraccion-con-figura {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+  .mano-indicadora {
+    position: absolute;
+    font-size: 2.2em;
+    transform: translate(-100%, -50%);
+    transition: left 0.6s ease, top 0.6s ease, opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .mano-indicadora.oculto { opacity: 0; }
+  .etiqueta-paso {
+    position: absolute;
+    background: #ff6b35;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    transform: translate(-50%, -100%);
+    transition: left 0.6s ease, top 0.6s ease, opacity 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .etiqueta-paso.oculto { opacity: 0; }
+  .texto-narracion-animada { margin-top: 8px; }
+
+  .resultados { font-size: 1.15em; margin: 10px 0; }
+  .resultados p { margin: 3px 0; }
+
+  #nav-inferior {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: white;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 50;
+  }
+  #btn-siguiente {
+    background: #ff6b35;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1.05em;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #btn-siguiente:disabled { background: #d9b79a; cursor: default; }
+
+  body.esperando-audio .opcion-btn,
+  body.esperando-audio .item-chip,
+  body.esperando-audio .categoria-btn,
+  body.esperando-audio .asociar-chip,
+  body.esperando-audio .parte-figura,
+  body.esperando-audio #btn-verificar {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+  <div id="progreso-wrap"><div id="progreso-barra"></div></div>
+  <div id="contenedor"></div>
+  <div id="nav-inferior" style="display:none;">
+    <button id="btn-siguiente">Siguiente</button>
+  </div>
+  <script src="datos.js"></script>
+  <script src="motor.js"></script>
+</body>
+</html>
