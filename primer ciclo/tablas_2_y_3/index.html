@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Las tablas del 2 y 3 — Coloreamos aprendiendo</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif;
+    background: linear-gradient(180deg, #FFF7E6, #FFE9C7);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #app { width: 100%; height: 100%; max-width: 900px; max-height: 100vh; display:flex; align-items:center; justify-content:center; }
+  .pantalla {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px;
+    overflow: hidden;
+  }
+  h1 { color: #E8622C; margin: 8px 0; text-align:center; font-size: 1.6em; }
+  h2 { color: #4E9BE0; margin: 6px 0; text-align:center; font-size: 1.3em; }
+  .subtitulo { color: #8E5FBF; font-weight: bold; margin-bottom: 10px; }
+  .imagen-portada { max-width: 80%; max-height: 32vh; object-fit: contain; margin: 6px 0; border-radius: 12px; }
+  .imagen-festejo { max-width: 70%; max-height: 24vh; object-fit: contain; margin: 4px 0; border-radius: 12px; }
+  .instruccion { text-align:center; color:#555; margin: 4px 0 10px; font-size: 0.95em; }
+
+  /* Botones */
+  .btn-siguiente, .btn-verificar {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 0 #388E3C;
+  }
+  .btn-siguiente:disabled { background: #B0BEC5; box-shadow: 0 4px 0 #78909C; cursor: not-allowed; }
+  .btn-verificar { background: #F5901E; box-shadow: 0 4px 0 #C96F0E; }
+  .oculto { display: none !important; }
+
+  /* Perfil */
+  .perfil { display:flex; align-items:center; gap:10px; cursor:pointer; margin: 10px 0; }
+  .perfil-foto { width:92px; height:92px; border-radius:50%; object-fit:cover; border:3px solid #F5901E; }
+  .perfil-texto { font-size: 0.75em; color:#555; }
+
+  .lightbox {
+    position: fixed; inset:0; background: rgba(0,0,0,0.85);
+    display:flex; align-items:center; justify-content:center; z-index: 100;
+  }
+  .lightbox.oculto { display:none; }
+  .lightbox-contenido { position:relative; text-align:center; max-width:90%; }
+  .lightbox-contenido img { max-width:100%; max-height:70vh; border-radius:10px; transition: transform 0.3s; cursor: zoom-in; }
+  .lightbox-contenido img.zoom { transform: scale(2.2); cursor: zoom-out; }
+  .frase-lightbox { color:white; margin-top:10px; font-size:1.1em; }
+  .cerrar-lightbox { position:absolute; top:-10px; right:0; color:white; font-size:1.8em; cursor:pointer; }
+
+  /* Tarjetas mini de referencia (arriba del dibujo) */
+  .grid-tarjetas-mini {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 5px;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+  .tarjeta-mini { border: 2px solid; border-radius: 8px; overflow:hidden; background:white; transition: box-shadow 0.2s; font-size: 0.7em; }
+  .tarjeta-mini.activo { box-shadow: 0 0 0 3px #333; }
+  .tarjeta-mini-titulo { color:#333; font-weight:bold; text-align:center; padding: 2px; font-size: 0.85em; }
+  .cuenta-mini { text-align:center; padding: 1px 2px; }
+
+  /* Colorear */
+  .contenedor-colorear { display:flex; flex-direction: column; align-items:center; width:100%; flex:1; min-height:0; }
+  .paleta { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-bottom:6px; }
+  .swatch { width:34px; height:34px; border-radius:8px; border:3px solid #999; cursor:pointer; }
+  .swatch.activo { border-color: #333; transform: scale(1.15); }
+  .dibujo-svg { width: 100%; max-height: 46vh; background: #E3F2FD; border-radius: 10px; border: 3px solid #4E9BE0; }
+  .dibujo-svg.fondo-blanco { background: #FFFFFF; }
+  .aviso-terminaste { color: #4CAF50; font-weight: bold; font-size: 1.15em; margin: 6px 0 0; text-align: center; }
+  .region { stroke: #333; stroke-width: 1; cursor: pointer; }
+  .region-bajo-imagen { stroke: none; }
+  .region.pintado { cursor: default; }
+  .etiqueta-region { font-size: 14px; font-weight: bold; fill: #333; pointer-events: none; }
+  .imagen-fondo-lineas { pointer-events: none; }
+  .etiqueta-pista { font-size: 13px; fill: #666; pointer-events: none; paint-order: stroke; stroke: white; stroke-width: 2px; }
+
+  /* Cierre */
+  .resultados { background:white; border-radius:16px; padding:16px 24px; font-size:1.15em; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+  .resultados p { margin: 6px 0; }
+</style>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="datos.js"></script>
+  <script src="motor.js"></script>
+</body>
+</html>
