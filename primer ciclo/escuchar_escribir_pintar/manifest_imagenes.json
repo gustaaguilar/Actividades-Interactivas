@@ -1,0 +1,114 @@
+[
+  {
+    "archivo": "assets/img/dic_falda.jpg",
+    "prompt": "Ilustración simple y cálida que representa la oración \"La falda es celeste\", para un cuadernillo de alfabetización inicial (sirve tanto para adultos como para chicos). Fondo blanco o neutro liso, estilo amigable, sin texto ni marcas de agua en la imagen."
+  },
+  {
+    "archivo": "assets/img/dic_fideos.jpg",
+    "prompt": "Ilustración simple y cálida que representa la oración \"Los fideos son largos\", para un cuadernillo de alfabetización inicial (sirve tanto para adultos como para chicos). Fondo blanco o neutro liso, estilo amigable, sin texto ni marcas de agua en la imagen."
+  },
+  {
+    "archivo": "assets/img/dic_foca.jpg",
+    "prompt": "Ilustración simple y cálida que representa la oración \"La foca es negra\", para un cuadernillo de alfabetización inicial (sirve tanto para adultos como para chicos). Fondo blanco o neutro liso, estilo amigable, sin texto ni marcas de agua en la imagen."
+  },
+  {
+    "archivo": "assets/img/dic_foco.jpg",
+    "prompt": "Ilustración simple y cálida que representa la oración \"El foco es amarillo\", para un cuadernillo de alfabetización inicial (sirve tanto para adultos como para chicos). Fondo blanco o neutro liso, estilo amigable, sin texto ni marcas de agua en la imagen."
+  },
+  {
+    "archivo": "assets/img/dic_masa.jpg",
+    "prompt": "Ilustración simple y cálida que representa la oración \"La masa es blanca\", para un cuadernillo de alfabetización inicial (sirve tanto para adultos como para chicos). Fondo blanco o neutro liso, estilo amigable, sin texto ni marcas de agua en la imagen."
+  },
+  {
+    "archivo": "assets/img/dic_monedas.jpg",
+    "prompt": "Ilustración simple y cálida que representa la oración \"Las monedas son redondas\", para un cuadernillo de alfabetización inicial (sirve tanto para adultos como para chicos). Fondo blanco o neutro liso, estilo amigable, sin texto ni marcas de agua en la imagen."
+  },
+  {
+    "archivo": "assets/img/dic_palo.jpg",
+    "prompt": "Ilustración simple y cálida que representa la oración \"El palo es duro\", para un cuadernillo de alfabetización inicial (sirve tanto para adultos como para chicos). Fondo blanco o neutro liso, estilo amigable, sin texto ni marcas de agua en la imagen."
+  },
+  {
+    "archivo": "assets/img/dic_pomos.jpg",
+    "prompt": "Ilustración simple y cálida que representa la oración \"Los pomos son largos\", para un cuadernillo de alfabetización inicial (sirve tanto para adultos como para chicos). Fondo blanco o neutro liso, estilo amigable, sin texto ni marcas de agua en la imagen."
+  },
+  {
+    "archivo": "assets/img/fruta_melon_color.jpg",
+    "prompt": "La misma ilustración, ya coloreada correctamente según la oración \"El melón es verde.\". Fondo blanco liso, mismo estilo y encuadre que la versión de contorno, sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/fruta_melon_contorno.jpg",
+    "prompt": "Ilustración simple, tipo dibujo para colorear (solo contorno en blanco y negro, sin relleno de color), de: El melón es verde. Fondo blanco liso, estilo amigable para alfabetización inicial (sirve tanto para adultos como para chicos), sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/fruta_naranja_color.jpg",
+    "prompt": "La misma ilustración, ya coloreada correctamente según la oración \"La naranja es anaranjada.\". Fondo blanco liso, mismo estilo y encuadre que la versión de contorno, sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/fruta_naranja_contorno.jpg",
+    "prompt": "Ilustración simple, tipo dibujo para colorear (solo contorno en blanco y negro, sin relleno de color), de: La naranja es anaranjada. Fondo blanco liso, estilo amigable para alfabetización inicial (sirve tanto para adultos como para chicos), sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/fruta_pomelo_color.jpg",
+    "prompt": "La misma ilustración, ya coloreada correctamente según la oración \"El pomelo es amarillo.\". Fondo blanco liso, mismo estilo y encuadre que la versión de contorno, sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/fruta_pomelo_contorno.jpg",
+    "prompt": "Ilustración simple, tipo dibujo para colorear (solo contorno en blanco y negro, sin relleno de color), de: El pomelo es amarillo. Fondo blanco liso, estilo amigable para alfabetización inicial (sirve tanto para adultos como para chicos), sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/fruta_tomate_color.jpg",
+    "prompt": "La misma ilustración, ya coloreada correctamente según la oración \"El tomate es rojo.\". Fondo blanco liso, mismo estilo y encuadre que la versión de contorno, sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/fruta_tomate_contorno.jpg",
+    "prompt": "Ilustración simple, tipo dibujo para colorear (solo contorno en blanco y negro, sin relleno de color), de: El tomate es rojo. Fondo blanco liso, estilo amigable para alfabetización inicial (sirve tanto para adultos como para chicos), sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/fruta_uva_color.jpg",
+    "prompt": "La misma ilustración, ya coloreada correctamente según la oración \"La uva es morada.\". Fondo blanco liso, mismo estilo y encuadre que la versión de contorno, sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/fruta_uva_contorno.jpg",
+    "prompt": "Ilustración simple, tipo dibujo para colorear (solo contorno en blanco y negro, sin relleno de color), de: La uva es morada. Fondo blanco liso, estilo amigable para alfabetización inicial (sirve tanto para adultos como para chicos), sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/ic_arboles.jpg",
+    "prompt": "Icono simple y claro, tipo pictograma para material educativo de alfabetización inicial, de: \"árboles\". Fondo blanco liso, sin texto, colores planos y contorno definido."
+  },
+  {
+    "archivo": "assets/img/ic_casas.jpg",
+    "prompt": "Icono simple y claro, tipo pictograma para material educativo de alfabetización inicial, de: \"casas\". Fondo blanco liso, sin texto, colores planos y contorno definido."
+  },
+  {
+    "archivo": "assets/img/ic_sandia.jpg",
+    "prompt": "Icono simple y claro, tipo pictograma para material educativo de alfabetización inicial, de: \"sandía\". Fondo blanco liso, sin texto, colores planos y contorno definido."
+  },
+  {
+    "archivo": "assets/img/ic_zapato.jpg",
+    "prompt": "Icono simple y claro, tipo pictograma para material educativo de alfabetización inicial, de: \"zapato\". Fondo blanco liso, sin texto, colores planos y contorno definido."
+  },
+  {
+    "archivo": "assets/img/img_cosecha.jpg",
+    "prompt": "Ilustración simple y cálida que representa la escena de la oración \"La cosecha de melón es grande.\", ambientada en Lavalle (Mendoza, Argentina), zona de cultivo de melón, tomate y vid. Sin texto en la imagen. Sin personas adultas solas en la escena: este material se usa tanto con adultos como con chicos, así que la imagen no debe quedar asociada a un solo público — mejor sin ninguna persona (solo el paisaje y los frutos), o si hay gente, que se vea una familia con chicos y grandes por igual."
+  },
+  {
+    "archivo": "assets/img/img_parral_oracion.jpg",
+    "prompt": "Ilustración simple y cálida que representa la escena de la oración \"Las uvas del parral son dulces.\", ambientada en Lavalle (Mendoza, Argentina), zona de cultivo de melón, tomate y vid. Sin texto en la imagen. Sin personas adultas solas en la escena: este material se usa tanto con adultos como con chicos, así que la imagen no debe quedar asociada a un solo público — mejor sin ninguna persona (solo el paisaje y los frutos), o si hay gente, que se vea una familia con chicos y grandes por igual."
+  },
+  {
+    "archivo": "assets/img/img_tomate_oracion.jpg",
+    "prompt": "Ilustración simple y cálida que representa la escena de la oración \"El tomate maduro es rojo.\", ambientada en Lavalle (Mendoza, Argentina), zona de cultivo de melón, tomate y vid. Sin texto en la imagen. Sin personas adultas solas en la escena: este material se usa tanto con adultos como con chicos, así que la imagen no debe quedar asociada a un solo público — mejor sin ninguna persona (solo el paisaje y los frutos), o si hay gente, que se vea una familia con chicos y grandes por igual."
+  },
+  {
+    "archivo": "assets/img/parral_color.jpg",
+    "prompt": "La misma ilustración, ya coloreada correctamente según la oración \"El parral es verde.\". Fondo blanco liso, mismo estilo y encuadre que la versión de contorno, sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/parral_contorno.jpg",
+    "prompt": "Ilustración simple, tipo dibujo para colorear (solo contorno en blanco y negro, sin relleno de color), de: El parral es verde. Fondo blanco liso, estilo amigable para alfabetización inicial (sirve tanto para adultos como para chicos), sin texto ni marcas de agua."
+  },
+  {
+    "archivo": "assets/img/portada.jpg",
+    "prompt": "Portada ilustrada para un cuadernillo interactivo de alfabetización inicial. Título: \"Escuchar, escribir y pintar\". Subtítulo: \"Dictado, colores y billetes — Lavalle\". Estilo cálido, cercano, con elementos de una zona rural productora de melón, uva y tomate (Lavalle, Mendoza, Argentina). Sin texto generado por IA superpuesto (el texto lo agrega el motor aparte)."
+  }
+]

@@ -1,0 +1,694 @@
+[
+  {
+    "archivo": "assets/audio/billete130_contexto.mp3",
+    "texto": "Un día de changa ayudando en la cosecha se paga 130 pesos. Armá el monto de 130 pesos."
+  },
+  {
+    "archivo": "assets/audio/billete130_titulo.mp3",
+    "texto": "Armá 130 pesos: un día de changa."
+  },
+  {
+    "archivo": "assets/audio/billete160_contexto.mp3",
+    "texto": "En la feria de Lavalle, una bolsa de melones cuesta 160 pesos. Armá el monto de 160 pesos."
+  },
+  {
+    "archivo": "assets/audio/billete160_titulo.mp3",
+    "texto": "Armá 160 pesos: una bolsa de melones."
+  },
+  {
+    "archivo": "assets/audio/billete40_contexto.mp3",
+    "texto": "En la feria de Lavalle, un kilo de tomates cuesta 40 pesos. Armá el monto de 40 pesos."
+  },
+  {
+    "archivo": "assets/audio/billete40_titulo.mp3",
+    "texto": "Armá 40 pesos: un kilo de tomates."
+  },
+  {
+    "archivo": "assets/audio/billete70_contexto.mp3",
+    "texto": "En la feria de Lavalle, un cajón de duraznos cuesta 70 pesos. Armá el monto de 70 pesos."
+  },
+  {
+    "archivo": "assets/audio/billete70_titulo.mp3",
+    "texto": "Armá 70 pesos: un cajón de duraznos."
+  },
+  {
+    "archivo": "assets/audio/billete90_contexto.mp3",
+    "texto": "Atar los sarmientos del parral una mañana se paga 90 pesos. Armá el monto de 90 pesos."
+  },
+  {
+    "archivo": "assets/audio/billete90_titulo.mp3",
+    "texto": "Armá 90 pesos: atar los sarmientos."
+  },
+  {
+    "archivo": "assets/audio/billetes_aviso.mp3",
+    "texto": "Los montos que usamos en esta actividad son bajos a propósito: son solo un ejemplo para practicar cómo armar un monto con billetes, no reflejan precios reales ni actualizados."
+  },
+  {
+    "archivo": "assets/audio/billetes_instr.mp3",
+    "texto": "Tocá los billetes de cien, cincuenta, veinte y diez pesos hasta juntar el monto exacto. Si te equivocás, podés sacar el último billete."
+  },
+  {
+    "archivo": "assets/audio/cierre.mp3",
+    "texto": "Armaste oraciones al dictado, pintaste frutas del color correcto, elegiste solo las manzanas, uniste oraciones con flechas, resolviste sopas de letras y armaste montos con billetes de diez, veinte, cincuenta y cien pesos. Seguimos practicando la próxima clase."
+  },
+  {
+    "archivo": "assets/audio/color_amarillo.mp3",
+    "texto": "amarillo"
+  },
+  {
+    "archivo": "assets/audio/color_anaranjado.mp3",
+    "texto": "anaranjado"
+  },
+  {
+    "archivo": "assets/audio/color_celeste.mp3",
+    "texto": "celeste"
+  },
+  {
+    "archivo": "assets/audio/color_morado.mp3",
+    "texto": "morado"
+  },
+  {
+    "archivo": "assets/audio/color_rojo.mp3",
+    "texto": "rojo"
+  },
+  {
+    "archivo": "assets/audio/color_verde.mp3",
+    "texto": "verde"
+  },
+  {
+    "archivo": "assets/audio/conc_arboles.mp3",
+    "texto": "árboles"
+  },
+  {
+    "archivo": "assets/audio/conc_casas.mp3",
+    "texto": "casas"
+  },
+  {
+    "archivo": "assets/audio/conc_el.mp3",
+    "texto": "El"
+  },
+  {
+    "archivo": "assets/audio/conc_es.mp3",
+    "texto": "es"
+  },
+  {
+    "archivo": "assets/audio/conc_la.mp3",
+    "texto": "La"
+  },
+  {
+    "archivo": "assets/audio/conc_las.mp3",
+    "texto": "Las"
+  },
+  {
+    "archivo": "assets/audio/conc_los.mp3",
+    "texto": "Los"
+  },
+  {
+    "archivo": "assets/audio/conc_o1.mp3",
+    "texto": "La sandía es redonda y calada."
+  },
+  {
+    "archivo": "assets/audio/conc_o2.mp3",
+    "texto": "El zapato es de color negro."
+  },
+  {
+    "archivo": "assets/audio/conc_o3.mp3",
+    "texto": "Los árboles son verdes."
+  },
+  {
+    "archivo": "assets/audio/conc_o4.mp3",
+    "texto": "Las casas son chiquitas."
+  },
+  {
+    "archivo": "assets/audio/conc_p1.mp3",
+    "texto": "redonda y calada."
+  },
+  {
+    "archivo": "assets/audio/conc_p2.mp3",
+    "texto": "de color negro."
+  },
+  {
+    "archivo": "assets/audio/conc_p3.mp3",
+    "texto": "verdes."
+  },
+  {
+    "archivo": "assets/audio/conc_p4.mp3",
+    "texto": "chiquitas."
+  },
+  {
+    "archivo": "assets/audio/conc_sandia.mp3",
+    "texto": "sandía"
+  },
+  {
+    "archivo": "assets/audio/conc_son.mp3",
+    "texto": "son"
+  },
+  {
+    "archivo": "assets/audio/conc_zapato.mp3",
+    "texto": "zapato"
+  },
+  {
+    "archivo": "assets/audio/concordancia_instr.mp3",
+    "texto": "Uní con una línea el artículo, el dibujo, el verbo y cómo es, hasta armar la oración completa. Cada parte se escucha al tocarla."
+  },
+  {
+    "archivo": "assets/audio/d01_acum2.mp3",
+    "texto": "Las monedas"
+  },
+  {
+    "archivo": "assets/audio/d01_acum3.mp3",
+    "texto": "Las monedas son"
+  },
+  {
+    "archivo": "assets/audio/d01_oracion.mp3",
+    "texto": "Las monedas son redondas."
+  },
+  {
+    "archivo": "assets/audio/d01_w1.mp3",
+    "texto": "Las"
+  },
+  {
+    "archivo": "assets/audio/d01_w2.mp3",
+    "texto": "monedas"
+  },
+  {
+    "archivo": "assets/audio/d01_w3.mp3",
+    "texto": "son"
+  },
+  {
+    "archivo": "assets/audio/d01_w4.mp3",
+    "texto": "redondas"
+  },
+  {
+    "archivo": "assets/audio/d02_acum2.mp3",
+    "texto": "Los pomos"
+  },
+  {
+    "archivo": "assets/audio/d02_acum3.mp3",
+    "texto": "Los pomos son"
+  },
+  {
+    "archivo": "assets/audio/d02_oracion.mp3",
+    "texto": "Los pomos son largos."
+  },
+  {
+    "archivo": "assets/audio/d02_w1.mp3",
+    "texto": "Los"
+  },
+  {
+    "archivo": "assets/audio/d02_w2.mp3",
+    "texto": "pomos"
+  },
+  {
+    "archivo": "assets/audio/d02_w3.mp3",
+    "texto": "son"
+  },
+  {
+    "archivo": "assets/audio/d02_w4.mp3",
+    "texto": "largos"
+  },
+  {
+    "archivo": "assets/audio/d03_acum2.mp3",
+    "texto": "La masa"
+  },
+  {
+    "archivo": "assets/audio/d03_acum3.mp3",
+    "texto": "La masa es"
+  },
+  {
+    "archivo": "assets/audio/d03_oracion.mp3",
+    "texto": "La masa es blanca."
+  },
+  {
+    "archivo": "assets/audio/d03_w1.mp3",
+    "texto": "La"
+  },
+  {
+    "archivo": "assets/audio/d03_w2.mp3",
+    "texto": "masa"
+  },
+  {
+    "archivo": "assets/audio/d03_w3.mp3",
+    "texto": "es"
+  },
+  {
+    "archivo": "assets/audio/d03_w4.mp3",
+    "texto": "blanca"
+  },
+  {
+    "archivo": "assets/audio/d04_acum2.mp3",
+    "texto": "El palo"
+  },
+  {
+    "archivo": "assets/audio/d04_acum3.mp3",
+    "texto": "El palo es"
+  },
+  {
+    "archivo": "assets/audio/d04_oracion.mp3",
+    "texto": "El palo es duro."
+  },
+  {
+    "archivo": "assets/audio/d04_w1.mp3",
+    "texto": "El"
+  },
+  {
+    "archivo": "assets/audio/d04_w2.mp3",
+    "texto": "palo"
+  },
+  {
+    "archivo": "assets/audio/d04_w3.mp3",
+    "texto": "es"
+  },
+  {
+    "archivo": "assets/audio/d04_w4.mp3",
+    "texto": "duro"
+  },
+  {
+    "archivo": "assets/audio/d05_acum2.mp3",
+    "texto": "La foca"
+  },
+  {
+    "archivo": "assets/audio/d05_acum3.mp3",
+    "texto": "La foca es"
+  },
+  {
+    "archivo": "assets/audio/d05_oracion.mp3",
+    "texto": "La foca es negra."
+  },
+  {
+    "archivo": "assets/audio/d05_w1.mp3",
+    "texto": "La"
+  },
+  {
+    "archivo": "assets/audio/d05_w2.mp3",
+    "texto": "foca"
+  },
+  {
+    "archivo": "assets/audio/d05_w3.mp3",
+    "texto": "es"
+  },
+  {
+    "archivo": "assets/audio/d05_w4.mp3",
+    "texto": "negra"
+  },
+  {
+    "archivo": "assets/audio/d06_acum2.mp3",
+    "texto": "Los fideos"
+  },
+  {
+    "archivo": "assets/audio/d06_acum3.mp3",
+    "texto": "Los fideos son"
+  },
+  {
+    "archivo": "assets/audio/d06_oracion.mp3",
+    "texto": "Los fideos son largos."
+  },
+  {
+    "archivo": "assets/audio/d06_w1.mp3",
+    "texto": "Los"
+  },
+  {
+    "archivo": "assets/audio/d06_w2.mp3",
+    "texto": "fideos"
+  },
+  {
+    "archivo": "assets/audio/d06_w3.mp3",
+    "texto": "son"
+  },
+  {
+    "archivo": "assets/audio/d06_w4.mp3",
+    "texto": "largos"
+  },
+  {
+    "archivo": "assets/audio/d07_acum2.mp3",
+    "texto": "El foco"
+  },
+  {
+    "archivo": "assets/audio/d07_acum3.mp3",
+    "texto": "El foco es"
+  },
+  {
+    "archivo": "assets/audio/d07_oracion.mp3",
+    "texto": "El foco es amarillo."
+  },
+  {
+    "archivo": "assets/audio/d07_w1.mp3",
+    "texto": "El"
+  },
+  {
+    "archivo": "assets/audio/d07_w2.mp3",
+    "texto": "foco"
+  },
+  {
+    "archivo": "assets/audio/d07_w3.mp3",
+    "texto": "es"
+  },
+  {
+    "archivo": "assets/audio/d07_w4.mp3",
+    "texto": "amarillo"
+  },
+  {
+    "archivo": "assets/audio/d08_acum2.mp3",
+    "texto": "La falda"
+  },
+  {
+    "archivo": "assets/audio/d08_acum3.mp3",
+    "texto": "La falda es"
+  },
+  {
+    "archivo": "assets/audio/d08_oracion.mp3",
+    "texto": "La falda es celeste."
+  },
+  {
+    "archivo": "assets/audio/d08_w1.mp3",
+    "texto": "La"
+  },
+  {
+    "archivo": "assets/audio/d08_w2.mp3",
+    "texto": "falda"
+  },
+  {
+    "archivo": "assets/audio/d08_w3.mp3",
+    "texto": "es"
+  },
+  {
+    "archivo": "assets/audio/d08_w4.mp3",
+    "texto": "celeste"
+  },
+  {
+    "archivo": "assets/audio/dictado_instr_intro.mp3",
+    "texto": "Tocá las palabras en el orden correcto para armar la oración. A medida que acertés, vas a escuchar cómo se va leyendo cada vez más larga, hasta escuchar la oración completa. Recordá: la primera palabra va con mayúscula y la última tiene el punto final."
+  },
+  {
+    "archivo": "assets/audio/dictado_instr_repeat.mp3",
+    "texto": "Tocá las palabras en el orden correcto para armar la oración."
+  },
+  {
+    "archivo": "assets/audio/discriminar_instr.mp3",
+    "texto": "Tocá solamente las manzanas para pintarlas de verde. Si tocás otra fruta, no pasa nada: probá de nuevo."
+  },
+  {
+    "archivo": "assets/audio/o01_acum1.mp3",
+    "texto": "La"
+  },
+  {
+    "archivo": "assets/audio/o01_acum2.mp3",
+    "texto": "La cosecha"
+  },
+  {
+    "archivo": "assets/audio/o01_acum3.mp3",
+    "texto": "La cosecha de"
+  },
+  {
+    "archivo": "assets/audio/o01_acum4.mp3",
+    "texto": "La cosecha de melón"
+  },
+  {
+    "archivo": "assets/audio/o01_acum5.mp3",
+    "texto": "La cosecha de melón es"
+  },
+  {
+    "archivo": "assets/audio/o01_oracion.mp3",
+    "texto": "La cosecha de melón es grande."
+  },
+  {
+    "archivo": "assets/audio/o02_acum1.mp3",
+    "texto": "Las"
+  },
+  {
+    "archivo": "assets/audio/o02_acum2.mp3",
+    "texto": "Las uvas"
+  },
+  {
+    "archivo": "assets/audio/o02_acum3.mp3",
+    "texto": "Las uvas del"
+  },
+  {
+    "archivo": "assets/audio/o02_acum4.mp3",
+    "texto": "Las uvas del parral"
+  },
+  {
+    "archivo": "assets/audio/o02_acum5.mp3",
+    "texto": "Las uvas del parral son"
+  },
+  {
+    "archivo": "assets/audio/o02_oracion.mp3",
+    "texto": "Las uvas del parral son dulces."
+  },
+  {
+    "archivo": "assets/audio/o03_acum1.mp3",
+    "texto": "El"
+  },
+  {
+    "archivo": "assets/audio/o03_acum2.mp3",
+    "texto": "El tomate"
+  },
+  {
+    "archivo": "assets/audio/o03_acum3.mp3",
+    "texto": "El tomate maduro"
+  },
+  {
+    "archivo": "assets/audio/o03_acum4.mp3",
+    "texto": "El tomate maduro es"
+  },
+  {
+    "archivo": "assets/audio/o03_oracion.mp3",
+    "texto": "El tomate maduro es rojo."
+  },
+  {
+    "archivo": "assets/audio/ordenar_instr.mp3",
+    "texto": "Tocá las palabras en el orden correcto para armar la oración. Recordá: la primera palabra va con mayúscula y la última tiene el punto final."
+  },
+  {
+    "archivo": "assets/audio/ordenar_instr_repeat.mp3",
+    "texto": "Tocá las palabras en el orden correcto para armar la oración."
+  },
+  {
+    "archivo": "assets/audio/pi01_acum1.mp3",
+    "texto": "El"
+  },
+  {
+    "archivo": "assets/audio/pi01_acum2.mp3",
+    "texto": "El pomelo"
+  },
+  {
+    "archivo": "assets/audio/pi01_acum3.mp3",
+    "texto": "El pomelo es"
+  },
+  {
+    "archivo": "assets/audio/pi01_oracion.mp3",
+    "texto": "El pomelo es amarillo."
+  },
+  {
+    "archivo": "assets/audio/pi02_acum1.mp3",
+    "texto": "La"
+  },
+  {
+    "archivo": "assets/audio/pi02_acum2.mp3",
+    "texto": "La uva"
+  },
+  {
+    "archivo": "assets/audio/pi02_acum3.mp3",
+    "texto": "La uva es"
+  },
+  {
+    "archivo": "assets/audio/pi02_oracion.mp3",
+    "texto": "La uva es morada."
+  },
+  {
+    "archivo": "assets/audio/pi03_acum1.mp3",
+    "texto": "El"
+  },
+  {
+    "archivo": "assets/audio/pi03_acum2.mp3",
+    "texto": "El melón"
+  },
+  {
+    "archivo": "assets/audio/pi03_acum3.mp3",
+    "texto": "El melón es"
+  },
+  {
+    "archivo": "assets/audio/pi03_oracion.mp3",
+    "texto": "El melón es verde."
+  },
+  {
+    "archivo": "assets/audio/pi04_acum1.mp3",
+    "texto": "La"
+  },
+  {
+    "archivo": "assets/audio/pi04_acum2.mp3",
+    "texto": "La naranja"
+  },
+  {
+    "archivo": "assets/audio/pi04_acum3.mp3",
+    "texto": "La naranja es"
+  },
+  {
+    "archivo": "assets/audio/pi04_oracion.mp3",
+    "texto": "La naranja es anaranjada."
+  },
+  {
+    "archivo": "assets/audio/pi05_acum1.mp3",
+    "texto": "El"
+  },
+  {
+    "archivo": "assets/audio/pi05_acum2.mp3",
+    "texto": "El tomate"
+  },
+  {
+    "archivo": "assets/audio/pi05_acum3.mp3",
+    "texto": "El tomate es"
+  },
+  {
+    "archivo": "assets/audio/pi05_oracion.mp3",
+    "texto": "El tomate es rojo."
+  },
+  {
+    "archivo": "assets/audio/pi06_acum1.mp3",
+    "texto": "El"
+  },
+  {
+    "archivo": "assets/audio/pi06_acum2.mp3",
+    "texto": "El parral"
+  },
+  {
+    "archivo": "assets/audio/pi06_acum3.mp3",
+    "texto": "El parral es"
+  },
+  {
+    "archivo": "assets/audio/pi06_oracion.mp3",
+    "texto": "El parral es verde."
+  },
+  {
+    "archivo": "assets/audio/pintar_instr.mp3",
+    "texto": "Armá la oración tocando las palabras en el orden correcto. Cuando esté completa, vas a poder elegir el color correcto para pintar el dibujo."
+  },
+  {
+    "archivo": "assets/audio/pintar_instr_intro.mp3",
+    "texto": "Armá la oración tocando las palabras en el orden correcto. Cuando esté completa, vas a poder elegir el color correcto para pintar el dibujo. Recordá: la primera palabra va con mayúscula y la última tiene el punto final."
+  },
+  {
+    "archivo": "assets/audio/pintar_paleta.mp3",
+    "texto": "Ahora elegí el color y pintá."
+  },
+  {
+    "archivo": "assets/audio/sopa1_cosecha.mp3",
+    "texto": "cosecha"
+  },
+  {
+    "archivo": "assets/audio/sopa1_cosecha_def.mp3",
+    "texto": "Juntar los frutos maduros del campo."
+  },
+  {
+    "archivo": "assets/audio/sopa1_melon.mp3",
+    "texto": "melón"
+  },
+  {
+    "archivo": "assets/audio/sopa1_melon_def.mp3",
+    "texto": "Fruta grande y dulce que se cosecha en Lavalle."
+  },
+  {
+    "archivo": "assets/audio/sopa1_parral.mp3",
+    "texto": "parral"
+  },
+  {
+    "archivo": "assets/audio/sopa1_parral_def.mp3",
+    "texto": "Armazón donde crece la vid y cuelgan las uvas."
+  },
+  {
+    "archivo": "assets/audio/sopa1_titulo.mp3",
+    "texto": "Sopa de letras de frutas de la cosecha."
+  },
+  {
+    "archivo": "assets/audio/sopa1_tomate.mp3",
+    "texto": "tomate"
+  },
+  {
+    "archivo": "assets/audio/sopa1_tomate_def.mp3",
+    "texto": "Fruta roja que se cosecha en la chacra."
+  },
+  {
+    "archivo": "assets/audio/sopa1_uva.mp3",
+    "texto": "uva"
+  },
+  {
+    "archivo": "assets/audio/sopa1_uva_def.mp3",
+    "texto": "Fruta chica y dulce que crece en el parral."
+  },
+  {
+    "archivo": "assets/audio/sopa2_amarillo_def.mp3",
+    "texto": "El pomelo es amarillo."
+  },
+  {
+    "archivo": "assets/audio/sopa2_celeste_def.mp3",
+    "texto": "El cielo es celeste."
+  },
+  {
+    "archivo": "assets/audio/sopa2_morado_def.mp3",
+    "texto": "La uva es morada."
+  },
+  {
+    "archivo": "assets/audio/sopa2_rojo_def.mp3",
+    "texto": "El tomate es rojo."
+  },
+  {
+    "archivo": "assets/audio/sopa2_titulo.mp3",
+    "texto": "Sopa de letras de colores."
+  },
+  {
+    "archivo": "assets/audio/sopa2_verde_def.mp3",
+    "texto": "El melón es verde."
+  },
+  {
+    "archivo": "assets/audio/sopa3_titulo.mp3",
+    "texto": "Sopa de letras de palabras del dictado."
+  },
+  {
+    "archivo": "assets/audio/sopa4_billetes.mp3",
+    "texto": "billetes"
+  },
+  {
+    "archivo": "assets/audio/sopa4_billetes_def.mp3",
+    "texto": "Sirven para pagar montos grandes."
+  },
+  {
+    "archivo": "assets/audio/sopa4_cien.mp3",
+    "texto": "cien"
+  },
+  {
+    "archivo": "assets/audio/sopa4_cien_def.mp3",
+    "texto": "El número 100."
+  },
+  {
+    "archivo": "assets/audio/sopa4_diez.mp3",
+    "texto": "diez"
+  },
+  {
+    "archivo": "assets/audio/sopa4_diez_def.mp3",
+    "texto": "El número 10."
+  },
+  {
+    "archivo": "assets/audio/sopa4_pesos.mp3",
+    "texto": "pesos"
+  },
+  {
+    "archivo": "assets/audio/sopa4_pesos_def.mp3",
+    "texto": "La moneda de la Argentina."
+  },
+  {
+    "archivo": "assets/audio/sopa4_titulo.mp3",
+    "texto": "Sopa de letras del dinero."
+  },
+  {
+    "archivo": "assets/audio/sopa4_veinte.mp3",
+    "texto": "veinte"
+  },
+  {
+    "archivo": "assets/audio/sopa4_veinte_def.mp3",
+    "texto": "El número 20."
+  },
+  {
+    "archivo": "assets/audio/sopa_instr.mp3",
+    "texto": "Encontrá las palabras escondidas en la sopa de letras. Tocá la primera letra de la palabra y después la última."
+  }
+]
