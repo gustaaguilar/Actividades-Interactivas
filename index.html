@@ -169,7 +169,7 @@
 
 <div class="novedades">
   <span class="nov-badge">🆕 Nuevo</span>
-  <span class="nov-text"><strong>🎨 Escuchar, escribir y pintar</strong> — Lengua · Alfabetización inicial, Primer Ciclo: armá oraciones al dictado, pintá frutas del color correcto, discriminá figuras, armá montos con billetes de pesos argentinos, ordená oraciones, 4 sopas de letras y concordancia (unir con flecha). Contextualizada en Lavalle (melón, uva, tomate, cosecha, parral), sirve tanto para chicos como para adultos, con audio en las 30 pantallas.</span>
+  <span class="nov-text"><strong>🕊️ Jornada Institucional en Memoria de Johana Chacón</strong> — Integrador · 1° y 2° Ciclo: 4 de septiembre, construcción colectiva de conciencia ciudadana y derechos, ESI y vínculos respetuosos. Basado en el memo de la Dirección de Educación Primaria (DGE) y la Ley provincial N° 8723. Selector de ciclo con dos recorridos, memojuego, sopas de letras, puzzles, rompecabezas de texto, cofre de valores y mapa de la empatía, con audio en las 30 pantallas.</span>
 </div>
 
 <header>
@@ -239,6 +239,20 @@
           <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18 4 L21.5 14 L32 14 L23.5 20.5 L27 31 L18 24.5 L9 31 L12.5 20.5 L4 14 L14.5 14 Z" fill="#a78bfa"/></svg></span>
           <div class="card-name">Informarse protege. Hablar ayuda. Actuar transforma. — Nivel Inicial</div>
           <span class="card-area" style="background:rgba(167,139,250,.15);color:#a78bfa">Integrador · Nivel Inicial</span>
+        </a>
+  </div>
+
+  <div class="ciclo-header">
+    <span class="ciclo-badge c3">Transversal</span>
+    <span class="ciclo-title">Memoria, Derechos y Ciudadanía</span>
+    <span class="ciclo-count" id="cnt-memoria-johana">1 paquete</span>
+    <div class="ciclo-line"></div>
+  </div>
+  <div class="cards-grid" id="grid-memoria-johana">
+        <a class="card" href="Dia_Provincial_Memoria_Johana/index.html" target="_blank" data-area="integrador" data-ciclo="transversal" data-tooltip="Integrador · Primer y Segundo Ciclo · Jornada Institucional en Memoria de Johana Chacón, 4 de septiembre: construcción colectiva de conciencia ciudadana y derechos, ESI, vínculos respetuosos y prevención de violencias. Basado en el memo de la Dirección de Educación Primaria (DGE) y la Ley provincial N° 8723. Selector de ciclo con dos recorridos, videos cortos, memojuego, sopas de letras intercaladas, puzzles de imagen, rompecabezas de texto palabra por palabra, cofre de valores, línea de tiempo de derechos y mapa de la empatía. 30 pantallas con audio.">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,3 L31,8 L31,17 Q31,27 18,33 Q5,27 5,17 L5,8 Z" fill="#0ea5e9"/><circle cx="18" cy="15" r="5" fill="white"/><path d="M14 19 L11 27 15 25 18 27 21 25 25 27 22 19" fill="white"/></svg></span>
+          <div class="card-name">Jornada Institucional en Memoria de Johana Chacón</div>
+          <span class="card-area" style="background:rgba(14,165,233,.12);color:#0ea5e9">Integrador · 1° y 2° Ciclo</span>
         </a>
   </div>
 
@@ -764,7 +778,7 @@
 let filtroActivo='all';
 function filtrar(){
   const q=document.getElementById('buscador').value.toLowerCase().trim();
-  let v1=0,v2=0,v3=0,vt=0,vdc=0;
+  let v1=0,v2=0,v3=0,vt=0,vdc=0,vmj=0;
   document.querySelectorAll('.card').forEach(card=>{
     const txt=card.querySelector('.card-name').textContent.toLowerCase()+card.querySelector('.card-area').textContent.toLowerCase();
     const ca=card.dataset.area||'';
@@ -775,12 +789,14 @@ function filtrar(){
       if(ci==='c1')v1++;else if(ci==='c2')v2++;else v3++;
       if(card.closest('#grid-transversal'))vt++;
       if(card.closest('#grid-defensa-civil'))vdc++;
+      if(card.closest('#grid-memoria-johana'))vmj++;
     }
   });
   document.getElementById('cnt-c1').textContent=v1+' paquetes';
   document.getElementById('cnt-c2').textContent=v2+' paquetes';
   document.getElementById('cnt-transversal').textContent=vt+(vt===1?' paquete':' paquetes');
   document.getElementById('cnt-defensa-civil').textContent=vdc+(vdc===1?' paquete':' paquetes');
+  document.getElementById('cnt-memoria-johana').textContent=vmj+(vmj===1?' paquete':' paquetes');
   document.getElementById('counter-total').textContent=v1+v2+v3;
   document.getElementById('empty-msg').style.display=(v1+v2+v3===0)?'block':'none';
 }
