@@ -1070,11 +1070,13 @@
         <div class="sopa-grid"></div>
         <div class="sopa-lista"></div>
       </div>
+      <div class="sopa-definicion-actual"></div>
       <div class="feedback"></div>`;
 
     const gridWrap = cont.querySelector(".sopa-grid");
-    gridWrap.style.gridTemplateColumns = `repeat(${TAM}, 1fr)`;
+    gridWrap.style.gridTemplateColumns = `repeat(${TAM}, minmax(0, 1fr))`;
     const listaWrap = cont.querySelector(".sopa-lista");
+    const definicionActual = cont.querySelector(".sopa-definicion-actual");
     const feedback = cont.querySelector(".feedback");
 
     const celdas = [];
@@ -1089,9 +1091,8 @@
     }
 
     colocadas.forEach((pal) => {
-      const li = el("div", "sopa-item-encontrado", `<div class="sopa-palabra">${pal.palabra}</div><div class="sopa-item-definicion"></div>`);
+      const li = el("div", "sopa-item-pendiente", pal.palabra);
       li.dataset.palabra = pal.palabra;
-      li.classList.add("sopa-item-pendiente");
       listaWrap.appendChild(li);
     });
 
@@ -1131,7 +1132,10 @@
         }
         const li = listaWrap.querySelector(`[data-palabra="${match.palabra}"]`);
         li.classList.remove("sopa-item-pendiente");
-        li.querySelector(".sopa-item-definicion").textContent = match.definicionTexto || "";
+        li.classList.add("sopa-item-tachada");
+        // La definición siempre aparece en el MISMO lugar debajo de la sopa
+        // (se reemplaza con cada palabra nueva), para no estirar la pantalla.
+        definicionActual.innerHTML = `<strong>${match.palabra}:</strong> ${match.definicionTexto || ""}`;
         colaAudio.reproducir(match.audioPalabra, () => colaAudio.reproducir(match.audioDefinicion));
         encontradas++;
         if (encontradas === colocadas.length) {

@@ -22,7 +22,7 @@ window.DATOS = {
       tipo: "narracion",
       titulo: "¿Qué es el sistema reproductor?",
       imagen: "img/01_intro.jpg",
-      texto: "El sistema reproductor es el conjunto de órganos que intervienen en la reproducción humana. Su función principal es permitir la formación de una nueva persona. Los sistemas reproductores femenino y masculino tienen órganos diferentes, que cumplen funciones específicas. Durante la pubertad, estos sistemas experimentan cambios y comienzan a producir células reproductoras y hormonas sexuales.",
+      texto: "El sistema reproductor es el conjunto de órganos que intervienen en la reproducción humana. Su función principal es permitir la formación de una nueva persona. Los sistemas reproductores femenino y masculino tienen órganos diferentes, que cumplen funciones específicas. Durante la pubertad, estos sistemas cambian. Empiezan a producir células reproductoras y hormonas sexuales.",
       audioInstr: "audio/01_instr.mp3"
     },
 

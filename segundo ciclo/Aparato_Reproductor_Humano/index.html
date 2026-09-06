@@ -352,20 +352,30 @@
 
   /* Sopa de letras */
   .sopa-layout { display: flex; flex-wrap: nowrap; gap: 10px; align-items: flex-start; }
-  .sopa-grid { display: grid; gap: 2px; background: #90a4ae; padding: 3px; border-radius: 8px; flex: 1 1 58%; max-width: 58%; }
+  .sopa-grid { display: grid; gap: 2px; background: #90a4ae; padding: 3px; border-radius: 8px; flex: 1 1 68%; max-width: 68%; min-width: 0; }
   .sopa-celda {
     aspect-ratio: 1; border: none; border-radius: 3px; background: #fff; cursor: pointer;
     font-weight: bold; font-size: clamp(0.5em, 2.6vw, 1.05em); color: #37474f;
   }
   .sopa-celda.sopa-sel-inicio { background: #ffd54f; box-shadow: inset 0 0 0 3px #f57f17; }
   .sopa-celda.sopa-encontrada { background: #66bb6a; color: #fff; }
-  .sopa-lista { display: flex; flex-direction: column; gap: 5px; flex: 1 1 42%; max-width: 42%; min-width: 0; }
-  .sopa-palabra { font-weight: bold; font-size: clamp(0.8em, 2.4vw, 1.05em); color: var(--azul-osc); word-break: break-word; }
-  .sopa-item-encontrado { background: #eceff1; border-left: 4px solid #90a4ae; border-radius: 6px; padding: 5px 8px; margin-bottom: 3px; }
-  .sopa-item-encontrado.sopa-item-pendiente { background: #eceff1; border-left-color: #90a4ae; }
-  .sopa-item-encontrado:not(.sopa-item-pendiente) { background: #e8f5e9; border-left-color: var(--verde); }
-  .sopa-item-encontrado:not(.sopa-item-pendiente) .sopa-palabra { color: var(--verde); }
-  .sopa-item-definicion { font-size: clamp(0.68em, 2vw, 0.85em); color: #37474f; margin-top: 2px; word-break: break-word; }
+  .sopa-lista { display: flex; flex-direction: column; gap: 2px; flex: 1 1 32%; max-width: 32%; min-width: 0; }
+  .sopa-item-pendiente {
+    font-weight: bold; font-size: clamp(0.85em, 2.6vw, 1.05em); color: var(--azul-osc);
+    word-break: break-word; padding: 4px 2px; border-bottom: 1px solid #eceff1;
+  }
+  .sopa-item-tachada {
+    font-weight: bold; font-size: clamp(0.85em, 2.6vw, 1.05em); color: var(--verde);
+    text-decoration: line-through; word-break: break-word; padding: 4px 2px; border-bottom: 1px solid #eceff1;
+  }
+  .sopa-definicion-actual {
+    margin-top: 8px; min-height: 3.6em; background: #e8f5e9; border-left: 4px solid var(--verde);
+    border-radius: 6px; padding: 8px 12px; font-size: 0.95em; display: flex; align-items: center;
+  }
+  .sopa-definicion-actual:empty { background: #eceff1; border-left-color: #90a4ae; }
+  .sopa-definicion-actual:empty::before {
+    content: "Encontrá una palabra para ver su definición acá."; color: #607d8b; font-style: italic;
+  }
 
   @media (max-width: 480px) {
     .asociar-columnas { gap: 8px; }
