@@ -123,6 +123,11 @@
     .badge-mundial-flag{width:22px;height:15px}
     body{padding-top:34px}
   }
+  @keyframes titilar100 {
+    0%, 100% { box-shadow: 0 0 4px rgba(74,222,128,.3); border-color:#4ade80; background:rgba(74,222,128,.08); }
+    50% { box-shadow: 0 0 16px rgba(74,222,128,.9); border-color:#86efac; background:rgba(74,222,128,.18); }
+  }
+  #msg-100 { animation: titilar100 1.4s ease-in-out infinite; }
 </style>
 <script data-goatcounter="https://quesepantodos.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -156,7 +161,7 @@
     <span class="counter-num" id="counter-total">97</span>
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
   </div>
-  <div style="font-size:.78rem;color:#4ade80;margin-top:6px;font-weight:600">🎉 &iexcl;Llegamos a los 100 paquetes de actividades interactivas! &iexcl;Vamos por m&aacute;s! 🎉</div>
+  <div id="msg-100" style="display:inline-block;font-size:.78rem;color:#4ade80;font-weight:600;margin-top:8px;padding:6px 16px;border-radius:20px;border:2px solid #4ade80;background:rgba(74,222,128,.08)">🎉 &iexcl;Llegamos a los 100 paquetes de actividades interactivas! &iexcl;Vamos por m&aacute;s! 🎉</div>
 </div>
 <script>
 (function () {
