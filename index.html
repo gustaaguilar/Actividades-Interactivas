@@ -151,11 +151,74 @@
 </div>
 
 <div class="counter-banner">
-  <div class="counter-inner">
+  <div class="counter-inner" id="counter-inner-wrap" style="position:relative">
+    <canvas id="confetti-canvas" style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:280px;height:180px;pointer-events:none;z-index:5"></canvas>
     <span class="counter-num" id="counter-total">97</span>
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
   </div>
+  <div style="font-size:.78rem;color:#4ade80;margin-top:6px;font-weight:600">🎉 &iexcl;Llegamos a los 100 paquetes de actividades interactivas! &iexcl;Vamos por m&aacute;s! 🎉</div>
 </div>
+<script>
+(function () {
+  var canvas = document.getElementById('confetti-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext && canvas.getContext('2d');
+  if (!ctx) return;
+  var W = canvas.width = 280;
+  var H = canvas.height = 180;
+  var colores = ['#4ade80', '#22d3ee', '#fbbf24', '#f87171', '#a78bfa', '#f472b6'];
+  var piezas = [];
+  var cantidad = 70;
+
+  for (var i = 0; i < cantidad; i++) {
+    piezas.push({
+      x: W / 2 + (Math.random() - 0.5) * 40,
+      y: H * 0.55 + (Math.random() - 0.5) * 20,
+      vx: (Math.random() - 0.5) * 7,
+      vy: -Math.random() * 7 - 3,
+      w: 4 + Math.random() * 4,
+      h: 6 + Math.random() * 6,
+      rot: Math.random() * 360,
+      vrot: (Math.random() - 0.5) * 18,
+      color: colores[Math.floor(Math.random() * colores.length)],
+      gravedad: 0.22 + Math.random() * 0.1,
+      vida: 1
+    });
+  }
+
+  var inicio = null;
+  var duracionMs = 2600;
+
+  function frame(ts) {
+    if (!inicio) inicio = ts;
+    var transcurrido = ts - inicio;
+    ctx.clearRect(0, 0, W, H);
+
+    piezas.forEach(function (p) {
+      p.vy += p.gravedad;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vrot;
+      p.vida = Math.max(0, 1 - transcurrido / duracionMs);
+
+      ctx.save();
+      ctx.globalAlpha = p.vida;
+      ctx.translate(p.x, p.y);
+      ctx.rotate((p.rot * Math.PI) / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    });
+
+    if (transcurrido < duracionMs) {
+      requestAnimationFrame(frame);
+    } else {
+      ctx.clearRect(0, 0, W, H);
+    }
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 <!-- CONTADOR DE VISITAS -->
 <div style="background:linear-gradient(135deg,#0a1628,#0f2040);border-bottom:1px solid rgba(74,222,128,.1);padding:8px 16px;text-align:center">
   <div style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center">
