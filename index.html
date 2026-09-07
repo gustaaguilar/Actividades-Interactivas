@@ -128,6 +128,11 @@
     50% { box-shadow: 0 0 16px rgba(74,222,128,.9); border-color:#86efac; background:rgba(74,222,128,.18); }
   }
   #msg-100 { animation: titilar100 1.4s ease-in-out infinite; }
+  @keyframes titilarNumero {
+    0%, 100% { filter: drop-shadow(0 0 2px rgba(74,222,128,.35)); transform: scale(1); }
+    50% { filter: drop-shadow(0 0 14px rgba(34,211,238,.95)); transform: scale(1.06); }
+  }
+  #counter-total { display: inline-block; animation: titilarNumero 1.4s ease-in-out infinite; }
 </style>
 <script data-goatcounter="https://quesepantodos.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -156,12 +161,12 @@
 </div>
 
 <div class="counter-banner">
-  <div class="counter-inner" id="counter-inner-wrap" style="position:relative">
+  <div class="counter-inner" id="counter-inner-wrap" style="position:relative;margin-bottom:4px">
     <canvas id="confetti-canvas" style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:280px;height:180px;pointer-events:none;z-index:5"></canvas>
     <span class="counter-num" id="counter-total">97</span>
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
   </div>
-  <div id="msg-100" style="display:inline-block;font-size:.78rem;color:#4ade80;font-weight:600;margin-top:8px;padding:6px 16px;border-radius:20px;border:2px solid #4ade80;background:rgba(74,222,128,.08)">🎉 &iexcl;Llegamos a los 100 paquetes de actividades interactivas! &iexcl;Vamos por m&aacute;s! 🎉</div>
+  <div id="msg-100" style="display:inline-block;font-size:.78rem;color:#4ade80;font-weight:600;margin-top:16px;padding:6px 16px;border-radius:20px;border:2px solid #4ade80;background:rgba(74,222,128,.08)">🎉 &iexcl;Llegamos a los 100 paquetes de actividades interactivas! &iexcl;Vamos por m&aacute;s! 🎉</div>
 </div>
 <script>
 (function () {
