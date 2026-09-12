@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>El Vivero — Carteles y bandejas de plantines</title>
+<style>
+  :root {
+    --verde: #2e7d32;
+    --verde-osc: #1b5e20;
+    --tierra: #8d6e4a;
+    --naranja: #f57c00;
+    --azul: #1565c0;
+    --rojo: #c62828;
+    --fondo: #f1f8e9;
+    --texto: #1a1a1a;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Trebuchet MS', 'Verdana', sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    -webkit-tap-highlight-color: transparent;
+  }
+  #app { min-height: 100vh; display: flex; flex-direction: column; }
+  .pantalla { flex: 1; padding: 14px 16px 72px; max-width: 900px; margin: 0 auto; width: 100%; }
+
+  .pantalla.esperando-audio .clasificar-items, .pantalla.esperando-audio .clasificar-categorias,
+  .pantalla.esperando-audio .ordenar-opciones, .pantalla.esperando-audio .trivia-opciones,
+  .pantalla.esperando-audio .asociar-columnas, .pantalla.esperando-audio .hotspot-zona {
+    opacity: 0.5; pointer-events: none; filter: grayscale(40%);
+    transition: opacity 0.2s;
+  }
+  h1 { color: var(--verde-osc); margin: 8px 0; }
+  h2 { color: var(--verde-osc); margin: 0 0 8px; font-size: 1.3em; }
+  /* Alto relativo a la ventana visible (vh) además de un tope en px: así la
+     imagen se achica sola en notebooks de pantalla baja (15.6", ~650-750px
+     de alto visible) sin depender de scroll, y no crece de más en pantallas
+     grandes. Ver regla general 6 del skill: toda pantalla entra sin scroll. */
+  .instruccion { background: #fff3e0; border-left: 5px solid var(--naranja); padding: 8px 14px; border-radius: 8px; margin: 6px 0; }
+  .img-pantalla { width: 100%; max-height: min(220px, 26vh); object-fit: cover; border-radius: 14px; margin: 8px 0; }
+  .pregunta { font-size: 1.1em; font-weight: bold; margin: 8px 0; }
+  .pantalla p { margin: 6px 0; }
+
+  @keyframes parpadeo {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(46,125,50,0.35); }
+    50% { box-shadow: 0 0 0 3px rgba(46,125,50,0.9); }
+  }
+  .parpadeo { animation: parpadeo 0.9s ease-in-out 2; }
+
+  /* Botones generales */
+  .btn-verificar, .btn-comenzar {
+    background: var(--verde); color: #fff; border: none; border-radius: 30px;
+    padding: 12px 28px; font-size: 1em; font-weight: bold; cursor: pointer; margin-top: 10px;
+  }
+  .btn-verificar:disabled { background: #b0bec5; cursor: not-allowed; }
+  .feedback { margin-top: 6px; font-weight: bold; min-height: 1.3em; }
+
+  /* Barra inferior / Siguiente */
+  .barra-inferior {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: #fff; box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+    padding: 8px 16px; display: flex; justify-content: flex-end;
+  }
+  #btn-siguiente {
+    background: var(--naranja); color: #fff; border: none; border-radius: 30px;
+    padding: 10px 26px; font-size: 1em; font-weight: bold; cursor: pointer;
+  }
+  #btn-siguiente:disabled { background: #b0bec5; cursor: not-allowed; }
+
+  /* Portada / Cierre */
+  .portada-caja, .cierre-caja {
+    background: #fff; border-radius: 20px; padding: 16px;
+    text-align: center; max-width: 520px; width: 100%;
+    margin: 10px auto; box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+  .portada-img {
+    width: 100%; max-height: min(220px, 30vh); object-fit: cover;
+    border-radius: 14px; display: block; margin-bottom: 12px;
+  }
+  .subtitulo { font-size: 1.15em; color: var(--verde); margin-top: 4px; }
+  .cierre-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin: 16px 0;
+  }
+  .cierre-stat {
+    background: #f5f7fa; border-radius: 12px; padding: 10px;
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+  }
+  .cierre-stat span { font-size: 0.8em; color: #607d8b; }
+  .cierre-stat strong { font-size: 1.3em; color: var(--verde-osc); }
+
+  .perfil-block { display: flex; align-items: center; gap: 10px; margin-top: 18px; justify-content: center; }
+  .perfil-foto { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; cursor: pointer; border: 3px solid var(--verde); }
+  .perfil-txt { font-size: 0.8em; text-align: left; }
+
+  .lightbox-perfil {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+    display: flex; align-items: center; justify-content: center; z-index: 999;
+  }
+  .lightbox-perfil-inner { text-align: center; color: #fff; }
+  .lightbox-perfil-inner .lightbox-perfil-img {
+    width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
+    cursor: zoom-in; transition: all 0.25s ease;
+  }
+  .lightbox-perfil-inner .lightbox-perfil-img.zoom-activo {
+    width: min(90vw, 480px); height: min(90vw, 480px);
+    border-radius: 16px; object-fit: contain; cursor: zoom-out;
+    background: rgba(255,255,255,0.05);
+  }
+  .lightbox-zoom-hint { font-size: 0.75em; opacity: 0.75; margin-top: 8px; }
+  .tagline { font-size: 1.3em; margin-top: 14px; }
+  .btn-cerrar-lightbox {
+    margin-top: 16px; background: var(--rojo); color: #fff; border: none;
+    border-radius: 50%; width: 40px; height: 40px; font-size: 1.1em; cursor: pointer;
+  }
+
+  /* Clasificar */
+  .clasificar-items { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+  .item-chip {
+    border: 3px solid #90a4ae; border-radius: 12px; padding: 6px; cursor: pointer;
+    text-align: center; width: 140px; background: #fff;
+  }
+  .item-chip img { width: 100%; height: 60px; object-fit: cover; border-radius: 8px; }
+  .item-chip span { display: block; font-size: 0.8em; margin-top: 4px; }
+  .item-chip.seleccionado { border-color: var(--verde); }
+  .item-chip.asignado { opacity: 0.85; }
+  .item-chip.correcto { background: #e8f5e9; }
+  .item-chip.incorrecto { background: #ffebee; }
+  .clasificar-categorias { display: flex; gap: 10px; margin: 8px 0; }
+  .categoria-chip {
+    flex: 1; text-align: center; padding: 10px; border: 3px dashed #90a4ae;
+    border-radius: 12px; cursor: pointer; font-weight: bold;
+  }
+  .categoria-chip.seleccionado { border-style: solid; background: #e8f5e9; }
+  .categoria-chip.incorrecto { border-style: solid; border-color: var(--rojo); background: #ffebee; }
+
+  /* Ordenar */
+  .ordenar-opciones { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+  .paso-chip {
+    border: 3px solid var(--verde); border-radius: 12px; padding: 8px 12px;
+    cursor: pointer; background: #fff;
+  }
+  .paso-chip.usado { opacity: 0.35; cursor: default; }
+  .paso-chip.incorrecto { border-color: var(--rojo); background: #ffebee; animation: sacudir 0.3s; }
+  @keyframes sacudir { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+  .ordenar-resultado { display: flex; flex-direction: column; gap: 5px; margin: 8px 0; }
+  .paso-numerado { background: #e8f5e9; border-radius: 8px; padding: 6px 12px; }
+
+  /* Trivia */
+  .trivia-opciones { display: flex; flex-direction: column; gap: 8px; margin: 8px 0; }
+  .trivia-opciones.trivia-opciones-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .opcion-btn {
+    padding: 10px; border: 3px solid #90a4ae; border-radius: 12px; background: #fff;
+    cursor: pointer; font-size: 1em; text-align: center;
+  }
+  .opcion-btn.seleccionada { border-color: var(--verde); background: #e8f5e9; }
+  .opcion-btn.incorrecto { border-color: var(--rojo); background: #ffebee; animation: sacudir 0.3s; }
+
+  /* Asociar */
+  .asociar-columnas { display: flex; gap: 14px; }
+  .asociar-col { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .asociar-chip {
+    border: 3px solid #90a4ae; border-radius: 12px; padding: 8px; cursor: pointer;
+    background: #fff; text-align: center;
+  }
+  .asociar-chip.seleccionado { border-color: var(--verde); background: #e8f5e9; }
+  .asociar-chip.correcto { border-color: var(--verde); background: #e8f5e9; }
+  .asociar-chip.resuelto { cursor: default; }
+  .asociar-chip.incorrecto { border-color: var(--rojo); background: #ffebee; }
+  .asociar-icono { width: 40px; height: 40px; object-fit: contain; display: block; margin: 0 auto 4px; }
+
+  /* Hotspot. El ancho del wrap (no el alto de la imagen) es lo que se limita:
+     así la imagen se ve completa y sin recortar (el cálculo de las zonas es
+     % del recuadro que ocupa la imagen), y al limitar el ancho el alto baja
+     proporcionalmente para entrar en pantallas de notebook sin hacer scroll. */
+  .hotspot-wrap { position: relative; width: 100%; max-width: min(420px, 88vw); margin: 0 auto; }
+  .hotspot-img { width: 100%; border-radius: 14px; display: block; }
+  .hotspot-descripcion {
+    min-height: 1.3em; font-weight: bold; color: var(--verde-osc);
+    text-align: center; margin-top: 6px;
+  }
+  .hotspot-zona {
+    position: absolute; border: 3px dashed var(--naranja); border-radius: 10px;
+    background: rgba(245,124,0,0.15); cursor: pointer;
+  }
+  .hotspot-zona.encontrada { background: rgba(46,125,50,0.35); border-color: var(--verde); }
+
+  @media (max-width: 480px) {
+    .asociar-columnas { gap: 8px; }
+    .clasificar-categorias { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="datos.js"></script>
+  <script src="motor.js"></script>
+</body>
+</html>
