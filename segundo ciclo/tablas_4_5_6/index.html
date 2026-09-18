@@ -10,22 +10,23 @@
     margin: 0;
     font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif;
     background: linear-gradient(180deg, #FFF7E6, #FFE9C7);
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
   }
-  #app { width: 100%; height: 100%; max-width: 900px; max-height: 100vh; display:flex; align-items:center; justify-content:center; }
+  #app { width: 100%; max-width: 900px; min-height: 100vh; display:flex; align-items:flex-start; justify-content:center; }
   .pantalla {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding: 16px;
-    overflow: hidden;
+    overflow: visible;
   }
   h1 { color: #E8622C; margin: 8px 0; text-align:center; font-size: 1.6em; }
   h2 { color: #4E9BE0; margin: 6px 0; text-align:center; font-size: 1.3em; }
