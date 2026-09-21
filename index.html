@@ -163,7 +163,7 @@
 <div class="counter-banner">
   <div class="counter-inner" id="counter-inner-wrap" style="position:relative;margin-bottom:4px">
     <canvas id="confetti-canvas" style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:280px;height:180px;pointer-events:none;z-index:5"></canvas>
-    <span class="counter-num" id="counter-total">103</span>
+    <span class="counter-num" id="counter-total">105</span>
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
   </div>
   <div id="msg-100" style="display:inline-block;font-size:.78rem;color:#4ade80;font-weight:600;margin-top:16px;padding:6px 16px;border-radius:20px;border:2px solid #4ade80;background:rgba(74,222,128,.08)">🎉 &iexcl;Superamos los 100 paquetes de actividades interactivas! Gracias por acompa&ntilde;arnos en este recorrido. &iexcl;Vamos por m&aacute;s! 🎉</div>
@@ -242,7 +242,7 @@
 
 <div class="novedades">
   <span class="nov-badge">🆕 Nuevo</span>
-  <span class="nov-text"><strong>🚀 Las tablas del 4, 5 y 6 · Coloreamos aprendiendo</strong> — Matemática, Segundo Ciclo: resolvé las cuentas de cada tarjeta y descubrí qué color pintar en tres dibujos, unas montañas, un robot y un cohete espacial. Elegí el color en la paleta y tocá los sectores correctos, con sonidos de acierto y error. Los números se reparten al azar en cada partida.</span>
+  <span class="nov-text"><strong>🧼 Manos que Cuidan</strong> — Integrador, Primer y Segundo Ciclo: aprendemos a lavarnos bien las manos, un hábito simple que ayuda a prevenir enfermedades. Video, explicación animada, momentos clave del día, los 7 pasos del lavado, cronómetro de 20 segundos, trivia y sopa de letras, con audio en cada pantalla.</span>
 </div>
 
 <header>
@@ -282,6 +282,20 @@
 </div>
 
 <div class="wrapper">
+  <div class="ciclo-header">
+    <span class="ciclo-badge c3">Transversal</span>
+    <span class="ciclo-title">Salud y Prevención</span>
+    <span class="ciclo-count" id="cnt-manos-que-cuidan">1 paquete</span>
+    <div class="ciclo-line"></div>
+  </div>
+  <div class="cards-grid" id="grid-manos-que-cuidan">
+        <a class="card" href="manos-que-cuidan/index.html" target="_blank" data-area="integrador" data-ciclo="transversal" data-tooltip="Integrador · Primer y Segundo Ciclo · Manos que Cuidan: aprendemos a lavarnos bien las manos, un hábito simple que ayuda a prevenir enfermedades. Video, selector de ciclo, explicación animada, asociar momentos del día, ordenar los 7 pasos del lavado, cronómetro de 20 segundos con video real, trivia de técnica, sopa de letras y armado de consejos con audio en cada pantalla.">
+          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,3 L31,8 L31,17 Q31,27 18,33 Q5,27 5,17 L5,8 Z" fill="#14b8a6"/><path d="M18 8 C18 8 25 18 25 23 A7 7 0 1 1 11 23 C11 18 18 8 18 8 Z" fill="white"/></svg></span>
+          <div class="card-name">Manos que Cuidan</div>
+          <span class="card-area" style="background:rgba(20,184,166,.12);color:#14b8a6">Integrador · 1° y 2° Ciclo</span>
+        </a>
+  </div>
+
   <div class="ciclo-header">
     <span class="ciclo-badge c3">Transversal</span>
     <span class="ciclo-title">Defensa Civil y Autoprotección</span>
@@ -876,7 +890,7 @@
 let filtroActivo='all';
 function filtrar(){
   const q=document.getElementById('buscador').value.toLowerCase().trim();
-  let v1=0,v2=0,v3=0,vt=0,vdc=0,vmj=0;
+  let v1=0,v2=0,v3=0,vt=0,vdc=0,vmj=0,vmqc=0;
   document.querySelectorAll('.card').forEach(card=>{
     const txt=card.querySelector('.card-name').textContent.toLowerCase()+card.querySelector('.card-area').textContent.toLowerCase();
     const ca=card.dataset.area||'';
@@ -888,6 +902,7 @@ function filtrar(){
       if(card.closest('#grid-transversal'))vt++;
       if(card.closest('#grid-defensa-civil'))vdc++;
       if(card.closest('#grid-memoria-johana'))vmj++;
+      if(card.closest('#grid-manos-que-cuidan'))vmqc++;
     }
   });
   document.getElementById('cnt-c1').textContent=v1+' paquetes';
@@ -895,6 +910,7 @@ function filtrar(){
   document.getElementById('cnt-transversal').textContent=vt+(vt===1?' paquete':' paquetes');
   document.getElementById('cnt-defensa-civil').textContent=vdc+(vdc===1?' paquete':' paquetes');
   document.getElementById('cnt-memoria-johana').textContent=vmj+(vmj===1?' paquete':' paquetes');
+  document.getElementById('cnt-manos-que-cuidan').textContent=vmqc+(vmqc===1?' paquete':' paquetes');
   document.getElementById('counter-total').textContent=v1+v2+v3;
   document.getElementById('empty-msg').style.display=(v1+v2+v3===0)?'block':'none';
 }
