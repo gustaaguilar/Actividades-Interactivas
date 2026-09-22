@@ -438,19 +438,26 @@
 
     setBtnSiguienteHabilitado(false);
 
-    // Reparte el audio único en fragmentos de texto sincronizados por tiempo estimado
+    // Cada paso tiene su propio audio: el texto de un paso se muestra
+    // exactamente mientras suena SU audio, y recién pasa al siguiente paso
+    // cuando ese audio terminó de reproducirse por completo (nunca por una
+    // estimación de tiempo, que se podía desfasar).
     let pasoIdx = 0;
     function mostrarPaso() {
-      if (pasoIdx >= d.pasos.length) return;
       const paso = d.pasos[pasoIdx];
       texto.textContent = paso.texto;
       escena.className = "explicacion-escena marcador-" + paso.marcador;
-      pasoIdx++;
-      const duracionEstimadaMs = Math.max(2200, paso.texto.length * 55);
-      if (pasoIdx < d.pasos.length) setTimeout(mostrarPaso, duracionEstimadaMs);
+      const esUltimo = pasoIdx === d.pasos.length - 1;
+      reproducirCola([paso.audioId], function () {
+        if (esUltimo) {
+          setBtnSiguienteHabilitado(true);
+        } else {
+          pasoIdx++;
+          mostrarPaso();
+        }
+      }, true);
     }
     mostrarPaso();
-    reproducirCola([d.audioId], null, false);
   }
 
   // ---------- ASOCIAR (genérico: momentos y pasos del lavado) ----------

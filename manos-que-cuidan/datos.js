@@ -95,25 +95,33 @@ const datos = {
   explicacion: {
     titulo: "¿Por qué nos lavamos las manos?",
     imagen: "img/escena_explicacion.jpg",
+    // Cada paso tiene su PROPIO audio (en vez de un único audio largo
+    // repartido por una estimación de tiempo). Así el texto en pantalla
+    // y lo que se escucha están siempre exactamente sincronizados: el
+    // paso siguiente recién aparece cuando termina de sonar el audio
+    // del paso anterior.
     pasos: [
       {
         texto: "Lavarse bien las manos es una de las formas más simples y efectivas de cuidar nuestra salud.",
-        marcador: "panza"
+        marcador: "panza",
+        audioId: "explicacion_p1"
       },
       {
         texto: "Todos los días tocamos objetos, superficies y a otras personas, y así podemos llevarnos gérmenes y virus sin darnos cuenta.",
-        marcador: "virus"
+        marcador: "virus",
+        audioId: "explicacion_p2"
       },
       {
         texto: "El alcohol en gel ayuda, pero no siempre alcanza: no elimina todos los gérmenes. Lo más seguro es lavarse las manos con agua y jabón.",
-        marcador: "gel"
+        marcador: "gel",
+        audioId: "explicacion_p3"
       },
       {
         texto: "Frotando bien las manos con jabón durante unos 20 segundos, antes de comer y después de ir al baño, prevenimos muchas enfermedades entre todos.",
-        marcador: "jabon"
+        marcador: "jabon",
+        audioId: "explicacion_p4"
       }
-    ],
-    audioId: "explicacion_completa"
+    ]
   },
 
   // ASOCIAR MOMENTOS — unir el momento con la imagen correspondiente.
@@ -221,7 +229,15 @@ const textosAudio = {
   intro_video: "Mirá este video sobre cómo lavarse bien las manos. Cuando termines, tocá Continuar.",
   ciclo_intro: "Elegí tu grupo para que las actividades se ajusten a vos: primer ciclo o segundo ciclo.",
 
-  explicacion_completa: "Lavarse bien las manos es una de las formas más simples y efectivas de cuidar nuestra salud. Todos los días tocamos objetos, superficies y a otras personas, y así podemos llevarnos gérmenes y virus sin darnos cuenta. El alcohol en gel ayuda, pero no siempre alcanza: no elimina todos los gérmenes. Lo más seguro es lavarse las manos con agua y jabón. Frotando bien las manos con jabón durante unos 20 segundos, antes de comer y después de ir al baño, prevenimos muchas enfermedades entre todos.",
+  // Antes había un único audio largo ("explicacion_completa") que se repartía
+  // por tiempo estimado entre los 4 textos de esta pantalla — eso era la causa
+  // del desfasaje audio/texto. Ahora cada paso tiene su propio audio corto,
+  // con el mismo texto exacto que se muestra en pantalla, para que el sonido
+  // y la lectura estén siempre perfectamente sincronizados.
+  explicacion_p1: "Lavarse bien las manos es una de las formas más simples y efectivas de cuidar nuestra salud.",
+  explicacion_p2: "Todos los días tocamos objetos, superficies y a otras personas, y así podemos llevarnos gérmenes y virus sin darnos cuenta.",
+  explicacion_p3: "El alcohol en gel ayuda, pero no siempre alcanza: no elimina todos los gérmenes. Lo más seguro es lavarse las manos con agua y jabón.",
+  explicacion_p4: "Frotando bien las manos con jabón durante unos 20 segundos, antes de comer y después de ir al baño, prevenimos muchas enfermedades entre todos.",
 
   asociar_intro: "Tocá cada momento y unilo con la imagen que corresponde.",
   asociar_p1: "Antes de comer",
