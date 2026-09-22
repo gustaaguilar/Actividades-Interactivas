@@ -268,7 +268,11 @@
     const btnComenzar = el("button", "btn btn-primario", "Comenzar ▶");
     btnComenzar.addEventListener("click", function () {
       avanzar();
-      reproducirCola(["intro_video"], null, true); // Continuar siempre habilitado en la pantalla de video
+      // El audio de "intro_video" ahora lo reproduce renderVideo() como parte
+      // de su propia condición de habilitación (video Y audio deben terminar).
+      // No se debe disparar acá también: esa segunda llamada cancelaba
+      // (vía detenerAudio/audioGenCounter) la reproducción y el callback que
+      // arma renderVideo, dejando el botón Continuar bloqueado para siempre.
     });
 
     const fila = el("div", "portada-fila");
@@ -348,8 +352,16 @@
     wrap.appendChild(caja);
 
     cont.appendChild(wrap);
-    setBtnSiguienteHabilitado(false); // se habilita recién cuando el video termina
-    reproducirCola(["intro_video"], null, true);
+    // Se habilita recién cuando terminan AMBAS cosas: el video de YouTube
+    // Y el audio de introducción (para que nunca se corte si el video,
+    // por algún motivo, terminara antes que la narración).
+    setBtnSiguienteHabilitado(false);
+    let videoTerminado = false;
+    let audioTerminado = false;
+    function intentarHabilitarVideo() {
+      if (videoTerminado && audioTerminado) setBtnSiguienteHabilitado(true);
+    }
+    reproducirCola(["intro_video"], function () { audioTerminado = true; intentarHabilitarVideo(); }, true);
 
     cargarYouTubeAPI(function () {
       // si el usuario ya cambió de pantalla, el contenedor ya no existe
@@ -360,7 +372,7 @@
         playerVars: { rel: 0 },
         events: {
           onStateChange: function (e) {
-            if (e.data === YT.PlayerState.ENDED) setBtnSiguienteHabilitado(true);
+            if (e.data === YT.PlayerState.ENDED) { videoTerminado = true; intentarHabilitarVideo(); }
           }
         }
       });
@@ -378,13 +390,22 @@
 
     const botones = el("div", "video-botones");
     const btns = [];
+    // Se habilita recién cuando pasan AMBAS cosas: se eligió un grupo Y
+    // terminó de sonar "Elegí tu grupo..." (para que nunca se corte el
+    // audio si el chico toca una opción apenas aparece la pantalla).
+    let seleccionHecha = false;
+    let audioTerminado = false;
+    function intentarHabilitarCiclo() {
+      if (seleccionHecha && audioTerminado) setBtnSiguienteHabilitado(true);
+    }
     d.opciones.forEach(function (op) {
       const btn = el("button", "btn btn-ciclo", op.etiqueta);
       btn.addEventListener("click", function () {
         state.ciclo = op.id;
         btns.forEach(function (b) { b.classList.remove("seleccionado"); });
         btn.classList.add("seleccionado");
-        setBtnSiguienteHabilitado(true);
+        seleccionHecha = true;
+        intentarHabilitarCiclo();
       });
       btns.push(btn);
       botones.appendChild(btn);
@@ -393,7 +414,7 @@
 
     cont.appendChild(wrap);
     setBtnSiguienteHabilitado(false);
-    reproducirCola(["ciclo_intro"], null, true);
+    reproducirCola(["ciclo_intro"], function () { audioTerminado = true; intentarHabilitarCiclo(); }, true);
   }
 
   // ---------- EXPLICACIÓN (narración animada) ----------
@@ -576,10 +597,15 @@
             zonaArmado.appendChild(el("span", "armar-colocada", obj.it.etiqueta));
           }
           siguienteEsperado++;
+          const esUltima = siguienteEsperado === items.length;
           if (opts.reproducirAudioPorItem && obj.it.audioId) {
-            reproducirCola([obj.it.audioId], null, true);
-          }
-          if (siguienteEsperado === items.length) {
+            // Si es la última pieza, Continuar se habilita recién cuando
+            // termine de sonar el audio de este paso (para no cortarlo si
+            // el chico toca Continuar apenas aparece habilitado).
+            reproducirCola([obj.it.audioId], esUltima ? function () {
+              if (opts.onCompleta) opts.onCompleta();
+            } : null, true);
+          } else if (esUltima) {
             setTimeout(function () {
               if (opts.onCompleta) opts.onCompleta();
             }, 300);
