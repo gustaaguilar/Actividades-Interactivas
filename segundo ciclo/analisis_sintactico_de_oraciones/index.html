@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis sintáctico de oraciones — 7mo grado</title>
+<style>
+  :root {
+    --azul: #2f5fb3;
+    --azul-claro: #d9e6fb;
+    --violeta: #7c4fd1;
+    --violeta-claro: #e7defa;
+    --negro: #23213a;
+    --marron: #514c6e;
+    --verde-ok: #2f9e56;
+    --rojo-error: #c0392b;
+    --fondo: #f4f2fb;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Verdana', sans-serif;
+    background: var(--fondo);
+    color: var(--negro);
+  }
+
+  #app {
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #fffdfa;
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+  }
+
+  /* ---------- Barra de progreso ---------- */
+  #barra-progreso-wrap {
+    background: var(--negro);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  #barra-progreso-fondo {
+    flex: 1;
+    height: 8px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  #barra-progreso-interna {
+    height: 100%;
+    background: var(--azul);
+    width: 5%;
+    transition: width 0.3s ease;
+  }
+  #texto-progreso {
+    color: var(--azul-claro);
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  /* ---------- Contenedor de pantalla ---------- */
+  #pantalla-contenedor {
+    flex: 1;
+    padding: 24px 20px 40px;
+  }
+
+  .titulo-pantalla {
+    color: var(--azul);
+    font-size: 1.5rem;
+    margin: 0 0 12px;
+    border-bottom: 3px solid var(--violeta);
+    padding-bottom: 8px;
+  }
+
+  .cabecera-pantalla { margin-bottom: 20px; }
+
+  .fila-consigna {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--azul-claro);
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+  .texto-consigna { margin: 0; flex: 1; font-size: 1rem; }
+
+  .btn-audio-consigna {
+    background: var(--azul);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .btn-audio-narracion {
+    border-radius: 24px;
+    width: auto;
+    padding: 10px 20px;
+    margin-bottom: 16px;
+    background: var(--azul);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .imagen-actividad {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 16px 0;
+    display: block;
+  }
+
+  /* Etiquetar (pantallas 7, 10 y 17): imagen más chica —angosta y algo
+     más baja— y sin recortar (contain), para dejar lugar a la oración
+     y a los botones de la leyenda sin scrolling. Mismo criterio que en
+     la pantalla de cierre (achicar en vez de recortar). */
+  .imagen-etiquetar {
+    width: auto;
+    max-width: 44%;
+    max-height: 16vh;
+    object-fit: contain;
+    display: block;
+    margin: 6px auto 12px;
+  }
+  /* Pantalla 10 (modificadores del sujeto): imagen 30% más grande que
+     el resto de las etiquetar, porque acá ilustra a alguien/algo
+     distinto por oración y conviene que se vea mejor. */
+  .imagen-etiquetar.imagen-etiquetar-grande {
+    max-width: 71%;
+    max-height: 26vh;
+  }
+
+  /* Clasificar en dos columnas (pantallas 6 y 14): mismo criterio, para
+     que entren el ítem a tocar y las dos columnas sin scrolling. */
+  .imagen-clasificar2col {
+    width: auto;
+    max-width: 48%;
+    max-height: 16vh;
+    object-fit: contain;
+    display: block;
+    margin: 6px auto 12px;
+  }
+
+  /* ---------- Oración de ejemplo superpuesta sobre la imagen (asociar) ---------- */
+  .imagen-ejemplo-wrap { position: relative; }
+  .imagen-ejemplo-wrap .imagen-actividad { margin: 16px 0 0; }
+  .ejemplo-oracion-overlay {
+    position: absolute; left: 8px; right: 8px; bottom: 8px;
+    background: rgba(20, 20, 30, 0.72); color: #fff; font-weight: bold;
+    font-size: 1rem; line-height: 1.35; text-align: center;
+    padding: 8px 10px; border-radius: 8px;
+    transition: opacity 0.3s ease; z-index: 4;
+  }
+  .ejemplo-oracion-overlay.oculto { opacity: 0; }
+  .ejemplo-oracion-overlay .ej-pronombre { color: #ffe08a; text-decoration: underline; }
+  .mano-indicadora.mano-abajo { transform: translate(-50%, -100%); }
+  .ej-pronombre-titilante {
+    border-radius: 4px;
+    animation: titilar-pronombre 0.9s ease-in-out infinite;
+  }
+  @keyframes titilar-pronombre {
+    0%, 100% { box-shadow: 0 0 0 2px #ffe08a; }
+    50% { box-shadow: 0 0 0 5px #ffe08a; }
+  }
+
+  .subtitulo-zona {
+    font-weight: bold;
+    color: var(--marron);
+    margin: 18px 0 8px;
+  }
+
+  /* ---------- Portada ---------- */
+  .portada-wrap { display: flex; flex-direction: column; }
+  .portada-imagen { width: 100%; border-radius: 0; display: block; max-height: 340px; object-fit: cover; }
+  .portada-textos { text-align: center; padding: 24px 16px; }
+  .portada-titulo { color: var(--azul); font-size: 2rem; margin: 0 0 8px; }
+  .portada-subtitulo { color: var(--marron); font-size: 1rem; margin: 0 0 4px; }
+  .portada-nivel { color: #888; font-size: 0.85rem; margin: 0 0 20px; }
+  .btn-comenzar {
+    background: var(--azul);
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  .btn-comenzar:hover { background: var(--violeta); }
+
+  .fila-comenzar {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; flex-wrap: wrap; margin-top: 8px;
+  }
+  .foto-thumb {
+    width: 92px; height: 92px; border-radius: 50%;
+    object-fit: cover; border: 3px solid var(--azul);
+    cursor: pointer;
+  }
+  .firma { font-size: 0.85rem; color: #777; margin-top: 10px; text-align: center; }
+  .mail-contacto { font-size: 0.8rem; color: #888; margin-top: 2px; text-align: center; }
+
+  /* ---------- Lightbox ---------- */
+  #lightbox {
+    display: none; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; background: rgba(0,0,0,0.85);
+    z-index: 999; align-items: center; justify-content: center;
+    flex-direction: column;
+  }
+  #lightbox.activo { display: flex; }
+  #lightbox-img-wrap {
+    max-width: 85%; max-height: 60%;
+    overflow: auto; border-radius: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  #lightbox-img-wrap::-webkit-scrollbar { display: none; }
+  #lightbox img {
+    display: block; max-width: 100%; height: auto;
+    border-radius: 12px; cursor: zoom-in;
+    transition: transform 0.25s ease;
+    transform-origin: 50% 50%;
+  }
+  #lightbox img.zoom { cursor: zoom-out; transform: scale(2.2); }
+  #lightbox-zoom-hint { color: #ccc; font-size: 0.85rem; margin-top: 8px; }
+  #lightbox p { color: #fff; font-size: 1.1rem; margin-top: 16px; }
+  #lightbox-cerrar {
+    margin-top: 20px; background: #fff; color: #000;
+    padding: 10px 24px; border-radius: 20px; border: none;
+    font-size: 1rem; cursor: pointer;
+  }
+
+  /* ---------- Narración / Cierre ---------- */
+  .texto-narracion { font-size: 1.05rem; line-height: 1.7; }
+  /* object-fit: contain (no "cover") para que no se recorten las
+     cabezas de los chicos más altos de la foto; se ve la imagen
+     completa, aunque quede algo más chica en pantallas angostas. */
+  .cierre-imagen { display: block; width: 100%; max-height: 220px; object-fit: contain; background: var(--azul-claro); border-radius: 10px; margin-bottom: 10px; }
+  .cierre-textos .texto-narracion { font-size: 0.92rem; line-height: 1.4; margin: 6px 0; }
+  .cierre-textos .titulo-pantalla { margin-bottom: 6px; padding-bottom: 4px; font-size: 1.25rem; }
+  .cierre-textos .btn-audio-narracion { margin-bottom: 8px; padding: 8px 16px; }
+
+  /* ---------- Ordenar ---------- */
+  .zona-elegidos, .zona-opciones-ordenar { margin-bottom: 10px; }
+  .zona-elegidos {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px;
+    padding: 10px; background: #f6f4fd; border-radius: 8px;
+    min-height: 44px;
+  }
+  .slot-orden {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #ece7fa; border: 2px dashed #b9a9e6;
+    border-radius: 6px; padding: 5px 9px;
+    min-width: 28px;
+  }
+  .slot-orden.slot-lleno { border-style: solid; background: white; font-size: 1rem; }
+  .slot-vacio { color: #a999cf; font-size: 0.9rem; }
+  .slot-orden.correcto { border-color: var(--verde-ok); background: #e4f3e6; }
+  .slot-orden.incorrecto { border-color: var(--rojo-error); background: #f8e5e2; }
+
+  .btn-opcion-ordenar, .btn-item-clasificar, .btn-opcion-multiple,
+  .btn-palabra-banco, .btn-asociar {
+    background: white;
+    border: 2px solid var(--azul);
+    color: var(--negro);
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin: 4px 6px 4px 0;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: inline-block;
+  }
+  .btn-opcion-ordenar:hover, .btn-item-clasificar:hover { background: var(--azul-claro); }
+
+  .btn-verificar {
+    background: var(--verde-ok);
+    color: white; border: none;
+    padding: 12px 24px; border-radius: 8px;
+    font-size: 1rem; cursor: pointer; margin-top: 12px;
+  }
+  .resultado-verificacion { margin-top: 10px; min-height: 24px; }
+  .feedback-correcto { color: var(--verde-ok); font-weight: bold; }
+  .feedback-incorrecto { color: var(--rojo-error); font-weight: bold; }
+  .aviso-incompleto { color: var(--marron); font-style: italic; }
+
+  /* ---------- Mapa (imagen + marcadores) ---------- */
+  .mapa-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 66.18%;
+    background: #eaf2f8;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .mapa-imagen-base {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: fill;
+  }
+  .mapa-marcador {
+    position: absolute;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--azul);
+    color: white;
+    border: 3px solid white;
+    font-weight: bold;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
+  .mapa-marcador.activo { background: var(--verde-ok); }
+  .mapa-panel-info {
+    margin-top: 14px; background: var(--azul-claro);
+    border-radius: 10px; padding: 14px 16px; min-height: 50px;
+  }
+  .mapa-panel-info h3 { margin: 0 0 6px; color: var(--azul); }
+  .mapa-panel-info p { margin: 0; }
+  .mapa-placeholder { color: #777; font-style: italic; margin: 0; }
+  .mapa-panel-imagen { display: block; width: 100%; max-width: 320px; margin: 10px auto 0; border-radius: 8px; }
+  .mapa-panel-info.visible { animation: titilar-panel 0.9s ease-in-out 2; }
+  @keyframes titilar-panel {
+    0%, 100% { box-shadow: 0 0 0 2px var(--azul); }
+    50% { box-shadow: 0 0 0 5px var(--azul); }
+  }
+
+  /* ---------- Mapa SVG real de la Argentina (mapaOraciones) ----------
+     El viewBox del mapa es muy alargado (angosto y alto), así que se
+     limita por ALTURA (no por ancho): si se dejara "width:100%; height:
+     auto" con un contenedor angosto, la altura resultante se dispara y
+     el panel con la oración termina fuera de la pantalla, obligando a
+     hacer scroll. Con height en vh + width:auto el SVG mantiene su
+     proporción pero entra, junto con el panel, sin scroll. */
+  .mapa-arg-wrap { margin: 10px auto 0; text-align: center; }
+  /* Mapa agrandado ~30% (antes 34vh/300px) aprovechando el espacio
+     libre debajo del panel; el panel de texto queda empujado hacia
+     abajo automáticamente por el flujo normal del documento. */
+  .mapa-arg-wrap svg { height: 44vh; max-height: 390px; width: auto; max-width: 100%; display: inline-block; }
+  .provincia-path {
+    fill: #e2e5f3;
+    stroke: #9aa0c9;
+    stroke-width: 0.6;
+    transition: fill .15s;
+  }
+  /* Las provincias "activables" (con oración) deben distinguirse
+     claramente del resto del mapa, no solo por un tono casi igual. */
+  .provincia-path.activable { fill: #6c93e0; stroke: var(--azul); stroke-width: 1.1; cursor: pointer; }
+  .provincia-path.activable:hover { fill: var(--violeta-claro); }
+  .provincia-path.visitada { fill: var(--verde-ok); }
+  .provincia-path.activa { fill: var(--violeta); }
+
+  /* ---------- Etiquetar (tocar segmentos de una oración) ---------- */
+  .etiquetar-oracion-flow {
+    font-size: 1.15rem; line-height: 2.6;
+    background: #f6f4fd; border: 2px solid var(--azul-claro);
+    border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
+  }
+  .chip-etiquetable {
+    display: inline-block; padding: 4px 8px; margin: 2px 3px;
+    border-radius: 6px; border: 2px solid var(--azul);
+    cursor: pointer; background: white;
+  }
+  .chip-etiquetable.seleccionado { background: var(--azul); color: white; border-color: var(--azul); }
+  .chip-etiquetable.resuelto { cursor: default; border-style: solid; font-weight: bold; }
+  .chip-etiquetable.chip-error-temp { background: #f8d7da !important; border-color: var(--rojo-error) !important; color: var(--negro) !important; }
+  .chip-plano { display: inline-block; padding: 4px 2px; color: #777; font-style: italic; }
+  .leyenda-etiquetas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .btn-etiqueta {
+    border: 2px solid var(--marron); background: white;
+    border-radius: 20px; padding: 9px 16px; cursor: pointer;
+    font-weight: bold; font-size: 0.9rem;
+  }
+  .btn-etiqueta:disabled { opacity: 0.4; cursor: default; }
+
+  /* ---------- Clasificar ---------- */
+  .zona-items-clasificar { margin-bottom: 14px; }
+  .btn-item-clasificar.seleccionado { background: var(--azul); color: white; border-color: var(--azul); }
+  .zona-categorias, .zona-2-columnas {
+    display: grid; gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .caja-categoria {
+    background: #ece7fa; border: 2px solid var(--azul);
+    border-radius: 10px; padding: 12px; min-height: 90px; cursor: pointer;
+  }
+  .caja-categoria-titulo { margin: 0 0 8px; color: var(--azul); text-align: center; }
+  .caja-categoria-lista { display: flex; flex-wrap: wrap; gap: 6px; min-height: 30px; }
+  .chip-asignado {
+    background: white; border: 1px solid var(--marron);
+    border-radius: 6px; padding: 6px 8px; font-size: 0.85rem;
+  }
+  .chip-asignado.correcto { background: #e4f3e6; border-color: var(--verde-ok); color: var(--negro); }
+  .frase-objeto-resaltada { color: #fff; padding: 1px 5px; border-radius: 4px; font-weight: bold; }
+  .tag-objeto {
+    display: inline-block; color: #fff; font-size: 0.7rem; font-weight: bold;
+    padding: 1px 6px; border-radius: 10px; margin-right: 2px; vertical-align: middle;
+  }
+
+  /* ---------- V/F ---------- */
+  .item-vf {
+    background: #f3f1fb; border-radius: 10px; padding: 14px;
+    margin-bottom: 14px;
+  }
+  .item-vf.item-vf-activo { animation: titilar-item-vf 0.9s ease-in-out infinite; }
+  @keyframes titilar-item-vf {
+    0%, 100% { box-shadow: 0 0 0 2px var(--azul); }
+    50% { box-shadow: 0 0 0 5px var(--azul); }
+  }
+  .texto-afirmacion { margin: 0 0 10px; font-size: 1rem; }
+  .botones-vf { display: flex; gap: 10px; }
+  .btn-vf {
+    flex: 1; padding: 10px; border-radius: 8px;
+    border: 2px solid var(--marron); background: white; cursor: pointer;
+    font-size: 0.95rem;
+  }
+  .btn-vf.correcto { background: var(--verde-ok); color: white; border-color: var(--verde-ok); }
+  .btn-vf.incorrecto { background: var(--rojo-error); color: white; border-color: var(--rojo-error); }
+  .justificacion-vf { margin-top: 10px; font-size: 0.9rem; color: var(--marron); font-style: italic; }
+
+  /* ---------- Multiple choice ---------- */
+  .bloque-pregunta { margin-bottom: 22px; }
+  .texto-pregunta { font-weight: bold; margin-bottom: 10px; }
+  .opciones-multiple { display: flex; flex-direction: column; gap: 8px; }
+  .btn-opcion-multiple { text-align: left; width: 100%; }
+  .btn-opcion-multiple.correcto { background: var(--verde-ok); color: white; border-color: var(--verde-ok); }
+  .btn-opcion-multiple.incorrecto { background: var(--rojo-error); color: white; border-color: var(--rojo-error); }
+
+  /* ---------- Asociar ---------- */
+  .fila-asociar { display: flex; gap: 10px; margin-top: 14px; align-items: flex-start; }
+  .bloque-asociar { flex: 1; min-width: 0; }
+  .asociar-titulo {
+    color: var(--azul); margin: 0 0 8px; font-size: 0.95rem;
+    border-bottom: 2px solid var(--violeta); padding-bottom: 4px;
+  }
+  .columna-asociar { display: flex; flex-direction: column; }
+  .btn-asociar {
+    width: 100%; margin: 4px 0; text-align: left;
+    font-size: 0.85rem; line-height: 1.25; padding: 8px 10px;
+    white-space: normal;
+  }
+  .btn-asociar.seleccionado { background: var(--azul); color: white; }
+  .btn-asociar.correcto { opacity: 1; border-width: 2px; }
+  .tipo-asociar .imagen-actividad { max-height: 130px; margin: 8px 0; }
+
+  /* ---------- Tabla de referencia (pronombres OD/OI) ---------- */
+  .tabla-referencia {
+    width: 100%; border-collapse: collapse; margin: 12px 0;
+    font-size: 0.88rem; background: white; border-radius: 8px; overflow: hidden;
+  }
+  .tabla-referencia th, .tabla-referencia td {
+    border: 1px solid var(--azul-claro); padding: 6px 8px; text-align: center;
+  }
+  .tabla-referencia th { background: var(--azul); color: white; }
+  .tabla-referencia tr:nth-child(even) td { background: #f6f4fd; }
+
+  /* ---------- Resumen de puntaje (cierre) ---------- */
+  .resumen-puntaje {
+    background: #ece7fa; border: 2px solid var(--azul);
+    border-radius: 10px; padding: 12px 18px; margin: 10px 0;
+    text-align: left;
+  }
+  .resumen-puntaje h3 { margin: 0 0 6px; color: var(--azul); text-align: center; font-size: 1.05rem; }
+  .resumen-fila { display: flex; justify-content: space-between; padding: 2px 0; font-size: 0.95rem; }
+  .resumen-etiqueta { color: var(--marron); }
+  .resumen-valor { font-weight: bold; }
+  .resumen-valor.ok { color: var(--verde-ok); }
+  .resumen-valor.mal { color: var(--rojo-error); }
+  .resumen-valor.pct { color: var(--azul); }
+  .btn-jugar-de-nuevo { margin-top: 4px; margin-bottom: 10px; }
+
+  /* ---------- Navegación inferior ---------- */
+  #nav-inferior {
+    display: flex; justify-content: space-between; gap: 10px;
+    padding: 14px 20px; background: var(--negro);
+  }
+  #nav-inferior button {
+    flex: 1; padding: 14px; border-radius: 8px; border: none;
+    font-size: 1rem; cursor: pointer; font-weight: bold;
+  }
+  #btn-siguiente { background: var(--violeta); color: white; }
+  #btn-siguiente:disabled { background: #999; color: #ddd; cursor: default; opacity: 0.6; }
+  #btn-siguiente.oculto { display: none; }
+
+  /* ---------- Narración animada (mano señaladora) ---------- */
+  .escena-animada {
+    position: relative;
+    margin: 10px 0;
+    padding: 4px 0;
+  }
+  .mano-indicadora {
+    position: absolute;
+    font-size: 2em;
+    transform: translate(-100%, -50%);
+    transition: left 0.6s ease, top 0.6s ease, opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .mano-indicadora.oculto { opacity: 0; }
+  .etiqueta-paso {
+    position: absolute;
+    background: var(--azul);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    transform: translate(-50%, -100%);
+    transition: left 0.6s ease, top 0.6s ease, opacity 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .etiqueta-paso.oculto { opacity: 0; }
+  .texto-narracion-animada { margin-top: 10px; }
+
+  /* ---------- Escena gramatical (maqueta para narración animada) ---------- */
+  .escena-gramatical {
+    background: #f6f4fd;
+    border: 2px solid var(--azul-claro);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .zona-noticia.zona-activa {
+    background: var(--azul-claro);
+    animation: titilar-zona 0.9s ease-in-out infinite;
+  }
+  @keyframes titilar-zona {
+    0%, 100% { box-shadow: 0 0 0 2px var(--azul); }
+    50% { box-shadow: 0 0 0 5px var(--azul); }
+  }
+  .eg-bloque {
+    border-radius: 8px; padding: 8px 12px; background: white;
+    border: 2px solid var(--marron); font-weight: bold; text-align: center;
+  }
+  .eg-oracion { width: 100%; text-align: center; font-size: 1.15rem; padding: 10px; background: white; border-radius: 8px; }
+  .eg-etiqueta-arriba { font-size: 0.75rem; color: var(--marron); display: block; margin-bottom: 2px; }
+  .eg-fila { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; width: 100%; }
+  .imagen-narracion-animada { max-height: 200px; margin-bottom: 8px; }
+
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div id="barra-progreso-wrap">
+    <div id="barra-progreso-fondo"><div id="barra-progreso-interna"></div></div>
+    <span id="texto-progreso">Pantalla 1 de 20</span>
+  </div>
+
+  <div id="pantalla-contenedor"></div>
+
+  <div id="nav-inferior">
+    <button id="btn-siguiente" onclick="siguiente()">Siguiente →</button>
+  </div>
+</div>
+
+<div id="lightbox">
+  <div id="lightbox-img-wrap">
+    <img id="lightbox-img" src="assets/img/profe.jpg" alt="Foto">
+  </div>
+  <p id="lightbox-zoom-hint">🔍 Tocá la foto para hacer zoom</p>
+  <p>Menos prisa, más vida 🧉🫂</p>
+  <button id="lightbox-cerrar">Cerrar</button>
+</div>
+
+<script src="mapa_datos.js"></script>
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+<script>iniciarApp();</script>
+</body>
+</html>
