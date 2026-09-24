@@ -23,7 +23,8 @@ window.DATOS = {
     foto: 'profe.jpg',
     fotoMini: 'profe_mini.jpg',
     frase: 'Menos prisa, más vida 🧉🫂',
-    puntosPorAcierto: 10
+    puntosPorAcierto: 10,
+    revision: false   // true = muestra las flechas ‹ › de revisión
   },
 
   paletas: PALETAS,

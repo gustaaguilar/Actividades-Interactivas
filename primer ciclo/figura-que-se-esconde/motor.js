@@ -728,6 +728,7 @@
   /* =================== ARRANQUE =================== */
   function init() {
     document.title = D.meta.titulo + ' · QueSepanTodos';
+    document.body.classList.toggle('revision', !!D.meta.revision);
     $('#btnSig').onclick = () => { if (!$('#btnSig').disabled) ir(S.i + 1); };
     $('#navPrev').onclick = () => ir(S.i - 1);
     $('#navNext').onclick = () => ir(S.i + 1);
