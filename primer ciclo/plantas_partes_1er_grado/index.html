@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Las plantas y sus partes</title>
+<style>
+  :root {
+    --verde-oscuro: #2e7d32;
+    --verde: #4caf50;
+    --verde-claro: #a5d6a7;
+    --amarillo: #ffca28;
+    --azul: #4fc3f7;
+    --marron: #8d6e63;
+    --fondo-card: #ffffff;
+    --texto: #2b2b2b;
+    --rojo: #e57373;
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Comic Sans MS", "Baloo 2", "Quicksand", -apple-system, sans-serif;
+    background: var(--verde-claro);
+    touch-action: manipulation;
+  }
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    width: 100vw;
+  }
+
+  #barra-superior {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 10px;
+    background: var(--verde-oscuro);
+  }
+
+  #marcador {
+    display: flex;
+    gap: 18px;
+    color: white;
+    font-weight: bold;
+    font-size: clamp(14px, 3vw, 18px);
+  }
+
+  .btn-revision {
+    flex: 0 0 auto;
+    font-family: inherit;
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: bold;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.25);
+    color: white;
+    cursor: pointer;
+  }
+  .btn-revision:disabled { opacity: 0.3; cursor: default; }
+  .btn-revision:active:not(:disabled) { background: rgba(255,255,255,0.45); }
+
+  #pantalla-contenedor {
+    flex: 1 1 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px 14px 14px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-color: #eef9ee;
+  }
+
+  #pantalla-contenedor.audio-bloqueando .item-clasificar,
+  #pantalla-contenedor.audio-bloqueando .item-asociar,
+  #pantalla-contenedor.audio-bloqueando .zona-hotspot,
+  #pantalla-contenedor.audio-bloqueando .opcion,
+  #pantalla-contenedor.audio-bloqueando .btn-vof,
+  #pantalla-contenedor.audio-bloqueando .video-marco {
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  .oculto { display: none !important; }
+
+  h1, h2 { margin: 4px 0; text-align: center; color: var(--verde-oscuro); }
+
+  .titulo-portada {
+    font-size: clamp(22px, 6vw, 40px);
+    text-shadow: 0 2px 6px rgba(255,255,255,0.8);
+    margin-top: 4vh;
+  }
+  .subtitulo-portada {
+    text-align: center;
+    font-size: clamp(14px, 3.2vw, 20px);
+    color: var(--texto);
+    background: rgba(255,255,255,0.85);
+    padding: 6px 14px;
+    border-radius: 14px;
+    max-width: 90%;
+  }
+
+  .titulo-pantalla {
+    font-size: clamp(18px, 4.5vw, 28px);
+    background: rgba(255,255,255,0.85);
+    padding: 4px 12px;
+    border-radius: 12px;
+  }
+
+  .texto-instruccion, .texto-pregunta, .texto-afirmacion {
+    text-align: center;
+    font-size: clamp(15px, 3.4vw, 22px);
+    background: rgba(255,255,255,0.9);
+    padding: 8px 14px;
+    border-radius: 14px;
+    max-width: 92%;
+    color: var(--texto);
+  }
+
+  .fila-inferior-portada {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 2vh;
+  }
+
+  .bloque-firma {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .foto-perfil {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    border: 3px solid var(--amarillo);
+    object-fit: cover;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .texto-firma {
+    font-size: clamp(10px, 2.2vw, 13px);
+    background: rgba(255,255,255,0.85);
+    padding: 4px 8px;
+    border-radius: 10px;
+    line-height: 1.3;
+    max-width: 40vw;
+  }
+
+  .btn-accion, .btn-verificar, .btn-siguiente-pregunta, .btn-vof {
+    font-family: inherit;
+    font-size: clamp(15px, 3.6vw, 20px);
+    font-weight: bold;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 30px;
+    background: var(--verde);
+    color: white;
+    box-shadow: 0 4px 0 var(--verde-oscuro);
+    cursor: pointer;
+  }
+  .btn-accion:disabled {
+    background: #b0b0b0;
+    box-shadow: 0 4px 0 #888;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  .btn-accion:active:not(:disabled),
+  .btn-verificar:active:not(:disabled), .btn-vof:active:not(:disabled) {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--verde-oscuro);
+  }
+
+  /* --- Narración animada ---
+     La imagen es un <img> real dentro de escena-narracion (igual que en
+     hotspot-imagen-wrap), para que el puntero y el cartel, posicionados
+     en % dentro de este mismo contenedor, coincidan exactamente con lo
+     que se ve en pantalla (antes se posicionaban en % de un div vacío,
+     mientras la imagen real se mostraba como fondo de toda la pantalla
+     con "cover", dos sistemas de coordenadas distintos que no coincidían). */
+  .escena-narracion {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    margin: 0 auto;
+  }
+  .escena-narracion img {
+    max-height: 46vh;
+    max-width: 90vw;
+    display: block;
+    border-radius: 14px;
+  }
+  .etiqueta-paso {
+    position: absolute;
+    transform: translate(-50%, -140%);
+    background: white;
+    border: 3px solid var(--amarillo);
+    border-radius: 14px;
+    padding: 6px 12px;
+    font-weight: bold;
+    font-size: clamp(14px, 3.4vw, 20px);
+    white-space: nowrap;
+  }
+  .puntero-narracion {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+  }
+  .titileo { animation: parpadeo 0.9s infinite alternate; }
+  @keyframes parpadeo {
+    from { filter: drop-shadow(0 0 2px gold); }
+    to   { filter: drop-shadow(0 0 14px gold); }
+  }
+
+  /* --- Clasificar --- */
+  .categorias-clasificar {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  .categoria-drop {
+    flex: 1 1 0;
+    max-width: 46%;
+    background: rgba(255,255,255,0.92);
+    border: 3px dashed var(--verde);
+    border-radius: 16px;
+    padding: 6px;
+    min-height: 14vh;
+    cursor: pointer;
+    text-align: center;
+  }
+  .categoria-icono { width: min(22vw, 92px); height: min(22vw, 92px); object-fit: contain; display: block; margin: 0 auto 4px; }
+  .categoria-etiqueta { font-weight: bold; font-size: clamp(12px, 3vw, 16px); margin-bottom: 4px; }
+
+  /* Distinción fuerte por color para chicos que todavía no leen bien */
+  .categoria-verde {
+    border-color: var(--verde-oscuro);
+    background: rgba(76, 175, 80, 0.16);
+  }
+  .categoria-verde .categoria-etiqueta { color: var(--verde-oscuro); }
+  .categoria-roja {
+    border-color: var(--rojo);
+    background: rgba(229, 115, 115, 0.16);
+  }
+  .categoria-roja .categoria-etiqueta { color: #c62828; }
+  .categoria-items { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+  .bandeja-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    max-height: 22vh;
+    overflow: hidden;
+  }
+  .item-clasificar, .item-asociar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: white;
+    border: 3px solid var(--verde-claro);
+    border-radius: 14px;
+    padding: 6px 8px;
+    font-family: inherit;
+    font-size: clamp(12px, 2.8vw, 15px);
+    font-weight: bold;
+    color: var(--texto);
+    cursor: pointer;
+  }
+  .item-clasificar img, .item-asociar img { width: 46px; height: 46px; object-fit: contain; }
+  .item-clasificar.seleccionado, .item-asociar.seleccionado { border-color: var(--azul); background: #e1f5fe; }
+  .item-clasificar.correcto, .item-asociar.correcto { border-color: var(--verde-oscuro); background: #c8e6c9; }
+  .item-clasificar.incorrecto { border-color: var(--rojo); background: #ffcdd2; }
+  .item-clasificar.resuelto, .item-asociar.resuelto { cursor: default; opacity: 0.9; }
+  .shake { animation: shake 0.4s; }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+
+  /* --- Hotspot --- */
+  .hotspot-imagen-wrap {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    margin: 0 auto;
+  }
+  .hotspot-imagen {
+    max-height: 46vh;
+    max-width: 90vw;
+    display: block;
+    border-radius: 14px;
+  }
+  .zona-hotspot {
+    position: absolute;
+    width: 15%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 3px solid var(--amarillo);
+    background: rgba(255, 235, 59, 0.28);
+    animation: parpadeo 0.9s infinite alternate;
+  }
+  .zona-hotspot.resuelto {
+    border-color: var(--verde-oscuro);
+    background: rgba(76, 175, 80, 0.35);
+    animation: none;
+  }
+
+  /* --- Asociar --- */
+  .grilla-asociar {
+    display: flex;
+    width: 100%;
+    max-width: 640px;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .columna-asociar {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  /* Columna izquierda (palabra + dibujo): dos columnas de tarjetas
+     cuadradas y grandes, en vez de una sola columna angosta. */
+  .columna-asociar-izq {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: min(46vw, 260px);
+  }
+  .item-asociar-izq {
+    aspect-ratio: 1;
+    width: 100%;
+    justify-content: center;
+    padding: 4px;
+    gap: 0;
+  }
+  .grilla-asociar .item-asociar-izq img {
+    width: 80%;
+    height: 80%;
+  }
+  .item-asociar-der { align-items: center; text-align: center; }
+
+  /* Cada par resuelto queda con su propio color (en vez de todos en el
+     mismo verde), para distinguir de un vistazo qué palabra va con qué
+     función. Más específico que ".item-asociar.correcto", así lo gana. */
+  .item-asociar.correcto.par-color-0 { border-color: #d81b60; background: #f8bbd0; }
+  .item-asociar.correcto.par-color-1 { border-color: #0288d1; background: #b3e5fc; }
+  .item-asociar.correcto.par-color-2 { border-color: #f9a825; background: #fff9c4; }
+  .item-asociar.correcto.par-color-3 { border-color: #8e24aa; background: #e1bee7; }
+  .item-asociar.correcto.par-color-4 { border-color: #ef6c00; background: #ffe0b2; }
+
+  /* --- Trivia / V-F --- */
+  .contenedor-pregunta, .contenedor-vof {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+  .imagen-pregunta { max-height: 20vh; object-fit: contain; }
+  .opciones { display: flex; gap: 8px; width: 100%; max-width: 480px; justify-content: center; }
+  .opciones.grid-2 { flex-wrap: wrap; }
+  .opciones.grid-2 .opcion { flex: 0 0 46%; }
+  .opciones.lista-1 { flex-direction: column; }
+  .opciones.lista-1 .opcion { width: 100%; }
+  .opcion {
+    font-family: inherit;
+    font-size: clamp(14px, 3.2vw, 18px);
+    font-weight: bold;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 3px solid var(--verde-claro);
+    background: white;
+    cursor: pointer;
+  }
+  .opcion.seleccionada { border-color: var(--azul); background: #e1f5fe; }
+  .opcion.correcto { border-color: var(--verde-oscuro); background: #c8e6c9; }
+  .opcion.incorrecto { border-color: var(--rojo); background: #ffcdd2; }
+
+  .botones-vof { display: flex; gap: 14px; }
+  .btn-vof { background: white; color: var(--texto); border: 3px solid var(--verde-claro); box-shadow: none; }
+  .btn-vof.correcto { border-color: var(--verde-oscuro); background: #c8e6c9; }
+  .btn-vof.incorrecto { border-color: var(--rojo); background: #ffcdd2; }
+
+  .btn-siguiente-pregunta { background: var(--amarillo); color: var(--texto); box-shadow: 0 4px 0 #c79a00; margin-top: 6px; }
+
+  /* --- Cierre --- */
+  .titulo-cierre { font-size: clamp(22px, 6vw, 36px); margin-top: 4vh; }
+  .resumen-cierre {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 16px;
+    padding: 14px 22px;
+    font-size: clamp(16px, 4vw, 22px);
+    font-weight: bold;
+    text-align: center;
+  }
+
+  /* --- Overlay: lightbox de la foto --- */
+  #lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  #lightbox-img {
+    max-width: 85vw;
+    max-height: 60vh;
+    border-radius: 12px;
+    transition: transform 0.25s ease;
+    cursor: zoom-in;
+  }
+  #lightbox-frase {
+    color: white;
+    font-size: clamp(16px, 4vw, 22px);
+    margin-top: 14px;
+    text-align: center;
+  }
+  #lightbox-cerrar {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 26px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  /* --- Marco de video embebido en la pantalla (miniatura + play rojo) --- */
+  .video-marco {
+    position: relative;
+    width: min(92%, 480px);
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+    background: #000;
+    cursor: pointer;
+  }
+  .video-miniatura {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .video-play-boton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: none;
+    background: #e53935;
+    color: white;
+    font-size: 26px;
+    line-height: 68px;
+    text-align: center;
+    padding-left: 4px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    cursor: pointer;
+  }
+  .video-iframe { width: 100%; height: 100%; border: none; display: block; }
+</style>
+</head>
+<body>
+  <div id="app">
+    <header id="barra-superior">
+      <button id="rev-atras" class="btn-revision" title="Pantalla anterior (flecha izquierda)">◀</button>
+      <div id="marcador">
+        <span id="marcador-aciertos">✅ 0</span>
+        <span id="marcador-errores">❌ 0</span>
+        <span id="marcador-puntos">⭐ 0</span>
+      </div>
+      <button id="rev-adelante" class="btn-revision" title="Pantalla siguiente (flecha derecha)">▶</button>
+    </header>
+    <main id="pantalla-contenedor"></main>
+  </div>
+
+  <div id="lightbox-overlay" class="oculto">
+    <button id="lightbox-cerrar">✕</button>
+    <img id="lightbox-img" src="" alt="Profe Gustavo Aguilar">
+    <p id="lightbox-frase"></p>
+  </div>
+
+  <script src="datos.js"></script>
+  <script src="motor.js"></script>
+</body>
+</html>
