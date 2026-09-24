@@ -197,7 +197,6 @@ function mostrarPantallaActual() {
   const nombre = DATOS.ordenPantallas[indicePantalla];
   const pantalla = DATOS[nombre];
   renderPantalla(pantalla);
-  actualizarBotonesRevision();
 }
 
 function avanzar() {
@@ -205,33 +204,6 @@ function avanzar() {
     indicePantalla++;
     mostrarPantallaActual();
   }
-}
-
-/* ---------------------- MODO REVISIÓN (flechas) --------------------------
-   Navegación libre para que Gustavo revise el paquete rápido: salta entre
-   pantallas sin esperar el audio ni completar la actividad. No afecta el
-   puntaje: evaluar() ya ignora un ítem que vuelve a evaluarse (evaluados.has).
-   No se muestra en el celular de los chicos si se decide ocultarla luego. */
-function irAPantallaRevision(nuevoIndice) {
-  if (nuevoIndice < 0 || nuevoIndice > DATOS.ordenPantallas.length - 1) return;
-  indicePantalla = nuevoIndice;
-  mostrarPantallaActual();
-}
-
-function retrocederRevision() {
-  irAPantallaRevision(indicePantalla - 1);
-}
-
-function avanzarRevision() {
-  irAPantallaRevision(indicePantalla + 1);
-}
-
-function actualizarBotonesRevision() {
-  const btnAtras = document.getElementById("rev-atras");
-  const btnAdelante = document.getElementById("rev-adelante");
-  if (!btnAtras || !btnAdelante) return;
-  btnAtras.disabled = indicePantalla === 0;
-  btnAdelante.disabled = indicePantalla === DATOS.ordenPantallas.length - 1;
 }
 
 function reiniciarJuego() {
@@ -833,14 +805,6 @@ function renderCierre(p, cont) {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("lightbox-cerrar").addEventListener("click", cerrarLightbox);
   document.getElementById("lightbox-img").addEventListener("click", toggleZoomLightbox);
-
-  // Modo revisión: flechas en pantalla + teclado, para recorrer rápido
-  document.getElementById("rev-atras").addEventListener("click", retrocederRevision);
-  document.getElementById("rev-adelante").addEventListener("click", avanzarRevision);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") retrocederRevision();
-    if (e.key === "ArrowRight") avanzarRevision();
-  });
 
   actualizarMarcador();
   mostrarPantallaActual();

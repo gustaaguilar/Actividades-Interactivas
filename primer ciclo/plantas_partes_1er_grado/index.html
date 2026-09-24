@@ -40,7 +40,7 @@
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 8px;
     padding: 6px 10px;
     background: var(--verde-oscuro);
@@ -53,22 +53,6 @@
     font-weight: bold;
     font-size: clamp(14px, 3vw, 18px);
   }
-
-  .btn-revision {
-    flex: 0 0 auto;
-    font-family: inherit;
-    font-size: clamp(16px, 4vw, 20px);
-    font-weight: bold;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255,255,255,0.25);
-    color: white;
-    cursor: pointer;
-  }
-  .btn-revision:disabled { opacity: 0.3; cursor: default; }
-  .btn-revision:active:not(:disabled) { background: rgba(255,255,255,0.45); }
 
   #pantalla-contenedor {
     flex: 1 1 auto;
@@ -501,13 +485,11 @@
 <body>
   <div id="app">
     <header id="barra-superior">
-      <button id="rev-atras" class="btn-revision" title="Pantalla anterior (flecha izquierda)">◀</button>
       <div id="marcador">
         <span id="marcador-aciertos">✅ 0</span>
         <span id="marcador-errores">❌ 0</span>
         <span id="marcador-puntos">⭐ 0</span>
       </div>
-      <button id="rev-adelante" class="btn-revision" title="Pantalla siguiente (flecha derecha)">▶</button>
     </header>
     <main id="pantalla-contenedor"></main>
   </div>
