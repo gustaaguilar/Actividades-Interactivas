@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Palabras que Sé</title>
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    margin: 0; padding: 0; overflow: hidden;
+    font-family: 'Segoe UI', Verdana, Arial, sans-serif;
+    background: #fdf6ec; color: #2b2b2b;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  /* --vh se define por JS con la altura real de ventana (ver motor.js).
+     100vh solo, como respaldo si JS no corrió todavía. */
+  #app {
+    display: flex; flex-direction: column;
+    height: 100vh; height: calc(var(--vh, 1vh) * 100);
+  }
+  #contenedor {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 3vh 4vw; text-align: center; overflow: hidden;
+  }
+
+  h1 { font-size: 6vw; margin: 0 0 1vh; color: #7a3e2b; }
+  .subtitulo { font-size: 3vw; color: #555; margin-bottom: 3vh; }
+  .imagen-portada {
+    width: 100%; max-width: 480px; max-height: 32vh; object-fit: cover;
+    border-radius: 16px; box-shadow: 0 4px 14px rgba(0,0,0,0.18); margin-bottom: 2vh;
+  }
+  .frase-portada {
+    font-size: 3.6vw; font-style: italic; color: #5a4636; max-width: 85vw;
+    margin: 0 0 2vh;
+  }
+
+  /* ---- Selector de día ---- */
+  .titulo-chico { font-size: 5.5vw; margin: 0 0 1vh; color: #7a3e2b; }
+  .grid-dias {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2vh 3vw;
+    width: 100%; max-width: 520px; margin-top: 2vh;
+  }
+  .dia-boton {
+    display: flex; flex-direction: column; align-items: center; gap: 0.6vh;
+    border: 2px solid #c9a07a; background: #fff; border-radius: 14px;
+    padding: 2.2vh 1vw; font-size: 4.6vw; font-weight: bold; color: #7a3e2b;
+    cursor: pointer;
+  }
+  .dia-boton:active { transform: scale(0.96); }
+  .dia-etiqueta { font-size: 2.8vw; font-weight: normal; color: #8a7a6a; }
+  .dia-pendiente { opacity: 0.45; cursor: not-allowed; color: #999; border-color: #ccc; }
+
+  .fila-botones-cierre { display: flex; gap: 3vw; margin-top: 1vh; }
+
+  .portada-caja, .cierre-caja {
+    display: flex; flex-direction: column; align-items: center; gap: 2vh;
+  }
+
+  .foto-perfil {
+    width: 92px; height: 92px; border-radius: 50%; object-fit: cover;
+    border: 3px solid #7a3e2b; cursor: pointer;
+  }
+
+  .imagen-principal {
+    max-height: 52vh; max-width: 88vw; border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); object-fit: contain;
+  }
+
+  .palabra-grande {
+    font-size: 9vw; font-weight: bold; color: #7a3e2b; letter-spacing: 0.1em;
+    margin: 2vh 0;
+  }
+  /* Pantalla de Presentación (Doman puro): fondo blanco liso, palabra sola,
+     enorme, negra, en imprenta minúscula, sin imagen ni ningún distractor. */
+  .pantalla-presentacion { background: #ffffff; }
+  .palabra-doman {
+    font-size: 20vw; font-weight: 700; color: #cc0000; text-transform: lowercase;
+    font-family: 'Segoe UI', Verdana, Arial, sans-serif; letter-spacing: 0.02em;
+    line-height: 1; margin-bottom: 4vh;
+  }
+  .frase-grande {
+    font-size: 5vw; font-weight: 600; color: #2b2b2b; margin: 2vh 0; max-width: 85vw;
+  }
+
+  .grid-opciones {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2vh 3vw;
+    width: 100%; max-width: 680px; margin-top: 2vh;
+  }
+
+  .opcion {
+    border: 2px solid #c9a07a; background: #fff; border-radius: 14px;
+    padding: 2vh 1vw; font-size: 5vw; cursor: pointer; transition: transform .1s;
+  }
+  .opcion-texto { font-weight: bold; color: #444; }
+  .opcion-imagen img { width: 100%; max-height: 22vh; object-fit: contain; border-radius: 8px; }
+  .opcion:active { transform: scale(0.96); }
+  .opcion:disabled { cursor: default; }
+  .opcion.usada { opacity: 0.35; }
+
+  .correcta { background: #d7f5d0 !important; border-color: #4caf50 !important; }
+  .incorrecta { background: #fbd7d7 !important; border-color: #e05353 !important; }
+
+  .btn-primario, .btn-secundario {
+    border: none; border-radius: 999px; padding: 1.6vh 6vw; font-size: 4.2vw;
+    cursor: pointer; font-weight: bold;
+  }
+  .btn-primario { background: #7a3e2b; color: #fff; }
+  .btn-secundario { background: #f2e2d0; color: #7a3e2b; border: 2px solid #7a3e2b; }
+
+  #barra-inferior {
+    display: flex; justify-content: flex-end; align-items: center;
+    padding: 1.5vh 4vw; background: #fff3e6; border-top: 1px solid #e6d3bd;
+    flex-shrink: 0; /* nunca se comprime ni se empuja fuera de pantalla */
+  }
+  #btn-siguiente {
+    background: #7a3e2b; color: #fff; border: none; border-radius: 999px;
+    padding: 1.4vh 6vw; font-size: 4vw; cursor: pointer;
+  }
+  #btn-siguiente:disabled { background: #c9b7a8; cursor: not-allowed; }
+
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+    display: flex; align-items: center; justify-content: center; z-index: 10;
+  }
+  .lightbox.oculto { display: none; }
+  .lightbox-contenido {
+    background: #fff; border-radius: 16px; padding: 4vh 6vw; text-align: center; max-width: 85vw;
+  }
+  .lightbox-contenido img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 2vh; }
+  .contacto { color: #7a3e2b; font-weight: bold; }
+
+  @media (min-width: 700px) {
+    h1 { font-size: 42px; } .subtitulo { font-size: 20px; }
+    .frase-portada { font-size: 20px; }
+    .palabra-grande { font-size: 56px; } .frase-grande { font-size: 30px; }
+    .palabra-doman { font-size: 160px; }
+    .titulo-chico { font-size: 34px; }
+    .dia-boton { font-size: 22px; } .dia-etiqueta { font-size: 14px; }
+    .palabra-construida { font-size: 48px; }
+    .opcion { font-size: 26px; }
+    .opcion-imagen img { max-height: 260px; }
+    .btn-primario, .btn-secundario, #btn-siguiente { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+  <div id="app">
+    <div id="contenedor"></div>
+    <div id="barra-inferior">
+      <button id="btn-siguiente">Siguiente ▶</button>
+    </div>
+  </div>
+
+  <script src="datos.js"></script>
+  <script src="motor.js"></script>
+</body>
+</html>
