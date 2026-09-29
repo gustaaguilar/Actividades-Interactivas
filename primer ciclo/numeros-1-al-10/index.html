@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Números del 1 al 10 · QueSepanTodos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cielo:#e8f6ff; --azul:#2b7de9; --azulO:#1a5bb5; --verde:#2fb86b; --rojo:#ef5350;
+  --amarillo:#ffc93c; --naranja:#ff8a3d; --lila:#9b6cf0; --tinta:#243049; --blanco:#fff;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html,body{margin:0;height:100%;overflow:hidden;font-family:'Baloo 2',system-ui,sans-serif;color:var(--tinta);
+  background:linear-gradient(180deg,#bfe6ff 0%,#e8f6ff 55%,#fff7e0 100%)}
+#app{height:100dvh;height:100vh;display:flex;flex-direction:column;max-width:900px;margin:0 auto}
+@supports(height:100dvh){#app{height:100dvh}}
+
+/* barra superior */
+#barra{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:6px 8px;background:rgba(255,255,255,.75);
+  border-bottom:3px solid #d6ecff}
+#barra .nav{width:38px;height:38px;border-radius:50%;border:none;background:#d6ecff;color:var(--azulO);font-size:18px;font-weight:800;cursor:pointer}
+#titulo{flex:1;font-weight:800;font-size:clamp(14px,3.8vw,20px);line-height:1.1;text-align:center}
+#puntos{font-weight:800;background:var(--amarillo);border-radius:14px;padding:2px 10px;font-size:15px;white-space:nowrap}
+#progreso{height:6px;background:#d6ecff}
+#progreso div{height:100%;background:var(--verde);transition:width .4s}
+
+#pantalla{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  padding:8px 10px;gap:8px;position:relative}
+.consigna{font-size:clamp(15px,4vw,21px);font-weight:700;text-align:center;background:#fff;border-radius:16px;
+  padding:4px 14px;box-shadow:0 2px 0 #cfe3f7;display:flex;align-items:center;gap:8px}
+.consigna button{border:none;background:#e3f1ff;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;flex:0 0 auto}
+
+#pie{flex:0 0 auto;display:flex;justify-content:center;padding:6px 8px 10px}
+.btn{font-family:inherit;font-weight:800;font-size:clamp(17px,4.5vw,22px);border:none;border-radius:18px;padding:8px 28px;
+  color:#fff;background:var(--verde);box-shadow:0 4px 0 #1f8a4e;cursor:pointer}
+.btn:disabled{background:#b9c4cf;box-shadow:0 4px 0 #97a3ae;cursor:default}
+.btn.azul{background:var(--azul);box-shadow:0 4px 0 var(--azulO)}
+
+/* imágenes con respaldo emoji */
+.ico{display:inline-flex;align-items:center;justify-content:center}
+.ico img{width:100%;height:100%;object-fit:contain;display:block}
+.ico .emo{line-height:1;display:block;text-align:center}
+
+/* bloqueo mientras habla la consigna */
+.bloq .interactivo{pointer-events:none}
+.bloq .interactivo{filter:saturate(.75)}
+
+/* titileo */
+@keyframes titila{0%,100%{box-shadow:0 0 0 3px var(--amarillo),0 0 12px 3px rgba(255,201,60,.8)}50%{box-shadow:0 0 0 3px transparent,0 0 0 0 transparent}}
+.titila{animation:titila 1s infinite}
+@keyframes sacude{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.sacude{animation:sacude .35s 2}
+@keyframes pop{0%{transform:scale(.4)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+.pop{animation:pop .35s}
+
+/* ---------- PORTADA ---------- */
+.portada{justify-content:center;text-align:center}
+.portada h1{margin:0;font-size:clamp(30px,9vw,54px);line-height:1;color:var(--azulO);text-shadow:0 3px 0 #fff}
+.portada h2{margin:0;font-size:clamp(15px,4vw,22px);color:var(--naranja)}
+.portada .heroimg{width:min(92vw,560px);height:min(42vh,420px);border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 6px 0 #cfe3f7}
+.heroimg .ico{width:100%;height:100%}
+.portada .heroimg img{object-fit:cover}
+.portada .heroimg .emo{font-size:min(28vh,200px)}
+.filaPortada{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.firma{display:flex;align-items:center;gap:8px;text-align:left;font-size:13px;line-height:1.25}
+.foto{width:92px;height:92px;border-radius:50%;overflow:hidden;border:4px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.2);
+  cursor:zoom-in;background:#d6ecff;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:44px}
+.foto img{width:100%;height:100%;object-fit:cover}
+#lightbox{position:fixed;inset:0;background:rgba(10,20,40,.94);z-index:50;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+#lightbox.abierto{display:flex}
+#lightbox .marco{width:min(90vw,70vh);height:min(90vw,70vh);overflow:hidden;border-radius:18px;background:#223}
+#lightbox .marco img{width:100%;height:100%;object-fit:cover;transition:transform .35s;cursor:zoom-in}
+#lightbox .frase{color:#fff;font-size:clamp(20px,5vw,30px);font-weight:800}
+#lightbox .cerrar{position:absolute;top:12px;right:14px;width:44px;height:44px;border-radius:50%;border:none;font-size:22px;background:#fff;cursor:pointer}
+
+/* ---------- VIDEO ---------- */
+.videoCaja{width:min(96%,calc(62vh*16/9));aspect-ratio:16/9;background:#000;border-radius:18px;overflow:hidden;box-shadow:0 6px 0 #cfe3f7}
+.videoCaja iframe{width:100%;height:100%;border:0;display:block}
+.linkYT{font-size:14px;color:var(--azulO);font-weight:700;text-decoration:none;background:#fff;border-radius:12px;padding:3px 12px}
+
+/* ---------- UNIR ---------- */
+.unir{position:relative;flex:1;min-height:0;width:100%;display:flex;justify-content:space-between;gap:8px}
+.unir svg.lineas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.colIzq,.colDer{display:flex;flex-direction:column;justify-content:space-around;gap:6px;z-index:1}
+.colIzq{flex:0 1 64%}
+.colDer{flex:0 0 auto;align-items:center}
+.tarjeta{background:#fff;border-radius:16px;border:3px solid #d6ecff;padding:4px 6px;display:flex;flex-wrap:wrap;
+  align-content:center;justify-content:center;gap:2px;cursor:pointer;height:calc((100% - 24px)/5);min-height:0;transition:transform .15s}
+.tarjeta.sel{border-color:var(--azul);transform:scale(1.03)}
+.tarjeta.hecha{cursor:default}
+.tarjeta .ico{flex:0 0 auto}
+.numero{width:clamp(48px,11vh,74px);height:clamp(48px,11vh,74px);border-radius:50%;background:#fff;border:4px solid var(--azul);
+  font-size:clamp(26px,6vh,40px);font-weight:800;color:var(--azulO);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.numero.hecha{color:#fff}
+.unir.horizontal{flex-direction:column;justify-content:space-between;gap:clamp(20px,8vh,70px)}
+.unir.horizontal .colIzq,.unir.horizontal .colDer{flex-direction:row;justify-content:space-around;align-items:stretch}
+.unir.horizontal .colIzq{flex:1 1 auto;min-height:0}
+.unir.horizontal .colDer{flex:0 0 auto;align-items:center}
+.unir.horizontal .tarjeta{height:auto;width:calc((100% - 24px)/5)}
+
+/* ---------- RECTA ---------- */
+.escena{display:flex;align-items:flex-end;justify-content:center}
+.recta{width:100%;position:relative;padding:0 4px}
+.recta .ranaSalta{position:absolute;bottom:62px;width:clamp(44px,11vw,72px);height:clamp(44px,11vw,72px);transition:left .45s cubic-bezier(.3,1.6,.5,1);transform:translateX(-50%);z-index:3}
+.recta .linea{display:flex;justify-content:space-between;position:relative;padding:8px 0}
+.recta .linea::before{content:"";position:absolute;left:0;right:0;top:50%;height:6px;background:var(--tinta);border-radius:3px;transform:translateY(-50%)}
+.recta .casilla{position:relative;z-index:1;width:clamp(30px,8.4vw,60px);height:clamp(30px,8.4vw,60px);border-radius:12px;background:#fff;
+  border:3px solid var(--tinta);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:clamp(17px,4.6vw,30px)}
+.recta .casilla.vacia{border-style:dashed;background:#fff9e6;color:transparent}
+.recta .casilla.lista{background:#e3fbe9;border-color:var(--verde);color:var(--verde)}
+.fichas{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.ficha{width:clamp(52px,13vw,72px);height:clamp(52px,13vw,72px);border-radius:16px;border:none;font-family:inherit;font-weight:800;
+  font-size:clamp(26px,7vw,38px);color:#fff;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.2)}
+.ficha.usada{visibility:hidden}
+
+/* ---------- ORDENAR ---------- */
+.ordenar{width:100%;display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;min-height:0}
+.ordenar .guia{width:clamp(56px,13vh,110px);height:clamp(56px,13vh,110px)}
+.huecos{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;width:min(100%,520px)}
+.hueco{aspect-ratio:1;max-height:9vh;border-radius:14px;border:3px dashed #9fc3e8;background:rgba(255,255,255,.7);display:flex;align-items:center;
+  justify-content:center;font-weight:800;font-size:clamp(20px,5vh,32px);margin:0 auto;width:100%}
+.hueco.lista{border-style:solid;color:#fff}
+.globos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:min(100%,560px)}
+.globo{width:clamp(50px,11vh,72px);height:clamp(58px,12.5vh,84px);border-radius:50% 50% 46% 46%;border:none;font-family:inherit;
+  font-weight:800;font-size:clamp(22px,5.5vh,34px);color:#fff;cursor:pointer;position:relative;box-shadow:inset -6px -8px 0 rgba(0,0,0,.12)}
+.globo::after{content:"";position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:inherit}
+.globo.usado{visibility:hidden}
+
+/* ---------- TREN (explica / antpos) ---------- */
+.tren{display:flex;align-items:flex-end;justify-content:center;gap:6px;width:100%}
+.tren .loco{width:clamp(80px,20vw,150px);height:clamp(80px,20vw,150px);flex:0 0 auto}
+.vagon{width:clamp(66px,17vw,120px);height:clamp(60px,14vw,100px);background:var(--naranja);border-radius:12px 12px 6px 6px;position:relative;
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:inset 0 -8px 0 rgba(0,0,0,.15)}
+.vagon::before,.vagon::after{content:"";position:absolute;bottom:-14px;width:22px;height:22px;border-radius:50%;background:#37474f;border:4px solid #90a4ae}
+.vagon::before{left:10px}.vagon::after{right:10px}
+.vagon .cartel{width:70%;height:64%;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:clamp(24px,7vw,46px)}
+.vagon .cartel.vacio{color:transparent;background:#fff9e6;border:3px dashed var(--tinta)}
+.vagon .cartel.lista{color:var(--verde)}
+.vagon.central{background:var(--azul)}
+/* vagón activo: salta, brilla en amarillo, "?" que late y flecha que rebota */
+.vagon .flecha{display:none;position:absolute;left:50%;top:clamp(-58px,-11vw,-44px);font-size:clamp(34px,8vw,48px);line-height:1;transform:translateX(-50%);z-index:4}
+.vagon.activo{background:var(--amarillo);animation:vagonSalta .9s ease-in-out infinite;z-index:3;
+  box-shadow:inset 0 -8px 0 rgba(0,0,0,.15),0 0 0 5px #fff,0 0 22px 8px rgba(255,201,60,.95)}
+.vagon.activo .flecha{display:block;animation:flechaRebota .6s ease-in-out infinite}
+.vagon.activo .cartel.vacio{color:var(--rojo);border:4px dashed var(--rojo);animation:cartelLate .9s ease-in-out infinite}
+.vagon.espera{opacity:.45;filter:grayscale(.6)}
+@keyframes vagonSalta{0%,100%{transform:translateY(0) scale(1.04)}50%{transform:translateY(-10px) scale(1.1)}}
+@keyframes flechaRebota{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+@keyframes cartelLate{0%,100%{background:#fff;transform:scale(1)}50%{background:#ffe27a;transform:scale(1.1)}}
+.rotulo{font-weight:800;font-size:clamp(13px,3.4vw,18px);text-align:center;min-height:1.3em}
+.rotulos{display:flex;justify-content:center;gap:6px;width:100%}
+.explicaTexto{font-size:clamp(17px,4.5vw,24px);background:#fff;border-radius:16px;padding:6px 16px;text-align:center;min-height:2.4em;max-width:600px}
+.mano{position:absolute;font-size:clamp(34px,9vw,54px);line-height:1;transition:left .6s,top .6s;z-index:5;pointer-events:none;transform:translateX(-50%)}
+.opciones{display:grid;grid-template-columns:repeat(3,auto);gap:14px;justify-content:center}
+
+/* ---------- CIERRE ---------- */
+.cierre{justify-content:center;text-align:center}
+.cierre .heroimg{width:min(80vw,440px);height:min(30vh,300px);border-radius:24px;overflow:hidden;background:#fff}
+.cierre .heroimg img{object-fit:cover}
+.cierre .heroimg .emo{font-size:min(22vh,160px)}
+.marcador{display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));gap:8px;font-size:clamp(17px,4.5vw,22px);font-weight:800}
+.marcador div{background:#fff;border-radius:14px;padding:6px 12px}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="barra">
+    <div id="titulo"></div>
+    <div id="puntos">⭐ 0</div>
+  </div>
+  <div id="progreso"><div></div></div>
+  <div id="pantalla"></div>
+  <div id="pie"><button class="btn" id="btnSiguiente" disabled>Siguiente ➜</button></div>
+</div>
+<div id="lightbox">
+  <button class="cerrar" aria-label="Cerrar">✕</button>
+  <div class="marco"><img alt="Profe Gustavo Aguilar"></div>
+  <div class="frase"></div>
+</div>
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+</body>
+</html>
