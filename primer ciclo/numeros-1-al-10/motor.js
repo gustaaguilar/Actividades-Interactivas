@@ -147,6 +147,7 @@
   }
   let alRedimensionar = null;
   window.addEventListener("resize", () => { if (alRedimensionar) alRedimensionar(); });
+  window.addEventListener("orientationchange", () => setTimeout(() => { if (alRedimensionar) alRedimensionar(); }, 300));
 
   // ---------------- NAVEGACIÓN ----------------
   function ir(i) {
@@ -158,7 +159,7 @@
     cont.innerHTML = ""; cont.className = ""; desbloquear();
     $("#titulo").textContent = p.titulo || D.meta.titulo;
     $("#progreso div").style.width = (i / (D.pantallas.length - 1) * 100) + "%";
-    $("#pie").style.display = (p.tipo === "portada" || p.tipo === "cierre") ? "none" : "flex";
+    $("#pie").style.display = (p.tipo === "portada" || p.tipo === "cierre" || p.tipo === "video") ? "none" : "flex";
     const r = RENDER[p.tipo];
     if (r) r(p, cont); else cont.appendChild(el("div", "consigna", "Pantalla sin tipo: " + p.tipo));
     actualizarSiguiente();
@@ -220,8 +221,19 @@
     const a = el("a", "linkYT", "↗ Si el video no se ve, tocá acá para abrirlo en YouTube");
     a.href = "https://youtu.be/" + p.videoId; a.target = "_blank"; a.rel = "noopener";
     c.appendChild(a);
+    // botón Siguiente pegado debajo del video (no depende del pie de página)
+    const sig = el("button", "btn", "Siguiente ➜"); sig.style.marginTop = "6px";
+    sig.onclick = () => ir(E.idx + 1);
+    c.appendChild(sig);
+    $("#pie").style.display = "none";
+    function medir() {
+      const libre = c.clientHeight - c.firstChild.offsetHeight - a.offsetHeight - sig.offsetHeight - 50;
+      let w = Math.min(c.clientWidth * 0.96, Math.max(160, libre) * 16 / 9);
+      caja.style.width = Math.round(w) + "px"; caja.style.height = Math.round(w * 9 / 16) + "px";
+    }
+    alRedimensionar = medir; medir();
     E.completa = true;
-    hablar(p.instruccion); // no bloquea: el botón Siguiente queda siempre habilitado
+    hablar(p.instruccion); // no bloquea: Siguiente queda siempre habilitado
   };
 
   RENDER.unir = (p, c) => {
