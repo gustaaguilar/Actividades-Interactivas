@@ -32,6 +32,9 @@ function umbral(w) { return w.length <= 3 ? 1 : (w.length <= 5 ? 0.8 : 0.75); }
  * Devuelve {estado[], oyo[], tiempo[], ultima, repeticiones, inserciones}
  *   estado: null (no alcanzada) | 'ok' | 'error' | 'dudosa'
  */
+const NUMPAL = new Set(("cero uno un una dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciseis diecisiete dieciocho diecinueve " +
+  "veinte veintiuno veintidos veintitres veinticuatro veinticinco veintiseis veintisiete veintiocho veintinueve treinta cuarenta cincuenta sesenta setenta ochenta noventa " +
+  "cien ciento doscientos trescientos cuatrocientos quinientos seiscientos setecientos ochocientos novecientos mil").split(" "));
 function alinear(texto, oidas, opts) {
   const V = (opts && opts.ventana) || 5;
   const N = texto.length;
@@ -42,6 +45,12 @@ function alinear(texto, oidas, opts) {
   let p = 0, rep = 0, ins = 0;
   for (let k = 0; k < oidas.length && p < N; k++) {
     const h = oidas[k].w; if (!h) continue;
+    // 0) número escrito con cifras ("1681", "1816") leído en palabras: "mil seiscientos ochenta y uno"
+    if (/^\d+$/.test(texto[p]) && NUMPAL.has(h)) {
+      tiempo[p] = oidas[k].t;
+      while (k + 1 < oidas.length && (NUMPAL.has(oidas[k + 1].w) || (oidas[k + 1].w === "y" && k + 2 < oidas.length && NUMPAL.has(oidas[k + 2].w)))) k++;
+      estado[p] = "ok"; p++; continue;
+    }
     // 1) coincidencia exacta o casi exacta en la ventana siguiente (penalizando saltos)
     let mejor = -1, puntaje = 0;
     for (let j = p; j < Math.min(p + V, N); j++) {
@@ -139,8 +148,9 @@ function unirResultados(textos) {
 function textosDe(results) { return Array.from(results).map(r => r[0] && r[0].transcript); }
 
 const API = { norm, sim, lev, alinear, metricas, unirResultados };
-API.archivoPalabra = w => String(w).toLowerCase().replace(/[^a-záéíóúüñ]/g, "")
+API.archivoPalabra = w => { const n = String(w).toLowerCase().replace(/[^a-záéíóúüñ]/g, "")
   .replace(/[áéíóú]/g, c => ({ á: "a", é: "e", í: "i", ó: "o", ú: "u" })[c] + "1").replace(/ü/g, "u2").replace(/ñ/g, "n1");
+  return /^(con|prn|aux|nul|com[0-9]|lpt[0-9])$/.test(n) ? n + "_" : n; };
 if (typeof module !== "undefined" && module.exports) { module.exports = API; }
 global.QSTFluidez = API;
 if (typeof document === "undefined") return;
@@ -256,7 +266,9 @@ function prepararFicha(practica) {
   S.palabras = [];
   S.ficha.renglones.forEach((r, ri) => r.t.split(/\s+/).filter(Boolean).forEach(w => S.palabras.push({ w, n: norm(w), r: ri })));
   const total = S.ficha.renglones[S.ficha.renglones.length - 1].n;
-  if (total !== S.palabras.length) console.warn("Conteo de la ficha", total, "≠ palabras separadas", S.palabras.length);
+  // número impreso en la ficha para cada palabra (el recuadro del renglón manda: así el resultado coincide con el papel)
+  { let i = 0; S.ficha.renglones.forEach(r => { const k = r.t.split(/\s+/).filter(Boolean).length; for (let pos = 0; pos < k; pos++) S.palabras[i++].num = r.n - (k - 1 - pos); }); }
+  if (total !== S.palabras.length) console.info("Conteo impreso", total, "≠ palabras separadas", S.palabras.length, "(se usa el conteo impreso)");
   resetToma();
   const rec = S.practica ? recordDe(S.nombre, S.ficha.id) : 0;
   $("#lecTit").innerHTML = `${S.ficha.titulo}<small>${S.ficha.grado}${S.nombre ? " · " + esc(S.nombre) : ""}${S.curso ? " · " + esc(S.curso) : ""}` +
@@ -285,21 +297,40 @@ function renderTexto(cont) {
   let h = `<h3 class="ficha-tit">${esc(S.ficha.titulo)}</h3>` + (S.ficha.fuente ? `<div class="ficha-fuente">${esc(S.ficha.fuente)}</div>` : ""), i = 0;
   S.ficha.renglones.forEach(r => {
     const ws = r.t.split(/\s+/).filter(Boolean).map(w => `<span class="w" data-i="${i++}">${esc(w)}</span>`).join(" ");
-    h += `<div class="reng${r.p ? " par" : ""}"><span class="ln">${ws}</span><span class="cnt">${r.n}</span></div>`;
+    h += `<div class="reng${r.p ? " par" : ""}"><span class="ln"${S.ficha.espaciado ? ` style="line-height:${S.ficha.espaciado}"` : ""}>${ws}</span><span class="cnt">${r.n}</span></div>`;
   });
+  if (S.ficha.autor) h += `<div class="ficha-autor">${esc(S.ficha.autor)}</div>`;
   cont.innerHTML = h;
 }
 // Tamaño de letra: que entre el texto completo si se puede, entre 18 y 34 px.
 function ajustarFuente(cont) {
   const h = cont.clientHeight, w = cont.clientWidth, lineas = S.ficha.renglones.length + 3;
-  let fs = Math.max(18, Math.min(34, Math.floor((h * 0.95) / (lineas * 1.8))));
+  const total = S.ficha.renglones[S.ficha.renglones.length - 1].n;
+  const tope = total <= 60 ? 46 : total <= 100 ? 40 : 34; // letra más grande en los textos cortos (1° y 2° grado)
+  const alto = 1.8 * ((S.ficha.espaciado || 1.75) / 1.75);
+  let fs = Math.max(18, Math.min(tope, Math.floor((h * 0.95) / (lineas * alto))));
   const largo = Math.max(...S.ficha.renglones.map(r => r.t.length));
   fs = Math.floor(Math.max(15, Math.min(fs, (w - 60) / (largo * 0.52 + 4)))); // que cada renglón entre en una línea
   cont.style.fontSize = fs + "px";
 }
 
 /* ---------- toma ---------- */
+/* ---------- pantalla siempre encendida durante la lectura (Screen Wake Lock API) ---------- */
+let bloqueoPantalla = null, quiereDespierta = false;
+async function mantenerPantalla(on) {
+  quiereDespierta = on;
+  try {
+    if (on && "wakeLock" in navigator && !bloqueoPantalla) {
+      bloqueoPantalla = await navigator.wakeLock.request("screen");
+      bloqueoPantalla.addEventListener("release", () => { bloqueoPantalla = null; });
+    } else if (!on && bloqueoPantalla) { await bloqueoPantalla.release(); bloqueoPantalla = null; }
+  } catch (e) { bloqueoPantalla = null; } // navegador sin soporte o ahorro de batería extremo: sigue funcionando igual
+}
+// si el chico cambia de app y vuelve, el sistema suelta el bloqueo: se vuelve a pedir
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && quiereDespierta) mantenerPantalla(true); });
+
 $("#btnEmpezar").onclick = async () => {
+  mantenerPantalla(true);
   $("#capaInicio").classList.remove("ver");
   if (S.modo === "voz" && S.grabar) await iniciarGrabacion();
   if (S.modo === "voz") iniciarRec();
@@ -340,6 +371,7 @@ async function terminar(manual) {
   }
   await espera(manual ? 200 : 900);
   $("#capaFin").classList.remove("ver");
+  mantenerPantalla(false);
   if (S.practica) abrirAutoeval(); else abrirRevision();
 }
 
@@ -486,7 +518,17 @@ function pintar(cont, rev) {
 }
 function calcular() {
   const est = S.estado.map((s, j) => (j <= S.ultima ? (s || "ok") : null));
-  return metricas(est, S.ultima, S.modo === "voz" ? S.tiempo : null, S.seg, META.segundos, META.pausaLarga, S.t0);
+  return conImpreso(metricas(est, S.ultima, S.modo === "voz" ? S.tiempo : null, S.seg, META.segundos, META.pausaLarga, S.t0));
+}
+// Ajusta "palabras leídas" al número impreso en la ficha (difiere solo si la ficha trae un conteo corrido)
+function conImpreso(m) {
+  if (S.ultima < 0 || !S.palabras[S.ultima] || S.palabras[S.ultima].num == null) return m;
+  const L = S.palabras[S.ultima].num;
+  if (L === m.leidas) return m;
+  m.leidas = L; m.correctas = Math.max(0, L - m.errores);
+  m.precision = L ? Math.round(m.correctas / L * 100) : 0;
+  m.ppm = S.seg > 0 && S.seg < META.segundos ? Math.round(L * 60 / S.seg) : L;
+  return m;
 }
 function refrescarRevision() {
   const m = pintar($("#textoRev"), true);
@@ -651,8 +693,8 @@ function abrirModelo() {
 }
 (function () {
   const a = $("#audioModelo"); let actual = -1;
-  a.addEventListener("play", () => ($("#btnModPlay").textContent = "⏸ Pausa"));
-  a.addEventListener("pause", () => ($("#btnModPlay").textContent = a.ended ? "↺ Escuchar de nuevo" : "▶ Seguir"));
+  a.addEventListener("play", () => { $("#btnModPlay").textContent = "⏸ Pausa"; mantenerPantalla(true); });
+  a.addEventListener("pause", () => { $("#btnModPlay").textContent = a.ended ? "↺ Escuchar de nuevo" : "▶ Seguir"; mantenerPantalla(false); });
   a.addEventListener("ended", () => { $("#btnModPlay").textContent = "↺ Escuchar de nuevo"; marcar(-1); });
   a.addEventListener("timeupdate", () => {
     if (a.duration) $("#modProg").style.width = (a.currentTime / a.duration * 100) + "%";
@@ -669,7 +711,7 @@ function abrirModelo() {
 })();
 
 function mostrarLogro() {
-  const m = metricas(S.estado.map((s, j) => (j <= S.ultima ? (s === "dudosa" ? "ok" : (s || "ok")) : null)), S.ultima, null, S.seg, META.segundos, META.pausaLarga, S.t0);
+  const m = conImpreso(metricas(S.estado.map((s, j) => (j <= S.ultima ? (s === "dudosa" ? "ok" : (s || "ok")) : null)), S.ultima, null, S.seg, META.segundos, META.pausaLarga, S.t0));
   // palabras por minuto bien leídas (si terminó el texto antes del minuto, se lleva a ritmo por minuto)
   const valor = S.seg > 0 && S.seg < META.segundos ? Math.round(m.correctas * 60 / S.seg) : m.correctas;
   const previo = recordDe(S.nombre, S.ficha.id), primera = intentosDe(S.nombre, S.ficha.id).length === 0;
@@ -694,7 +736,7 @@ function mostrarLogro() {
   // palabras para practicar (errores del minuto, sin repetir)
   const vistas = new Set(), chips = [];
   for (let j = 0; j <= S.ultima; j++) if (S.estado[j] === "error" || S.estado[j] === "omitida") {
-    const w = S.palabras[j].w.replace(/[.,;:¡!¿?«»"()]/g, "");
+    const w = S.palabras[j].w.replace(/[.,;:¡!¿?«»"“”()—–…-]/g, "");
     if (!vistas.has(w.toLowerCase())) { vistas.add(w.toLowerCase()); chips.push(w); }
   }
   $("#lChips").innerHTML = chips.length ? chips.map(w => `<button class="chip">${esc(w)}</button>`).join("")
@@ -707,9 +749,12 @@ function mostrarLogro() {
 
 /* ---------- audio: MP3 pregrabados (gTTS) con respaldo en la voz del navegador ---------- */
 // nombre de archivo de una palabra: minúsculas, sin signos; tildes y ñ se marcan con "1" (á→a1, ñ→n1)
+// Windows no permite archivos llamados CON, PRN, AUX, NUL, COM1-9 o LPT1-9 (aunque tengan extensión): se les agrega "_"
+const RESERVADOS_WIN = /^(con|prn|aux|nul|com[0-9]|lpt[0-9])$/;
 function archivoPalabra(w) {
-  return String(w).toLowerCase().replace(/[^a-záéíóúüñ]/g, "")
+  const n = String(w).toLowerCase().replace(/[^a-záéíóúüñ]/g, "")
     .replace(/[áéíóú]/g, c => ({ á: "a", é: "e", í: "i", ó: "o", ú: "u" })[c] + "1").replace(/ü/g, "u2").replace(/ñ/g, "n1");
+  return RESERVADOS_WIN.test(n) ? n + "_" : n;
 }
 const repro = new Audio(); let reproFin = null;
 function reproducir(src, txtRespaldo, el, alTerminar) {
@@ -808,6 +853,20 @@ window.addEventListener("resize", () => {
 $("#tituloApp").textContent = META.titulo; $("#subApp").textContent = META.subtitulo;
 if (!SR) { const a = $("#avisoNav"); a.style.display = ""; a.textContent = "Este navegador no tiene reconocimiento de voz. Para el modo asistido usá Google Chrome actualizado. El modo manual funciona igual."; }
 else if (location.protocol === "file:") { const a = $("#avisoNav"); a.style.display = ""; a.textContent = "Abierto como archivo local: Chrome puede pedir permiso del micrófono en cada toma. Publicado en la web (https) funciona mejor."; }
-firma(); cargarPlanilla(); initConfig(); initPractica();
+firma(); cargarPlanilla(); initConfig(); initPractica(); imagenes();
+// Ilustraciones: la del texto (portada y práctica) y la de un chico leyendo (lista de control).
+// Si el archivo no está, se mantiene el dibujo/emoji de respaldo.
+function imagenes() {
+  const f = FICHAS[0];
+  const poner = (id, src, alCargar) => {
+    const img = document.getElementById(id); if (!img || !src) return;
+    img.onload = () => { img.style.display = "block"; if (alCargar) alCargar(); };
+    img.onerror = () => { img.style.display = "none"; };
+    img.src = src;
+  };
+  poner("imgPortada", f.imagen, () => { const svg = document.querySelector("#portada svg.ilus"); if (svg) svg.style.display = "none"; });
+  poner("imgPractica", f.imagen);
+  poner("imgLectora", META.imagenLectora, () => { const e = document.getElementById("emojiLectora"); if (e) e.style.display = "none"; });
+}
 global.QSTFluidezApp = S;
 })(typeof window !== "undefined" ? window : globalThis);

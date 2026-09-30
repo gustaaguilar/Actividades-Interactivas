@@ -315,7 +315,22 @@ function ajustarFuente(cont) {
 }
 
 /* ---------- toma ---------- */
+/* ---------- pantalla siempre encendida durante la lectura (Screen Wake Lock API) ---------- */
+let bloqueoPantalla = null, quiereDespierta = false;
+async function mantenerPantalla(on) {
+  quiereDespierta = on;
+  try {
+    if (on && "wakeLock" in navigator && !bloqueoPantalla) {
+      bloqueoPantalla = await navigator.wakeLock.request("screen");
+      bloqueoPantalla.addEventListener("release", () => { bloqueoPantalla = null; });
+    } else if (!on && bloqueoPantalla) { await bloqueoPantalla.release(); bloqueoPantalla = null; }
+  } catch (e) { bloqueoPantalla = null; } // navegador sin soporte o ahorro de batería extremo: sigue funcionando igual
+}
+// si el chico cambia de app y vuelve, el sistema suelta el bloqueo: se vuelve a pedir
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && quiereDespierta) mantenerPantalla(true); });
+
 $("#btnEmpezar").onclick = async () => {
+  mantenerPantalla(true);
   $("#capaInicio").classList.remove("ver");
   if (S.modo === "voz" && S.grabar) await iniciarGrabacion();
   if (S.modo === "voz") iniciarRec();
@@ -356,6 +371,7 @@ async function terminar(manual) {
   }
   await espera(manual ? 200 : 900);
   $("#capaFin").classList.remove("ver");
+  mantenerPantalla(false);
   if (S.practica) abrirAutoeval(); else abrirRevision();
 }
 
@@ -677,8 +693,8 @@ function abrirModelo() {
 }
 (function () {
   const a = $("#audioModelo"); let actual = -1;
-  a.addEventListener("play", () => ($("#btnModPlay").textContent = "⏸ Pausa"));
-  a.addEventListener("pause", () => ($("#btnModPlay").textContent = a.ended ? "↺ Escuchar de nuevo" : "▶ Seguir"));
+  a.addEventListener("play", () => { $("#btnModPlay").textContent = "⏸ Pausa"; mantenerPantalla(true); });
+  a.addEventListener("pause", () => { $("#btnModPlay").textContent = a.ended ? "↺ Escuchar de nuevo" : "▶ Seguir"; mantenerPantalla(false); });
   a.addEventListener("ended", () => { $("#btnModPlay").textContent = "↺ Escuchar de nuevo"; marcar(-1); });
   a.addEventListener("timeupdate", () => {
     if (a.duration) $("#modProg").style.width = (a.currentTime / a.duration * 100) + "%";
