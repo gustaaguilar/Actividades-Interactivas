@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Censo de Fluidez Lectora · QueSepanTodos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#1e88d6; --azul-o:#0d5fa3; --azul-c:#e6f3fd; --lila:#b9a7d9;
+  --ok:#2e9d57; --ok-c:#dcf5e5; --err:#e0663a; --err-c:#fde3d8;
+  --omi:#b23a8f; --omi-c:#f7ddef; --dud:#8a94a6; --dud-c:#eef1f5;
+  --tinta:#1d2733; --gris:#5b6776; --papel:#fff; --fondo:#1e88d6;
+  --sombra:0 6px 22px rgba(10,50,90,.18);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden}
+body{font-family:Nunito,system-ui,sans-serif;color:var(--tinta);background-color:var(--fondo);
+  background-image:radial-gradient(circle at 6% 6%,#ffd54a 0 38px,transparent 39px),radial-gradient(circle at 96% 94%,#5fb4ee 0 60px,transparent 61px)}
+button{font-family:inherit;cursor:pointer;border:0}
+.pantalla{position:absolute;inset:0;display:none;padding:10px;justify-content:center;align-items:center}
+.pantalla.activa{display:flex}
+.hoja{background:var(--papel);border-radius:22px;box-shadow:var(--sombra);width:min(1100px,100%);height:100%;
+  display:flex;flex-direction:column;overflow:hidden;position:relative}
+.btn{background:var(--azul);color:#fff;font-weight:800;font-size:clamp(15px,2.2vh,19px);padding:.65em 1.3em;border-radius:14px;
+  box-shadow:0 4px 0 var(--azul-o);transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--azul-o)}
+.btn.sec{background:#fff;color:var(--azul-o);border:2px solid var(--azul);box-shadow:0 3px 0 #b8d8f2}
+.btn.verde{background:var(--ok);box-shadow:0 4px 0 #1f6e3c}
+.btn.rojo{background:var(--err);box-shadow:0 4px 0 #a8421f}
+.btn:disabled{opacity:.45;pointer-events:none}
+.fila{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* ---------- PORTADA ---------- */
+#portada .hoja{justify-content:center;align-items:center;text-align:center;padding:3vh 4vw;gap:1.6vh}
+#portada h1{font-weight:900;font-size:clamp(26px,5.4vh,50px);margin:0;color:var(--azul-o);line-height:1.05}
+#portada .sub{margin:0;color:var(--gris);font-size:clamp(14px,2.3vh,20px)}
+#portada svg.ilus{height:34vh;max-width:90%}
+.foto-texto{display:none;border-radius:18px;box-shadow:0 4px 14px rgba(0,0,0,.18);object-fit:cover}
+#portada .foto-texto{height:36vh;max-width:90%;aspect-ratio:4/3}
+.prac-cab{display:flex;gap:16px;align-items:center}
+.prac-cab .foto-texto{height:22vh;flex:none;aspect-ratio:4/3}
+.ae-ilus img{height:clamp(90px,24vh,190px);border-radius:16px;display:none}
+.firma{display:flex;align-items:center;gap:12px;text-align:left}
+.firma img,.firma .sinfoto{width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid var(--azul);cursor:zoom-in;flex:none}
+.firma .sinfoto{display:grid;place-items:center;font-size:44px;background:var(--azul-c)}
+.firma small{display:block;color:var(--gris);font-size:13px;line-height:1.35}
+.firma b{font-size:14px}
+.aviso{font-size:13.5px;color:#8a4b00;background:#fff4dc;border:1px solid #f1c36a;border-radius:10px;padding:6px 12px;max-width:640px}
+
+/* ---------- CONFIGURACIÓN ---------- */
+#config .hoja{padding:3vh 4vw;overflow:auto;gap:1.4vh}
+#config h2{margin:0;color:var(--azul-o);font-size:clamp(20px,3.6vh,30px)}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+.campo label{display:block;font-weight:800;font-size:14px;color:var(--gris);margin-bottom:4px}
+.campo input,.campo select{width:100%;font:inherit;font-size:17px;padding:.5em .7em;border:2px solid #cfe0ee;border-radius:12px;background:#fbfdff}
+.modos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modo{border:3px solid #d8e6f2;border-radius:16px;padding:12px 14px;text-align:left;background:#fbfdff}
+.modo.sel{border-color:var(--azul);background:var(--azul-c)}
+.modo b{font-size:17px;display:block}.modo span{font-size:13.5px;color:var(--gris)}
+.opcs{display:flex;flex-direction:column;gap:6px;font-size:15px}
+.opcs label{display:flex;gap:8px;align-items:center}
+.opcs input{width:20px;height:20px}
+#sobre{background:#faf8ff;border:2px solid #e4dcf3;border-radius:14px;padding:8px 14px;font-size:14.5px}
+#sobre summary{font-weight:800;color:#6a52b3;cursor:pointer}
+#sobre p{margin:.5em 0;line-height:1.45}#sobre small{color:var(--gris);font-weight:700}
+#fichaDesc{color:var(--azul-o);font-weight:700}
+.ficha-autor{font-family:Nunito,sans-serif;font-size:.6em;color:var(--gris);font-weight:700;font-style:italic;text-align:right;margin:1em 3.4em 0 0}
+.ficha-fuente{font-family:Nunito,sans-serif;font-size:.55em;color:var(--gris);font-weight:700;margin:-.5em 0 .8em}
+#pruebaMic{border:2px dashed #b8d8f2;border-radius:14px;padding:10px 14px;font-size:15px;min-height:52px;color:var(--gris)}
+#pruebaMic b{color:var(--tinta)}
+
+/* ---------- LECTURA / REVISIÓN (ficha) ---------- */
+.barra{display:flex;align-items:center;gap:12px;padding:8px 14px;border-bottom:3px solid var(--lila);background:#faf8ff;flex:none;flex-wrap:wrap}
+.barra .tit{font-weight:900;font-size:clamp(16px,2.8vh,24px);margin-right:auto;line-height:1.1}
+.barra .tit small{display:block;font-size:12.5px;color:var(--gris);font-weight:700}
+.reloj{position:relative;width:62px;height:62px;flex:none}
+.reloj svg{transform:rotate(-90deg)}
+.reloj span{position:absolute;inset:0;display:grid;place-items:center;font-weight:900;font-size:20px}
+.reloj.fin circle.pr{stroke:var(--err)}
+.nivel{width:70px;height:10px;border-radius:6px;background:#e4ecf3;overflow:hidden;display:none}
+.nivel i{display:block;height:100%;width:0;background:var(--ok);transition:width .08s}
+.escucha{font-size:13px;color:var(--gris);display:flex;align-items:center;gap:6px}
+.escucha .pt{width:10px;height:10px;border-radius:50%;background:#bbb}
+.escucha.on .pt{background:#e53935;animation:lat 1s infinite}
+@keyframes lat{50%{opacity:.25}}
+
+.texto{flex:1;overflow-y:auto;padding:2vh 3vw 20vh;position:relative;scroll-behavior:smooth}
+.ficha-tit{font-family:Andika,sans-serif;font-weight:700;margin:0 0 .4em}
+.reng{display:flex;align-items:center;gap:14px;font-family:Andika,sans-serif}
+.reng.par{margin-top:.8em}
+.reng .ln{flex:1;line-height:1.75}
+.reng .cnt{flex:none;width:2.6em;text-align:center;border:1.5px solid #333;font-size:.72em;line-height:1.9;font-family:Nunito,sans-serif;font-weight:700}
+.w{border-radius:6px;padding:0 .08em;margin:0 -.02em;position:relative;transition:background .2s}
+.oculto .reng .ln,.oculto .ficha-tit{filter:blur(9px);user-select:none}
+/* marcas */
+.marcas .w.ok{background:var(--ok-c)}
+.marcas .w.error{background:var(--err-c);box-shadow:inset 0 -3px 0 var(--err)}
+.marcas .w.omitida{background:var(--omi-c);text-decoration:line-through;text-decoration-color:var(--omi)}
+.marcas .w.dudosa{background:var(--dud-c);box-shadow:inset 0 -3px 0 var(--dud)}
+.marcas .w.fuera{opacity:.35}
+.marcas .w.ultima{outline:3px solid var(--azul);outline-offset:1px;animation:tit 1.1s infinite}
+@keyframes tit{50%{outline-color:transparent}}
+.marcas .w.pausa::before{content:"‖";color:#7b61c9;font-weight:900;margin-right:.12em}
+.marcas .w[data-oyo]::after{content:"«" attr(data-oyo) "»";position:absolute;left:50%;bottom:88%;transform:translateX(-50%);
+  font-size:max(11px,.6em);line-height:1.1;background:#fff;color:var(--err);border:1px solid var(--err);border-radius:6px;padding:1px 4px;white-space:nowrap;font-family:Nunito}
+.manual-live .w{cursor:pointer}
+.manual-live .w.error{background:var(--err-c);box-shadow:inset 0 -3px 0 var(--err)}
+.revision .w{cursor:pointer}
+
+.capa{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(255,255,255,.55);z-index:5;text-align:center;padding:20px}
+.capa.ver{display:flex}
+.capa .num{font-size:22vh;font-weight:900;color:var(--azul);line-height:1;animation:pop .9s ease-out}
+@keyframes pop{from{transform:scale(1.8);opacity:0}}
+.capa .tiempo{font-size:9vh;font-weight:900;color:var(--err)}
+.capa p{margin:0;font-size:18px;max-width:560px;font-weight:700}
+
+/* ---------- REVISIÓN ---------- */
+.rev{flex:1;display:grid;grid-template-columns:1fr 290px;min-height:0}
+.panel{border-left:3px solid var(--lila);background:#faf8ff;padding:12px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kpi{background:#fff;border-radius:12px;padding:8px 10px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.kpi b{display:block;font-size:26px;line-height:1.1}
+.kpi span{font-size:12px;color:var(--gris);font-weight:700}
+.kpi.grande{grid-column:span 2;background:var(--azul);color:#fff}
+.kpi.grande span{color:#dcefff}.kpi.grande b{font-size:34px}
+.leyenda{font-size:13px;display:grid;gap:4px}
+.leyenda i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px}
+.ayuda{font-size:13px;color:var(--gris);line-height:1.35;background:#fff;border-radius:10px;padding:8px}
+.panel audio{width:100%}
+.btn.modoUlt.on{background:var(--azul-o);outline:3px solid #ffd54a}
+
+/* ---------- PLANILLA / CIERRE ---------- */
+#cierre .hoja{padding:2.5vh 3vw;gap:1.4vh}
+#cierre h2{margin:0;color:var(--azul-o);font-size:clamp(20px,3.6vh,30px)}
+.tabla{flex:1;overflow:auto;border:2px solid #e2ecf5;border-radius:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:7px 9px;text-align:center;border-bottom:1px solid #eef3f8;white-space:nowrap}
+th{position:sticky;top:0;background:var(--azul-c);color:var(--azul-o);font-size:13px}
+td:first-child,th:first-child{text-align:left}
+.vacio{padding:30px;text-align:center;color:var(--gris)}
+
+/* lightbox foto */
+/* ---------- PRÁCTICA ---------- */
+#practica .hoja,#logro .hoja{padding:2.5vh 3vw;gap:1.4vh}
+#practica h2{margin:0;color:var(--ok);font-size:clamp(20px,3.6vh,30px)}
+.intro{margin:0;font-size:clamp(15px,2.3vh,19px)}
+.progreso{flex:1;min-height:150px;border:2px solid #e2ecf5;border-radius:14px;padding:8px 12px;display:flex;flex-direction:column}
+.prog-tit{font-weight:800;color:var(--azul-o);font-size:15px}
+.prog-tit small{color:var(--gris);font-weight:700}
+.grafico{flex:1;position:relative;min-height:110px}
+.grafico svg{position:absolute;inset:0;width:100%;height:100%}
+.grafico .vacio{padding:18px}
+.gtip{position:absolute;background:var(--tinta);color:#fff;font-size:13px;padding:4px 8px;border-radius:8px;pointer-events:none;white-space:nowrap;transform:translate(-50%,-110%);display:none;z-index:3}
+.texto.practica-live .w.ok,.texto.practica-live .w.dudosa{background:var(--ok-c)}
+.texto.practica-live .w.error{background:var(--err-c);box-shadow:inset 0 -3px 0 var(--err)}
+.texto.practica-live .w.sig{box-shadow:inset 0 -4px 0 var(--azul);animation:tit 1.1s infinite}
+.record{font-weight:800;color:#8a5a00;background:#fff4dc;border-radius:10px;padding:4px 10px;font-size:14px}
+#confeti{position:absolute;inset:0;pointer-events:none;z-index:4;width:100%;height:100%}
+.logro-cab{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.estrellas{font-size:clamp(34px,7vh,56px);letter-spacing:4px}
+.estrellas .off{filter:grayscale(1);opacity:.3}
+.logro-num{font-size:clamp(18px,3vh,26px);font-weight:800}
+.logro-num b{font-size:clamp(40px,8vh,68px);color:var(--azul-o);line-height:1}
+.logro-msj{font-size:clamp(15px,2.3vh,19px);color:var(--ok);font-weight:800}
+.logro-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.logro-kpis .kpi{background:#f6f9fc}
+.logro-cuerpo{flex:1;display:grid;grid-template-columns:1fr 1.4fr;gap:12px;min-height:0}
+.practicar{border:2px solid #e2ecf5;border-radius:14px;padding:8px 12px;overflow:auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{font-family:Andika,sans-serif;font-size:19px;background:var(--err-c);border:2px solid var(--err);color:var(--tinta);border-radius:12px;padding:4px 12px}
+.chip.hablando{background:#ffe2a8}
+/* lectura modelo */
+.reng.suena{background:#fff4c2;border-radius:8px;box-shadow:0 0 0 4px #fff4c2}
+.modbar{width:120px;height:8px;border-radius:5px;background:#e4ecf3;overflow:hidden}.modbar i{display:block;height:100%;width:0;background:var(--azul)}
+.barra.pie{border-bottom:0;border-top:3px solid var(--lila);justify-content:flex-end}
+.modayuda{margin-right:auto;font-size:14px;color:var(--gris);font-weight:700}
+/* autoevaluación */
+#autoeval .hoja{padding:2.5vh 3vw;gap:1.6vh}
+.ae-cab{display:flex;align-items:baseline;gap:14px}.ae-cab h2{margin:0;color:var(--azul-o);font-size:clamp(20px,3.6vh,30px)}
+#aePaso{font-weight:800;color:var(--gris)}
+.ae-centro{flex:1;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center}
+.ae-ilus{font-size:clamp(60px,16vh,130px)}
+.ae-item{font-size:clamp(20px,4.2vh,34px);font-weight:800;max-width:560px;border:3px solid var(--azul);border-radius:18px;padding:.6em .9em;background:var(--azul-c)}
+.parpadeo{animation:borde 1.4s infinite}@keyframes borde{50%{border-color:#b8d8f2}}
+.ae-opc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.ae-opc .btn{font-size:clamp(16px,2.8vh,22px);padding:.8em .4em}
+.lc-res{font-size:14.5px;font-weight:700;color:var(--gris)}
+.lc-res b{color:var(--tinta)}
+.lcdoc{background:#fff;border-radius:10px;padding:6px 8px;font-size:13px}
+.lcdoc summary{font-weight:800;cursor:pointer;color:#6a52b3}
+.lcd{margin:6px 0 2px;line-height:1.25}.lcd .b3{display:flex;gap:4px;margin-top:3px}
+.lcd button{flex:1;font-size:12px;padding:3px 0;border-radius:8px;background:#eef3f8;font-weight:800;color:var(--gris)}
+.lcd button.on[data-r="si"]{background:var(--ok);color:#fff}.lcd button.on[data-r="casi"]{background:#e6a100;color:#fff}.lcd button.on[data-r="no"]{background:var(--err);color:#fff}
+@media (max-width:760px){
+  .modayuda{display:none}
+  #autoeval .hoja{overflow-y:auto}
+  .ae-centro{flex:1 0 auto;gap:10px}
+  .ae-ilus{font-size:clamp(44px,10vh,80px)}
+  .ae-item{font-size:clamp(18px,3.2vh,24px)}
+  .ae-opc{gap:8px}
+  .ae-opc .btn{font-size:15px;padding:.7em .2em;line-height:1.2}
+}
+@media (max-width:760px){.logro-kpis{grid-template-columns:1fr 1fr}.logro-cuerpo{grid-template-columns:1fr;flex:none}.practicar{min-height:96px}.logro-cuerpo .progreso{min-height:170px}#practica .hoja,#logro .hoja{overflow:auto}}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;z-index:50;align-items:center;justify-content:center;flex-direction:column;overflow:hidden}
+#lb.ver{display:flex}
+#lb img{max-width:92vw;max-height:78vh;transition:transform .3s;cursor:zoom-in;border-radius:10px}
+#lb p{color:#fff;font-size:22px;font-weight:800;margin:14px 0 0}
+#lb button{position:absolute;top:12px;right:14px;background:#fff;border-radius:50%;width:44px;height:44px;font-size:22px}
+
+@media (max-width:760px){
+  .rev{grid-template-columns:1fr;grid-template-rows:1fr auto}
+  .panel{border-left:0;border-top:3px solid var(--lila);max-height:42vh}
+  .campos,.modos{grid-template-columns:1fr}
+  .firma img,.firma .sinfoto{width:72px;height:72px}
+  #revision .barra .btn{font-size:14px;padding:.5em .8em}
+  #revision .barra .tit{flex-basis:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<section id="portada" class="pantalla activa"><div class="hoja">
+  <img class="foto-texto" id="imgPortada" alt="">
+  <svg class="ilus" viewBox="0 0 420 260" aria-hidden="true">
+    <ellipse cx="210" cy="238" rx="170" ry="14" fill="#e6f3fd"/>
+    <path d="M60 200 L200 222 L200 70 L60 50 Z" fill="#fff" stroke="#1e88d6" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M340 200 L200 222 L200 70 L340 50 Z" fill="#fff" stroke="#1e88d6" stroke-width="5" stroke-linejoin="round"/>
+    <g stroke="#b9a7d9" stroke-width="5" stroke-linecap="round">
+      <path d="M82 82 L180 96"/><path d="M82 106 L180 120"/><path d="M82 130 L160 141"/><path d="M82 154 L180 168"/>
+      <path d="M220 96 L318 82"/><path d="M220 120 L318 106"/><path d="M220 144 L300 132"/><path d="M220 168 L318 154"/>
+    </g>
+    <g fill="none" stroke="#2e9d57" stroke-width="6" stroke-linecap="round">
+      <path d="M150 40 q60 -38 120 0"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></path>
+      <path d="M170 22 q40 -24 80 0"><animate attributeName="opacity" values=".2;1;.2" dur="1.6s" repeatCount="indefinite"/></path>
+    </g>
+    <circle cx="352" cy="176" r="46" fill="#fff" stroke="#e0663a" stroke-width="6"/>
+    <rect x="344" y="118" width="16" height="12" rx="3" fill="#e0663a"/>
+    <path d="M352 176 L352 146" stroke="#1d2733" stroke-width="6" stroke-linecap="round">
+      <animateTransform attributeName="transform" type="rotate" from="0 352 176" to="360 352 176" dur="6s" repeatCount="indefinite"/></path>
+    <circle cx="352" cy="176" r="6" fill="#1d2733"/>
+    <text x="352" y="245" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="20" fill="#e0663a">1 min</text>
+  </svg>
+  <h1 id="tituloApp">Censo de Fluidez Lectora</h1>
+  <p class="sub" id="subApp"></p>
+  <div id="avisoNav" class="aviso" style="display:none"></div>
+  <div class="fila" style="justify-content:center;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <button class="btn" id="btnComenzar">📋 Tomar el censo <small style="font-weight:700;opacity:.85">(docente)</small></button>
+      <button class="btn verde" id="btnPracticar">🏋️ Practicar lectura</button>
+    </div>
+    <div class="firma" data-firma></div>
+  </div>
+</div></section>
+
+<!-- CONFIGURACIÓN -->
+<section id="config" class="pantalla"><div class="hoja">
+  <h2>📋 Datos de la toma</h2>
+  <div class="campos">
+    <div class="campo"><label for="inNombre">Estudiante</label><input id="inNombre" placeholder="Nombre y apellido" autocomplete="off"></div>
+    <div class="campo"><label for="inCurso">Grado y división</label><input id="inCurso" placeholder="Ej.: 4° B" autocomplete="off"></div>
+    <div class="campo" style="grid-column:1/-1"><label for="selFicha">Ficha de lectura</label><select id="selFicha"></select></div>
+  </div>
+  <div class="modos">
+    <button class="modo sel" data-modo="voz"><b>🎙️ Asistido por voz</b><span>El programa escucha, cuenta y marca. Vos validás al final.</span></button>
+    <button class="modo" data-modo="manual"><b>✋ Manual (sin micrófono)</b><span>Tocás las palabras mal leídas mientras lee. Funciona sin internet.</span></button>
+  </div>
+  <div class="opcs" id="opcsVoz">
+    <label><input type="checkbox" id="chkGrabar"> Grabar el audio de la lectura para volver a escucharlo</label>
+    <label><input type="checkbox" id="chkMarcas"> Mostrar las marcas de colores mientras lee (por defecto, ocultas)</label>
+  </div>
+  <details id="sobre"><summary>📖 Sobre esta propuesta</summary><p id="sobreTxt"></p><small id="sobreFuente"></small><p id="fichaDesc"></p></details>
+  <div id="pruebaMic">Antes de la primera toma, probá el micrófono en el lugar donde vas a trabajar.</div>
+  <div class="fila">
+    <button class="btn sec" id="btnProbar">🎤 Probar micrófono</button>
+    <button class="btn verde" id="btnPreparar">Preparar lectura ▶</button>
+    <button class="btn sec" id="btnVerPlanilla">📊 Planilla</button>
+  </div>
+</div></section>
+
+<!-- LECTURA -->
+<section id="lectura" class="pantalla"><div class="hoja">
+  <div class="barra">
+    <div class="tit" id="lecTit"></div>
+    <div class="escucha" id="escucha"><span class="pt"></span><span id="escuchaTxt">en espera</span></div>
+    <div class="nivel" id="nivel"><i></i></div>
+    <div class="reloj" id="reloj"><svg width="62" height="62"><circle cx="31" cy="31" r="26" fill="none" stroke="#e4ecf3" stroke-width="7"/>
+      <circle class="pr" cx="31" cy="31" r="26" fill="none" stroke="#1e88d6" stroke-width="7" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="0"/></svg><span id="relojTxt">60</span></div>
+    <button class="btn rojo" id="btnDetener" disabled>■ Detener</button>
+  </div>
+  <div class="texto oculto" id="texto"></div>
+  <div class="capa ver" id="capaInicio">
+    <p id="capaInicioTxt">Cuando el estudiante esté listo, tocá <b>Empezar</b>. El texto aparece después de la cuenta regresiva.</p>
+    <div class="fila"><button class="btn verde" id="btnEmpezar" style="font-size:24px">▶ Empezar</button><button class="btn sec" id="btnVolverCfg">← Volver</button></div>
+  </div>
+  <div class="capa" id="capaCuenta"><div class="num" id="cuentaNum">3</div></div>
+  <div class="capa" id="capaFin"><div class="tiempo">¡Tiempo!</div><p>Muy bien. Ya podés dejar de leer.</p></div>
+</div></section>
+
+<!-- PRÁCTICA: inicio -->
+<section id="practica" class="pantalla"><div class="hoja">
+  <h2>🏋️ Practicar lectura</h2>
+  <div class="prac-cab"><img class="foto-texto" id="imgPractica" alt=""><p class="intro">Leé en voz alta durante <b>1 minuto</b>. Las palabras se van a pintar de verde a medida que las leés bien. ¡Cada día podés superar tu marca!</p></div>
+  <div class="campos">
+    <div class="campo"><label for="pNombre">Tu nombre</label><input id="pNombre" placeholder="Escribí tu nombre" autocomplete="off"></div>
+    <div class="campo"><label for="pFicha">Texto para leer</label><select id="pFicha"></select></div>
+  </div>
+  <div class="progreso"><div class="prog-tit" id="pProgTit">Mi progreso</div><div class="grafico" id="pGrafico"></div></div>
+  <div class="fila">
+    <button class="btn" id="btnModelo">🔊 Escuchá cómo se lee</button>
+    <button class="btn verde" id="btnPracEmpezar" style="font-size:20px">🎙️ ¡A leer!</button>
+    <button class="btn sec" id="btnPracInicio">⌂ Inicio</button>
+  </div>
+</div></section>
+
+<!-- PRÁCTICA: lectura modelo -->
+<section id="modelo" class="pantalla"><div class="hoja">
+  <div class="barra">
+    <div class="tit" id="modTit"></div>
+    <button class="btn" id="btnModPlay">▶ Escuchar</button>
+    <div class="modbar"><i id="modProg"></i></div>
+  </div>
+  <div class="texto" id="textoModelo"></div>
+  <div class="barra pie">
+    <span class="modayuda">Seguí el renglón resaltado con la vista mientras escuchás.</span>
+    <button class="btn sec" id="btnModVolver">← Volver</button>
+    <button class="btn verde" id="btnModLeer">🎙️ Ya escuché, ¡a leer!</button>
+  </div>
+  <audio id="audioModelo" preload="auto"></audio>
+</div></section>
+
+<!-- PRÁCTICA: lista de control (autoevaluación) -->
+<section id="autoeval" class="pantalla"><div class="hoja">
+  <div class="ae-cab"><h2>📝 Lista de control</h2><span id="aePaso"></span></div>
+  <p class="intro">Pensá en cómo leíste recién y respondé con sinceridad.</p>
+  <div class="ae-centro">
+    <div class="ae-ilus" aria-hidden="true"><img id="imgLectora" alt=""><span id="emojiLectora">🧒📖</span></div>
+    <div class="ae-item parpadeo" id="aeItem"></div>
+    <button class="btn sec" id="aeOir" title="Escuchar la pregunta">🔊</button>
+  </div>
+  <div class="ae-opc">
+    <button class="btn verde" data-r="si">✅ Sí</button>
+    <button class="btn" data-r="casi" style="background:#e6a100;box-shadow:0 4px 0 #a87400">🟡 Más o menos</button>
+    <button class="btn rojo" data-r="no">⏳ Todavía no</button>
+  </div>
+</div></section>
+
+<!-- PRÁCTICA: resultado -->
+<section id="logro" class="pantalla"><div class="hoja">
+  <canvas id="confeti"></canvas>
+  <div class="logro-cab">
+    <div class="estrellas" id="lEstrellas"></div>
+    <div><div class="logro-num"><b id="lNum">0</b> palabras en 1 minuto</div><div class="logro-msj" id="lMsj"></div></div>
+  </div>
+  <div class="logro-kpis">
+    <div class="kpi"><span>✅ Bien leídas</span><b id="lOk">0</b></div>
+    <div class="kpi"><span>❌ Para mejorar</span><b id="lErr">0</b></div>
+    <div class="kpi"><span>🎯 Precisión</span><b id="lPrec">0%</b></div>
+    <div class="kpi"><span>🏆 Tu récord</span><b id="lRec">0</b></div>
+  </div>
+  <div class="lc-res" id="lLista"></div>
+  <div class="logro-cuerpo">
+    <div class="practicar"><div class="prog-tit">🔊 Palabras para practicar <small>(tocalas para escucharlas)</small></div><div class="chips" id="lChips"></div></div>
+    <div class="progreso"><div class="prog-tit">📈 Mi progreso con este texto</div><div class="grafico" id="lGrafico"></div></div>
+  </div>
+  <div class="fila">
+    <button class="btn verde" id="btnPracOtra">↺ Leer otra vez</button>
+    <button class="btn sec" id="btnPracCambiar">📚 Cambiar texto</button>
+    <div style="margin-left:auto" class="firma" data-firma></div>
+  </div>
+</div></section>
+
+<!-- REVISIÓN -->
+<section id="revision" class="pantalla"><div class="hoja">
+  <div class="barra"><div class="tit" id="revTit"></div>
+    <button class="btn sec modoUlt" id="btnUltima">📍 Última palabra</button>
+    <button class="btn verde" id="btnGuardar">💾 Guardar</button></div>
+  <div class="rev">
+    <div class="texto marcas revision" id="textoRev"></div>
+    <aside class="panel">
+      <div class="kpis">
+        <div class="kpi grande"><span>Palabras leídas en el minuto</span><b id="kLeidas">0</b></div>
+        <div class="kpi"><span>Correctas (PCPM)</span><b id="kCorr">0</b></div>
+        <div class="kpi"><span>Errores</span><b id="kErr">0</b></div>
+        <div class="kpi"><span>Precisión</span><b id="kPrec">0%</b></div>
+        <div class="kpi"><span>Pausas largas</span><b id="kPausas">0</b></div>
+      </div>
+      <div class="ayuda" id="kExtra"></div>
+      <div class="leyenda">
+        <div><i style="background:var(--ok-c);border:1px solid var(--ok)"></i>Leída bien</div>
+        <div><i style="background:var(--err-c);border:1px solid var(--err)"></i>Error (sustitución / mal leída)</div>
+        <div><i style="background:var(--omi-c);border:1px solid var(--omi)"></i>Omitida (salteada)</div>
+        <div><i style="background:var(--dud-c);border:1px solid var(--dud)"></i>A confirmar (el micrófono no la captó)</div>
+        <div><b style="color:#7b61c9">‖</b> Pausa larga antes de la palabra</div>
+      </div>
+      <div class="ayuda">Tocá una palabra para cambiar su marca: bien → error → omitida. Con <b>📍</b> corregís hasta dónde llegó en el minuto.</div>
+      <details class="lcdoc" id="lcDoc"><summary>📝 Lista de control (docente, opcional)</summary><div id="lcDocItems"></div></details>
+      <audio id="audioRev" controls style="display:none"></audio>
+      <button class="btn sec" id="btnRepetir">↺ Repetir la toma</button>
+    </aside>
+  </div>
+</div></section>
+
+<!-- PLANILLA / CIERRE -->
+<section id="cierre" class="pantalla"><div class="hoja">
+  <h2>📊 Planilla de resultados</h2>
+  <div class="tabla" id="tabla"></div>
+  <div class="fila">
+    <button class="btn verde" id="btnNueva">➕ Nueva toma</button>
+    <button class="btn sec" id="btnCSV">⬇️ Descargar planilla (Excel/CSV)</button>
+    <button class="btn sec" id="btnBorrar">🗑️ Vaciar planilla</button>
+    <div style="margin-left:auto" class="firma" data-firma></div>
+  </div>
+</div></section>
+
+<div id="lb"><button aria-label="Cerrar">✕</button><img alt="Profe Gustavo Aguilar"><p>Menos prisa, más vida 🧉🫂</p></div>
+
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+</body>
+</html>
