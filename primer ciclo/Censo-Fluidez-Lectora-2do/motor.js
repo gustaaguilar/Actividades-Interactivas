@@ -148,8 +148,9 @@ function unirResultados(textos) {
 function textosDe(results) { return Array.from(results).map(r => r[0] && r[0].transcript); }
 
 const API = { norm, sim, lev, alinear, metricas, unirResultados };
-API.archivoPalabra = w => String(w).toLowerCase().replace(/[^a-záéíóúüñ]/g, "")
+API.archivoPalabra = w => { const n = String(w).toLowerCase().replace(/[^a-záéíóúüñ]/g, "")
   .replace(/[áéíóú]/g, c => ({ á: "a", é: "e", í: "i", ó: "o", ú: "u" })[c] + "1").replace(/ü/g, "u2").replace(/ñ/g, "n1");
+  return /^(con|prn|aux|nul|com[0-9]|lpt[0-9])$/.test(n) ? n + "_" : n; };
 if (typeof module !== "undefined" && module.exports) { module.exports = API; }
 global.QSTFluidez = API;
 if (typeof document === "undefined") return;
@@ -732,9 +733,12 @@ function mostrarLogro() {
 
 /* ---------- audio: MP3 pregrabados (gTTS) con respaldo en la voz del navegador ---------- */
 // nombre de archivo de una palabra: minúsculas, sin signos; tildes y ñ se marcan con "1" (á→a1, ñ→n1)
+// Windows no permite archivos llamados CON, PRN, AUX, NUL, COM1-9 o LPT1-9 (aunque tengan extensión): se les agrega "_"
+const RESERVADOS_WIN = /^(con|prn|aux|nul|com[0-9]|lpt[0-9])$/;
 function archivoPalabra(w) {
-  return String(w).toLowerCase().replace(/[^a-záéíóúüñ]/g, "")
+  const n = String(w).toLowerCase().replace(/[^a-záéíóúüñ]/g, "")
     .replace(/[áéíóú]/g, c => ({ á: "a", é: "e", í: "i", ó: "o", ú: "u" })[c] + "1").replace(/ü/g, "u2").replace(/ñ/g, "n1");
+  return RESERVADOS_WIN.test(n) ? n + "_" : n;
 }
 const repro = new Audio(); let reproFin = null;
 function reproducir(src, txtRespaldo, el, alTerminar) {
