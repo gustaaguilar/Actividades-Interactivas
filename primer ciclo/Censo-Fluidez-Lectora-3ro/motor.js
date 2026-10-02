@@ -1,6 +1,7 @@
 /* motor.js — Censo de Fluidez Lectora · QueSepanTodos.com
    Reconocimiento de voz (Web Speech API, Chrome) + alineación con el texto de la ficha
-   + revisión docente + planilla. */
+   + revisión docente + planilla. 
+   © 2026 Gustavo Aguilar · QueSepanTodos.com · Licencia CC BY-NC-ND 4.0 (https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es) */
 (function (global) {
 "use strict";
 
@@ -227,7 +228,7 @@ let recPrueba = null;
 $("#btnProbar").onclick = () => {
   const box = $("#pruebaMic");
   if (recPrueba) { recPrueba.stop(); return; }
-  recPrueba = new SR(); recPrueba.lang = META.idioma; recPrueba.continuous = true; recPrueba.interimResults = true;
+  recPrueba = new (window.__SRTutorial || SR)(); recPrueba.lang = META.idioma; recPrueba.continuous = true; recPrueba.interimResults = true;
   box.innerHTML = "🎙️ Escuchando… decí en voz alta: <b>«Las cuevas son lugares oscuros»</b>";
   $("#btnProbar").textContent = "⏹ Terminar prueba";
   let txt = "";
@@ -296,7 +297,8 @@ function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<":
 function renderTexto(cont) {
   let h = `<h3 class="ficha-tit">${esc(S.ficha.titulo)}</h3>` + (S.ficha.fuente ? `<div class="ficha-fuente">${esc(S.ficha.fuente)}</div>` : ""), i = 0;
   S.ficha.renglones.forEach(r => {
-    const ws = r.t.split(/\s+/).filter(Boolean).map(w => `<span class="w" data-i="${i++}">${esc(w)}</span>`).join(" ");
+    // viñetas "•" pegadas a la palabra (la DGE no las cuenta): se muestran separadas, la palabra sigue siendo una sola
+    const ws = r.t.split(/\s+/).filter(Boolean).map(w => (w[0] === "•" ? '<span class="vin">•</span>' : "") + `<span class="w" data-i="${i++}">${esc(w.replace(/^•/, ""))}</span>`).join(" ");
     h += `<div class="reng${r.p ? " par" : ""}"><span class="ln"${S.ficha.espaciado ? ` style="line-height:${S.ficha.espaciado}"` : ""}>${ws}</span><span class="cnt">${r.n}</span></div>`;
   });
   if (S.ficha.autor) h += `<div class="ficha-autor">${esc(S.ficha.autor)}</div>`;
@@ -379,7 +381,7 @@ async function terminar(manual) {
 function iniciarRec() {
   S.recActivo = true; S.finales = []; S.interino = "";
   const nuevo = () => {
-    const r = new SR(); r.lang = META.idioma; r.continuous = true; r.interimResults = true; r.maxAlternatives = 1;
+    const r = new (window.__SRTutorial || SR)(); r.lang = META.idioma; r.continuous = true; r.interimResults = true; r.maxAlternatives = 1;
     r.onresult = e => {
       // texto completo de esta sesión del reconocedor (finales + provisorios), sin duplicados
       S.interino = unirResultados(textosDe(e.results));
@@ -579,16 +581,28 @@ function abrirPlanilla() {
     S.planilla.slice().reverse().map(r => `<tr><td>${esc(r.nombre)}</td><td>${esc(r.curso)}</td><td>${esc(r.ficha)}</td><td><b>${r.leidas}</b>${r.ppm !== r.leidas ? ` <small>(${r.ppm}/min)</small>` : ""}</td><td>${r.correctas}</td><td>${r.errores}</td><td>${r.precision}%</td><td>${r.pausas}</td><td>${esc(r.listaTxt || "")}</td><td>${r.modo}</td><td>${r.fecha}</td></tr>`).join("") + `</tbody></table>`;
   mostrar("cierre");
 }
-$("#btnCSV").onclick = () => {
+function csvPlanilla() {
   const LC = META.listaControl || [], NOM = { si: "Sí", casi: "Más o menos", no: "Todavía no" };
   const cab = ["Fecha", "Estudiante", "Grado", "Ficha", "Modo", "Segundos", "Palabras leidas", "Palabras correctas", "Errores", "Omitidas", "Precision %", "Ritmo equivalente ppm", "Pausas largas", "Repeticiones", "Lista de control"].concat(LC.map(it => it.txt));
   const filas = S.planilla.map(r => [r.fecha, r.nombre, r.curso, r.ficha, r.modo, r.seg, r.leidas, r.correctas, r.errores, r.omitidas, r.precision, r.ppm, r.pausas, r.rep, r.listaTxt || ""]
     .concat(LC.map(it => (r.lista && NOM[r.lista[it.id]]) || "")));
-  const csv = "﻿" + [cab, ...filas].map(f => f.map(v => `"${String(v).replace(/"/g, '""')}"`).join(";")).join("\r\n");
+  return "﻿" + [cab, ...filas].map(f => f.map(v => `"${String(v).replace(/"/g, '""')}"`).join(";")).join("\r\n");
+}
+function nombreCSV() { return "censo_fluidez_" + (FICHAS[0].grado || "").replace(/\s+/g, "_") + "_" + new Date().toISOString().slice(0, 10) + ".csv"; }
+$("#btnCSV").onclick = () => {
   const a = document.createElement("a");
-  a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
-  a.download = "censo_fluidez_" + new Date().toISOString().slice(0, 10) + ".csv";
+  a.href = URL.createObjectURL(new Blob([csvPlanilla()], { type: "text/csv;charset=utf-8" }));
+  a.download = nombreCSV();
   document.body.appendChild(a); a.click(); a.remove();
+};
+// Compartir la planilla (WhatsApp, correo, Drive…) con el menú de compartir del celular
+$("#btnCompartir").onclick = async () => {
+  const f = new File([csvPlanilla()], nombreCSV(), { type: "text/csv" });
+  try {
+    if (navigator.canShare && navigator.canShare({ files: [f] })) {
+      await navigator.share({ files: [f], title: "Planilla del censo de fluidez lectora", text: "Resultados del censo de fluidez lectora · " + FICHAS[0].grado });
+    } else $("#btnCSV").click(); // sin menú de compartir: se descarga
+  } catch (e) { /* el usuario canceló */ }
 };
 let borrarArmado = false;
 $("#btnBorrar").onclick = () => {
@@ -609,7 +623,7 @@ function recordDe(nombre, fichaId) { return intentosDe(nombre, fichaId).reduce((
 function initPractica() {
   const sel = $("#pFicha");
   sel.innerHTML = FICHAS.map((f, i) => `<option value="${i}">${f.grado} — ${f.titulo}</option>`).join("");
-  sel.onchange = graficoPractica;
+  sel.onchange = () => { graficoPractica(); imagenPractica(); };
   let tmo; $("#pNombre").addEventListener("input", () => { clearTimeout(tmo); tmo = setTimeout(graficoPractica, 300); });
   if (!SR) { $("#btnPracticar").disabled = true; $("#btnPracticar").title = "Necesita Google Chrome (reconocimiento de voz)"; }
 }
@@ -657,7 +671,7 @@ function oirItemAE() {
   const btns = $$(".ae-opc .btn"); btns.forEach(b => (b.disabled = true));
   const habilitar = () => { clearTimeout(tope); btns.forEach(b => (b.disabled = false)); };
   const tope = setTimeout(habilitar, 7000);
-  reproducir(`audio/lc_${it.id}.mp3`, it.txt, null, habilitar);
+  reproducir(`${META.recursos || "audio/"}lc_${it.id}.mp3`, it.txt, null, habilitar);
 }
 $("#aeOir").onclick = oirItemAE;
 $$(".ae-opc .btn").forEach(b => b.onclick = () => {
@@ -758,6 +772,7 @@ function archivoPalabra(w) {
 }
 const repro = new Audio(); let reproFin = null;
 function reproducir(src, txtRespaldo, el, alTerminar) {
+  if (window.__tutMute) { if (alTerminar) setTimeout(alTerminar, 50); return; } // durante el tutorial no se superpone con la narración
   try { repro.pause(); } catch (e) {}
   if (window.speechSynthesis) speechSynthesis.cancel();
   if (reproFin) reproFin(); // cierra el anterior
@@ -853,9 +868,39 @@ window.addEventListener("resize", () => {
 $("#tituloApp").textContent = META.titulo; $("#subApp").textContent = META.subtitulo;
 if (!SR) { const a = $("#avisoNav"); a.style.display = ""; a.textContent = "Este navegador no tiene reconocimiento de voz. Para el modo asistido usá Google Chrome actualizado. El modo manual funciona igual."; }
 else if (location.protocol === "file:") { const a = $("#avisoNav"); a.style.display = ""; a.textContent = "Abierto como archivo local: Chrome puede pedir permiso del micrófono en cada toma. Publicado en la web (https) funciona mejor."; }
-firma(); cargarPlanilla(); initConfig(); initPractica(); imagenes();
+firma(); cargarPlanilla(); initConfig(); initPractica(); imagenes(); creditos();
 // Ilustraciones: la del texto (portada y práctica) y la de un chico leyendo (lista de control).
 // Si el archivo no está, se mantiene el dibujo/emoji de respaldo.
+// la ilustración de la práctica acompaña al texto elegido en el selector
+function imagenPractica() {
+  const img = document.getElementById("imgPractica"), sel = document.getElementById("pFicha");
+  const f = FICHAS[sel ? +sel.value || 0 : 0]; if (!img) return;
+  if (!f || !f.imagen) { img.style.display = "none"; return; }
+  img.onload = () => { img.style.display = "block"; }; img.onerror = () => { img.style.display = "none"; };
+  img.src = f.imagen;
+}
+/* ---------- créditos del material de lectura ---------- */
+function creditos() {
+  const C = META.creditos; if (!C) return;
+  $("#creditosLinea").innerHTML = `📚 Textos, fichas y audios de lectura: <b>${esc(C.plan)}</b> · DGE Mendoza · <a id="verCreditos">Ver créditos</a>`;
+  const textos = FICHAS.map(f => `<li><b>«${esc(f.titulo)}»</b> (${esc(f.grado)})${f.autor ? " — " + esc(f.autor) : ""}</li>`).join("");
+  $("#creditosCuerpo").innerHTML =
+    `<h3>📚 Créditos del material</h3>
+     <h4>Textos, fichas de lectura y audios modelo</h4>
+     <p style="margin:0">${esc(C.programa)} · ${esc(C.plan)}<br>${esc(C.organismo)}<br>Colección «${esc(C.coleccion)}»</p>
+     <ul>${textos}</ul>
+     <h4>Lista de control y texto de presentación</h4>
+     <p style="margin:0">${esc(C.plan)} · DGE Mendoza</p>
+     <p class="nota">Material oficial disponible en: <a href="${C.url}" target="_blank" rel="noopener">${esc(C.url.replace(/^https?:\/\//, ""))}</a><br>
+     El conteo de palabras por renglón respeta el de las fichas originales. Algunas erratas ortográficas se corrigieron en pantalla sin cambiar la cantidad de palabras.</p>
+     <h4>Herramienta interactiva</h4>
+     <p style="margin:0">Diseño, programación, ilustraciones, tutoriales y audios de palabras: Informática Educativa · Profe Gustavo Aguilar · QueSepanTodos.com</p>
+     <p class="nota">Las ilustraciones fueron generadas con inteligencia artificial y los audios de palabras y de narración con síntesis de voz.</p>`;
+  const m = $("#creditos");
+  $("#verCreditos").onclick = () => (m.style.display = "flex");
+  $("#creditosCerrar").onclick = () => (m.style.display = "none");
+  m.addEventListener("click", e => { if (e.target === m) m.style.display = "none"; });
+}
 function imagenes() {
   const f = FICHAS[0];
   const poner = (id, src, alCargar) => {
@@ -865,7 +910,7 @@ function imagenes() {
     img.src = src;
   };
   poner("imgPortada", f.imagen, () => { const svg = document.querySelector("#portada svg.ilus"); if (svg) svg.style.display = "none"; });
-  poner("imgPractica", f.imagen);
+  imagenPractica();
   poner("imgLectora", META.imagenLectora, () => { const e = document.getElementById("emojiLectora"); if (e) e.style.display = "none"; });
 }
 global.QSTFluidezApp = S;
