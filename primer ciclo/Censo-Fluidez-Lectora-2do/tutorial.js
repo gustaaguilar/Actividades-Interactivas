@@ -101,6 +101,15 @@ const css = `
 #tut-menu .op{text-align:left;border:3px solid #d8e6f2;border-radius:16px;padding:12px 14px;background:#fbfdff;cursor:pointer;font:inherit}
 #tut-menu .op b{display:block;font-size:18px;color:#1d2733}#tut-menu .op span{color:#5b6776;font-size:14px}
 #tut-menu .op:hover{border-color:#1e88d6}
+#tut-menu .vids{display:flex;gap:10px;flex-wrap:wrap}
+#tut-menu .vid{flex:1 1 180px;text-align:left;border:3px solid #f3d6d6;border-radius:16px;padding:10px 14px;background:#fffafa;cursor:pointer;font:inherit}
+#tut-menu .vid b{display:block;font-size:16px;color:#1d2733}#tut-menu .vid span{color:#5b6776;font-size:13px}
+#tut-menu .vid:hover{border-color:#e53935}
+#tut-menu h4{margin:4px 0 0;color:#5b6776;font-size:15px}
+#tut-video{position:fixed;inset:0;z-index:100;background:rgba(5,15,25,.85);display:none;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:16px}
+#tut-video .marco{width:min(960px,94vw);aspect-ratio:16/9;max-height:78vh;background:#000;border-radius:12px;overflow:hidden}
+#tut-video iframe{width:100%;height:100%;border:0;display:block}
+#tut-video button{background:#fff;border:0;color:#0d5fa3;font:800 16px Nunito,sans-serif;border-radius:12px;padding:8px 20px;cursor:pointer}
 `;
 function montar() {
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
@@ -110,12 +119,25 @@ function montar() {
     <div id="tut-menu"><div class="caja"><h3>❓ ¿Cómo se usa?</h3><p>Elegí un tutorial. Una mano te muestra cada paso mientras una voz lo explica.</p>
       <button class="op" data-t="docente"><b>📋 Para docentes: tomar el censo</b><span>Datos, modos, lectura, revisión, lista de control, planilla y cómo compartirla · 3 min</span></button>
       <button class="op" data-t="estudiante"><b>🏋️ Para estudiantes: practicar</b><span>Escuchar cómo se lee, leer, lista de control, récord y progreso · 2 min</span></button>
-      <button class="op" data-t="x" style="text-align:center"><b>✕ Cerrar</b></button></div></div>`);
+      <h4>🎬 O miralo en video (YouTube)</h4>
+      <div class="vids"><button class="vid" data-v="6pNZtKvQmdM"><b>▶ Video para docentes</b><span>Tomar el censo · 4:51</span></button>
+        <button class="vid" data-v="p7Q_wTAwxzc"><b>▶ Video para estudiantes</b><span>Practicar lectura · 3:08</span></button></div>
+      <button class="op" data-t="x" style="text-align:center"><b>✕ Cerrar</b></button></div></div>
+    <div id="tut-video"><div class="marco"></div><button type="button">✕ Cerrar video</button></div>`);
   $("#btnTutorial").onclick = () => ($("#tut-menu").style.display = "flex");
   document.querySelectorAll("#tut-menu .op").forEach(b => b.onclick = () => {
     $("#tut-menu").style.display = "none";
     if (b.dataset.t !== "x") iniciar(b.dataset.t);
   });
+  // videos de YouTube: el iframe se crea al abrir y se destruye al cerrar (no queda sonando ni consumiendo datos)
+  document.querySelectorAll("#tut-menu .vid").forEach(b => b.onclick = () => {
+    $("#tut-menu").style.display = "none";
+    $("#tut-video .marco").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.v}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video tutorial"></iframe>`;
+    $("#tut-video").style.display = "flex";
+  });
+  const cerrarVideo = () => { $("#tut-video .marco").innerHTML = ""; $("#tut-video").style.display = "none"; };
+  $("#tut-video button").onclick = cerrarVideo;
+  $("#tut-video").onclick = e => { if (e.target.id === "tut-video") cerrarVideo(); };
   $("#tut-pausa").onclick = () => {
     T.pausado = !T.pausado; $("#tut-pausa").textContent = T.pausado ? "▶ Seguir" : "⏸ Pausa";
     if (T.pausado) T.voz.pause(); else if (T.voz.src && !T.voz.ended && T.hablando) T.voz.play().catch(() => {});
