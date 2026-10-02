@@ -55,7 +55,7 @@ function procesarColaAudio() {
   if (audioReproduciendo || colaAudio.length === 0) return;
   audioReproduciendo = true;
   var item = colaAudio.shift();
-  var audio = new Audio(item.src);
+  var audio = obtenerAudio(item.src);
   estado.audioActual = audio;
 
   var terminado = false;
@@ -264,6 +264,7 @@ function renderPantalla(idx) {
   actualizarBarraProgreso();
   actualizarBotonesNav();
   ajustarSinScroll();
+  precargarAudiosPantalla(idx);
 }
 
 function actualizarBotonesNav() {
@@ -1587,43 +1588,74 @@ function renderMarcarPartes(datos, cont) {
 }
 
 // ------------------------------------------------------------
-// AUTOAJUSTE SIN SCROLL — si el contenido no entra en la pantalla,
-// achica proporcionalmente las imágenes (--k) y, si no alcanza,
-// también un poco la letra (--f), hasta que todo quede visible.
+// AUTOAJUSTE SIN SCROLL (v2, liviano) — si el contenido no entra,
+// achica proporcionalmente las imágenes (--k) y, si no alcanza, un
+// poco la letra (--f). Búsqueda binaria (pocas mediciones) y solo
+// se recalcula al cambiar de pantalla, al cargar una imagen o al
+// rotar la pantalla; durante la pantalla solo puede achicar más.
 // ------------------------------------------------------------
-var _ajustePendiente = false;
-function ajustarSinScroll() {
-  var c = document.getElementById("pantalla-contenedor");
-  if (!c) return;
+var _ajuste = { k: 1, f: 1 };
+function _setKF(k, f) {
   var root = document.documentElement;
-  var k = 1, f = 1, guarda = 0;
   root.style.setProperty("--k", k);
   root.style.setProperty("--f", f);
-  while (c.scrollHeight > c.clientHeight + 1 && guarda++ < 40) {
-    if (k > 0.3) { k = Math.round((k - 0.07) * 100) / 100; }
-    else if (f > 0.74) { f = Math.round((f - 0.04) * 100) / 100; }
-    else break;
-    root.style.setProperty("--k", k);
-    root.style.setProperty("--f", f);
-  }
 }
+function _desborda(c) { return c.scrollHeight > c.clientHeight + 1; }
+function ajustarSinScroll(soloAchicar) {
+  var c = document.getElementById("pantalla-contenedor");
+  if (!c) return;
+  var k = soloAchicar ? _ajuste.k : 1;
+  var f = soloAchicar ? _ajuste.f : 1;
+  _setKF(k, f);
+  if (_desborda(c)) {
+    // 1) achicar imágenes: búsqueda binaria entre 0.3 y k
+    var lo = 0.3, hi = k;
+    _setKF(lo, f);
+    if (_desborda(c)) {
+      k = lo;
+      // 2) además achicar letra: búsqueda binaria entre 0.74 y f
+      var flo = 0.74, fhi = f;
+      for (var n = 0; n < 4; n++) {
+        var fm = (flo + fhi) / 2;
+        _setKF(k, fm);
+        if (_desborda(c)) fhi = fm; else flo = fm;
+      }
+      f = Math.round(flo * 100) / 100;
+    } else {
+      for (var m = 0; m < 5; m++) {
+        var km = (lo + hi) / 2;
+        _setKF(km, f);
+        if (_desborda(c)) hi = km; else lo = km;
+      }
+      k = Math.round(lo * 100) / 100;
+    }
+    _setKF(k, f);
+  }
+  _ajuste.k = k; _ajuste.f = f;
+}
+var _ajusteTimer = null;
 function programarAjuste() {
-  if (_ajustePendiente) return;
-  _ajustePendiente = true;
-  (window.requestAnimationFrame || setTimeout)(function () {
-    _ajustePendiente = false;
-    ajustarSinScroll();
-  });
+  if (_ajusteTimer) return;
+  _ajusteTimer = setTimeout(function () {
+    _ajusteTimer = null;
+    ajustarSinScroll(true);
+  }, 120);
 }
 (function () {
   var c = document.getElementById("pantalla-contenedor");
   if (!c) return;
-  // Re-ajustar cuando cargan imágenes o cambia el contenido
+  // Al cargar una imagen, o si aparece contenido nuevo, solo se achica
+  // si hace falta (nunca se agranda a mitad de pantalla: sin saltos).
   c.addEventListener("load", programarAjuste, true);
   if (window.MutationObserver) {
-    new MutationObserver(programarAjuste).observe(c, { childList: true, subtree: true, characterData: true });
+    new MutationObserver(function (muts) {
+      for (var i = 0; i < muts.length; i++) {
+        if (muts[i].addedNodes && muts[i].addedNodes.length) { programarAjuste(); return; }
+      }
+    }).observe(c, { childList: true, subtree: true });
   }
-  window.addEventListener("resize", programarAjuste);
+  window.addEventListener("resize", function () { ajustarSinScroll(false); });
+
   // Flechas del teclado para revisar rápido en la compu
   document.addEventListener("keydown", function (e) {
     if (!MODO_REVISION) return;
@@ -1673,4 +1705,67 @@ function abrirVisor(src, alt) {
   var im = v.querySelector("img");
   im.src = src; im.alt = alt || "";
   v.classList.add("activo");
+}
+
+// ------------------------------------------------------------
+// PRECARGA DE AUDIOS DE LA PANTALLA ACTUAL (liviana, apta laboratorio)
+// - Solo los audios de la pantalla en la que está el chico.
+// - De a UN archivo por vez (escalonado), empezando cuando ya arrancó
+//   la consigna, para no competir con ella.
+// - Al cambiar de pantalla se descarta lo anterior (no acumula memoria).
+// Si algo falla, el audio se descarga como siempre al reproducirse.
+// ------------------------------------------------------------
+var _audiosPre = {};
+var _genPrecarga = 0;
+function obtenerAudio(src) {
+  var a = _audiosPre[src];
+  if (a && a.paused) {
+    delete _audiosPre[src];          // se usa una sola vez
+    try { a.currentTime = 0; } catch (e) {}
+    a.onended = null; a.onerror = null;
+    return a;
+  }
+  return new Audio(src);
+}
+// Prioridad: primero los audios que suenan justo después de acertar
+// (fundamentos/confirmaciones) y los pasos de las narraciones; después el resto.
+var _CLAVES_PRIORIDAD = ["audioConfirma", "audioJustif", "audioOpciones", "oracionAudio", "pasos"];
+function _listarAudios(obj, lista, prio) {
+  if (typeof obj === "string") {
+    if (/\.mp3$/i.test(obj) && lista.a.indexOf(obj) === -1 && lista.b.indexOf(obj) === -1) (prio ? lista.a : lista.b).push(obj);
+  } else if (obj && typeof obj === "object") {
+    for (var k in obj) if (obj.hasOwnProperty(k)) _listarAudios(obj[k], lista, prio || _CLAVES_PRIORIDAD.indexOf(k) !== -1);
+  }
+  return lista;
+}
+function precargarAudiosPantalla(idx) {
+  var gen = ++_genPrecarga;
+  _audiosPre = {};
+  var datos = DATOS.pantallas[idx];
+  var l = _listarAudios(datos, { a: [], b: [] }, false);
+  var lista = l.a.concat(l.b);
+  // El primer paso de una narración ya se está reproduciendo
+  if (datos.pasos && datos.pasos[0]) lista = lista.filter(function (s) { return s !== datos.pasos[0].audio; });
+  // La consigna ya se está reproduciendo: no hace falta precargarla
+  if (datos.audio) lista = lista.filter(function (s) { return s !== datos.audio; });
+  if (DATOS.meta && DATOS.meta.audioCorrecto && lista.length) lista.unshift(DATOS.meta.audioCorrecto);
+  var i = 0;
+  function siguienteArchivo() {
+    if (gen !== _genPrecarga || i >= lista.length) return;
+    var src = lista[i++];
+    var a = new Audio();
+    var listo = false;
+    var avanzar = function () {
+      if (listo) return; listo = true;
+      setTimeout(siguienteArchivo, 50);
+    };
+    a.preload = "auto";
+    a.addEventListener("canplaythrough", avanzar, { once: true });
+    a.addEventListener("error", avanzar, { once: true });
+    setTimeout(avanzar, 4000);       // nunca se traba esperando un archivo
+    a.src = src;
+    try { a.load(); } catch (e) {}
+    _audiosPre[src] = a;
+  }
+  setTimeout(siguienteArchivo, 600);
 }
