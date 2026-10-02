@@ -72,6 +72,9 @@ var DATOS = {
   subtitulo: "Qué es, cómo se organiza y qué recursos usa",
   nivel: "Lengua · 6° y 7° grado",
 
+  // Imágenes pesadas de la pantalla 3 que se descargan mientras se ve la portada
+  precargar: ["assets/img/img_esquema1.jpg", "assets/img/img_esquema2.jpg"],
+
   meta: {
     foto: "assets/img/profe.jpg",
     firma: "💻 Informática Educativa · Profe Gustavo Aguilar",

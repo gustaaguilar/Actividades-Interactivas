@@ -107,6 +107,17 @@ function reiniciarPuntaje() { estado.puntaje = { aciertos: 0, errores: 0 }; }
 // ------------------------------------------------------------
 function iniciarApp() {
   renderPantalla(0);
+  // Precarga liviana (solo las imágenes listadas en DATOS.precargar):
+  // empieza cuando la portada terminó de cargar, en segundo plano.
+  if (DATOS.precargar && DATOS.precargar.length) {
+    var arrancar = function () {
+      window._precargadas = DATOS.precargar.map(function (src) {
+        var im = new Image(); im.src = src; return im;
+      });
+    };
+    if (document.readyState === "complete") setTimeout(arrancar, 300);
+    else window.addEventListener("load", function () { setTimeout(arrancar, 300); });
+  }
 }
 
 function irAPantalla(idx) {
