@@ -121,7 +121,7 @@
     .badge-mundial-vamos{font-size:.72rem}
     .badge-mundial-vamos::before{content:"\00B7  ";color:var(--dim)}
     .badge-mundial-flag{width:22px;height:15px}
-    body{padding-top:34px}
+    body{padding-top:0}
   }
   @keyframes titilar100 {
     0%, 100% { box-shadow: 0 0 4px rgba(74,222,128,.3); border-color:#4ade80; background:rgba(74,222,128,.08); }
@@ -133,26 +133,62 @@
     50% { filter: drop-shadow(0 0 14px rgba(34,211,238,.95)); transform: scale(1.06); }
   }
   #counter-total { display: inline-block; animation: titilarNumero 1.4s ease-in-out infinite; }
+
+  .fluidez{margin:22px 0 6px;border-radius:20px;padding:18px 16px 14px;background:linear-gradient(135deg,rgba(59,130,246,.16),rgba(250,204,21,.10));border:1.5px solid rgba(96,165,250,.35);text-align:center}
+  .fl-badge{display:inline-block;background:#facc15;color:#0f172a;font-weight:800;font-size:.68rem;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:100px}
+  .fl-tit{font-size:clamp(1.15rem,4.2vw,1.6rem);font-weight:800;margin:8px 0 4px;color:var(--text)}
+  .fl-sub{font-size:.82rem;color:var(--dim);max-width:620px;margin:0 auto 14px;line-height:1.4}
+  .fl-grados{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;max-width:760px;margin:0 auto}
+  .fl-g{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:12px 4px;border-radius:16px;text-decoration:none;color:#fff;font-weight:800;font-size:1.5rem;box-shadow:0 4px 12px var(--shadow);transition:transform .15s}
+  .fl-g small{font-size:.62rem;font-weight:700;opacity:.9;letter-spacing:.5px}
+  .fl-g:hover{transform:translateY(-3px)}
+  .fl-g.c1{background:linear-gradient(160deg,#22c55e,#15803d)}.fl-g.c2{background:linear-gradient(160deg,#f97316,#c2410c)}
+  .fl-vids{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+  .fl-v{font-size:.75rem;font-weight:700;color:var(--text);text-decoration:none;border:1.5px solid var(--cbord);background:var(--card);padding:7px 14px;border-radius:100px}
+  .fl-cred{font-size:.66rem;color:var(--dim);margin-top:10px}
+  @media(max-width:560px){.fl-grados{grid-template-columns:repeat(4,1fr)}.fl-g:nth-child(5){grid-column:1/2}}
+
+  .card-tema{font-size:.6rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#60a5fa;margin-bottom:4px}
+  .cards-grid.trans{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .cards-grid.trans .card{min-height:0;padding:10px 10px 10px}
+  .cards-grid.trans .card-ico svg{width:24px;height:24px}
+  .cards-grid.trans .card-name{font-size:.74rem;margin-bottom:6px}
+  @media(max-width:560px){.cards-grid.trans{grid-template-columns:repeat(3,1fr);gap:8px}.cards-grid.trans .card-ico{display:none}.cards-grid.trans .card-name{font-size:.68rem}.cards-grid.trans .card-area{font-size:.5rem;padding:2px 6px}}
+
+  html{scroll-behavior:smooth}
+  .ciclo-header,.fluidez{scroll-margin-top:12px}
+  .atajos{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px auto 10px;max-width:760px}
+  .atajos a{font-size:.78rem;font-weight:800;color:var(--text);text-decoration:none;background:rgba(96,165,250,.12);border:1.5px solid rgba(96,165,250,.4);padding:7px 13px;border-radius:100px;white-space:nowrap}
+  .fl-corto{display:block}.fl-largo{display:none}
+  .fluidez{padding:12px 16px 10px;margin-top:14px}
+  .fl-tit{font-size:1.3rem;margin:6px 0 2px}.fl-corto{font-size:.8rem;margin-bottom:10px}
+  .fl-grados{max-width:640px;gap:8px}
+  .fl-g{font-size:1.2rem;padding:8px 2px;border-radius:12px;flex-direction:row;gap:3px}
+  .fl-g small{display:none}
+  .fl-vids{margin-top:10px}.fl-v{font-size:.72rem;padding:6px 12px}
+  .fl-cred{margin-top:7px}
+  #btn-mas,#btn-arriba{position:fixed;z-index:80;font:800 .85rem 'Segoe UI',Verdana,sans-serif;text-decoration:none;color:#0f172a;background:#facc15;border-radius:100px;box-shadow:0 6px 18px rgba(0,0,0,.45);transition:opacity .3s,transform .3s}
+  #btn-mas{right:12px;bottom:14px;width:58px;height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;font-size:1.15rem;padding:0;animation:rebote 2s ease-in-out infinite}
+  #btn-mas span{font-size:.62rem;margin-top:2px}
+  #btn-mas.oculto{opacity:0;pointer-events:none}
+  @keyframes rebote{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  #btn-arriba{right:14px;bottom:18px;padding:9px 14px;opacity:0;pointer-events:none;background:var(--bg3);color:var(--text);border:1.5px solid var(--cbord)}
+  #btn-arriba.visible{opacity:1;pointer-events:auto}
+  @media(max-width:560px){
+    .atajos{gap:6px}.atajos a{font-size:.7rem;padding:6px 10px}
+    .fluidez{padding:12px 10px 10px;margin-top:14px}
+    .fl-tit{font-size:1.05rem;margin:6px 0 2px}.fl-largo{display:none}.fl-corto{display:block;font-size:.72rem;margin-bottom:10px}
+    .fl-grados{grid-template-columns:repeat(7,1fr)!important;gap:5px}
+    .fl-g{font-size:1.05rem;padding:9px 0;border-radius:11px}.fl-g small{display:none}
+    .fl-g:nth-child(5){grid-column:auto}
+    .fl-vids{margin-top:10px;gap:6px;flex-wrap:nowrap}.fl-v{font-size:.66rem;padding:6px 10px}
+    .fl-cred{font-size:.58rem;margin-top:7px}
+  }
 </style>
 <script data-goatcounter="https://quesepantodos.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
-
-<!-- BADGE FLOTANTE: Gracias Argentina -->
-<div class="badge-mundial" role="note" aria-label="Gracias Argentina. Subcampeones del Mundial 2026.">
-  <div class="badge-mundial-top">
-    <svg width="28" height="19" viewBox="0 0 28 19" aria-hidden="true" class="badge-mundial-flag">
-      <rect width="28" height="6.33" y="0" fill="#75AADB"/>
-      <rect width="28" height="6.33" y="6.33" fill="#FFFFFF"/>
-      <rect width="28" height="6.34" y="12.66" fill="#75AADB"/>
-      <circle cx="14" cy="9.5" r="2.6" fill="#F6B40E" stroke="#85340A" stroke-width="0.4"/>
-    </svg>
-    <span class="badge-mundial-titulo">&iexcl;Gracias Argentina!</span>
-    <span class="badge-mundial-copa" aria-hidden="true">&#x1F947;</span>
-  </div>
-  <span class="badge-mundial-vamos">Campeones de coraz&oacute;n</span>
-</div>
 
 <div class="site-title-bar">
   <div class="site-title">QueSepanTodos.com</div>
@@ -163,10 +199,10 @@
 <div class="counter-banner">
   <div class="counter-inner" id="counter-inner-wrap" style="position:relative;margin-bottom:4px">
     <canvas id="confetti-canvas" style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:280px;height:180px;pointer-events:none;z-index:5"></canvas>
-    <span class="counter-num" id="counter-total">113</span>
+    <span class="counter-num" id="counter-total">120</span>
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
   </div>
-  <div id="msg-100" style="display:inline-block;font-size:.78rem;color:#4ade80;font-weight:600;margin-top:16px;padding:6px 16px;border-radius:20px;border:2px solid #4ade80;background:rgba(74,222,128,.08)">🎉 &iexcl;Superamos los 100 paquetes de actividades interactivas! Gracias por acompa&ntilde;arnos en este recorrido. &iexcl;Vamos por m&aacute;s! 🎉</div>
+  
 </div>
 <script>
 (function () {
@@ -242,7 +278,7 @@
 
 <div class="novedades">
   <span class="nov-badge">🆕 Nuevo</span>
-  <span class="nov-text"><strong>📝 El texto explicativo</strong> — Lengua, 6° y 7° Grado: a partir de «Cadenas y redes alimentarias» (Nuevo Manual Estrada 6), qué es un texto explicativo, sus partes, tema y subtemas, paratexto y los recursos de la explicación (definición, ejemplos, reformulación y clasificación). Narraciones animadas con mano señaladora, marcar partes y recursos sobre el texto real, esquemas con flechas, asociar, clasificar, trivias, armar la oración, verdadero o falso y sopa de letras. 22 pantallas con audio y puntaje.</span>
+  <a class="nov-text" href="#fluidez" style="text-decoration:none"><strong>📖 Censo de Fluidez Lectora</strong> · 1° a 7° grado · docentes y estudiantes ›</a>
 </div>
 
 <header>
@@ -261,6 +297,9 @@
   <div class="search-bar">
     <input type="text" id="buscador" placeholder="&#128269; Buscar actividad..." oninput="filtrar()" />
   </div>
+  <nav class="atajos">
+    <a href="#fluidez">📖 Fluidez Lectora</a><a href="#sec-transversal">🌐 Transversal</a><a href="#sec-c1">🟢 1° Ciclo</a><a href="#sec-c2">🟠 2° Ciclo</a>
+  </nav>
   <div class="filtros">
     <button class="filtro-btn active" data-f="all" onclick="setFiltro(this)">Todas</button>
     <button class="filtro-btn" data-f="lengua" onclick="setFiltro(this)">Lengua</button>
@@ -282,69 +321,56 @@
   <div class="lb-caption">&#x1F4F8; Profe Gustavo Aguilar &middot; Menos prisa, m&aacute;s vida</div>
 </div>
 
+<div class="wrapper"><section class="fluidez" id="fluidez">
+  <span class="fl-badge">📖 Toda la escuela</span>
+  <div class="fl-tit">Fluidez Lectora · Censo y práctica</div>
+  <div class="fl-sub fl-largo">👩‍🏫 El docente toma el censo (palabras por minuto, errores y planilla) · 🧒 el estudiante escucha la lectura modelo y practica. 3 textos por grado.</div>
+  <div class="fl-sub fl-corto">Censo para docentes y práctica para estudiantes · elegí el grado</div>
+  <div class="fl-grados"><a class="fl-g c1" href="primer%20ciclo/Censo-Fluidez-Lectora-1ro/index.html" target="_blank">1°<small>GRADO</small></a><a class="fl-g c1" href="primer%20ciclo/Censo-Fluidez-Lectora-2do/index.html" target="_blank">2°<small>GRADO</small></a><a class="fl-g c1" href="primer%20ciclo/Censo-Fluidez-Lectora-3ro/index.html" target="_blank">3°<small>GRADO</small></a><a class="fl-g c2" href="segundo%20ciclo/Censo-Fluidez-Lectora-4to/index.html" target="_blank">4°<small>GRADO</small></a><a class="fl-g c2" href="segundo%20ciclo/Censo-Fluidez-Lectora-5to/index.html" target="_blank">5°<small>GRADO</small></a><a class="fl-g c2" href="segundo%20ciclo/Censo-Fluidez-Lectora-6to/index.html" target="_blank">6°<small>GRADO</small></a><a class="fl-g c2" href="segundo%20ciclo/Censo-Fluidez-Lectora-7mo/index.html" target="_blank">7°<small>GRADO</small></a></div>
+  <div class="fl-vids"><a class="fl-v" href="https://youtu.be/6pNZtKvQmdM" target="_blank">🎬 Video para docentes</a><a class="fl-v" href="https://youtu.be/p7Q_wTAwxzc" target="_blank">🎬 Video para estudiantes</a></div>
+  <div class="fl-cred">Textos y audios: Programa Provincial de Fluidez Lectora · PLEM · DGE Mendoza</div>
+</section></div>
 <div class="wrapper">
-  <div class="ciclo-header">
+  <div class="ciclo-header" id="sec-transversal">
     <span class="ciclo-badge c3">Transversal</span>
-    <span class="ciclo-title">Salud y Prevención</span>
-    <span class="ciclo-count" id="cnt-manos-que-cuidan">1 paquete</span>
+    <span class="ciclo-title">Para toda la escuela</span>
+    <span class="ciclo-count" id="cnt-transversal">5 paquetes</span>
     <div class="ciclo-line"></div>
   </div>
-  <div class="cards-grid" id="grid-manos-que-cuidan">
+  <div class="cards-grid trans" id="grid-transversal">
         <a class="card" href="manos-que-cuidan/index.html" target="_blank" data-area="integrador" data-ciclo="transversal" data-tooltip="Integrador · Primer y Segundo Ciclo · Manos que Cuidan: aprendemos a lavarnos bien las manos, un hábito simple que ayuda a prevenir enfermedades. Video, selector de ciclo, explicación animada, asociar momentos del día, ordenar los 7 pasos del lavado, cronómetro de 20 segundos con video real, trivia de técnica, sopa de letras y armado de consejos con audio en cada pantalla.">
           <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,3 L31,8 L31,17 Q31,27 18,33 Q5,27 5,17 L5,8 Z" fill="#14b8a6"/><path d="M18 8 C18 8 25 18 25 23 A7 7 0 1 1 11 23 C11 18 18 8 18 8 Z" fill="white"/></svg></span>
+          <span class="card-tema">Salud y Prevención</span>
           <div class="card-name">Manos que Cuidan</div>
           <span class="card-area" style="background:rgba(20,184,166,.12);color:#14b8a6">Integrador · 1° y 2° Ciclo</span>
         </a>
-  </div>
-
-  <div class="ciclo-header">
-    <span class="ciclo-badge c3">Transversal</span>
-    <span class="ciclo-title">Defensa Civil y Autoprotección</span>
-    <span class="ciclo-count" id="cnt-defensa-civil">1 paquete</span>
-    <div class="ciclo-line"></div>
-  </div>
-  <div class="cards-grid" id="grid-defensa-civil">
         <a class="card" href="Preparados_Nos_Cuidamos_Sismo/index.html" target="_blank" data-area="integrador" data-ciclo="transversal" data-tooltip="Integrador · Primer y Segundo Ciclo · Preparados nos cuidamos: qué hacer frente a un sismo. Basado en el Plan de Contingencia de Defensa Civil y DGE Mendoza. Zonas seguras del aula y de la casa, Posición de Seguridad, roles de la comunidad educativa, corte de suministros, plano real de evacuación con zoom, sopa de letras y desafío final. 27 pantallas con audio.">
           <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,3 L31,8 L31,17 Q31,27 18,33 Q5,27 5,17 L5,8 Z" fill="#f97316"/><path d="M8 19 L13 19 L15 14 L18 24 L21 17 L23 19 L28 19" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="card-tema">Defensa Civil</span>
           <div class="card-name">Preparados nos cuidamos: qué hacer frente a un sismo</div>
           <span class="card-area" style="background:rgba(249,115,22,.15);color:#f97316">Integrador · 1° y 2° Ciclo</span>
         </a>
-  </div>
-
-  <div class="ciclo-header">
-    <span class="ciclo-badge c3">Transversal</span>
-    <span class="ciclo-title">Campaña de Sensibilización · Trata, Explotación y Grooming</span>
-    <span class="ciclo-count" id="cnt-transversal">2 paquetes</span>
-    <div class="ciclo-line"></div>
-  </div>
-  <div class="cards-grid" id="grid-transversal">
         <a class="card" href="sensibilizaci%C3%B3n_trata_grooming/paquete/index.html" target="_blank" data-area="integrador" data-ciclo="transversal" data-tooltip="Integrador · Primer y Segundo Ciclo y Educación Especial · Jornada Provincial de Sensibilización y Formación contra la Trata, la Explotación y el Grooming: mochila de los cuidados, clasificación de datos personales, puzzles de reglas, ruleta de navegación segura, cuestionario, mural de compromisos, memojuego y rompecabezas final. Basado en material de la Dirección de Acompañamiento Escolar (DGE).">
           <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,3 L31,8 L31,17 Q31,27 18,33 Q5,27 5,17 L5,8 Z" fill="#3b82f6"/><path d="M18,11 C15,8 9,10 9,15 C9,20 18,26 18,26 C18,26 27,20 27,15 C27,10 21,8 18,11 Z" fill="white"/></svg></span>
-          <div class="card-name">Informarse protege. Hablar ayuda. Actuar transforma. — 1° y 2° Ciclo</div>
+          <span class="card-tema">Trata y Grooming</span>
+          <div class="card-name">Informarse protege</div>
           <span class="card-area" style="background:rgba(59,130,246,.12);color:#3b82f6">Integrador · 1° y 2° Ciclo</span>
         </a>
         <a class="card" href="sensibilizacion_trata_grooming_NIVEL_INICIAL/paquete/index.html" target="_blank" data-area="integrador" data-ciclo="transversal" data-tooltip="Integrador · Nivel Inicial · Jornada Provincial de Sensibilización y Formación contra la Trata, la Explotación y el Grooming: cuento &quot;Los guarda secretos&quot;, actividad ¿A quién le cuento?, memojuego de personas de confianza, mural de cualidades &quot;Mi cuerpo es valioso&quot; y el semáforo de los límites. Basado en material de la Dirección de Acompañamiento Escolar (DGE).">
           <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18 4 L21.5 14 L32 14 L23.5 20.5 L27 31 L18 24.5 L9 31 L12.5 20.5 L4 14 L14.5 14 Z" fill="#a78bfa"/></svg></span>
-          <div class="card-name">Informarse protege. Hablar ayuda. Actuar transforma. — Nivel Inicial</div>
+          <span class="card-tema">Trata y Grooming</span>
+          <div class="card-name">Informarse protege</div>
           <span class="card-area" style="background:rgba(167,139,250,.15);color:#a78bfa">Integrador · Nivel Inicial</span>
         </a>
-  </div>
-
-  <div class="ciclo-header">
-    <span class="ciclo-badge c3">Transversal</span>
-    <span class="ciclo-title">Memoria, Derechos y Ciudadanía</span>
-    <span class="ciclo-count" id="cnt-memoria-johana">1 paquete</span>
-    <div class="ciclo-line"></div>
-  </div>
-  <div class="cards-grid" id="grid-memoria-johana">
         <a class="card" href="Dia_Provincial_Memoria_Johana/index.html" target="_blank" data-area="integrador" data-ciclo="transversal" data-tooltip="Integrador · Primer y Segundo Ciclo · Jornada Institucional en Memoria de Johana Chacón, 4 de septiembre: construcción colectiva de conciencia ciudadana y derechos, ESI, vínculos respetuosos y prevención de violencias. Basado en el memo de la Dirección de Educación Primaria (DGE) y la Ley provincial N° 8723. Selector de ciclo con dos recorridos, videos cortos, memojuego, sopas de letras intercaladas, puzzles de imagen, rompecabezas de texto palabra por palabra, cofre de valores, línea de tiempo de derechos y mapa de la empatía. 30 pantallas con audio.">
           <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><path d="M18,3 L31,8 L31,17 Q31,27 18,33 Q5,27 5,17 L5,8 Z" fill="#0ea5e9"/><circle cx="18" cy="15" r="5" fill="white"/><path d="M14 19 L11 27 15 25 18 27 21 25 25 27 22 19" fill="white"/></svg></span>
+          <span class="card-tema">Memoria y Derechos</span>
           <div class="card-name">Jornada Institucional en Memoria de Johana Chacón</div>
           <span class="card-area" style="background:rgba(14,165,233,.12);color:#0ea5e9">Integrador · 1° y 2° Ciclo</span>
         </a>
   </div>
 
-  <div class="ciclo-header">
+  <div class="ciclo-header" id="sec-c1">
     <span class="ciclo-badge">1&deg; Ciclo</span>
     <span class="ciclo-title">Primer Ciclo</span>
     <span class="ciclo-count" id="cnt-c1">55 paquetes</span>
@@ -628,7 +654,7 @@
         </a>
   </div>
 
-  <div class="ciclo-header" style="margin-top:32px">
+  <div class="ciclo-header" id="sec-c2" style="margin-top:32px">
     <span class="ciclo-badge c2">2&deg; Ciclo</span>
     <span class="ciclo-title">Segundo Ciclo</span>
     <span class="ciclo-count" id="cnt-c2">53 paquetes</span>
@@ -941,18 +967,14 @@ function filtrar(){
     if(show){
       if(ci==='c1')v1++;else if(ci==='c2')v2++;else v3++;
       if(card.closest('#grid-transversal'))vt++;
-      if(card.closest('#grid-defensa-civil'))vdc++;
-      if(card.closest('#grid-memoria-johana'))vmj++;
-      if(card.closest('#grid-manos-que-cuidan'))vmqc++;
     }
   });
   document.getElementById('cnt-c1').textContent=v1+(v1===1?' paquete':' paquetes');
   document.getElementById('cnt-c2').textContent=v2+(v2===1?' paquete':' paquetes');
   document.getElementById('cnt-transversal').textContent=vt+(vt===1?' paquete':' paquetes');
-  document.getElementById('cnt-defensa-civil').textContent=vdc+(vdc===1?' paquete':' paquetes');
-  document.getElementById('cnt-memoria-johana').textContent=vmj+(vmj===1?' paquete':' paquetes');
-  document.getElementById('cnt-manos-que-cuidan').textContent=vmqc+(vmqc===1?' paquete':' paquetes');
-  document.getElementById('counter-total').textContent=v1+v2+v3;
+  // los 7 paquetes del Censo de Fluidez Lectora (1° a 7°) cuentan como paquetes de la plataforma
+  const flOk=(filtroActivo==='all'||filtroActivo==='lengua')&&(!q||'censo de fluidez lectora lectura 1° 2° 3° 4° 5° 6° 7°'.includes(q));
+  document.getElementById('counter-total').textContent=v1+v2+v3+(flOk?document.querySelectorAll('#fluidez .fl-g').length:0);
   document.getElementById('empty-msg').style.display=(v1+v2+v3===0)?'block':'none';
 }
 function setFiltro(btn){
@@ -968,6 +990,13 @@ function toggleTheme(){
   document.getElementById('themeBtn').textContent=dark?'☀️ Modo claro':'🌙 Modo oscuro';
 }
 filtrar();
+</script>
+<a id="btn-mas" href="#sec-c1" aria-label="Más actividades">⬇<span>Más</span></a>
+<a id="btn-arriba" href="#">⬆ Arriba</a>
+<script>
+(function(){var mas=document.getElementById('btn-mas'),arr=document.getElementById('btn-arriba');
+function ver(){var y=window.scrollY||0;mas.classList.toggle('oculto',y>150);arr.classList.toggle('visible',y>1200);}
+window.addEventListener('scroll',ver,{passive:true});ver();setTimeout(function(){mas.classList.add('oculto');},5000);})();
 </script>
 </body>
 </html>
