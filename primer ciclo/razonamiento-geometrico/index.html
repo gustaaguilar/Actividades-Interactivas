@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Razonamiento geométrico · QueSepanTodos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff7e8;--pri:#3b5bdb;--ok:#2f9e44;--bad:#e03131;--txt:#2b2d42;--card:#fff;--bor:#d0d7ff}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+body{font-family:"Andika","Comic Sans MS","Segoe UI",sans-serif;background:var(--bg);color:var(--txt);
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+  background-image:radial-gradient(#ffe3b3 1.5px,transparent 1.5px);background-size:22px 22px}
+button{font-family:inherit;cursor:pointer;color:inherit}
+.may{text-transform:uppercase}
+#app{display:flex;flex-direction:column;height:100vh;height:var(--vh,100vh);max-width:1000px;margin:0 auto}
+.barra{display:flex;align-items:center;gap:6px;padding:4px 8px}
+.nav{border:0;background:#fff;border-radius:50%;width:34px;height:34px;font-size:15px;box-shadow:0 2px 4px #0002;flex:none}
+.btit{flex:1;font-size:13px;opacity:.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bpts{font-weight:700;background:#fff;border-radius:16px;padding:3px 10px;box-shadow:0 2px 4px #0002}
+#escenario{flex:1;min-height:0;display:flex;flex-direction:column;padding:4px 10px;gap:6px}
+#escenario.bloq .interact{pointer-events:none}
+.pie{display:flex;align-items:center;justify-content:space-between;padding:6px 10px 8px}
+.prog{font-size:14px;opacity:.6}
+.btnSig{border:0;border-radius:30px;background:var(--pri);color:#fff;font-size:clamp(16px,4vw,20px);font-weight:700;padding:10px 24px;transition:.2s}
+.btnSig:disabled{opacity:.35;filter:grayscale(1)}
+.btnSig.listo{animation:latido 1.2s infinite}
+@keyframes latido{50%{transform:scale(1.07)}}
+.titulo{font-size:clamp(17px,4.6vw,26px);text-align:center;color:var(--pri)}
+.cont{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px}
+.preg{text-align:center;font-weight:700;font-size:clamp(17px,4.8vw,26px)}
+.cnt{font-size:.6em;background:#fff;border-radius:10px;padding:1px 8px;vertical-align:middle;opacity:.8}
+.figura{flex:1.1;min-height:0;display:flex;justify-content:center;background:#fff;border-radius:20px;box-shadow:0 3px 8px #0001;padding:8px}
+.figura svg{height:100%;max-width:100%}
+.opciones{flex:1;min-height:0;display:grid;gap:10px;grid-template-columns:1fr 1fr;grid-auto-rows:1fr}
+.opciones.c3{grid-template-columns:1fr 1fr 1fr}
+.opciones.bajo{flex:.55}
+.op,.ta{border:4px solid var(--bor);border-radius:18px;background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:6px;min-height:0;overflow:hidden;transition:opacity .3s,transform .2s,background .3s;box-shadow:0 3px 6px #0001}
+.op:active,.ta:active{transform:scale(.96)}
+.ico{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center}
+.ico svg{width:100%;height:100%}
+.ico.mini svg{width:33%}
+.ico.emo{font-size:clamp(28px,9vw,54px);line-height:1}
+.lab{font-weight:700;font-size:clamp(13px,3.6vw,19px);padding-top:2px}
+.op.ok{border-color:var(--ok);background:#ebfbee;box-shadow:0 0 0 4px #b2f2bb}
+.op.dim{opacity:.3}
+.mal{border-color:var(--bad)!important;animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.objeto{flex:1;min-height:0;display:flex;justify-content:center;align-items:center}
+.objeto .imgbox{height:100%;max-width:100%;aspect-ratio:1/1;background:#fff;border-radius:22px;border:4px solid var(--bor);overflow:hidden}
+.objeto.okb .imgbox{border-color:var(--ok);animation:none}
+.destinos{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;height:24%;min-height:90px}
+.imgbox{display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-height:0}
+.imgbox img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.emo{font-size:clamp(48px,16vw,110px);line-height:1}
+.flex{flex:1;min-height:0}
+.flex img{border-radius:18px}
+.titila{animation:tit 1s infinite}
+@keyframes tit{50%{box-shadow:0 0 0 6px rgba(59,91,219,.5)}}
+.asoc{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 26px}
+.col{display:grid;grid-template-rows:repeat(4,1fr);gap:8px;min-height:0}
+.ta{flex-direction:row;gap:6px;padding:4px 8px}
+.destinos .lab{font-size:clamp(10px,2.8vw,16px)}
+.ta .ico{flex:none;width:42%;height:100%}
+.ta .lab{flex:1;text-align:left}
+.ta .tim{width:52%;height:100%;flex:none}
+.ta .tim .emo{font-size:clamp(26px,8vw,46px)}
+.ta.sel{border-color:var(--pri);animation:tit 1s infinite}
+.ta.hecho{opacity:.95}
+.escena{position:relative;flex:1;min-height:0;display:flex;justify-content:center;background:#fff;border-radius:20px;box-shadow:0 3px 8px #0001;padding:6px}
+.escena svg{width:100%;height:100%}
+.escena .oculto{opacity:0}
+.escena svg *{transition:opacity .5s}
+.escena .titila{animation:titS .9s infinite}
+@keyframes titS{50%{opacity:.45}}
+.slbl{font-size:17px;font-weight:700;fill:#2b2d42}
+.hand{font-size:12px;fill:#495057;font-weight:700}
+.mano{position:absolute;font-size:34px;opacity:0;transition:left .6s,top .6s,opacity .3s;pointer-events:none;filter:drop-shadow(0 2px 2px #0004)}
+.cap{text-align:center;font-weight:700;font-size:clamp(18px,5vw,28px);min-height:1.4em}
+.cap.aparece{animation:apa .5s}
+@keyframes apa{from{opacity:0;transform:translateY(8px)}}
+.vidbox{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.vidwrap{background:#000;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px #0003}
+.vidwrap iframe{width:100%;height:100%;border:0;display:block}
+.centro{display:flex;justify-content:center}
+.btnGrande{border:0;border-radius:30px;background:var(--ok);color:#fff;font-size:clamp(18px,5vw,24px);font-weight:700;padding:12px 28px;box-shadow:0 4px 0 #237032}
+.portada,.cierre{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center}
+.portada h1{font-size:clamp(24px,7vw,42px);color:var(--pri)}
+.portada h3{font-size:clamp(16px,4.5vw,24px)}
+.badge{background:#ffd43b;border-radius:14px;padding:3px 14px;font-weight:700}
+.pimg,.cimg{flex:1;min-height:0;max-height:38vh}
+.pimg img,.cimg img{border-radius:18px}
+.pfila{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px}
+.lic{font-size:11px;opacity:.6}
+.firma{display:flex;align-items:center;gap:8px;text-align:left}
+.foto{width:92px;height:92px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 2px 6px #0003;cursor:zoom-in;flex:none;background:#fff}
+.foto img{width:100%;height:100%;object-fit:cover;max-width:none;max-height:none}
+.foto .emo{font-size:48px}
+.firmatxt{display:flex;flex-direction:column;font-size:13px;line-height:1.35}
+.cierre h1{font-size:clamp(24px,7vw,40px);color:var(--ok)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;max-width:520px}
+.stats div{background:#fff;border-radius:14px;padding:6px;box-shadow:0 2px 6px #0002;display:flex;flex-direction:column;font-size:22px}
+.stats b{font-size:clamp(18px,5vw,26px)}
+.stats span{font-size:12px}
+.lb,.modal{position:fixed;inset:0;top:0;left:0;right:0;bottom:0;background:#000d;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px}
+.lbimg{overflow:hidden;max-width:92vw;max-height:72vh;border-radius:14px}
+.lbimg img{display:block;max-width:92vw;max-height:72vh;transition:transform .3s}
+.lbfrase{color:#fff;font-size:22px;text-align:center}
+.lbfrase small{display:block;font-size:13px;opacity:.8;margin-top:6px}
+.lbx{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;font-size:20px}
+.mvid{width:96vw;max-width:900px;aspect-ratio:16/9;max-height:80vh}
+.mvid iframe{width:100%;height:100%;border:0;border-radius:12px}
+@media (orientation:landscape) and (max-height:500px){
+  .pimg,.cimg{max-height:30vh}.foto{width:72px;height:72px}.titulo{font-size:17px}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+</body>
+</html>
