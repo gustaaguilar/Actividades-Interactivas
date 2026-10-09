@@ -308,19 +308,20 @@
     }
     function cumbre() {
       const tr = trofeoDe(errT), ultimo = ti === D.tramos.length - 1, buen = errT <= 3;
-      progreso[T.id] = Math.max(progreso[T.id] || 0, tr); guardarProg(); S.hechos[T.id] = 1;
+      progreso[T.id] = Math.max(progreso[T.id] || 0, tr); guardarProg(); S.hechos[T.id] = tr;
       const md = $('#modal'); const t = S.aciertos + S.errores, pc = t ? Math.round(S.aciertos / t * 100) : 0;
       md.innerHTML = `<div class="m-caja"><canvas id="confeti"></canvas>
         <div class="curio"><span class="curio-pl">${T.ico}</span><span class="curio-tx"><b>🔎 ¿Sabías que…?</b>${T.curiosidad}</span></div>
         <div class="m-pts">${10 - Math.min(10, errT)} / 10</div>
         <div class="m-tit">${ultimo ? '¡Llegaste a la cumbre del Aconcagua!' : tr === 4 ? '¡Increíble!' : tr === 3 ? '¡Excelente!' : tr === 2 ? '¡Muy bien!' : '¡Lo lograste! Probá otra vez sin errores'}</div>
         <div class="m-alt">⛰️ ${miles(T.hasta)} m · ${errT === 0 ? 'sin errores' : errT === 1 ? '1 error' : errT + ' errores'}</div>
-        <div class="m-tro">${TROFEOS.map((x, i) => `<span class="tro${i < tr ? ' on' : ''}" style="--d:${i * .3}s">${x.e}</span>`).join('')}</div>
+        <div class="m-tro"><span class="tro on gana">${TROFEOS[tr - 1].e}</span><span class="tro-nom">¡Trofeo de ${TROFEOS[tr - 1].n}!</span></div>
+        <div class="m-cuenta"><small>Mis trofeos</small>${D.tramos.map(X => S.hechos[X.id] ? `<span class="${X.id === T.id ? 'nuevo' : ''}">${TROFEOS[S.hechos[X.id] - 1].e}</span>` : '<span class="vacio"></span>').join('')}</div>
         <div class="m-total">Total: ✅ ${S.aciertos} · ❌ ${S.errores} · 📊 ${pc}% · ⭐ ${S.puntos}</div>
         <div class="m-bots">${ultimo ? '<button class="btn-jugar" id="bCierre">🏁 Ver mis resultados</button>' : '<button class="btn-jugar" id="bSig">▶ Siguiente tramo</button>'}</div></div>`;
       md.classList.add('ver'); confeti($('#confeti'));
       if (buen) SFX.exito(); else SFX.casi();
-      TROFEOS.forEach((x, i) => { if (i < tr) T_(() => SFX.trofeo(i), 400 + i * 300); });
+      T_(() => SFX.trofeo(tr - 1), 300); T_(() => SFX.trofeo(tr), 750);
       hablar('l' + T.id, () => hablar('tr' + tr, () => hablar('c' + T.id)));
       const bs = $('#bSig'); if (bs) bs.onclick = () => { SFX.clic(); escalar(ti + 1); };
       const bc = $('#bCierre'); if (bc) bc.onclick = () => { SFX.clic(); cierre(); };
@@ -359,16 +360,51 @@
         <div class="col-fila">${D.tramos.map((T, i) => { const tr = progreso[T.id] || 0; return `<button class="col-pl${tr ? '' : ' falta'}" data-i="${i}"><span class="col-img">${tr ? T.ico : '❔'}</span><span class="col-tro">${tr ? TROFEOS[tr - 1].e : ''}</span><small>${T.nombre}</small></button>`; }).join('')}</div>
         <div class="col-txt" id="colTxt"></div></div>
       <div class="stats"><div>✅ Aciertos<b>${S.aciertos}</b></div><div>❌ Errores<b>${S.errores}</b></div><div>📊 Total<b>${pc}%</b></div><div>⭐ Puntos<b>${S.puntos}</b></div></div>
+      ${window.QST_SCORM ? '<div class="aula-ok">✅ Tu puntaje ya quedó guardado en el aula</div>' : AULA ? '<button class="btn-aula" id="btnAula">🏫 Entregar en mi aula</button>' : ''}
       <button class="btn-env" id="btnEnviar">📤 Enviar mis resultados a la seño</button>
       <div class="cie-fila"><button class="btn-jugar" id="btnOtra">🔄 Volver a jugar</button>${profeHTML()}</div></div>`;
     if (!S.primero) S.primero = { aciertos: S.aciertos, errores: S.errores, pc, puntos: S.puntos };
     $('#btnOtra').onclick = () => { SFX.clic(); Object.assign(S, { aciertos: 0, errores: 0, puntos: 0, eval: {}, intento: S.intento + 1, hechos: {} }); mapa(); };
     $('#btnEnviar').onclick = () => abrirEnvio({ aciertos: S.aciertos, errores: S.errores, pc, puntos: S.puntos, proc: null });
+    const R0 = { aciertos: S.aciertos, errores: S.errores, pc, puntos: S.puntos, intento: S.intento, texto: textoAula(pc) };
+    try { if (window.QST_FIN) window.QST_FIN(R0); } catch (e) { }
+    const ba = $('#btnAula'); if (ba) ba.onclick = () => { SFX.clic(); abrirAula(R0.texto); };
     const verCurio = i => { const T = D.tramos[i], tr = progreso[T.id] || 0; $$('.col-pl').forEach(b => b.classList.toggle('sel', +b.dataset.i === i));
       $('#colTxt').innerHTML = tr ? `<b>${T.ico} ${T.nombre}:</b> ${T.curiosidad}` : `🔒 Completá el tramo hasta ${T.nombre} para descubrir su curiosidad.`; };
     $$('.col-pl').forEach(b => b.onclick = () => { SFX.clic(); verCurio(+b.dataset.i); });
     verCurio(Math.max(0, D.tramos.findIndex(T => progreso[T.id])));
     activarLightbox(); SFX.exito(); hablar('cierre');
+  }
+
+  /* ---------- ENTREGA EN EL AULA VIRTUAL (Moodle · Aulas EduTec) ----------
+     El docente agrega al enlace del juego: ?aula=<dirección de la tarea de Moodle>.
+     El botón copia el texto con los resultados y abre esa tarea para pegarlo en «Agregar entrega». */
+  const AULA = (() => { try { const u = new URLSearchParams(location.search).get('aula'); return u && /^https:\/\//i.test(u) ? u : ''; } catch (e) { return ''; } })();
+  function textoAula(pc) {
+    const tro = D.tramos.map(T => { const tr = S.hechos[T.id] || progreso[T.id] || 0; return `${T.nombre}: ${tr ? 'trofeo de ' + TROFEOS[tr - 1].n : 'sin completar'}`; }).join(' · ');
+    return `${D.meta.titulo} · ${D.meta.subtitulo}\nAciertos: ${S.aciertos} · Errores: ${S.errores} · Total: ${pc}% · Puntos: ${S.puntos}\nTrofeos: ${tro}${S.intento > 1 ? '\nIntento ' + S.intento : ''}\n${fechaHora()} · QueSepanTodos.com`;
+  }
+  function copiar(txt, ta) {
+    const viejo = () => { try { ta.removeAttribute('readonly'); ta.select(); ta.setSelectionRange(0, 99999); const ok = document.execCommand('copy'); ta.setAttribute('readonly', ''); return ok; } catch (e) { return false; } };
+    try { if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(txt).then(() => true, viejo); } catch (e) { }
+    return Promise.resolve(viejo());
+  }
+  function abrirAula(txt) {
+    let m = $('#aulaM'); if (m) m.remove();
+    m = document.createElement('div'); m.id = 'aulaM';
+    m.innerHTML = `<div class="aula-caja"><button class="envio-x" id="aulaX" aria-label="Cerrar">✕</button><h2>🏫 Entregar en mi aula</h2>
+      <ol class="aula-pasos"><li>Tocá <b>Copiar y abrir mi aula</b>.</li><li>En la tarea tocá <b>Agregar entrega</b>.</li><li>Mantené apretado el cuadro de texto, elegí <b>Pegar</b> y tocá <b>Guardar cambios</b>.</li></ol>
+      <textarea id="aulaTxt" readonly rows="5">${txt}</textarea>
+      <button class="btn-aula" id="aulaIr">📋 Copiar y abrir mi aula</button><div class="envio-msj" id="aulaMsj"></div></div>`;
+    document.body.appendChild(m);
+    $('#aulaX').onclick = () => m.remove();
+    $('#aulaIr').onclick = () => {
+      const ta = $('#aulaTxt');
+      copiar(txt, ta).then(ok => {
+        $('#aulaMsj').textContent = ok ? '✔ Texto copiado. Ahora pegalo en tu entrega.' : 'Mantené apretado el texto, elegí Copiar y después abrí tu aula.';
+        const w = window.open(AULA, '_blank'); if (!w) location.href = AULA;
+      });
+    };
   }
 
   function profeHTML() {

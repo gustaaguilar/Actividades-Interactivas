@@ -60,6 +60,13 @@ button{font-family:inherit;cursor:pointer;border:0}
 .envio-bots{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .btn{font-family:inherit;font-weight:800;border-radius:999px;padding:8px 16px;font-size:17px;text-decoration:none;flex:1 1 140px;text-align:center}
 .btn.enviar{background:#25d366;color:#fff;box-shadow:0 4px 0 #128c4a}.btn.guardar{background:var(--azul);color:#fff;box-shadow:0 4px 0 #1f5fcc}
+.btn-aula{background:#f98012;color:#fff;font-weight:800;font-size:clamp(16px,4.4vw,21px);padding:8px 18px;border-radius:999px;box-shadow:0 4px 0 #b35500}
+.aula-ok{background:#d8f3dc;color:#1b4332;font-weight:800;border-radius:12px;padding:6px 12px}
+#aulaM{position:fixed;inset:0;background:#000b;display:flex;align-items:center;justify-content:center;z-index:60;padding:14px}
+.aula-caja{position:relative;background:var(--papel);border-radius:var(--radio);padding:16px 18px;width:100%;max-width:440px;display:flex;flex-direction:column;gap:10px;max-height:94vh;overflow-y:auto}
+.aula-caja h2{text-align:center;font-size:22px}
+.aula-pasos{padding-left:22px;font-weight:700;font-size:15px;line-height:1.35}
+#aulaTxt{font-family:inherit;font-size:14px;border:3px solid var(--borde);border-radius:12px;padding:8px;resize:none;user-select:text;-webkit-user-select:text}
 /* lightbox */
 #lightbox{position:fixed;inset:0;background:#000d;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:50;gap:12px;overflow:hidden}
 #lightbox.ver{display:flex}
@@ -182,12 +189,21 @@ button{font-family:inherit;cursor:pointer;border:0}
 .m-bots{display:flex;flex-direction:column;align-items:center;gap:8px}.m-fila{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .m-bots .btn-jugar{font-size:22px;padding:8px 26px}
 .trofeos-f{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.trofeos-f div{display:flex;flex-direction:column;align-items:center;font-size:40px;line-height:1}.trofeos-f small{font-size:11px;font-weight:800;max-width:80px}
+.m-tro{flex-direction:column;align-items:center;gap:0}.tro.gana{font-size:clamp(54px,16vw,80px);line-height:1;animation:gana .7s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes gana{from{transform:scale(0) rotate(-30deg)}}
+.tro-nom{font-weight:800;font-size:16px;color:#6c757d}
+.m-cuenta{display:flex;align-items:center;gap:6px;background:#fff3cd;border-radius:999px;padding:3px 12px}
+.m-cuenta small{font-weight:800;font-size:13px;color:#7a5c00;margin-right:2px}
+.m-cuenta span{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.m-cuenta .vacio{border:2px dashed #d4b106;border-radius:50%;width:26px;height:26px;margin:3px}
+.m-cuenta .nuevo{animation:nuevo .6s .7s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes nuevo{from{transform:scale(0) translateY(-30px)}}
 @media (min-aspect-ratio:5/4){
   .escena{flex-direction:row}
   .panel{width:clamp(250px,36%,380px);min-height:0;border-top:0;border-left:5px solid #6f4a30}
   .pulsos{flex-direction:column;align-items:center;max-width:none;gap:8px}.pul{width:100%;max-width:240px;flex:0 0 auto;font-size:clamp(28px,8vh,44px);padding:4px 0}
   .o-num{font-size:clamp(30px,9vh,52px)}.intro-txt{font-size:16px}
-  .m-caja{max-width:560px;gap:3px;padding:8px 14px}.m-pts{font-size:24px}.m-tit{font-size:20px}.tro{font-size:30px}.m-bots{flex-direction:row;flex-wrap:wrap;justify-content:center}.m-bots .btn-jugar{font-size:18px;padding:5px 18px}
+  .tro.gana{font-size:44px}.tro-nom{font-size:13px}.m-cuenta span{width:26px;height:26px;font-size:20px}  .m-caja{max-width:560px;gap:3px;padding:8px 14px}.m-pts{font-size:24px}.m-tit{font-size:20px}.tro{font-size:30px}.m-bots{flex-direction:row;flex-wrap:wrap;justify-content:center}.m-bots .btn-jugar{font-size:18px;padding:5px 18px}
   .andi-port{width:11%;bottom:4%}
   .curio{padding:3px 8px}.curio-pl{font-size:28px}.curio-tx{font-size:13px}.cierre{gap:4px}.cierre h1{font-size:26px}.stats b{font-size:20px}.col-img{width:30px;height:30px;font-size:22px}.col-txt{font-size:13px;min-height:0}
   .profe img,.profe-emoji{width:64px;height:64px}
