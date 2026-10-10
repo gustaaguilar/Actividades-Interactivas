@@ -115,6 +115,91 @@
 
   .contador{font-size:.85em;color:#999;margin-bottom:8px;}
   .puntaje{font-size:1.25em;color:var(--azul);font-weight:700;margin:6px 0;}
+
+  .opcion.deshabilitada.correcta{opacity:1;}
+  p.texto.chico{font-size:.9em;margin:2px 0 6px;}
+  .gris{color:#888;}
+
+  /* Principios */
+  .lista-principios{width:100%;max-width:560px;display:flex;flex-direction:column;gap:5px;margin-bottom:4px;}
+  .principio-fila{display:flex;align-items:center;gap:8px;text-align:left;background:var(--gris);border:2px solid #ddd;border-left:6px solid #999;border-radius:8px;padding:5px 8px;min-height:50px;transition:opacity .3s;}
+  .principio-fila.oculta{visibility:hidden;opacity:0;}
+  .principio-fila.activa{animation:titilar 1s infinite;}
+  .pnum{flex:0 0 26px;height:26px;border-radius:50%;color:#fff;font-weight:700;font-size:.9em;display:flex;align-items:center;justify-content:center;}
+  .ptxt{display:flex;flex-direction:column;font-size:.8em;line-height:1.2;}
+  .ptxt b{color:var(--azul);font-size:1.02em;}
+  .pdef.def-oculta{visibility:hidden;}
+  @keyframes titilar{0%,100%{box-shadow:0 0 0 0 rgba(61,122,181,0);}50%{box-shadow:0 0 0 4px rgba(61,122,181,.55);}}
+
+  /* Asociación */
+  .puzzle-cols.asoc{max-width:560px;margin-top:6px;}
+  .asoc-item{font-size:.8em;line-height:1.2;}
+  .puzzle-cols.compacto .asoc-item{min-height:40px;padding:4px 6px;}
+  .puzzle-cols.compacto{gap:8px;}
+  .puzzle-cols.compacto .puzzle-col{gap:5px;}
+  .puzzle-cols.asoc .asoc-item.error{animation:sacudir .4s;border-color:var(--rojo);background:#f8d7da;}
+  @keyframes sacudir{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+  .swatch{display:inline-block;width:18px;height:18px;border-radius:4px;margin-right:6px;border:1px solid rgba(0,0,0,.25);flex:0 0 18px;}
+  .asoc-item .swatch{vertical-align:middle;}
+  .puzzle-item.acoplado{border-width:3px;}
+
+  /* Símbolos */
+  .sim-svgs{display:flex;align-items:center;justify-content:center;gap:18px;margin:4px 0 8px;}
+  .sim-bandera svg{width:120px;height:auto;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.25);display:block;}
+  .sim-emblema svg{width:84px;height:84px;display:block;}
+  .sim-tabs{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:6px;}
+  .sim-tab{background:var(--gris);border:2px solid #ccc;border-radius:18px;padding:6px 12px;font-size:.85em;}
+  .sim-tab.activa{background:#dceafc;border-color:var(--azul);font-weight:700;}
+  .sim-tab.visto::after{content:" ✓";color:var(--verde);}
+  .sim-tab.titila{animation:titilar 1s 3;}
+  .sim-texto{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:8px 10px;max-width:540px;width:100%;font-size:.82em;line-height:1.3;text-align:left;min-height:120px;}
+  .lista-colores{list-style:none;margin:0;padding:0;}
+  .lista-colores li{display:flex;align-items:center;margin:2px 0;}
+
+  /* Preguntas con SVG */
+  .opciones.dos{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .opciones.dos .opcion{margin:0;}
+  .opcion-svg{display:flex;align-items:center;justify-content:center;padding:6px;}
+  .opcion-svg svg{width:min(26vw,110px);height:min(26vw,110px);}
+
+  /* Cierre */
+  img.img-cierre{max-width:120px;max-height:66px;margin-bottom:2px;}
+  .puntaje{margin:2px 0;}
+  .stats{font-size:.9em !important;margin:2px 0 !important;}
+  .video-card{padding:8px 10px;margin-top:6px;}
+  .video-card h3{font-size:.92em;margin-bottom:3px;}
+  .video-card p{font-size:.78em;margin-bottom:6px;line-height:1.25;}
+  .btn-video{padding:8px 20px;font-size:.92em;}
+  .fila-cierre{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+  .btn-chico{font-size:.9em;padding:9px 14px;margin-top:0;}
+  .btn-secundario{background:#fff;color:var(--azul);border:2px solid var(--azul);border-radius:30px;font-weight:600;}
+  .fila-pie{margin-top:6px;gap:10px;flex-wrap:nowrap;}
+  .fila-pie .firma{margin:0;text-align:left;}
+  .foto-chica{width:54px;height:54px;margin-top:0;}
+
+  /* Modal envío */
+  #modal-envio{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:900;align-items:center;justify-content:center;padding:12px;}
+  #modal-envio.activo{display:flex;}
+  #modal-envio .caja{background:#fff;border-radius:14px;padding:14px;width:100%;max-width:420px;max-height:96vh;overflow:auto;}
+  #modal-envio h3{margin:0 0 8px;color:var(--azul);}
+  #modal-envio label{display:block;font-size:.85em;margin:6px 0;text-align:left;}
+  #modal-envio input{display:block;width:100%;padding:9px;border:2px solid #ccc;border-radius:8px;font-size:1em;margin-top:2px;}
+  #modal-envio .fila{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;}
+  #modal-envio .fila button{border-radius:20px;padding:9px 16px;font-size:.95em;}
+  #env-cancelar{background:#eee;}
+  #env-resultado{display:none;text-align:center;}
+  #env-img{width:100%;max-width:300px;border:1px solid #ddd;border-radius:8px;}
+  .env-botones{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0;}
+  .env-botones a,.env-botones button{background:var(--verde);color:#fff;padding:9px 12px;border-radius:20px;text-decoration:none;font-size:.9em;font-weight:600;}
+  .env-botones a#env-guardar{background:var(--azul);}
+  .hint{font-size:.78em;color:#777;}
+
+  /* Flechas de revisión */
+  #nav-revision{display:none;position:fixed;left:0;right:0;bottom:0;background:#222;color:#fff;z-index:800;align-items:center;justify-content:center;gap:14px;padding:6px;}
+  #nav-revision.activo{display:flex;}
+  #nav-revision button{background:#ffc107;color:#000;width:56px;height:38px;border-radius:19px;font-size:1.3em;font-weight:700;}
+  #rev-pos{font-size:.8em;min-width:120px;text-align:center;}
+  body.con-revision #app{padding-bottom:54px;}
 </style>
 </head>
 <body>
@@ -128,6 +213,34 @@
   <img id="lightbox-img" src="img/profe.jpg" alt="Foto">
   <p>Menos prisa, más vida 🧉🫂</p>
   <button id="lightbox-cerrar">Cerrar</button>
+</div>
+
+<div id="modal-envio">
+  <div class="caja">
+    <h3>📤 Enviar mis resultados</h3>
+    <div id="env-form">
+      <label>Nombre y apellido del alumno/a<input id="env-alumno" type="text" autocomplete="off"></label>
+      <label>Curso<input id="env-curso" type="text" autocomplete="off"></label>
+      <label>Nombre y apellido del docente<input id="env-docente" type="text" autocomplete="off"></label>
+      <div class="fila"><button id="env-cancelar">Cancelar</button><button id="env-ok" class="btn-principal">Generar tarjeta</button></div>
+    </div>
+    <div id="env-resultado">
+      <img id="env-img" alt="Tarjeta de resultados">
+      <div class="env-botones">
+        <button id="env-compartir">📤 Compartir</button>
+        <a id="env-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a id="env-guardar" href="#" download="resultados_cooperativas.png">⬇️ Guardar</a>
+      </div>
+      <p class="hint">Si no se abre WhatsApp con la imagen, mantené presionada la tarjeta o sacá una captura de pantalla y enviala a tu docente.</p>
+      <div class="fila"><button id="env-cerrar2">Cerrar</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="nav-revision">
+  <button id="rev-ant" aria-label="Anterior">◀</button>
+  <span id="rev-pos"></span>
+  <button id="rev-sig" aria-label="Siguiente">▶</button>
 </div>
 
 <script src="datos.js"></script>

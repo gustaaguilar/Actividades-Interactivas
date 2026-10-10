@@ -8,7 +8,8 @@ var DATA = {
     titulo: "Sociedades Cooperativas",
     subtitulo: "Sistemas de Información Contable",
     firma: "📸 Informática Educativa · Profe Gustavo Aguilar",
-    foto: "img/profe.jpg"
+    foto: "img/profe.jpg",
+    revision: false
   },
 
   portada: {
@@ -22,19 +23,83 @@ var DATA = {
     texto: "Es una entidad fundada en el esfuerzo propio y la ayuda mutua, para organizar y prestar servicios. Las personas que forman esta clase de sociedad se unen con un alto sentido de la cooperación y se asocian en busca de un objetivo común entre ellas."
   },
 
+  principios: {
+    titulo: "Los 7 principios cooperativos",
+    bajada: "Escuchá cada principio: primero su nombre y luego su definición.",
+    audio_intro: "audio/principios_intro.mp3",
+    items: [
+      { nombre: "Asociación abierta y voluntaria", def: "Ingreso a la cooperativa de personas sin distinción de raza, credo o nivel educativo.", color: "#1a237e", audio: "audio/principio_1.mp3" },
+      { nombre: "Control democrático", def: "Los asociados controlan las cooperativas. Democracia = un asociado = un voto.", color: "#311b92", audio: "audio/principio_2.mp3" },
+      { nombre: "Participación económica de los asociados", def: "Capitalizar de manera equitativa, basados en los aportes, para recibir excedentes según la ley.", color: "#7b1fa2", audio: "audio/principio_3.mp3" },
+      { nombre: "Educación", def: "Formación e información al asociado.", color: "#e53935", audio: "audio/principio_4.mp3" },
+      { nombre: "Autonomía e independencia", def: "Libertad de gobernarse bajo sus propias normas.", color: "#e64a19", audio: "audio/principio_5.mp3" },
+      { nombre: "Cooperación entre cooperativas", def: "Trabajar en equipo entre iguales.", color: "#b8860b", audio: "audio/principio_6.mp3" },
+      { nombre: "Compromiso con la comunidad", def: "Velar por el desarrollo sostenible de la humanidad.", color: "#1b5e20", audio: "audio/principio_7.mp3" }
+    ]
+  },
+
+  principiosAsoc: {
+    titulo: "Uní principio y definición",
+    consigna: "Tocá un principio y luego la definición que le corresponde.",
+    audio: "audio/principios_asoc_consigna.mp3",
+    pares: [
+      { id: "p1", izq: "Asociación abierta y voluntaria", der: "Ingreso a la cooperativa de personas sin distinción de raza, credo o nivel educativo." },
+      { id: "p6", izq: "Cooperación entre cooperativas", der: "Trabajar en equipo entre iguales." },
+      { id: "p7", izq: "Compromiso con la comunidad", der: "Velar por el desarrollo sostenible de la humanidad." }
+    ]
+  },
+
+  simbolos: {
+    titulo: "Los símbolos del Cooperativismo",
+    audio_intro: "audio/simbolos_intro.mp3",
+    bajada: "Tocá cada pestaña y escuchá.",
+    tabs: [
+      { id: "bandera", label: "🏳️‍🌈 Bandera", audio: "audio/simbolos_bandera.mp3",
+        texto: "La bandera del Cooperativismo fue aprobada en el año 1923 a nivel mundial por la Alianza Cooperativa Internacional (ACI). Son los 7 colores del prisma como elementos de la gran luz que ilumina al mundo. Debe ser el símbolo de alianza de todos los cooperativistas que sueñan y trabajan por una transformación social con una base de convivencia más justa." },
+      { id: "colores", label: "🎨 Colores", audio: "audio/simbolos_colores.mp3", texto: "" },
+      { id: "emblema", label: "🌲 Emblema", audio: "audio/simbolos_emblema.mp3",
+        texto: "El emblema más usado, sobre todo en América, es un círculo color oro con 2 pinos verdes al centro, rodeados por una circunferencia verde. El oro representa al sol, cuyos rayos iluminan la vida. El verde simboliza la esperanza de una vida mejor. Los dos pinos representan la vida: al ser 2 simbolizan el apoyo mutuo y la solidaridad, y al ser del mismo tamaño, el crecimiento en la igualdad. El círculo representa la esfera terrestre (universalidad) y la circunferencia, la eternidad de la vida." },
+      { id: "dia", label: "📅 Día mundial", audio: "audio/simbolos_dia.mp3",
+        texto: "El Día Mundial del Cooperativismo se celebra todos los años el primer sábado del mes de julio." }
+    ],
+    colores: [
+      { nombre: "Rojo", hex: "#e53935", significado: "El coraje y el valor" },
+      { nombre: "Naranja", hex: "#fb8c00", significado: "La visión de futuro" },
+      { nombre: "Amarillo", hex: "#fdd835", significado: "El desafío y el sol que da vida" },
+      { nombre: "Verde", hex: "#43a047", significado: "El crecimiento de las personas" },
+      { nombre: "Celeste", hex: "#4fc3f7", significado: "Los horizontes lejanos" },
+      { nombre: "Azul", hex: "#1e40af", significado: "La reflexión y la cooperación" },
+      { nombre: "Violeta", hex: "#8e24aa", significado: "La solidaridad, la belleza y la amistad" }
+    ]
+  },
+
+  emblema: {
+    titulo: "Reconocé el emblema",
+    items: [
+      { tipo: "svg", pregunta: "¿Cuál es el emblema del Cooperativismo?",
+        audio: "audio/emblema_q1.mp3", audio_feedback: "audio/emblema_q1_fb.mp3",
+        opciones: ["correcto", "unpino", "azul", "tres"], correcta: 0 },
+      { pregunta: "¿Qué representan los dos pinos del emblema?",
+        audio: "audio/emblema_q2.mp3", audio_feedback: "audio/emblema_q2_fb.mp3",
+        opciones: ["La vida, el apoyo mutuo y la solidaridad", "El sol, cuyos rayos iluminan la vida", "La esperanza de una vida mejor", "La eternidad de la vida"], correcta: 0 },
+      { pregunta: "¿Qué representa el círculo del emblema?",
+        audio: "audio/emblema_q3.mp3", audio_feedback: "audio/emblema_q3_fb.mp3",
+        opciones: ["La esfera terrestre: la universalidad", "El sol que ilumina la vida", "La esperanza de una vida mejor", "El capital de la cooperativa"], correcta: 0 }
+    ]
+  },
+
+  coloresAsoc: {
+    titulo: "Colores y significados",
+    consigna: "Tocá un color de la bandera y luego su significado.",
+    audio: "audio/colores_asoc_consigna.mp3"
+  },
+
   legajos: [
     {
       id: "legajo1",
       titulo: "Legajo 1 — Identidad",
       imagen: "img/legajo1_identidad.jpg",
       items: [
-        {
-          audio: "audio/legajo1_q1.mp3",
-          audio_feedback: "audio/legajo1_q1_fb.mp3",
-          pregunta: "¿Cuál es el número mínimo de socios que debe tener una Cooperativa?",
-          opciones: ["5", "10", "20", "No tiene mínimo"],
-          correcta: 1
-        },
         {
           audio: "audio/legajo1_q2.mp3",
           audio_feedback: "audio/legajo1_q2_fb.mp3",
@@ -164,13 +229,6 @@ var DATA = {
           pregunta: "¿Qué porcentaje mínimo de los excedentes debe reservarse?",
           opciones: ["2%", "5%", "10%", "20%"],
           correcta: 1
-        },
-        {
-          audio: "audio/legajo4_q3.mp3",
-          audio_feedback: "audio/legajo4_q3_fb.mp3",
-          pregunta: "¿Cuál de estos NO es un libro obligatorio de una Cooperativa?",
-          opciones: ["Libro Diario", "Registro de Asociados", "Libro de Actas de Directorio de S.A.", "Registro de Informe de Auditoría"],
-          correcta: 2
         },
         {
           audio: "audio/legajo4_q4.mp3",
@@ -306,14 +364,6 @@ var DATA = {
       correcta: 0
     },
     {
-      pregunta: "¿Cuál es el número mínimo de socios de una Cooperativa?",
-      imagen: "img/quiz_q2_socios.jpg",
-      audio: "audio/quiz_q2_preg.mp3",
-      audio_feedback: "audio/quiz_q2_fb.mp3",
-      opciones: ["5", "10", "15", "No tiene mínimo"],
-      correcta: 1
-    },
-    {
       pregunta: "Un grupo de personas compra alimentos al por mayor para vendérselos entre sí a precio de costo. ¿Qué tipo de Cooperativa es?",
       imagen: "img/caso1_consumo.jpg",
       audio: "audio/quiz_q3_preg.mp3",
@@ -361,4 +411,33 @@ var DATA = {
     }
   }
 
+};
+
+
+// =========================================================
+// AUDIO_TEXTOS — texto de los audios NUEVOS (pantallas de principios y símbolos)
+// De acá se genera el script de Colab (nunca se tipea a mano).
+// =========================================================
+var AUDIO_TEXTOS = {
+  "audio/principios_intro.mp3": "Estos son los siete principios cooperativos. Escuchá atentamente cada uno.",
+  "audio/principio_1.mp3": "Principio uno: Asociación abierta y voluntaria. Ingreso a la cooperativa de personas sin distinción de raza, credo o nivel educativo.",
+  "audio/principio_2.mp3": "Principio dos: Control democrático. Los asociados controlan las cooperativas. Democracia: un asociado, un voto.",
+  "audio/principio_3.mp3": "Principio tres: Participación económica de los asociados. Capitalizar de manera equitativa, basados en los aportes, para recibir excedentes según la ley.",
+  "audio/principio_4.mp3": "Principio cuatro: Educación. Formación e información al asociado.",
+  "audio/principio_5.mp3": "Principio cinco: Autonomía e independencia. Libertad de gobernarse bajo sus propias normas.",
+  "audio/principio_6.mp3": "Principio seis: Cooperación entre cooperativas. Trabajar en equipo entre iguales.",
+  "audio/principio_7.mp3": "Principio siete: Compromiso con la comunidad. Velar por el desarrollo sostenible de la humanidad.",
+  "audio/principios_asoc_consigna.mp3": "Uní cada principio cooperativo con su definición. Tocá un principio y luego la definición que le corresponde.",
+  "audio/simbolos_intro.mp3": "Conocé los símbolos del Cooperativismo. Tocá cada pestaña y escuchá.",
+  "audio/simbolos_bandera.mp3": "La bandera del Cooperativismo fue aprobada en el año mil novecientos veintitrés, a nivel mundial, por la Alianza Cooperativa Internacional. Son los siete colores del prisma, como elementos de la gran luz que ilumina al mundo. Debe ser el símbolo de alianza de todos los cooperativistas que sueñan y trabajan por una transformación social, con una base de convivencia más justa.",
+  "audio/simbolos_colores.mp3": "Significado de los colores del arcoíris clásico. Rojo: el coraje y el valor. Naranja: la visión de futuro. Amarillo: el desafío y el sol que da vida. Verde: el crecimiento de las personas. Celeste: los horizontes lejanos. Azul: la reflexión y la cooperación. Violeta: la solidaridad, la belleza y la amistad.",
+  "audio/simbolos_emblema.mp3": "El emblema más usado, sobre todo en América, es un círculo color oro con dos pinos verdes al centro, rodeados por una circunferencia verde. El oro representa al sol, cuyos rayos iluminan la vida. El verde simboliza la esperanza de una vida mejor. Los dos pinos representan la vida: al ser dos, simbolizan el apoyo mutuo y la solidaridad, y al ser del mismo tamaño, el crecimiento en la igualdad. El círculo representa la esfera terrestre, es decir, la universalidad, y la circunferencia representa la eternidad de la vida.",
+  "audio/simbolos_dia.mp3": "El Día Mundial del Cooperativismo se celebra todos los años el primer sábado del mes de julio.",
+  "audio/emblema_q1.mp3": "¿Cuál es el emblema del Cooperativismo?",
+  "audio/emblema_q1_fb.mp3": "La respuesta correcta es el círculo color oro con dos pinos verdes del mismo tamaño.",
+  "audio/emblema_q2.mp3": "¿Qué representan los dos pinos del emblema?",
+  "audio/emblema_q2_fb.mp3": "Los dos pinos representan la vida: al ser dos, simbolizan el apoyo mutuo y la solidaridad, y al ser del mismo tamaño, el crecimiento en la igualdad.",
+  "audio/emblema_q3.mp3": "¿Qué representa el círculo del emblema?",
+  "audio/emblema_q3_fb.mp3": "El círculo representa la esfera terrestre, reflejando así el concepto de universalidad.",
+  "audio/colores_asoc_consigna.mp3": "Uní cada color de la bandera con su significado. Tocá un color y luego el significado que le corresponde."
 };

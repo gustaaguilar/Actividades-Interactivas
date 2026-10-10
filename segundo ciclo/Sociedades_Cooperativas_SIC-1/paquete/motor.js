@@ -11,6 +11,11 @@ var progresoBar = document.getElementById("progreso-bar");
 var SCREENS = [];
 SCREENS.push({ tipo: "portada" });
 SCREENS.push({ tipo: "concepto" });
+SCREENS.push({ tipo: "principiosInfo" });
+SCREENS.push({ tipo: "principiosAsoc" });
+SCREENS.push({ tipo: "simbolosInfo" });
+SCREENS.push({ tipo: "emblema" });
+SCREENS.push({ tipo: "coloresAsoc" });
 for (var i = 0; i < DATA.legajos.length; i++) {
   SCREENS.push({ tipo: "legajo", data: DATA.legajos[i] });
 }
@@ -25,6 +30,7 @@ SCREENS.push({ tipo: "quiz" });
 SCREENS.push({ tipo: "cierre" });
 
 var pantallaActual = 0;
+var tokenPantalla = 0;
 var puntajeQuiz = 0;
 var totalGlobal = 0;
 var aciertosGlobales = 0;
@@ -35,8 +41,11 @@ function actualizarProgreso() {
 }
 
 function irAPantalla(indice) {
+  tokenPantalla++;
+  detenerAudioActual();
   pantallaActual = indice;
   actualizarProgreso();
+  if (typeof actualizarRevision === "function") actualizarRevision();
   var pantalla = SCREENS[indice];
   main.innerHTML = "";
   main.scrollTop = 0;
@@ -45,6 +54,11 @@ function irAPantalla(indice) {
   switch (pantalla.tipo) {
     case "portada": renderPortada(); break;
     case "concepto": renderConcepto(); break;
+    case "principiosInfo": renderPrincipiosInfo(); break;
+    case "principiosAsoc": renderPrincipiosAsoc(); break;
+    case "simbolosInfo": renderSimbolosInfo(); break;
+    case "emblema": renderPreguntasEmblema(); break;
+    case "coloresAsoc": renderColoresAsoc(); break;
     case "legajo": renderLegajo(pantalla.data); break;
     case "casos": renderCasos(); break;
     case "sopa": renderSopa(pantalla.data); break;
@@ -619,15 +633,12 @@ function renderQuiz() {
 // CIERRE
 // -----------------------------------------------------
 function renderCierre() {
-  var d = DATA.cierre;
-  var pct = totalGlobal > 0 ? Math.round((aciertosGlobales / totalGlobal) * 100) : 0;
-
+  var d = DATA.cierre, r = resumenResultados();
   var html = "";
   html += '<img class="pantalla-img img-cierre" src="' + d.imagen + '" alt="Cierre">';
   html += "<h2>" + d.mensaje + "</h2>";
-
-  html += '<div class="puntaje">' + aciertosGlobales + " / " + totalGlobal + " (" + pct + "%)</div>";
-  html += '<p class="texto">Aciertos: ' + aciertosGlobales + " · Errores: " + (totalGlobal - aciertosGlobales) + "</p>";
+  html += '<div class="puntaje">' + r.pct + "% de aciertos</div>";
+  html += '<p class="texto stats">✅ Aciertos: ' + r.aciertos + " · ❌ Errores: " + r.errores + " · ⭐ " + r.puntos + " puntos</p>";
 
   html += '<div class="video-card">';
   html += "<h3>" + d.video.texto + "</h3>";
@@ -635,10 +646,15 @@ function renderCierre() {
   html += '<a class="btn-video" href="' + d.video.url + '" target="_blank" rel="noopener">' + d.video.boton + "</a>";
   html += "</div>";
 
-  html += '<div class="fila-comenzar">';
-  html += '<img class="foto-thumb" id="foto-thumb-cierre" src="' + DATA.meta.foto + '" alt="Profe">';
+  html += '<div class="fila-cierre">';
+  html += '<button class="btn-principal btn-chico" id="btn-enviar">📤 Enviar mis resultados al docente</button>';
+  html += '<button class="btn-secundario btn-chico" id="btn-rejugar">🔄 Volver a jugar</button>';
   html += "</div>";
+
+  html += '<div class="fila-comenzar fila-pie">';
+  html += '<img class="foto-thumb foto-chica" id="foto-thumb-cierre" src="' + DATA.meta.foto + '" alt="Profe">';
   html += '<p class="firma">' + DATA.meta.firma + "</p>";
+  html += "</div>";
 
   main.innerHTML = html;
   main.insertBefore(crearBotonAudio(d.audio), main.children[1]);
@@ -647,11 +663,442 @@ function renderCierre() {
   main.insertBefore(crearBotonAudio(d.video.audio_texto), videoCard);
 
   document.getElementById("foto-thumb-cierre").onclick = abrirLightbox;
+  document.getElementById("btn-enviar").onclick = abrirEnvio;
+  document.getElementById("btn-rejugar").onclick = volverAJugar;
 
   reproducirAudioEncadenado([d.audio, d.video.audio_texto, d.video.audio_boton]);
 }
 
 // -----------------------------------------------------
+// UTILIDADES NUEVAS: sonidos, mezclar, SVG
+// -----------------------------------------------------
+var _ac = null;
+function tono(freqs, dur) {
+  try {
+    _ac = _ac || new (window.AudioContext || window.webkitAudioContext)();
+    var t = _ac.currentTime;
+    freqs.forEach(function (f, i) {
+      var o = _ac.createOscillator(), g = _ac.createGain();
+      o.type = "sine"; o.frequency.value = f;
+      g.gain.setValueAtTime(0.0001, t + i * dur);
+      g.gain.exponentialRampToValueAtTime(0.25, t + i * dur + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + (i + 1) * dur);
+      o.connect(g); g.connect(_ac.destination);
+      o.start(t + i * dur); o.stop(t + (i + 1) * dur + 0.02);
+    });
+  } catch (e) {}
+}
+function sonidoAcierto() { tono([660, 880], 0.12); }
+function sonidoError() { tono([220, 160], 0.18); }
+
+function mezclar(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+var COLORES_BANDERA = ["#e53935", "#fb8c00", "#fdd835", "#43a047", "#4fc3f7", "#1e40af", "#8e24aa"];
+
+function svgBandera() {
+  var s = '<svg viewBox="0 0 140 98" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bandera del Cooperativismo">';
+  COLORES_BANDERA.forEach(function (c, i) { s += '<rect x="0" y="' + (i * 14) + '" width="140" height="14" fill="' + c + '"/>'; });
+  return s + "</svg>";
+}
+
+// variantes: correcto | unpino | azul | tres
+function svgEmblema(variante) {
+  var verde = variante === "azul" ? "#1f4e79" : "#2e7d32";
+  var pino = function (cx, esc) {
+    var k = esc || 1;
+    var pts = [[cx, 72 - 52 * k], [cx + 15 * k, 72 - 22 * k], [cx + 7 * k, 72 - 22 * k], [cx + 7 * k, 72], [cx - 7 * k, 72], [cx - 7 * k, 72 - 22 * k], [cx - 15 * k, 72 - 22 * k]];
+    return '<polygon points="' + pts.map(function (p) { return p[0] + "," + p[1]; }).join(" ") + '" fill="' + verde + '"/>';
+  };
+  var s = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Emblema">';
+  s += '<defs><clipPath id="cp' + variante + '"><circle cx="50" cy="50" r="44"/></clipPath></defs>';
+  s += '<circle cx="50" cy="50" r="46" fill="#f2c200" stroke="' + verde + '" stroke-width="5"/>';
+  s += '<rect x="0" y="72" width="100" height="9" fill="' + verde + '" clip-path="url(#cp' + variante + ')"/>';
+  if (variante === "unpino") s += pino(50, 1.1);
+  else if (variante === "tres") s += pino(28, 0.8) + pino(50, 0.8) + pino(72, 0.8);
+  else s += pino(34) + pino(66);
+  return s + "</svg>";
+}
+
+// -----------------------------------------------------
+// PRINCIPIOS — informativa interactiva (sin imagen)
+// -----------------------------------------------------
+function renderPrincipiosInfo() {
+  var d = DATA.principios, tk = tokenPantalla;
+  var html = "<h2>" + d.titulo + "</h2>";
+  html += '<p class="texto chico">' + d.bajada + "</p>";
+  html += '<div class="lista-principios" id="lista-principios"></div>';
+  main.innerHTML = html;
+
+  var lista = document.getElementById("lista-principios");
+  var filas = [];
+  var listo = false;
+  d.items.forEach(function (p, i) {
+    var f = document.createElement("button");
+    f.className = "principio-fila oculta";
+    f.style.borderLeftColor = p.color;
+    f.innerHTML = '<span class="pnum" style="background:' + p.color + '">' + (i + 1) + "</span>" +
+      '<span class="ptxt"><b>' + p.nombre + '</b><span class="pdef def-oculta">' + p.def + "</span></span>";
+    f.onclick = function () { if (listo) reproducirAudio(p.audio); };
+    lista.appendChild(f);
+    filas.push(f);
+  });
+
+  var btn = document.createElement("button");
+  btn.className = "btn-principal";
+  btn.textContent = "Continuar";
+  btn.disabled = true;
+  btn.onclick = siguientePantalla;
+  main.appendChild(btn);
+
+  var i = 0;
+  function mostrar() {
+    if (tk !== tokenPantalla) return;
+    if (i >= filas.length) { listo = true; btn.disabled = false; return; }
+    var f = filas[i], def = f.querySelector(".pdef");
+    f.classList.remove("oculta");
+    f.classList.add("activa");
+    var t = setTimeout(function () { def.classList.remove("def-oculta"); }, 1700);
+    var actual = d.items[i];
+    reproducirAudio(actual.audio, function () {
+      clearTimeout(t);
+      def.classList.remove("def-oculta");
+      f.classList.remove("activa");
+      i++;
+      setTimeout(mostrar, 250);
+    });
+  }
+  reproducirAudio(d.audio_intro, mostrar);
+}
+
+// -----------------------------------------------------
+// ASOCIACIÓN genérica (principios y colores) — puntúa primer intento
+// -----------------------------------------------------
+var PASTELES = ["#ffd6d6", "#ffe3c2", "#fff4b8", "#d4edda", "#d0f0fb", "#d6dcf7", "#ead6f5"];
+
+function renderAsociacion(cfg) {
+  var tk = tokenPantalla;
+  var bloqueado = true, selI = null, selD = null, hechos = 0, evaluado = {};
+  var n = cfg.pares.length;
+
+  var html = "<h2>" + cfg.titulo + "</h2>";
+  html += '<p class="texto chico">' + cfg.consigna + "</p>";
+  html += '<div class="puzzle-cols asoc' + (cfg.compacto ? " compacto" : "") + '">';
+  html += '<div class="puzzle-col" id="asoc-izq"></div><div class="puzzle-col" id="asoc-der"></div></div>';
+  main.innerHTML = html;
+  main.insertBefore(crearBotonAudio(cfg.audio), main.children[2]);
+
+  var colI = document.getElementById("asoc-izq"), colD = document.getElementById("asoc-der");
+
+  function crear(par, lado) {
+    var b = document.createElement("button");
+    b.className = "puzzle-item asoc-item";
+    b.setAttribute("data-id", par.id);
+    b.innerHTML = lado === "i" ? par.izqHtml || par.izq : par.der;
+    b.onclick = function () { elegir(lado, b); };
+    return b;
+  }
+  cfg.pares.forEach(function (p) { colI.appendChild(crear(p, "i")); });
+  mezclar(cfg.pares).forEach(function (p) { colD.appendChild(crear(p, "d")); });
+
+  var btn = document.createElement("button");
+  btn.className = "btn-principal";
+  btn.textContent = "Continuar";
+  btn.disabled = true;
+  btn.onclick = siguientePantalla;
+  main.appendChild(btn);
+
+  function elegir(lado, el) {
+    if (bloqueado || el.classList.contains("acoplado")) return;
+    if (lado === "i") { if (selI) selI.classList.remove("seleccionado"); selI = el; }
+    else { if (selD) selD.classList.remove("seleccionado"); selD = el; }
+    el.classList.add("seleccionado");
+    if (selI && selD) evaluar();
+  }
+
+  function evaluar() {
+    var a = selI, b = selD, id = a.getAttribute("data-id");
+    selI = null; selD = null;
+    var ok = a.getAttribute("data-id") === b.getAttribute("data-id");
+    if (!evaluado[id]) { evaluado[id] = true; totalGlobal++; if (ok) aciertosGlobales++; }
+    if (ok) {
+      sonidoAcierto();
+      var par = cfg.pares.filter(function (p) { return p.id === id; })[0];
+      var acento = par.acento || "#3c8c5c";
+      [a, b].forEach(function (x) {
+        x.classList.remove("seleccionado");
+        x.classList.add("acoplado");
+        x.style.borderColor = acento;
+        x.style.background = par.pastel || PASTELES[hechos % PASTELES.length];
+      });
+      hechos++;
+      if (hechos === n) btn.disabled = false;
+    } else {
+      sonidoError();
+      [a, b].forEach(function (x) { x.classList.add("error"); });
+      setTimeout(function () { [a, b].forEach(function (x) { x.classList.remove("error", "seleccionado"); }); }, 550);
+    }
+  }
+
+  reproducirAudio(cfg.audio, function () { if (tk === tokenPantalla) bloqueado = false; });
+}
+
+function renderPrincipiosAsoc() {
+  var d = DATA.principiosAsoc;
+  renderAsociacion({ titulo: d.titulo, consigna: d.consigna, audio: d.audio, pares: d.pares.map(function (p, i) {
+    return { id: p.id, izq: "<b>" + p.izq + "</b>", der: p.der };
+  }) });
+}
+
+function renderColoresAsoc() {
+  var d = DATA.coloresAsoc, cols = DATA.simbolos.colores;
+  renderAsociacion({ titulo: d.titulo, consigna: d.consigna, audio: d.audio, compacto: true,
+    pares: cols.filter(function (c) { return c.nombre === "Amarillo" || c.nombre === "Verde"; }).map(function (c) {
+      return { id: c.nombre, izqHtml: '<span class="swatch" style="background:' + c.hex + '"></span><b>' + c.nombre + "</b>",
+        der: c.significado, acento: c.hex, pastel: "#eef7ee" };
+    }) });
+}
+
+// -----------------------------------------------------
+// SÍMBOLOS — informativa con pestañas
+// -----------------------------------------------------
+function renderSimbolosInfo() {
+  var d = DATA.simbolos, tk = tokenPantalla;
+  var html = "<h2>" + d.titulo + "</h2>";
+  html += '<div class="sim-svgs"><div class="sim-bandera">' + svgBandera() + '</div><div class="sim-emblema">' + svgEmblema("correcto") + "</div></div>";
+  html += '<div class="sim-tabs" id="sim-tabs"></div>';
+  html += '<div class="sim-texto" id="sim-texto"><span class="gris">' + d.bajada + "</span></div>";
+  main.innerHTML = html;
+
+  var tabs = document.getElementById("sim-tabs"), caja = document.getElementById("sim-texto");
+  var vistos = {}, listo = false, botones = {};
+
+  var btn = document.createElement("button");
+  btn.className = "btn-principal";
+  btn.textContent = "Continuar";
+  btn.disabled = true;
+  btn.onclick = siguientePantalla;
+  main.appendChild(btn);
+
+  function textoTab(t) {
+    if (t.id !== "colores") return t.texto;
+    return '<ul class="lista-colores">' + d.colores.map(function (c) {
+      return '<li><span class="swatch" style="background:' + c.hex + '"></span><span><b>' + c.nombre + ":</b> " + c.significado + "</span></li>";
+    }).join("") + "</ul>";
+  }
+
+  d.tabs.forEach(function (t) {
+    var b = document.createElement("button");
+    b.className = "sim-tab";
+    b.textContent = t.label;
+    b.onclick = function () {
+      if (!listo) return;
+      Object.keys(botones).forEach(function (k) { botones[k].classList.remove("activa"); });
+      b.classList.add("activa");
+      caja.innerHTML = textoTab(t);
+      reproducirAudio(t.audio, function () {
+        vistos[t.id] = true;
+        b.classList.add("visto");
+        if (d.tabs.every(function (x) { return vistos[x.id]; })) btn.disabled = false;
+      });
+    };
+    botones[t.id] = b;
+    tabs.appendChild(b);
+  });
+
+  reproducirAudio(d.audio_intro, function () {
+    if (tk !== tokenPantalla) return;
+    listo = true;
+    Object.keys(botones).forEach(function (k) { botones[k].classList.add("titila"); });
+  });
+}
+
+// -----------------------------------------------------
+// PREGUNTAS genéricas (emblema) — una por vez, primer intento
+// -----------------------------------------------------
+function renderPreguntasEmblema() {
+  var d = DATA.emblema, indice = 0;
+  dibujar();
+
+  function dibujar() {
+    var item = d.items[indice];
+    var html = "<h2>" + d.titulo + "</h2>";
+    html += '<div class="contador">Pregunta ' + (indice + 1) + " de " + d.items.length + "</div>";
+    html += '<p class="texto">' + item.pregunta + "</p>";
+    html += '<div class="opciones' + (item.tipo === "svg" ? " dos" : "") + '" id="opc-emb"></div>';
+    main.innerHTML = html;
+    var cont = document.getElementById("opc-emb");
+    main.insertBefore(crearBotonAudio(item.audio), cont);
+
+    var lista = item.opciones.map(function (o, i) { return { v: o, ok: i === item.correcta }; });
+    mezclar(lista).forEach(function (o) {
+      var b = document.createElement("button");
+      b.className = "opcion" + (item.tipo === "svg" ? " opcion-svg" : "");
+      if (item.tipo === "svg") b.innerHTML = svgEmblema(o.v); else b.textContent = o.v;
+      b.onclick = function () { elegir(b, o.ok, cont, item); };
+      b._ok = o.ok;
+      cont.appendChild(b);
+    });
+    reproducirAudio(item.audio);
+  }
+
+  function elegir(btnElegido, ok, cont, item) {
+    if (cont.getAttribute("data-resuelta")) return;
+    cont.setAttribute("data-resuelta", "1");
+    cont.querySelectorAll(".opcion").forEach(function (b) {
+      b.classList.add("deshabilitada");
+      if (b._ok) b.classList.add("correcta");
+    });
+    if (!ok) btnElegido.classList.add("incorrecta");
+    totalGlobal++;
+    if (ok) { aciertosGlobales++; sonidoAcierto(); } else sonidoError();
+
+    var ultimo = indice >= d.items.length - 1;
+    var sig = document.createElement("button");
+    sig.className = "btn-principal";
+    sig.textContent = ultimo ? "Continuar" : "Siguiente";
+    sig.disabled = true;
+    sig.onclick = function () { if (ultimo) siguientePantalla(); else { indice++; dibujar(); } };
+    main.appendChild(sig);
+    reproducirAudio(item.audio_feedback, function () { sig.disabled = false; });
+  }
+}
+
+// -----------------------------------------------------
+// ENVÍO DE RESULTADOS AL DOCENTE (tarjeta PNG + WhatsApp)
+// -----------------------------------------------------
+var intentoNro = 1;
+
+function resumenResultados() {
+  var errores = totalGlobal - aciertosGlobales;
+  var pct = totalGlobal > 0 ? Math.round((aciertosGlobales / totalGlobal) * 100) : 0;
+  return { aciertos: aciertosGlobales, errores: errores, pct: pct, puntos: aciertosGlobales * 10 };
+}
+
+function guardarLS(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+function leerLS(k) { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } }
+
+function abrirEnvio() {
+  var m = document.getElementById("modal-envio");
+  document.getElementById("env-alumno").value = leerLS("sic_alumno");
+  document.getElementById("env-curso").value = leerLS("sic_curso");
+  document.getElementById("env-docente").value = leerLS("sic_docente");
+  document.getElementById("env-form").style.display = "block";
+  document.getElementById("env-resultado").style.display = "none";
+  m.classList.add("activo");
+}
+
+function cerrarEnvio() { document.getElementById("modal-envio").classList.remove("activo"); }
+
+function generarTarjeta(datos) {
+  var r = resumenResultados();
+  var c = document.createElement("canvas");
+  c.width = 640; c.height = 760;
+  var x = c.getContext("2d");
+  x.fillStyle = "#ffffff"; x.fillRect(0, 0, 640, 760);
+  x.fillStyle = "#1f4e79"; x.fillRect(0, 0, 640, 110);
+  x.fillStyle = "#ffffff"; x.font = "bold 34px Arial"; x.textAlign = "center";
+  x.fillText("Sociedades Cooperativas", 320, 56);
+  x.font = "20px Arial"; x.fillText("Sistemas de Información Contable", 320, 88);
+  x.textAlign = "left"; x.fillStyle = "#333";
+  var y = 170;
+  [["Alumno/a", datos.alumno], ["Curso", datos.curso || "-"], ["Docente", datos.docente || "-"]].forEach(function (f) {
+    x.font = "bold 24px Arial"; x.fillText(f[0] + ":", 40, y);
+    x.font = "24px Arial"; x.fillText(f[1], 190, y);
+    y += 48;
+  });
+  x.fillStyle = "#f2f4f6"; x.fillRect(30, y + 4, 580, 300);
+  x.fillStyle = "#1e5631"; x.font = "bold 32px Arial"; x.fillText("✅ Aciertos: " + r.aciertos, 60, y + 60);
+  x.fillStyle = "#7a1f1f"; x.fillText("❌ Errores: " + r.errores, 60, y + 120);
+  x.fillStyle = "#1f4e79"; x.fillText("📊 Porcentaje: " + r.pct + "%", 60, y + 180);
+  x.fillStyle = "#b8860b"; x.fillText("⭐ Puntos: " + r.puntos, 60, y + 240);
+  x.fillStyle = "#555"; x.font = "20px Arial";
+  x.fillText("Intento n.º " + intentoNro + "  ·  " + new Date().toLocaleDateString("es-AR"), 40, y + 350);
+  x.fillStyle = "#888"; x.font = "18px Arial"; x.textAlign = "center";
+  x.fillText("QueSepanTodos.com · Profe Gustavo Aguilar", 320, 730);
+  return c;
+}
+
+function textoWhatsApp(d) {
+  var r = resumenResultados();
+  return "📚 *Sociedades Cooperativas (SIC)*\n👤 Alumno/a: " + d.alumno + "\n🏫 Curso: " + (d.curso || "-") +
+    "\n👩‍🏫 Docente: " + (d.docente || "-") + "\n✅ Aciertos: " + r.aciertos + "\n❌ Errores: " + r.errores +
+    "\n📊 Porcentaje: " + r.pct + "%\n⭐ Puntos: " + r.puntos + "\n🔁 Intento n.º " + intentoNro +
+    "\n📅 " + new Date().toLocaleDateString("es-AR");
+}
+
+function confirmarEnvio() {
+  var datos = {
+    alumno: document.getElementById("env-alumno").value.trim(),
+    curso: document.getElementById("env-curso").value.trim(),
+    docente: document.getElementById("env-docente").value.trim()
+  };
+  if (!datos.alumno) { document.getElementById("env-alumno").focus(); return; }
+  guardarLS("sic_alumno", datos.alumno); guardarLS("sic_curso", datos.curso); guardarLS("sic_docente", datos.docente);
+
+  var canvas = generarTarjeta(datos);
+  var texto = textoWhatsApp(datos);
+  var url = canvas.toDataURL("image/png");
+
+  document.getElementById("env-form").style.display = "none";
+  var res = document.getElementById("env-resultado");
+  res.style.display = "block";
+  document.getElementById("env-img").src = url;
+  document.getElementById("env-wa").href = "https://wa.me/?text=" + encodeURIComponent(texto);
+  var dl = document.getElementById("env-guardar");
+  dl.href = url; dl.download = "resultados_cooperativas.png";
+
+  var compartir = function () {
+    try {
+      canvas.toBlob(function (blob) {
+        try {
+          var file = new File([blob], "resultados_cooperativas.png", { type: "image/png" });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            navigator.share({ files: [file], text: texto }).catch(function () {});
+          }
+        } catch (e) {}
+      }, "image/png");
+    } catch (e) {}
+  };
+  document.getElementById("env-compartir").onclick = compartir;
+  compartir();
+}
+
+document.getElementById("env-cancelar").onclick = cerrarEnvio;
+document.getElementById("env-cerrar2").onclick = cerrarEnvio;
+document.getElementById("env-ok").onclick = confirmarEnvio;
+
+function volverAJugar() {
+  totalGlobal = 0; aciertosGlobales = 0; puntajeQuiz = 0;
+  intentoNro++;
+  configurarRevision();
+irAPantalla(0);
+}
+
+// -----------------------------------------------------
+// FLECHAS DE REVISIÓN (solo si meta.revision)
+// -----------------------------------------------------
+function configurarRevision() {
+  if (!DATA.meta.revision) return;
+  var nav = document.getElementById("nav-revision");
+  nav.classList.add("activo");
+  document.body.classList.add("con-revision");
+  document.getElementById("rev-ant").onclick = function () { if (pantallaActual > 0) irAPantalla(pantallaActual - 1); };
+  document.getElementById("rev-sig").onclick = function () { if (pantallaActual < SCREENS.length - 1) irAPantalla(pantallaActual + 1); };
+}
+function actualizarRevision() {
+  var el = document.getElementById("rev-pos");
+  if (el) el.textContent = (pantallaActual + 1) + " / " + SCREENS.length + " · " + SCREENS[pantallaActual].tipo;
+}
+
+// -----------------------------------------------------
 // INICIO
 // -----------------------------------------------------
+configurarRevision();
 irAPantalla(0);
