@@ -284,6 +284,7 @@ function elegirColorSemaforo(colorElegido) {
 // ---------------------------------------------------------
 function irACierreFinal() {
     mostrarPantalla("pantalla-cierre-final");
+    try { if (window.QSTEnvio) QSTEnvio.poner(document.getElementById("pantalla-cierre-final"), { titulo: "Informarse protege", grado: "Trata y Grooming · Nivel Inicial", sinPuntaje: true }); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
     document.getElementById("img-cierre-final").src = DATOS.imagenCierre;
     reproducirAudio("audio/cierre_linea_145.mp3");
 }

@@ -327,6 +327,7 @@
       </div>`;
     cont.querySelector(".cierre-caja").appendChild(bloquePerfil("cierre"));
     cont.querySelector("#btn-volver-jugar").addEventListener("click", reiniciarJuego);
+    try { if (window.QSTEnvio) cont.querySelector(".cierre-caja").appendChild(QSTEnvio.boton({ titulo: "Jornada Institucional en Memoria de Johana Chacón", grado: "Memoria y Derechos", aciertos: aciertos, errores: errores, puntos: puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   }
 
   /* ---------- NARRACIÓN ---------- */

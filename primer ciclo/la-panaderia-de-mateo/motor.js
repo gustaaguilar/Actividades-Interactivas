@@ -242,6 +242,7 @@ function renderCierre(p) {
       <p class="cita">${DATOS.cita}</p>
     </div>
     ${lightboxHtml()}`;
+    try { if (window.QSTEnvio) app.querySelector('.cierre').appendChild(QSTEnvio.boton({ titulo: "La Panadería de Mateo", grado: "Matemática · 3.° grado", aciertos: stats.aciertos, errores: stats.errores, puntos: stats.aciertos * 10 })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 }
 
 function lightboxHtml() {

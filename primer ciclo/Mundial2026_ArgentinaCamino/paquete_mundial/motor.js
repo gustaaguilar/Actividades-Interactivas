@@ -109,6 +109,7 @@ function renderCierre(){
       </div>
     </div>
   `;
+  try { if (window.QSTEnvio) app.querySelector('.contenido').appendChild(QSTEnvio.boton({ titulo: "El camino de Argentina · Mundial 2026", grado: "Integrador · Primer Ciclo", aciertos: ACIERTOS, errores: ERRORES, puntos: ACIERTOS * 10 })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   reproducir(AUDIO_CIERRE);
 }
 function reiniciar(){ ACIERTOS=0; ERRORES=0; irA(-1); }

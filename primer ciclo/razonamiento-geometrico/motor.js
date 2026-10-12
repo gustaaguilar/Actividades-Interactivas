@@ -381,6 +381,7 @@
       '<div>⭐<b>' + st.puntos + '</b><span>Puntos</span></div>'));
     var fila = el("div", "pfila"), b = el("button", "btnGrande", "🔄 VOLVER A JUGAR");
     b.onclick = reiniciar; fila.appendChild(b); fila.appendChild(firma()); w.appendChild(fila);
+    try { if (window.QSTEnvio) w.appendChild(QSTEnvio.boton({ titulo: "Razonamiento geométrico", grado: "Matemática · Sala de 5 y 1.° grado", aciertos: st.aciertos, errores: st.errores, puntos: st.puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
     stage.appendChild(w); say(s.audio); completar();
   };
 

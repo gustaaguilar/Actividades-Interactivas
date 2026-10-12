@@ -359,6 +359,7 @@ function mostrarCierre() {
   document.getElementById("resultado-aciertos").textContent = estado.aciertos;
   document.getElementById("resultado-errores").textContent = estado.errores;
   document.getElementById("resultado-porcentaje").textContent = porcentaje + "%";
+  try { if (window.QSTEnvio) QSTEnvio.poner(document.querySelector("#pantalla-cierre .caja-cierre"), { titulo: "Sonido Fuerte y Sonido Débil", grado: "Música · Primer Ciclo", aciertos: estado.aciertos, errores: estado.errores, puntos: estado.aciertos * 10 }); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 
   let audioCierre;
   if (porcentaje >= 80) audioCierre = NARRACION.cierre_excelente;

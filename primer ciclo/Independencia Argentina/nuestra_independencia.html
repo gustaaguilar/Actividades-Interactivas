@@ -119,6 +119,7 @@ h1{font-size:1.5em;color:#fff;text-shadow:1px 2px 4px rgba(0,0,0,.3);text-align:
   .grilla-sopa td{width:28px;height:28px;font-size:.85em}
 }
 </style>
+<script src="../../recursos/enviar-tarea.js"></script>
 </head>
 <body>
 <h1>🇦🇷 Nuestra Independencia</h1>
@@ -791,6 +792,7 @@ function mostrarCierre(){
   document.getElementById('res-total').textContent=total;
   document.getElementById('res-pct').textContent=pct+'%';
   const msg=document.getElementById('res-mensaje');
+  try { if (window.QSTEnvio) QSTEnvio.poner(document.getElementById('res-mensaje').parentNode.parentNode, { titulo: "Nuestra Independencia Argentina", grado: "Cs. Sociales · Primer Ciclo", aciertos: aciertos, errores: errores, puntos: aciertos * 10 }); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   if(pct>=90){msg.style.background='#D3F9D8';msg.style.color='#2B8A3E';msg.textContent='⭐ ¡Excelente! ¡Sos un gran patriota!';}
   else if(pct>=70){msg.style.background='#FFF9DB';msg.style.color='#E67700';msg.textContent='👍 ¡Muy bien! ¡Seguís aprendiendo!';}
   else if(pct>=50){msg.style.background='#FFE8CC';msg.style.color='#D9480F';msg.textContent='💪 ¡Podés mejorar! ¡Intentá de nuevo!';}

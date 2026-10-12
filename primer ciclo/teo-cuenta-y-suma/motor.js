@@ -195,6 +195,7 @@ function renderCierre() {
   app.appendChild(cont);
 
   cont.querySelector(".btn-volver").onclick = reiniciarPaquete;
+  try { if (window.QSTEnvio) cont.appendChild(QSTEnvio.boton({ titulo: "Teo cuenta y suma", grado: "Matemática · 1.° grado", aciertos: estado.aciertos, errores: estado.errores, puntos: estado.puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 
   encolarAudio(p.audio);
   reproducirCola();

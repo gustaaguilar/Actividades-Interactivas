@@ -255,6 +255,7 @@
     #pantalla-inicio img, #pantalla-final-contenido img { max-width: 220px; }
   }
 </style>
+<script src="../../recursos/enviar-tarea.js"></script>
 </head>
 <body>
 
@@ -526,6 +527,7 @@ function mostrarPantallaFinal() {
   document.getElementById('final-errores').textContent = estado.errores;
   document.getElementById('final-porcentaje').textContent = pct + '%';
   mostrarPantalla('pantalla-final');
+  try { if (window.QSTEnvio) QSTEnvio.poner(document.getElementById('pantalla-final-contenido'), { titulo: "La Atajada del Dibu · Coloreo por Código", grado: "Matemática · 1.° y 2.° grado", aciertos: estado.aciertos, errores: estado.errores, puntos: estado.aciertos * 10 }); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   reproducirAudioCierre();
 }
 

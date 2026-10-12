@@ -797,6 +797,7 @@ function renderCierre(p, cont) {
   const btn = crearBotonAccion(p.textoBotonVolver || "🔄 Volver a jugar", reiniciarJuego, { ignorarAudio: true });
   filaInferior.appendChild(btn);
   cont.appendChild(filaInferior);
+  try { if (window.QSTEnvio) cont.appendChild(QSTEnvio.boton({ titulo: "Las plantas y sus partes", grado: "Ambiente, Cultura y Tecnología · 1.° grado", aciertos: aciertos, errores: errores, puntos: puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 
   reproducirUnico(p.audio, null);
 }

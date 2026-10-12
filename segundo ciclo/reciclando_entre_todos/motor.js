@@ -1013,6 +1013,7 @@
     const btnReiniciar = crear("button", { class: "btn-comenzar" }, "🔄 Volver a jugar");
     btnReiniciar.addEventListener("click", reiniciarJuego);
     cont.appendChild(btnReiniciar);
+    try { if (window.QSTEnvio) cont.appendChild(QSTEnvio.boton({ titulo: "Reciclando entre Todos", grado: "Ambiente · 5.°, 6.° y 7.° grado", aciertos: aciertos, errores: errores, puntos: puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 
     app.appendChild(cont);
     if (p.audio) encolarAudio(p.audio);

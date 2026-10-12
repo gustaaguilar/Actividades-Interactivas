@@ -1228,6 +1228,7 @@
     const btnReiniciar = crear("button", { class: "btn-comenzar" }, "🔄 Volver a jugar");
     btnReiniciar.addEventListener("click", reiniciarJuego);
     cont.appendChild(btnReiniciar);
+    try { if (window.QSTEnvio) cont.appendChild(QSTEnvio.boton({ titulo: DATOS.titulo, grado: "3er grado · Lengua", aciertos: aciertos, errores: errores, puntos: puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 
     app.appendChild(cont);
     if (p.audio) encolarAudio(p.audio);

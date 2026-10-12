@@ -360,6 +360,7 @@
   }
   .portada-boton:active{ transform: translateY(4px); box-shadow:0 2px 0 #b38f00; }
 </style>
+<script src="../../recursos/enviar-tarea.js"></script>
 </head>
 <body>
 
@@ -635,6 +636,7 @@ document.getElementById("btnEmpezar").addEventListener("click", (e) => {
 
 function mostrarFinal(){
   document.getElementById("overlayFinal").classList.add("activo");
+  try { if (window.QSTEnvio) QSTEnvio.poner(document.querySelector('#overlayFinal .card-final'), { titulo: "Coloreo por Código · Mundial 2026", grado: "Matemática · 5.°, 6.° y 7.° grado", sinPuntaje: true }); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   audioFelicitacion.currentTime = 0;
   audioFelicitacion.play();
 }

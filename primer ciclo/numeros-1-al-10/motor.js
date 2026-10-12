@@ -515,6 +515,7 @@
     const b = el("button", "btn", "🔄 Volver a jugar");
     b.onclick = () => { E.aciertos = 0; E.errores = 0; E.puntos = 0; $("#puntos").textContent = "⭐ 0"; ir(0); };
     fila.append(b, firma()); c.appendChild(fila);
+    try { if (window.QSTEnvio) c.appendChild(QSTEnvio.boton({ titulo: "Números del 1 al 10… ¡y hasta el 20!", grado: "Matemática · Sala de 5 y 1.° grado", aciertos: E.aciertos, errores: E.errores, puntos: E.puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
     hablar(p.audio);
   };
 

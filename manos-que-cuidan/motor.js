@@ -1059,6 +1059,7 @@
     const btnReiniciar = el("button", "btn btn-primario", "Volver a jugar 🔁");
     btnReiniciar.addEventListener("click", reiniciar);
     wrap.appendChild(btnReiniciar);
+    try { if (window.QSTEnvio) wrap.appendChild(QSTEnvio.boton({ titulo: "Manos que Cuidan", grado: "Salud y Prevención · 1.° y 2.° Ciclo", aciertos: state.aciertos, errores: state.errores, puntos: state.puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 
     cont.appendChild(wrap);
     setBtnSiguienteHabilitado(false);

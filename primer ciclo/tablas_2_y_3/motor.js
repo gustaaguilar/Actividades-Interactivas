@@ -341,6 +341,7 @@ function renderCierre() {
     <button class="btn-siguiente" id="btnVolverJugar">Volver a jugar 🔄</button>
   `;
   app.appendChild(div);
+  try { if (window.QSTEnvio) div.appendChild(QSTEnvio.boton({ titulo: "Las tablas del 2 y del 3", grado: "Matemática · 2.° y 3.° grado", aciertos: aciertos, errores: errores, puntos: puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 
   document.getElementById('btnVolverJugar').addEventListener('click', () => {
     aciertos = 0; errores = 0; pantallaActual = 0; escenaActual = 0;

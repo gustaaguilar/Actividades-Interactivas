@@ -492,6 +492,7 @@ function renderCierre(datos, cont) {
   var btnReiniciar = crear("button", "btn-comenzar btn-jugar-de-nuevo", "🔄 Jugar de nuevo");
   btnReiniciar.onclick = function () { reiniciarPaquete(); };
   textos.appendChild(btnReiniciar);
+  try { if (window.QSTEnvio) textos.appendChild(QSTEnvio.boton({ titulo: "Análisis sintáctico de oraciones", grado: "Lengua · 7.° grado", aciertos: estado.puntaje.aciertos, errores: estado.puntaje.errores, puntos: estado.puntaje.aciertos * 10 })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 
   if (DATOS.meta && DATOS.meta.foto) {
     var fila = crear("div", "fila-comenzar");

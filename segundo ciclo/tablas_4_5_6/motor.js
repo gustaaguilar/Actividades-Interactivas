@@ -338,6 +338,7 @@ function renderCierre() {
     <button class="btn-finalizar" id="btnFinalizar">Finalizar ✅</button>
   `;
   app.appendChild(div);
+  try { if (window.QSTEnvio) div.appendChild(QSTEnvio.boton({ titulo: "Las tablas del 4, 5 y 6", grado: "Matemática · Segundo Ciclo", aciertos: aciertos, errores: errores, puntos: puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 
   document.getElementById('btnVolverJugar').addEventListener('click', () => {
     aciertos = 0; errores = 0; pantallaActual = 1; escenaActual = 0;

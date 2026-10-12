@@ -298,6 +298,7 @@
       <div class="stats"><div>✅ Aciertos<b>${S.aciertos}</b></div><div>❌ Errores<b>${S.errores}</b></div><div>📊 Total<b>${pc}%</b></div><div>⭐ Puntos<b>${S.puntos}</b></div></div>
       <div class="cie-fila"><button class="btn grande" id="btnOtra">🔄 Volver a jugar</button>${profeHTML()}</div></div>`;
     $('#btnOtra').onclick = () => { Object.assign(S, { aciertos: 0, errores: 0, puntos: 0, eval: {} }); ir(0); };
+    try { if (window.QSTEnvio) M.querySelector('.cierre').appendChild(QSTEnvio.boton({ titulo: "Arte, votos y decisiones", grado: "Matemática · 5.° grado", aciertos: S.aciertos, errores: S.errores, puntos: S.puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
     activarLightbox();
     play(P.audio);
   };

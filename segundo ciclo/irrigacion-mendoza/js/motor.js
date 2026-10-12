@@ -1125,6 +1125,7 @@
       render();
     });
     vista.appendChild(btn);
+    try { if (window.QSTEnvio) vista.appendChild(QSTEnvio.boton({ titulo: "Irrigación de Mendoza", grado: "Cs. Sociales · 5.° grado", aciertos: aciertos, errores: errores, puntos: puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 
     reproducirAudio(p.audio);
   }

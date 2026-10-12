@@ -324,6 +324,7 @@
       </div>`;
     cont.querySelector(".cierre-caja").appendChild(bloquePerfil("cierre"));
     cont.querySelector("#btn-volver-jugar").addEventListener("click", reiniciarJuego);
+    try { if (window.QSTEnvio) cont.querySelector(".cierre-caja").appendChild(QSTEnvio.boton({ titulo: "El sistema reproductor humano", grado: "Cs. Naturales · 6.° grado", aciertos: aciertos, errores: errores, puntos: puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   }
 
   /* ---------- NARRACIÓN ---------- */

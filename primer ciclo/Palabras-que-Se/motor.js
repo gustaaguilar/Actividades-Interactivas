@@ -366,6 +366,7 @@ function renderCierre() {
   `;
   document.getElementById("btn-reiniciar").addEventListener("click", () => iniciarDia(estado.diaActual));
   document.getElementById("btn-otro-dia").addEventListener("click", volverASelectorDia);
+  try { if (window.QSTEnvio) contenedor.querySelector('.cierre-caja').appendChild(QSTEnvio.boton({ titulo: "Palabras que Sé", grado: "Alfabetización de adultos", parte: dia ? dia.nombre : "", aciertos: estado.aciertos, errores: estado.errores, puntos: estado.puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
 }
 
 // ---------- Barra inferior (Siguiente) ----------

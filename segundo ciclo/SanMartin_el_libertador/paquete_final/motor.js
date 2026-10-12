@@ -98,6 +98,7 @@ function renderCierre(){
       </div>
     </div>
   `;
+  try { if (window.QSTEnvio) app.querySelector('.contenido').appendChild(QSTEnvio.boton({ titulo: "San Martín, el Libertador", grado: "Cs. Sociales · Segundo Ciclo", aciertos: ACIERTOS, errores: ERRORES, puntos: ACIERTOS * 10 })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   reproducir(AUDIO_CIERRE_FELICITACIONES);
 }
 

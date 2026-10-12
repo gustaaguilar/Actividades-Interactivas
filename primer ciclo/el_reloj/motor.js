@@ -244,6 +244,7 @@
       '<div class="pfila"><button class="btn" id="bvol">🔄 Volver a jugar</button>' + firmaHTML() + '</div></div>';
     activarFoto(main);
     $('#bvol').onclick = function () { est.aciertos = est.errores = est.puntos = 0; $('#cpts').textContent = '⭐ 0'; ir(0); };
+    try { if (window.QSTEnvio) main.querySelector('.cierre').appendChild(QSTEnvio.boton({ titulo: M.titulo, grado: M.grado, aciertos: est.aciertos, errores: est.errores, puntos: est.puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
     encolar(p.audio);
   };
 

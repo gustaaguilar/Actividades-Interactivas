@@ -935,6 +935,7 @@
       cont.appendChild(btnVolver);
     }
 
+    try { if (window.QSTEnvio) cont.appendChild(QSTEnvio.boton({ titulo: "Maravillas en los mares", grado: "Lengua · 5.° grado", aciertos: puntaje.correctos, errores: puntaje.incorrectos, puntos: puntaje.correctos * 10 })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
     app.appendChild(cont);
     habilitarSiguiente();
   };

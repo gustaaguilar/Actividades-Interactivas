@@ -328,6 +328,7 @@
       Object.assign(S, { aciertos: 0, errores: 0, puntos: 0, eval: {}, fotoURL: null, obraURL: null, taller: null });
       ir(0);
     };
+    try { if (window.QSTEnvio) M.querySelector('.cierre').appendChild(QSTEnvio.boton({ titulo: "Una figura que se esconde", grado: "Artes Visuales · 3.° grado", aciertos: S.aciertos, errores: S.errores, puntos: S.puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
     activarLightbox();
     play(P.audio);
   };

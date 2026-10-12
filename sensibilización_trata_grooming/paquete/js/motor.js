@@ -692,6 +692,7 @@ function finalizarRompecabezas() {
 // ===========================================================
 function irACierreFinal() {
     mostrarPantalla("pantalla-cierre-final");
+    try { if (window.QSTEnvio) QSTEnvio.poner(document.getElementById("pantalla-cierre-final"), { titulo: "Informarse protege", grado: "Trata y Grooming · 1.° y 2.° Ciclo", sinPuntaje: true }); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
     reproducirAudio("audio/cierre_linea_145.mp3");
 }
 

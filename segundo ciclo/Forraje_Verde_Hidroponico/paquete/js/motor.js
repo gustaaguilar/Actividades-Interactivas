@@ -698,6 +698,7 @@ function initCierre() {
   document.getElementById("cierre-resultado").textContent = "Respondiste bien " + puntaje.correctas + " de " + total + " (" + pct + "%)";
   document.getElementById("cierre-texto").textContent = CIERRE_TEXTO;
   document.getElementById("cierre-imagen").src = CIERRE_IMAGEN;
+  try { if (window.QSTEnvio) QSTEnvio.poner(document.getElementById("btn-jugar-de-nuevo").parentNode, { titulo: "Forraje Verde Hidropónico", grado: "Integrador", aciertos: puntaje.correctas, errores: puntaje.incorrectas, puntos: puntaje.correctas * 10 }); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   reproducir(AUDIOS_GENERALES.cierre);
 }
 

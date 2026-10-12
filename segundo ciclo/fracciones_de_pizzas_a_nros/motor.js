@@ -1153,6 +1153,7 @@ function renderCierre(p, cont) {
   document.getElementById("btn-jugar-de-nuevo").addEventListener("click", function () {
     iniciar();
   });
+  try { if (window.QSTEnvio) cont.querySelector('.cierre').appendChild(QSTEnvio.boton({ titulo: "Fracciones: de la pizza a los números", grado: "Matemática · 4.° grado", aciertos: aciertos, errores: errores, puntos: aciertos * 10 })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   activarLightbox();
   encolarAudio(p.audio);
 }

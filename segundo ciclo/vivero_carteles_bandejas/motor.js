@@ -245,6 +245,7 @@
       </div>`;
     cont.querySelector(".cierre-caja").appendChild(bloquePerfil("cierre"));
     cont.querySelector("#btn-volver-jugar").addEventListener("click", reiniciarJuego);
+    try { if (window.QSTEnvio) cont.querySelector(".cierre-caja").appendChild(QSTEnvio.boton({ titulo: "El Vivero · Carteles y Bandejas", grado: "Matemática · 5.° grado", aciertos: aciertos, errores: errores, puntos: puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   }
 
   /* ---------- NARRACIÓN ---------- */

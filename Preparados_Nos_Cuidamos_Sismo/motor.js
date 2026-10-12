@@ -302,6 +302,7 @@
       </div>`;
     cont.querySelector(".cierre-caja").appendChild(bloquePerfil("cierre"));
     cont.querySelector("#btn-volver-jugar").addEventListener("click", reiniciarJuego);
+    try { if (window.QSTEnvio) cont.querySelector(".cierre-caja").appendChild(QSTEnvio.boton({ titulo: "Preparados nos cuidamos: qué hacer frente a un sismo", grado: "Defensa Civil · 1.° y 2.° Ciclo", aciertos: aciertos, errores: errores, puntos: puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   }
 
   /* ---------- NARRACIÓN ---------- */

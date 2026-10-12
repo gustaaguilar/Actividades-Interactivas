@@ -788,6 +788,7 @@ function initCierre() {
   const pct = total > 0 ? Math.round((puntaje.correctas / total) * 100) : 0;
   document.getElementById("cierre-resultado").textContent =
     `Respondiste bien ${puntaje.correctas} de ${total} (${pct}%)`;
+    try { if (window.QSTEnvio) QSTEnvio.poner(document.getElementById("btn-jugar-de-nuevo").parentNode, { titulo: "Provincias de Argentina", grado: "Cs. Sociales · Segundo Ciclo", aciertos: puntaje.correctas, errores: puntaje.incorrectas, puntos: puntaje.correctas * 10 }); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   reproducir(AUDIOS_GENERALES.cierre);
 }
 

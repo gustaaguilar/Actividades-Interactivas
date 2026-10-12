@@ -387,6 +387,7 @@ function renderCierre(p) {
   div.appendChild(bloqueThumb());
   EM.els.contenido.appendChild(div);
   div.querySelector(".btn-comenzar").addEventListener("click", reiniciarPaquete);
+  try { if (window.QSTEnvio) div.appendChild(QSTEnvio.boton({ titulo: "Fortalecimiento de Trayectorias", grado: "Lengua · Primer Ciclo", aciertos: EM.aciertos, errores: EM.errores, puntos: EM.aciertos * 10 })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   reproducirAudio(p.audio);
   bloquearSiguiente(true);
 }

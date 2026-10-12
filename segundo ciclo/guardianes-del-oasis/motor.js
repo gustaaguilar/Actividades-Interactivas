@@ -621,6 +621,7 @@
     const fila = el('div', 'filaPortada');
     const b = el('button', 'btnGrande', '🔄 Volver a jugar'); b.onclick = reiniciar;
     fila.appendChild(b); fila.appendChild(firma()); m.appendChild(fila);
+    try { if (window.QSTEnvio) m.appendChild(QSTEnvio.boton({ titulo: D.meta.titulo, grado: D.meta.etiqueta, aciertos: E.aciertos, errores: E.errores, puntos: E.puntos })); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
     E.completo = true; hablar(['g_cierre']);
   }
 

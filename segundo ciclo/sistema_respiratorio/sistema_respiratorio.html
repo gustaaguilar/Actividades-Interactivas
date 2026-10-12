@@ -303,6 +303,7 @@ svg.lineas-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-eve
   .grilla-sopa td{width:30px;height:30px;font-size:.95em;}
 }
 </style>
+<script src="../../recursos/enviar-tarea.js"></script>
 </head>
 <body>
 
@@ -1429,6 +1430,7 @@ function mostrarCierre() {
   document.getElementById('res-total').textContent = total;
   document.getElementById('res-pct').textContent = pct + '%';
   const msg = document.getElementById('res-mensaje');
+  try { if (window.QSTEnvio) QSTEnvio.poner(document.getElementById('res-mensaje').parentNode.parentNode, { titulo: "Sistema Respiratorio", grado: "Cs. Naturales · 5.° y 6.° grado", aciertos: aciertos, errores: errores, puntos: aciertos * 10 }); } catch (e) {} // 📤 botón común de envío (recursos/enviar-tarea.js)
   if (pct >= 90) { msg.style.background='#D3F9D8'; msg.style.color='#2B8A3E'; msg.textContent='⭐ ¡Excelente desempeño!'; }
   else if (pct >= 70) { msg.style.background='#FFF9DB'; msg.style.color='#E67700'; msg.textContent='👍 ¡Muy buen trabajo!'; }
   else if (pct >= 50) { msg.style.background='#FFE8CC'; msg.style.color='#D9480F'; msg.textContent='💪 Podés mejorar. ¡Intentá de nuevo!'; }
