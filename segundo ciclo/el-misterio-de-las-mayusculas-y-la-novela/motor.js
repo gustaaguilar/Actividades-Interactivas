@@ -145,6 +145,12 @@
     return `<div class="progreso"><div class="progreso-barra" style="width:${pct}%"></div></div>`;
   }
 
+  // Ejecuta fn recién cuando terminó TODO el audio pendiente (confirmaciones incluidas)
+  function alTerminarAudio(fn) {
+    const gen = audioGenId;
+    encolarAudio(null, () => { if (gen === audioGenId) fn(); });
+  }
+
   function botonSiguiente(habilitado, onClick, texto) {
     const btn = crearEl("button", "btn-siguiente", texto || "Siguiente ➜");
     btn.disabled = !habilitado;
@@ -407,27 +413,29 @@
         <p class="feedback"></p>
       `;
       const cont = zona.querySelector(".opciones");
-      let evaluado = false;
+      let evaluado = false;   // ya se computó el primer intento
+      let resuelto = false;
       opcionesBarajadas.forEach(op => {
         const btn = crearEl("button", "opcion", op.texto);
         btn.addEventListener("click", () => {
-          if (evaluado) return;
-          evaluado = true;
+          if (resuelto || btn.disabled) return;
           const feedback = zona.querySelector(".feedback");
           if (op.esCorrecta) {
+            resuelto = true;
             btn.classList.add("correcta");
-            state.aciertos++; state.puntos += 10;
+            if (!evaluado) { state.aciertos++; state.puntos += 10; }
+            evaluado = true;
             feedback.textContent = "✅ " + (item.explicacion || "¡Correcto!");
+            cont.querySelectorAll("button").forEach(b => b.disabled = true);
+            limpiarCola();
             encolarAudio(item.audioCorrecta);
+            alTerminarAudio(verificarAvance);
           } else {
             btn.classList.add("incorrecta");
-            state.errores++;
-            feedback.textContent = "❌ " + (item.explicacion || "Incorrecto.");
-            [...cont.children].forEach((b, i) => { if (opcionesBarajadas[i].esCorrecta) b.classList.add("correcta"); });
-            encolarAudio(item.audioCorrecta);
+            btn.disabled = true;
+            if (!evaluado) { state.errores++; evaluado = true; }
+            feedback.textContent = "❌ Esa no es. Probá con otra opción.";
           }
-          cont.querySelectorAll("button").forEach(b => b.disabled = true);
-          verificarAvance();
         });
         cont.appendChild(btn);
       });
@@ -472,27 +480,30 @@
         <p class="feedback"></p>
       `;
       const cont = zona.querySelector(".categorias");
-      let evaluado = false;
+      let evaluado = false;   // ya se computó el primer intento
+      let resuelto = false;
       pantalla.categorias.forEach((cat, i) => {
         const btn = crearEl("button", "opcion categoria", cat);
         btn.disabled = true;
         btn.addEventListener("click", () => {
-          if (evaluado) return;
-          evaluado = true;
+          if (resuelto || btn.disabled) return;
           const feedback = zona.querySelector(".feedback");
           if (i === item.categoriaCorrecta) {
+            resuelto = true;
             btn.classList.add("correcta");
-            state.aciertos++; state.puntos += 10;
+            if (!evaluado) { state.aciertos++; state.puntos += 10; }
+            evaluado = true;
             feedback.textContent = "✅ " + (item.justificacion || "¡Correcto!");
+            cont.querySelectorAll("button").forEach(b => b.disabled = true);
+            limpiarCola();
+            encolarAudio(item.audioCorrecta);
+            alTerminarAudio(verificarAvance);
           } else {
             btn.classList.add("incorrecta");
-            state.errores++;
-            feedback.textContent = "❌ " + (item.justificacion || ("La categoría correcta era: " + pantalla.categorias[item.categoriaCorrecta]));
-            [...cont.children].forEach((b, j) => { if (j === item.categoriaCorrecta) b.classList.add("correcta"); });
+            btn.disabled = true;
+            if (!evaluado) { state.errores++; evaluado = true; }
+            feedback.textContent = "❌ Esa no es. Probá con otra categoría.";
           }
-          cont.querySelectorAll("button").forEach(b => b.disabled = true);
-          encolarAudio(item.audioCorrecta);
-          verificarAvance();
         });
         cont.appendChild(btn);
       });
@@ -702,8 +713,7 @@
       }
       inicioSel = null;
       if (encontradas === palabras.length) {
-        footer.innerHTML = "";
-        footer.appendChild(botonSiguiente(true, irSiguiente));
+        alTerminarAudio(() => { footer.innerHTML = ""; footer.appendChild(botonSiguiente(true, irSiguiente)); });
       }
     }
 
@@ -738,25 +748,29 @@
         </div>
         <p class="feedback"></p>
       `;
-      let evaluado = false;
+      let evaluado = false;   // ya se computó el primer intento
+      let resuelto = false;
       zona.querySelectorAll("button.opcion").forEach(btn => {
         btn.addEventListener("click", () => {
-          if (evaluado) return;
-          evaluado = true;
+          if (resuelto || btn.disabled) return;
           const eligeV = btn.dataset.v === "true";
           const feedback = zona.querySelector(".feedback");
           if (eligeV === item.valor) {
+            resuelto = true;
             btn.classList.add("correcta");
-            state.aciertos++; state.puntos += 10;
+            if (!evaluado) { state.aciertos++; state.puntos += 10; }
+            evaluado = true;
             feedback.textContent = "✅ " + item.justificacion;
+            zona.querySelectorAll("button.opcion").forEach(b => b.disabled = true);
+            limpiarCola();
+            encolarAudio(item.audio);
+            alTerminarAudio(verificarAvance);
           } else {
             btn.classList.add("incorrecta");
-            state.errores++;
-            feedback.textContent = "❌ " + item.justificacion;
+            btn.disabled = true;
+            if (!evaluado) { state.errores++; evaluado = true; }
+            feedback.textContent = "❌ Esa no es. Pensalo de nuevo y probá con la otra.";
           }
-          zona.querySelectorAll("button.opcion").forEach(b => b.disabled = true);
-          encolarAudio(item.audio);
-          verificarAvance();
         });
       });
     }
@@ -839,8 +853,7 @@
 
     function chequearCompleto() {
       if (resuelto.every(r => r)) {
-        footer.innerHTML = "";
-        footer.appendChild(botonSiguiente(true, irSiguiente));
+        alTerminarAudio(() => { footer.innerHTML = ""; footer.appendChild(botonSiguiente(true, irSiguiente)); });
       }
     }
 
@@ -1063,8 +1076,7 @@
             state.aciertos += pantalla.items.length - erroresRegistrados.size;
             state.errores += erroresRegistrados.size;
             state.puntos += 10 * (pantalla.items.length - erroresRegistrados.size);
-            footer.innerHTML = "";
-            footer.appendChild(botonSiguiente(true, irSiguiente));
+            alTerminarAudio(() => { footer.innerHTML = ""; footer.appendChild(botonSiguiente(true, irSiguiente)); });
           }
         } else {
           erroresRegistrados.add(siguienteEsperado);
