@@ -154,7 +154,14 @@
   function botonSiguiente(habilitado, onClick, texto) {
     const btn = crearEl("button", "btn-siguiente", texto || "Siguiente ➜");
     btn.disabled = !habilitado;
-    btn.addEventListener("click", onClick);
+    // El botón se usa UNA sola vez y desaparece al tocarlo: así nunca queda un "Continuar" viejo
+    // visible en el ítem/paso siguiente (permitía saltear actividades o dejaba la pantalla trabada).
+    btn.addEventListener("click", () => {
+      if (btn.dataset.usado) return;
+      btn.dataset.usado = "1";
+      btn.remove();
+      onClick();
+    });
     return btn;
   }
 
@@ -403,6 +410,7 @@
 
     function mostrarItem() {
       if (idx >= pantalla.items.length) { irSiguiente(); return; }
+      footer.innerHTML = "";
       const item = pantalla.items[idx];
       imagenDelItem(wrap, pantalla, item);
       const opcionesBarajadas = shuffle(item.opciones.map((o, i) => ({ texto: o, esCorrecta: i === item.correcta })));
@@ -472,6 +480,7 @@
 
     function mostrarItem() {
       if (idx >= pantalla.items.length) { irSiguiente(); return; }
+      footer.innerHTML = "";
       const item = pantalla.items[idx];
       imagenDelItem(wrap, pantalla, item);
       zona.innerHTML = `
@@ -738,6 +747,7 @@
 
     function mostrarItem() {
       if (idx >= pantalla.items.length) { irSiguiente(); return; }
+      footer.innerHTML = "";
       const item = pantalla.items[idx];
       imagenDelItem(wrap, pantalla, item);
       zona.innerHTML = `
@@ -881,6 +891,7 @@
     let idx = 0;
 
     function mostrarPaso() {
+      footer.innerHTML = "";
       const paso = pantalla.pasos[idx];
       textoActual.textContent = paso.texto;
       textoActual.classList.remove("titileo"); void textoActual.offsetWidth; textoActual.classList.add("titileo");
