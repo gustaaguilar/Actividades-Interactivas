@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continuidad pedagógica · QueSepanTodos</title>
+<meta name="description" content="Actividades interactivas de QueSepanTodos.com basadas en el material de la DGE Mendoza para la continuidad pedagógica en la modalidad no presencial. 1.° a 7.° grado. Elegí el área, el grado y la actividad, y enviala al grupo de familias.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#fff9ef; --tinta:#2b2118; --suave:#7a6a5a; --borde:#eadcc6; --blanco:#fff;
+  --rojo:#e63946; --naranja:#fb8500; --amarillo:#ffb703; --verde:#2a9d8f; --azul:#3a86ff; --violeta:#8338ec; --wa:#25d366;
+  --radio:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Baloo 2',system-ui,sans-serif;background:var(--papel);color:var(--tinta);min-height:100vh;-webkit-tap-highlight-color:transparent}
+.arcoiris{height:8px;background:linear-gradient(90deg,#e63946,#fb8500,#ffb703,#2a9d8f,#3a86ff,#8338ec)}
+.envoltura{max-width:760px;margin:0 auto;padding:16px 16px 48px}
+header{text-align:center;padding:10px 0 4px}
+.marca{font-weight:800;color:var(--rojo);font-size:15px;letter-spacing:.3px}
+h1{font-size:clamp(24px,6.4vw,36px);line-height:1.1;margin:4px 0 8px}
+.sello{display:inline-block;background:#fff;border:3px solid var(--verde);border-radius:14px;padding:8px 12px;font-weight:700;font-size:clamp(14px,3.8vw,17px);line-height:1.3;color:#1d6f65}
+.ayuda{color:var(--suave);font-weight:600;font-size:15px;margin-top:10px;line-height:1.35}
+.tutos{margin-top:18px;display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:600px){.tutos{grid-template-columns:1fr 1fr}}
+.tuto{background:#fff;border:2px solid var(--borde,#eadcc6);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.tuto h3{font-size:15px;margin:0;line-height:1.25}
+.yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;cursor:pointer;border:0;padding:0;width:100%}
+.yt img{width:100%;height:100%;object-fit:cover;display:block}
+.yt .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:48px}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tuto .alt{font-size:13px;font-weight:700;color:var(--azul)}
+.paso{margin-top:22px}
+.paso h2{font-size:18px;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.paso h2 .n{background:var(--tinta);color:#fff;border-radius:50%;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:inherit;font-weight:800;font-size:17px;border:3px solid var(--borde);background:#fff;color:var(--tinta);border-radius:999px;padding:6px 16px;cursor:pointer;min-height:46px}
+.chip:focus-visible,.btn:focus-visible{outline:3px solid var(--azul);outline-offset:2px}
+.chip[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:#fff}
+.sep-area{font-size:18px;margin:6px 0 -4px;color:var(--suave)}
+.areas .chip[data-a="todas"]{flex:0 1 auto}
+.areas .chip{flex:1 1 200px;font-size:19px;border-radius:var(--radio);padding:10px 14px}
+.areas .chip[aria-pressed="true"].mate{background:var(--azul);border-color:var(--azul)}
+.areas .chip[aria-pressed="true"].lengua{background:var(--violeta);border-color:var(--violeta)}
+.grados .chip{min-width:58px;text-align:center}
+.lista{display:flex;flex-direction:column;gap:14px}
+.vacio{color:var(--suave);font-weight:600;background:#fff;border:3px dashed var(--borde);border-radius:var(--radio);padding:16px;text-align:center}
+.tarj{background:#fff;border:3px solid var(--borde);border-radius:var(--radio);padding:10px;display:grid;grid-template-columns:84px 1fr;gap:8px 12px;align-items:center}
+.tarj img{width:84px;height:84px;object-fit:cover;border-radius:12px;background:#f3eadb}
+.tarj .cab{min-width:0}
+.tarj .pie{grid-column:1/-1;display:flex;flex-direction:column;gap:6px}
+.etiqueta{font-size:13px;font-weight:800;color:var(--suave);text-transform:uppercase;letter-spacing:.4px}
+.tarj h3{font-size:19px;line-height:1.15}
+.acciones{display:flex;flex-wrap:wrap;gap:6px}
+.acciones .btn{flex:1 1 auto;justify-content:center}
+.btn{font-family:inherit;font-weight:800;font-size:15px;border:none;border-radius:12px;padding:8px 12px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;min-height:42px;color:#fff}
+.btn.wa{background:var(--wa);box-shadow:0 3px 0 #128c4a;flex:1 1 100%;justify-content:center;font-size:16px}
+.btn.copiar{background:var(--naranja);box-shadow:0 3px 0 #b35f00}
+.btn.ver{background:var(--azul);box-shadow:0 3px 0 #1f5fcc}
+.btn.ficha{background:#fff;color:var(--tinta);border:2px solid var(--borde)}
+.btn:active{transform:translateY(2px);box-shadow:none}
+.ok-copia{font-size:13px;font-weight:800;color:#1d6f65;min-height:1em}
+details.msj{margin-top:2px}
+details.msj summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--suave)}
+details.msj pre{white-space:pre-wrap;font-family:inherit;font-size:14px;background:var(--papel);border:2px solid var(--borde);border-radius:10px;padding:8px;margin-top:6px;line-height:1.35}
+.como{margin-top:28px;background:#fff;border:3px solid var(--borde);border-radius:var(--radio);padding:14px 16px}
+.como h2{font-size:18px;margin-bottom:6px}
+.como ol{padding-left:22px;line-height:1.45;font-weight:600}
+footer{margin-top:26px;text-align:center;color:var(--suave);font-size:14px;font-weight:600;line-height:1.5}
+footer a{color:var(--azul)}
+@media (min-width:600px){.tarj{grid-template-columns:120px 1fr}.tarj img{width:120px;height:120px}}
+</style>
+</head>
+<body>
+<div class="arcoiris"></div>
+<div class="envoltura">
+  <header>
+    <div class="marca">QueSepanTodos.com</div>
+    <h1>Continuidad pedagógica en la modalidad no presencial</h1>
+    <div class="sello">📚 Actividades interactivas basadas en el material del portal educativo de la Dirección General de Escuelas de Mendoza · 1.° a 7.° grado</div>
+    <p class="ayuda">Para docentes: elegí el área, el grado y la actividad, y enviala al grupo de familias con un toque.</p>
+  </header>
+
+  <section class="tutos" aria-label="Videos tutoriales">
+    <div class="tuto"><h3>🎬 Tutorial para docentes: cómo enviar una actividad</h3>
+      <button class="yt" data-id="6CEorjdRN2Y" aria-label="Ver el tutorial para docentes"><img src="https://i.ytimg.com/vi/6CEorjdRN2Y/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><svg class="play" viewBox="0 0 68 48"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.8 47.7 34 47.7 34 47.7s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#f00"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></button>
+      <a class="alt" href="https://youtu.be/6CEorjdRN2Y" target="_blank" rel="noopener">Abrir en YouTube ↗</a></div>
+    <div class="tuto"><h3>📱 Tutorial para estudiantes y familias (va en el mensaje de WhatsApp)</h3>
+      <button class="yt" data-id="pDtu2wZLQyI" aria-label="Ver el tutorial para estudiantes y familias"><img src="https://i.ytimg.com/vi/pDtu2wZLQyI/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><svg class="play" viewBox="0 0 68 48"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.8 47.7 34 47.7 34 47.7s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#f00"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></button>
+      <a class="alt" href="https://youtu.be/pDtu2wZLQyI" target="_blank" rel="noopener">Abrir en YouTube ↗</a></div>
+  </section>
+  <section class="paso">
+    <h2><span class="n">1</span>Elegí el área</h2>
+    <div class="chips areas" id="areas" role="group" aria-label="Área"></div>
+  </section>
+
+  <section class="paso">
+    <h2><span class="n">2</span>Elegí el grado</h2>
+    <div class="chips grados" id="grados" role="group" aria-label="Grado"></div>
+  </section>
+
+  <section class="paso">
+    <h2><span class="n">3</span>Elegí la actividad y enviala</h2>
+    <div class="lista" id="lista" aria-live="polite"></div>
+  </section>
+
+  <section class="como">
+    <h2>¿Cómo funciona?</h2>
+    <ol>
+      <li>Tocá <b>📲 Enviar por WhatsApp</b> y elegí el grupo de familias. El mensaje ya va escrito con el enlace; si querés, agregale algo antes de enviarlo.</li>
+      <li>Las familias abren el enlace desde el celular o la computadora, con el volumen activado.</li>
+      <li>Al terminar, el chico toca <b>📤 Enviar mis resultados a la seño</b> y te llega una tarjeta con su nombre, aciertos, errores y porcentaje.</li>
+    </ol>
+  </section>
+
+  <footer>
+    Material base: <a href="https://www.mendoza.edu.ar/continuidad-pedagogica-en-la-modalidad-no-presencial/" target="_blank" rel="noopener">Continuidad pedagógica en la modalidad no presencial · DGE Mendoza</a><br>
+    💻 Informática Educativa · Profe Gustavo Aguilar · profegustaaguilar@gmail.com
+  </footer>
+</div>
+
+<script src="catalogo.js"></script>
+<script>
+(function () {
+  'use strict';
+  const C = window.CATALOGO || [];
+  const $ = s => document.querySelector(s);
+  const AREAS = [{ id: 'todas', nombre: '📚 Todas' }, { id: 'mate', nombre: '🔢 Matemática' }, { id: 'lengua', nombre: '📖 Lengua · Alfabetización' }];
+  const NOM_A = { mate: '🔢 Matemática', lengua: '📖 Lengua · Alfabetización' };
+  const GRADOS = [1, 2, 3, 4, 5, 6, 7];
+  const NOM_G = { 1: '1.er grado', 2: '2.º grado', 3: '3.er grado', 4: '4.º grado', 5: '5.º grado', 6: '6.º grado', 7: '7.º grado' };
+  const LS = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) { } } };
+  const st = { area: null, grado: null };
+  // estado inicial: #mate-4 en la dirección, o la última elección del docente
+  const h = (location.hash || '').match(/^#(todas|mate|lengua|g)-([1-7])$/);   // #g-4 = todo 4.° grado (tarjetas de la portada)
+  if (h) { st.area = h[1] === 'g' ? 'todas' : h[1]; st.grado = +h[2]; } else { st.area = LS.get('cp_area'); st.grado = +LS.get('cp_grado') || null; }
+  if (!AREAS.some(a => a.id === st.area)) st.area = null;
+
+  const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  const abs = p => new URL(p, location.href).href;
+  function mensaje(it) {
+    const area = it.area === 'mate' ? 'Matemática' : 'Lengua';
+    return `📚 *${area} · ${NOM_G[it.grado]}*\n*${it.titulo}* (${it.etiqueta})\n` +
+      `Actividad interactiva para hacer en casa, basada en el material de la DGE Mendoza (continuidad pedagógica en la modalidad no presencial).\n\n` +
+      `👉 ${abs(it.ruta)}\n\n` +
+      `Ábranla desde el celular o la computadora, con el volumen activado. Al terminar, toquen *📤 Enviar mis resultados a la seño* y mándenme la tarjeta por este chat. ¡Gracias, familias!\n\n🎬 ¿Primera vez? Miren cómo se hace: https://youtu.be/pDtu2wZLQyI`;
+  }
+  function chips() {
+    $('#areas').innerHTML = AREAS.map(a => `<button class="chip ${a.id}" data-a="${a.id}" aria-pressed="${st.area === a.id}">${a.nombre}</button>`).join('');
+    $('#grados').innerHTML = GRADOS.map(g => `<button class="chip" data-g="${g}" aria-pressed="${st.grado === g}">${g}.°</button>`).join('');
+    document.querySelectorAll('#areas .chip').forEach(b => b.onclick = () => { st.area = b.dataset.a; guardar(); });
+    document.querySelectorAll('#grados .chip').forEach(b => b.onclick = () => { st.grado = +b.dataset.g; guardar(); });
+  }
+  function guardar() {
+    if (st.area) LS.set('cp_area', st.area); if (st.grado) LS.set('cp_grado', st.grado);
+    if (st.area && st.grado) try { history.replaceState(null, '', '#' + st.area + '-' + st.grado); } catch (e) { }
+    pintar();
+  }
+  function pintar() {
+    chips();
+    const L = $('#lista');
+    if (!st.area || !st.grado) { L.innerHTML = `<div class="vacio">👆 Elegí ${!st.area ? 'el área' : 'el grado'} para ver las actividades disponibles.</div>`; return; }
+    const items = C.filter(x => (st.area === 'todas' || x.area === st.area) && x.grado === st.grado).sort((a, b) => (a.area > b.area ? -1 : a.area < b.area ? 1 : 0) || a.orden - b.orden);
+    if (!items.length) { L.innerHTML = `<div class="vacio">Todavía no hay actividades cargadas para ${NOM_G[st.grado]} en esta área. ¡Pronto habrá más!</div>`; return; }
+    L.innerHTML = items.map((it, i) => `${st.area === 'todas' && (i === 0 || items[i - 1].area !== it.area) ? `<h3 class="sep-area">${NOM_A[it.area]}</h3>` : ''}
+      <article class="tarj">
+        <img src="${esc(it.ruta)}img/portada.jpg" alt="" loading="lazy">
+        <div class="cab"><div class="etiqueta">${esc(it.etiqueta)}</div><h3>${esc(it.titulo)}</h3></div>
+        <div class="pie">
+          <div class="acciones">
+            <a class="btn wa" href="https://wa.me/?text=${encodeURIComponent(mensaje(it))}" target="_blank" rel="noopener">📲 Enviar por WhatsApp</a>
+            <button class="btn copiar" data-i="${i}">📋 Copiar</button>
+            <a class="btn ver" href="${esc(it.ruta)}index.html" target="_blank" rel="noopener">👁 Ver</a>
+            ${it.ficha ? `<a class="btn ficha" href="${esc(it.ficha)}" target="_blank" rel="noopener" title="Ficha original en el sitio de la DGE Mendoza">📄 Ficha DGE</a>` : ''}
+          </div>
+          <div class="ok-copia" id="ok${i}"></div>
+          <details class="msj"><summary>Ver el mensaje que se envía</summary><pre>${esc(mensaje(it))}</pre></details>
+        </div>
+      </article>`).join('');
+    L.querySelectorAll('.copiar').forEach(b => b.onclick = async () => {
+      const it = items[+b.dataset.i], t = mensaje(it), ok = $('#ok' + b.dataset.i);
+      let hecho = false;
+      try { await navigator.clipboard.writeText(t); hecho = true; } catch (e) {
+        try { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); hecho = document.execCommand('copy'); ta.remove(); } catch (e2) { }
+      }
+      ok.textContent = hecho ? '✅ Mensaje copiado: pegalo en el chat que quieras.' : 'No se pudo copiar: abrí “Ver el mensaje” y copialo a mano.';
+    });
+  }
+  pintar();
+})();
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.id;b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="Video tutorial" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';},{once:true}));
+</script>
+</body>
+</html>

@@ -168,6 +168,23 @@ svg .resalta{animation:resalta 1s ease-in-out infinite}
   .port-fuente{display:none}
   .stats div{padding:2px}
 }
+/* enviar resultados a la docente */
+.btn.enviar{background:#25d366;box-shadow:0 4px 0 #128c4a;font-size:clamp(16px,4.4vw,21px);padding:8px 18px}
+#envio{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;z-index:60;padding:14px}
+#envio.ver{display:flex}
+.envio-caja{position:relative;background:var(--papel);border-radius:var(--radio);padding:16px 18px;width:100%;max-width:420px;display:flex;flex-direction:column;gap:10px}
+.envio-caja h2{text-align:center;font-size:22px}
+.envio-caja label{display:flex;flex-direction:column;font-weight:800;font-size:15px;gap:4px}
+.envio-caja input{font-family:inherit;font-size:18px;padding:8px 10px;border-radius:12px;border:3px solid var(--borde);-webkit-user-select:text;user-select:text}
+.envio-caja input:focus{outline:none;border-color:var(--azul)}
+.envio-msj{font-weight:700;font-size:14px;text-align:center;color:#1d6f65;min-height:1em}
+.envio-x{position:absolute;top:-10px;right:-6px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;font-size:20px;box-shadow:0 2px 8px #0005;cursor:pointer}
+@media (min-aspect-ratio:5/4) and (max-height:480px){.cierre .btn.enviar{font-size:14px;padding:4px 12px}}
+
+.envio-caja{max-height:94vh;overflow-y:auto}
+.envio-img{display:block;width:100%;max-height:46vh;object-fit:contain;border-radius:12px;border:3px solid var(--borde);background:#fff;-webkit-touch-callout:default;-webkit-user-select:auto;user-select:auto}
+.envio-bots{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.envio-bots .btn{text-decoration:none;flex:1 1 140px;text-align:center}
+.btn.guardar{background:var(--azul);box-shadow:0 4px 0 #1f5fcc;color:#fff}
 </style>
 </head>
 <body>

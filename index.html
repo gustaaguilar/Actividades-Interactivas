@@ -184,6 +184,25 @@
     .fl-vids{margin-top:10px;gap:6px;flex-wrap:nowrap}.fl-v{font-size:.66rem;padding:6px 10px}
     .fl-cred{font-size:.58rem;margin-top:7px}
   }
+
+  /* ===== Bloque único Continuidad ===== */
+  .cpx{margin:10px 0 6px;border-radius:20px;padding:14px 16px 12px;text-align:center;scroll-margin-top:12px;
+    background:linear-gradient(var(--bg2),var(--bg2)) padding-box,linear-gradient(120deg,#4ade80,#22d3ee,#a78bfa,#f97316) border-box;border:2px solid transparent}
+  .cpx-badge{display:inline-block;background:linear-gradient(120deg,#4ade80,#22d3ee);color:#0f172a;font-weight:800;font-size:.68rem;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:100px}
+  .cpx-tit{font-size:1.3rem;font-weight:800;margin:6px 0 2px;color:var(--text);text-wrap:balance}
+  .cpx-sub{font-size:.8rem;color:var(--dim);max-width:640px;margin:0 auto 10px;line-height:1.4}
+  .cpx-grados{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;max-width:640px;margin:0 auto}
+  .cpx-g{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 2px;border-radius:12px;background:var(--gc);color:#fff;text-decoration:none;font-weight:900;font-size:1.2rem;box-shadow:0 4px 12px var(--shadow);transition:transform .15s}
+  .cpx-g small{font-size:.58rem;font-weight:700;opacity:.92;white-space:nowrap}
+  .cpx-g:hover{transform:translateY(-3px)}.cpx-g:focus-visible,.cpx-todas:focus-visible{outline:2px solid var(--c1);outline-offset:2px}
+  .cpx-pie{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+  .cpx-pie span{font-size:.68rem;font-weight:700;color:var(--text);padding:5px 10px;border-radius:100px;background:var(--card);border:1px solid var(--cbord)}
+  .cpx-todas{font-size:.72rem;font-weight:900;color:#0f172a;text-decoration:none;padding:5px 12px;border-radius:100px;background:linear-gradient(120deg,#4ade80,#22d3ee)}
+  .cpx-cred{font-size:.62rem;color:var(--dim);margin-top:8px}
+  @media(max-width:560px){.cpx{padding:12px 10px 10px}.cpx-tit{font-size:1.05rem}.cpx-sub{font-size:.72rem}
+    .cpx-grados{gap:5px}.cpx-g{font-size:1.05rem;padding:9px 0;border-radius:11px}.cpx-g small{display:none}
+    .cpx-pie span{font-size:.6rem;padding:4px 8px}.cpx-todas{font-size:.66rem}.cpx-cred{font-size:.58rem}}
+
 </style>
 <script data-goatcounter="https://quesepantodos.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -278,7 +297,7 @@
 
 <div class="novedades">
   <span class="nov-badge">🆕 Nuevo</span>
-  <a class="nov-text" href="segundo%20ciclo/el-misterio-de-las-mayusculas-y-la-novela/index.html" target="_blank" style="text-decoration:none"><strong>🎩 El misterio de las mayúsculas y la novela</strong> · 7° grado · Lengua: mayúsculas, marco narrativo, campo semántico y novela, a partir de «El extraño caso del Dr. Jekyll y Mr. Hyde» ›</a>
+  <a class="nov-text" href="#cp-head" style="text-decoration:none"><strong>🏠 Continuidad pedagógica en la modalidad no presencial</strong> · 1.° a 7.° grado · 49 actividades interactivas de Matemática y Lengua para enviar a las familias ›</a>
 </div>
 
 <header>
@@ -298,7 +317,7 @@
     <input type="text" id="buscador" placeholder="&#128269; Buscar actividad..." oninput="filtrar()" />
   </div>
   <nav class="atajos">
-    <a href="#fluidez">📖 Fluidez Lectora</a><a href="#sec-transversal">🌐 Transversal</a><a href="#sec-c1">🟢 1° Ciclo</a><a href="#sec-c2">🟠 2° Ciclo</a>
+    <a href="#fluidez">📖 Fluidez Lectora</a><a href="#cp-head">🏠 Desde casa</a><a href="#sec-transversal">🌐 Transversal</a><a href="#sec-c1">🟢 1° Ciclo</a><a href="#sec-c2">🟠 2° Ciclo</a>
   </nav>
   <div class="filtros">
     <button class="filtro-btn active" data-f="all" onclick="setFiltro(this)">Todas</button>
@@ -330,6 +349,16 @@
   <div class="fl-vids"><a class="fl-v" href="https://youtu.be/6pNZtKvQmdM" target="_blank">🎬 Video para docentes</a><a class="fl-v" href="https://youtu.be/p7Q_wTAwxzc" target="_blank">🎬 Video para estudiantes</a></div>
   <div class="fl-cred">Textos y audios: Programa Provincial de Fluidez Lectora · PLEM · DGE Mendoza</div>
 </section></div>
+<div class="wrapper">
+<section class="cpx" id="cp-head" data-n="49">
+  <span class="cpx-badge">🏠 Desde casa</span>
+  <div class="cpx-tit">Continuidad pedagógica en la modalidad no presencial</div>
+  <div class="cpx-sub">👩‍🏫 Elegí el grado y enviá cada actividad a las familias por WhatsApp · 🧒 al terminar, cada chico te devuelve sus resultados.</div>
+  <div class="cpx-grados"><a class="cpx-g" href="continuidad/index.html#g-1" style="--gc:#e63946" data-tooltip="1.er grado: 4 de Matemática y 3 de Lengua">1.°<small>🔢 4 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-2" style="--gc:#fb8500" data-tooltip="2.º grado: 4 de Matemática y 3 de Lengua">2.°<small>🔢 4 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-3" style="--gc:#ffb703" data-tooltip="3.er grado: 3 de Matemática y 3 de Lengua">3.°<small>🔢 3 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-4" style="--gc:#2a9d8f" data-tooltip="4.º grado: 5 de Matemática y 3 de Lengua">4.°<small>🔢 5 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-5" style="--gc:#3a86ff" data-tooltip="5.º grado: 4 de Matemática y 3 de Lengua">5.°<small>🔢 4 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-6" style="--gc:#8338ec" data-tooltip="6.º grado: 4 de Matemática y 3 de Lengua">6.°<small>🔢 4 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-7" style="--gc:#ef476f" data-tooltip="7.º grado: 4 de Matemática y 3 de Lengua">7.°<small>🔢 4 · 📖 3</small></a></div>
+  <div class="cpx-pie"><span>🔢 Matemática</span><span>📖 Lengua · Alfabetización</span><span>📝 Me preparo para la evaluación</span><a class="cpx-todas" href="continuidad/index.html">Ver las 49 →</a></div>
+  <div class="cpx-cred">📚 Basadas en el material del portal educativo de la Dirección General de Escuelas de Mendoza</div>
+</section>
+</div>
 <div class="wrapper">
   <div class="ciclo-header" id="sec-transversal">
     <span class="ciclo-badge c3">Transversal</span>
@@ -1009,8 +1038,10 @@ function filtrar(){
   document.getElementById('cnt-transversal').textContent=vt+(vt===1?' paquete':' paquetes');
   // los 7 paquetes del Censo de Fluidez Lectora (1° a 7°) cuentan como paquetes de la plataforma
   const flOk=(filtroActivo==='all'||filtroActivo==='lengua')&&(!q||'censo de fluidez lectora lectura 1° 2° 3° 4° 5° 6° 7°'.includes(q));
-  document.getElementById('counter-total').textContent=v1+v2+v3+(flOk?document.querySelectorAll('#fluidez .fl-g').length:0);
-  document.getElementById('empty-msg').style.display=(v1+v2+v3===0)?'block':'none';
+  const cpB=document.getElementById('cp-head');let vx=0;
+  if(cpB){const ok=(!q||cpB.textContent.toLowerCase().includes(q)||'continuidad desde casa detectives no presencial'.includes(q))&&['all','matematica','lengua'].includes(filtroActivo);cpB.hidden=!ok;if(ok)vx+=(+cpB.dataset.n||0);}
+  document.getElementById('counter-total').textContent=vx+v1+v2+v3+(flOk?document.querySelectorAll('#fluidez .fl-g').length:0);
+  document.getElementById('empty-msg').style.display=(v1+v2+v3+vx===0)?'block':'none';
 }
 function setFiltro(btn){
   document.querySelectorAll('.filtro-btn').forEach(b=>b.classList.remove('active'));

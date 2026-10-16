@@ -171,11 +171,116 @@
       <h1>🎉 ¡Terminaste!</h1>
       <img class="cie-img" src="${P.img}" alt="" onerror="this.style.display='none'">
       <div class="stats"><div>✅ Aciertos<b>${S.aciertos}</b></div><div>❌ Errores<b>${S.errores}</b></div><div>📊 Total<b>${pc}%</b></div><div>⭐ Puntos<b>${S.puntos}</b></div></div>
+      ${S.proc ? `<table class="resumen"><tr><th>Proceso evaluado</th><th>Primer intento</th></tr>${Object.keys(S.proc).map(k => `<tr><td>${k}</td><td>${S.proc[k].ok} de ${S.proc[k].tot}</td></tr>`).join('')}</table>` : ''}
+      <button class="btn enviar" id="btnEnviar">📤 Enviar mis resultados a la seño</button>
       <div class="cie-fila"><button class="btn grande" id="btnOtra">🔄 Volver a jugar</button>${profeHTML()}</div></div>`;
-    $('#btnOtra').onclick = () => { Object.assign(S, { aciertos: 0, errores: 0, puntos: 0, eval: {} }); ir(0); };
-    activarLightbox();
-    play(P.audio);
+    S.intento = S.intento || 1;
+    if (!S.primero) S.primero = { aciertos: S.aciertos, errores: S.errores, pc, puntos: S.puntos };   // puntaje del primer intento
+    $('#btnOtra').onclick = () => { Object.assign(S, { aciertos: 0, errores: 0, puntos: 0, eval: {}, proc: null, intento: S.intento + 1 }); ir(0); };
+    $('#btnEnviar').onclick = () => abrirEnvio({ aciertos: S.aciertos, errores: S.errores, pc, puntos: S.puntos, proc: S.proc });
+    activarLightbox(); play(P.audio);
   };
+
+  /* ---- Enviar resultados a la docente: tarjeta PNG + compartir (WhatsApp, etc.) ---- */
+  const LS = { get(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) { } } };
+  function abrirEnvio(R0) {
+    let m = $('#envio');
+    if (!m) { m = document.createElement('div'); m.id = 'envio'; document.body.appendChild(m); }
+    m.innerHTML = `<div class="envio-caja"><button class="envio-x" aria-label="Cerrar">✕</button>
+      <h2>📤 Enviar a la seño</h2>
+      <label>Nombre y apellido<input id="enNom" maxlength="40" autocomplete="name" value="${LS.get('qst_nombre').replace(/"/g, '&quot;')}"></label>
+      <label>Grado y división<input id="enGr" maxlength="20" placeholder="Ej.: 3.º B" value="${LS.get('qst_grado').replace(/"/g, '&quot;')}"></label>
+      <div class="envio-msj" id="enMsj"></div>
+      <button class="btn enviar" id="enOk">Armar mi tarjeta y compartir</button></div>`;
+    m.classList.add('ver');
+    $('.envio-x', m).onclick = () => m.classList.remove('ver');
+    $('#enOk').onclick = () => {
+      const nom = $('#enNom').value.trim(), gr = $('#enGr').value.trim();
+      if (!nom) { $('#enMsj').textContent = 'Escribí tu nombre y apellido.'; $('#enNom').focus(); return; }
+      LS.set('qst_nombre', nom); LS.set('qst_grado', gr);
+      const canvas = tarjeta(R0, nom, gr), texto = textoResultados(R0, nom, gr);
+      const nombreArch = 'resultados_' + nom.replace(/\s+/g, '_').replace(/[^\wáéíóúñÁÉÍÓÚÑ_]/g, '') + '.png';
+      let url = '', file = null;
+      try { url = canvas.toDataURL('image/png'); } catch (e) { }
+      try {   // armado sincrónico: así el menú de compartir no pierde el toque del chico
+        const bin = atob(url.split(',')[1]), u8 = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+        file = new File([u8], nombreArch, { type: 'image/png' });
+      } catch (e) { file = null; }
+      const mostrar = () => verTarjeta(m, url, texto, nombreArch);
+      try {
+        if (file && navigator.canShare && navigator.share && navigator.canShare({ files: [file] })) {
+          navigator.share({ files: [file], title: D.meta.titulo, text: texto })
+            .then(() => m.classList.remove('ver'))
+            .catch(e => { if (!e || e.name !== 'AbortError') mostrar(); });
+          return;
+        }
+      } catch (e) { }
+      mostrar();   // sin menú de compartir (computadora, paquete sin publicar, navegador viejo)
+    };
+  }
+  function verTarjeta(m, url, texto, nombreArch) {
+    m.innerHTML = `<div class="envio-caja"><button class="envio-x" aria-label="Cerrar">✕</button>
+      <h2>📤 Tu tarjeta de resultados</h2>
+      ${url ? `<img class="envio-img" src="${url}" alt="Tarjeta con tus resultados">` : ''}
+      <div class="envio-msj">Mantené apretada la imagen para guardarla o compartirla, o sacale una captura de pantalla. Después mandásela a tu seño.</div>
+      <div class="envio-bots"><a class="btn enviar" href="https://wa.me/?text=${encodeURIComponent(texto)}" target="_blank" rel="noopener">💬 WhatsApp</a>
+      ${url ? `<a class="btn guardar" href="${url}" download="${nombreArch}">⬇️ Guardar</a>` : ''}</div></div>`;
+    m.classList.add('ver');
+    $('.envio-x', m).onclick = () => m.classList.remove('ver');
+  }
+  function fechaHora() {
+    const d = new Date(), z = n => String(n).padStart(2, '0');
+    return z(d.getDate()) + '/' + z(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + z(d.getHours()) + ':' + z(d.getMinutes());
+  }
+  function textoResultados(R0, nom, gr) {
+    const lim = s => String(s).replace(/<[^>]+>/g, '');
+    let t = `📚 ${lim(D.meta.titulo)} (${lim(D.meta.area).replace(/^\W+/, '')})\n👤 ${nom}${gr ? ' · ' + gr : ''}\n✅ Aciertos: ${R0.aciertos} · ❌ Errores: ${R0.errores} · 📊 ${R0.pc}% · ⭐ ${R0.puntos}`;
+    if (S.intento > 1 && S.primero) t += `\n🔁 Intento ${S.intento} (primer intento: ${S.primero.pc}%)`;
+    if (R0.proc) t += '\n' + Object.keys(R0.proc).map(k => `• ${k}: ${R0.proc[k].ok} de ${R0.proc[k].tot}`).join('\n');
+    return t + `\n🕒 ${fechaHora()} · QueSepanTodos.com`;
+  }
+  function tarjeta(R0, nom, gr) {
+    const W = 1080, procs = R0.proc ? Object.keys(R0.proc) : [], H = 1180 + (procs.length ? 70 + procs.length * 58 : 0);
+    const c = document.createElement('canvas'); c.width = W; c.height = H;
+    const x = c.getContext('2d'); if (!x) return c;
+    const lim = s => String(s).replace(/<[^>]+>/g, '').replace(/[\u{1F300}-\u{1FAFF}\u2600-\u27BF\uFE0F]/gu, '').trim();
+    const rr = (X, Y, w, h, r, fill) => { x.beginPath(); x.moveTo(X + r, Y); x.arcTo(X + w, Y, X + w, Y + h, r); x.arcTo(X + w, Y + h, X, Y + h, r); x.arcTo(X, Y + h, X, Y, r); x.arcTo(X, Y, X + w, Y, r); x.closePath(); x.fillStyle = fill; x.fill(); };
+    const F = (sz, w) => `${w || 700} ${sz}px "Baloo 2", Arial, sans-serif`;
+    x.fillStyle = '#fff9ef'; x.fillRect(0, 0, W, H);
+    const g = x.createLinearGradient(0, 0, W, 0); ['#e63946', '#fb8500', '#ffb703', '#2a9d8f', '#3a86ff', '#8338ec'].forEach((col, i) => g.addColorStop(i / 5, col));
+    x.fillStyle = g; x.fillRect(0, 0, W, 24); x.fillRect(0, H - 24, W, 24);
+    x.textAlign = 'center'; x.fillStyle = '#7a6a5a'; x.font = F(34); x.fillText('Resultados de la actividad', W / 2, 96);
+    x.fillStyle = '#2b2118'; x.font = F(62, 800);
+    const tit = lim(D.meta.titulo); let ts = 62; while (x.measureText(tit).width > W - 100 && ts > 34) { ts -= 2; x.font = F(ts, 800); }
+    x.fillText(tit, W / 2, 180);
+    x.fillStyle = '#7a6a5a'; x.font = F(36); const ar = lim(D.meta.area || ''), sb = lim(D.meta.subtitulo || ''); const st = sb.toLowerCase().includes(ar.toLowerCase()) ? sb : [ar, sb].filter(Boolean).join(' · '); let ss = 36; while (x.measureText(st).width > W - 100 && ss > 22) { ss -= 2; x.font = F(ss); } x.fillText(st, W / 2, 236);
+    rr(70, 280, W - 140, 170, 28, '#ffffff'); x.strokeStyle = '#eadcc6'; x.lineWidth = 4; x.stroke();
+    x.fillStyle = '#2b2118'; x.font = F(56, 800); let ns = 56; while (x.measureText(nom).width > W - 200 && ns > 30) { ns -= 2; x.font = F(ns, 800); }
+    x.fillText(nom, W / 2, 360); x.fillStyle = '#7a6a5a'; x.font = F(38); x.fillText(gr || ' ', W / 2, 418);
+    const cajas = [['Aciertos', R0.aciertos, '#2ecc71'], ['Errores', R0.errores, '#e63946'], ['Total', R0.pc + '%', '#3a86ff'], ['Puntos', R0.puntos, '#fb8500']];
+    cajas.forEach(([t, v, col], i) => {
+      const bw = (W - 140 - 3 * 24) / 4, bx = 70 + i * (bw + 24), by = 500;
+      rr(bx, by, bw, 230, 26, '#ffffff'); x.strokeStyle = col; x.lineWidth = 6; x.stroke();
+      x.fillStyle = '#7a6a5a'; x.font = F(34); x.fillText(t, bx + bw / 2, by + 62);
+      x.fillStyle = col; x.font = F(92, 800); x.fillText(String(v), bx + bw / 2, by + 180);
+    });
+    let y = 800;
+    if (S.intento > 1 && S.primero) { x.fillStyle = '#8338ec'; x.font = F(36, 800); x.fillText(`Intento ${S.intento} · en el primer intento: ${S.primero.pc}%`, W / 2, y); y += 60; }
+    else { x.fillStyle = '#2a9d8f'; x.font = F(36, 800); x.fillText('Primer intento', W / 2, y); y += 60; }
+    if (procs.length) {
+      x.textAlign = 'left'; x.font = F(32, 800); x.fillStyle = '#2b2118'; x.fillText('Proceso evaluado', 90, y + 10); x.textAlign = 'right'; x.fillText('Aciertos', W - 90, y + 10); y += 30;
+      procs.forEach(k => { y += 58; x.textAlign = 'left'; x.font = F(32); x.fillStyle = '#2b2118'; let kk = k; while (x.measureText(kk).width > W - 330 && kk.length > 8) kk = kk.slice(0, -2); x.fillText(kk === k ? k : kk + '…', 90, y); x.textAlign = 'right'; x.fillText(`${R0.proc[k].ok} de ${R0.proc[k].tot}`, W - 90, y); });
+      y += 40; x.textAlign = 'center';
+    }
+    x.fillStyle = '#7a6a5a'; x.font = F(32, 600); x.fillText('Enviado el ' + fechaHora(), W / 2, H - 230);
+    x.fillStyle = '#7a6a5a'; x.font = F(30); x.fillText(lim(D.meta.autor || ''), W / 2, H - 160);
+    x.fillStyle = '#e63946'; x.font = F(40, 800); x.fillText('QueSepanTodos.com', W / 2, H - 90);
+    return c;
+  }
+  window.MOTOR_TARJETA = (nom, gr) => tarjeta({ aciertos: S.aciertos, errores: S.errores, pc: 0, puntos: S.puntos, proc: S.proc }, nom, gr);
+
+  /* ---- Narración por pasos: cada paso puede cambiar el visual ---- */
 
   /* ---- Pasos con imagen (narración dividida) ---- */
   R.pasos = function (P, M) {
@@ -334,7 +439,7 @@
     const tabla = P.filas.map(f => { const base = f.find(v => v != null); const i0 = f.indexOf(base); return f.map((v, j) => ({ v, correcto: base - i0 + j })); });
     M.innerHTML = `<div class="completar">
       <div class="tabla" id="tb" style="--cols:${ncols}">${tabla.map(f => f.map(c => c.v != null ? `<div class="casi dado">${c.v}</div>` : `<div class="casi vacio" data-c="${c.correcto}"></div>`).join('')).join('')}</div>
-      <div class="enunciado">TOCÁ UNA TARJETA Y DESPUÉS SU CASILLERO</div>
+      <div class="enunciado">Tocá una tarjeta y después su casillero</div>
       <div class="tarjetas" id="tj">${barajar(P.tarjetas).map(n => `<button class="tarjeta mov" data-n="${n}">${n}</button>`).join('')}</div></div>`;
     const tb = $('#tb'), tj = $('#tj'), zona = $('.completar', M);
     let sel = null;
