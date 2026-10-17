@@ -56,7 +56,7 @@ function renderPortada(){
       <div style="display:flex; align-items:center; gap:14px; justify-content:center;">
         <button class="btn btn-principal" onclick="reproducir('${AUDIO_PORTADA}'); irA(0)">Comenzar ▶</button>
         <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-          <img src="imagenes/gustavo_avengers.jpg" class="foto-personal foto-clickeable" style="width:92px;height:92px;object-fit:cover;margin:0;" onclick="abrirFoto('imagenes/gustavo_avengers.jpg', 'Menos prisa, más vida 🧉🫂')">
+          <img src="imagenes/profe.jpg" class="foto-personal foto-clickeable" style="width:92px;height:92px;object-fit:cover;margin:0;" onclick="abrirFoto('imagenes/profe.jpg', 'Menos prisa, más vida 🧉🫂')">
           <div style="font-size:0.72em; color:#666; max-width:130px;">📸 Informática Educativa · Profe Gustavo Aguilar</div>
         </div>
       </div>
@@ -92,7 +92,7 @@ function renderCierre(){
       <div style="display:flex; align-items:center; gap:14px; justify-content:center;">
         <button class="btn btn-secundario" onclick="reiniciar()">🔄 Volver a empezar</button>
         <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-          <img src="imagenes/gustavo_avengers.jpg" class="foto-personal foto-clickeable" style="width:92px;height:92px;object-fit:cover;margin:0;" onclick="abrirFoto('imagenes/gustavo_avengers.jpg', 'Menos prisa, más vida 🧉🫂')">
+          <img src="imagenes/profe.jpg" class="foto-personal foto-clickeable" style="width:92px;height:92px;object-fit:cover;margin:0;" onclick="abrirFoto('imagenes/profe.jpg', 'Menos prisa, más vida 🧉🫂')">
           <div style="font-size:0.72em; color:#666; max-width:130px;">📸 Informática Educativa · Profe Gustavo Aguilar</div>
         </div>
       </div>
