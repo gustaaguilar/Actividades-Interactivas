@@ -158,6 +158,14 @@
   html{scroll-behavior:smooth}
   .ciclo-header,.fluidez{scroll-margin-top:12px}
   .atajos{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px auto 10px;max-width:760px}
+  .franja-doc{display:flex;align-items:center;gap:12px;max-width:760px;margin:12px auto 0;padding:12px 16px;border-radius:14px;text-decoration:none;color:var(--text);background:linear-gradient(90deg,rgba(74,222,128,.16),rgba(34,211,238,.12));border:1.5px solid rgba(74,222,128,.55);transition:transform .15s,border-color .15s}
+  .franja-doc:hover{transform:translateY(-1px);border-color:var(--c1)}
+  .franja-doc .fd-ico{font-size:1.6rem;flex-shrink:0}
+  .franja-doc .fd-txt{flex:1;min-width:0;font-size:.88rem;line-height:1.35}
+  .franja-doc .fd-txt b{color:var(--c1);display:block;font-size:.95rem}
+  .franja-doc .fd-ir{flex-shrink:0;background:var(--c1);color:#0f172a;font-weight:800;font-size:.8rem;padding:7px 12px;border-radius:100px;white-space:nowrap}
+  .franja-wrap{padding:0 16px}
+  @media(max-width:480px){.franja-doc .fd-ir{display:none}.franja-doc .fd-txt::after{content:" →";color:var(--c1);font-weight:800}}
   .atajos a.at-indice{background:var(--c1);border-color:var(--c1);color:#0f172a}
   .atajos a{font-size:.78rem;font-weight:800;color:var(--text);text-decoration:none;background:rgba(96,165,250,.12);border:1.5px solid rgba(96,165,250,.4);padding:7px 13px;border-radius:100px;white-space:nowrap}
   .fl-corto{display:block}.fl-largo{display:none}
@@ -312,6 +320,7 @@
     </div>
   </div>
 </header>
+<div class="franja-wrap"><a class="franja-doc" href="indice.html"><span class="fd-ico">👩‍🏫</span><span class="fd-txt"><b>¿Sos docente?</b>Buscá actividades por grado y envialas por WhatsApp a las familias</span><span class="fd-ir">Índice para docentes →</span></a></div>
 
 <div class="search-section">
   <div class="search-bar">
