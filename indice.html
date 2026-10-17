@@ -85,6 +85,7 @@
   .desc.vacia{font-style:italic;opacity:.75}
   .acc{padding:12px 12px 12px 0;display:flex;flex-direction:column;gap:6px;justify-content:center}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:7px 12px;border-radius:100px;font:inherit;font-size:.78rem;font-weight:800;text-decoration:none;cursor:pointer;white-space:nowrap;border:1.5px solid var(--line);background:var(--chip);color:var(--text)}
+  .btn.wa{background:#25d366;border-color:#25d366;color:#0b2e1a}
   .btn.probar{background:var(--c1);border-color:var(--c1);color:var(--c1-ink)}
   .btn.copiar.ok{border-color:var(--c1);color:var(--c1)}
   .vacio{padding:28px 16px;text-align:center;color:var(--dim);border:1.5px dashed var(--line);border-radius:12px}
@@ -94,7 +95,9 @@
   @media (max-width:620px){
     .areas{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.areas::-webkit-scrollbar{display:none}.a{flex:0 0 auto}
     .buscar{flex-basis:100%}
-    .g{min-width:48px;padding:5px 8px}
+    .grados{display:grid;grid-template-columns:repeat(6,1fr);overflow:visible}
+    .g{min-width:0;padding:5px 2px}
+    .g.ancho{font-size:.74rem}
     .act{grid-template-columns:4px 1fr}
     .acc{grid-column:2;flex-direction:row;padding:0 12px 12px 0}
     .act .cuerpo{padding-right:12px}
@@ -106,7 +109,7 @@
 <header><div class="wrap">
   <a class="volver" href="index.html">← QueSepanTodos.com</a>
   <h1>Índice <span>para docentes</span></h1>
-  <p class="bajada">Elegí el grado, mirá qué trabaja cada actividad y copiá el enlace para tu aula, Aulas EduTec o el grupo de WhatsApp.</p>
+  <p class="bajada">Elegí el grado, mirá qué trabaja cada actividad y enviala por WhatsApp a las familias o copiá el enlace para Aulas EduTec.</p>
 </div></header>
 
 <div class="filtros"><div class="wrap">
@@ -159,6 +162,11 @@
     $('#areas').innerHTML=AR.map(function(a){
       return '<button class="a" style="--ac:var('+a[2]+')" data-a="'+a[0]+'" aria-pressed="'+(st.a===a[0])+'">'+a[1]+'</button>'}).join('');
   }
+  function mensaje(x){
+    var g=st.g!=='todos'?' · '+NOMG[st.g]:(x.g.length===1?' · '+NOMG[x.g[0]]:'');
+    return '📚 *'+x.al+g+'*\n*'+x.t+'*\nActividad interactiva de QueSepanTodos.com\n\n👉 '+abs(x.u)+'\n\n'+
+      'Ábranla desde el celular o la computadora, con el volumen activado. Al terminar, toquen *📤 Enviar mis resultados a la seño* y mándenme la tarjeta por este chat. ¡Gracias, familias!';
+  }
   function fila(x){
     var grs=x.g.map(function(g){return '<i class="'+(g===st.g?'on':'')+'">'+({S5:'S5',SEC:'Sec',AD:'Ad'}[g]||g+'°')+'</i>'}).join('');
     return '<article class="act" style="--ac:var('+ACOL[x.a]+')"><span class="franja"></span><div class="cuerpo">'+
@@ -167,6 +175,7 @@
       '<span class="grs">Grados '+grs+'</span></div>'+
       (x.d?'<p class="desc">'+esc(x.d)+'</p>':'<p class="desc vacia">Abrila con «Probar» para ver su contenido.</p>')+
       '</div><div class="acc"><a class="btn probar" href="'+esc(BASE+x.u)+'" target="_blank" rel="noopener">▶ Probar</a>'+
+      '<a class="btn wa" href="https://wa.me/?text='+encodeURIComponent(mensaje(x))+'" target="_blank" rel="noopener">📲 WhatsApp</a>'+
       '<button class="btn copiar" data-u="'+esc(x.u)+'">📋 Copiar enlace</button></div></article>';
   }
   function pintar(){
