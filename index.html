@@ -208,6 +208,10 @@
   .cpx-pie span{font-size:.68rem;font-weight:700;color:var(--text);padding:5px 10px;border-radius:100px;background:var(--card);border:1px solid var(--cbord)}
   .cpx-todas{font-size:.72rem;font-weight:900;color:#0f172a;text-decoration:none;padding:5px 12px;border-radius:100px;background:linear-gradient(120deg,#4ade80,#22d3ee)}
   .cpx-cred{font-size:.62rem;color:var(--dim);margin-top:8px}
+  /* Bloque Artes Visuales */
+  .avx{background:linear-gradient(var(--bg2),var(--bg2)) padding-box,linear-gradient(120deg,#e63946,#fb8500,#ffb703,#2a9d8f,#3a86ff,#8338ec,#ef476f) border-box}
+  .avx .cpx-badge{background:linear-gradient(120deg,#fb8500,#ef476f);color:#fff}
+  .avx .cpx-todas{background:linear-gradient(120deg,#fb8500,#ef476f);color:#fff}
   @media(max-width:560px){.cpx{padding:12px 10px 10px}.cpx-tit{font-size:1.05rem}.cpx-sub{font-size:.72rem}
     .cpx-grados{gap:5px}.cpx-g{font-size:1.05rem;padding:9px 0;border-radius:11px}.cpx-g small{display:none}
     .cpx-pie span{font-size:.6rem;padding:4px 8px}.cpx-todas{font-size:.66rem}.cpx-cred{font-size:.58rem}}
@@ -227,7 +231,7 @@
 <div class="counter-banner">
   <div class="counter-inner" id="counter-inner-wrap" style="position:relative;margin-bottom:4px">
     <canvas id="confetti-canvas" style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:280px;height:180px;pointer-events:none;z-index:5"></canvas>
-    <span class="counter-num" id="counter-total">177</span>
+    <span class="counter-num" id="counter-total">192</span>
     <span class="counter-label">actividades interactivas disponibles<br><small style="opacity:.6">Primer y Segundo Ciclo &middot; Todas las &aacute;reas</small></span>
   </div>
   
@@ -306,7 +310,7 @@
 
 <div class="novedades">
   <span class="nov-badge">🆕 Nuevo</span>
-  <a class="nov-text" href="primer%20ciclo/campo_y_ciudad/index.html" target="_blank" style="text-decoration:none"><strong>🐭 Campo y ciudad</strong> · Ambiente, Cultura y Tecnología · 2.° grado · Dos cuentos de ratones para descubrir cómo se vive en el campo y en la ciudad ›</a>
+  <a class="nov-text" href="artes-visuales/index.html" style="text-decoration:none"><strong>🎨 Bloque de Artes Visuales</strong> · 16 actividades de 1.° a 7.° grado, organizadas por grado, con taller de dibujo y ficha para imprimir ›</a>
 </div>
 
 <header>
@@ -327,7 +331,7 @@
     <input type="text" id="buscador" placeholder="&#128269; Buscar actividad..." oninput="filtrar()" />
   </div>
   <nav class="atajos">
-    <a class="at-indice" href="indice.html">📚 Índice para docentes</a><a href="#fluidez">📖 Fluidez Lectora</a><a href="#cp-head">🏠 Desde casa</a><a href="#sec-transversal">🌐 Transversal</a><a href="#sec-c1">🟢 1° Ciclo</a><a href="#sec-c2">🟠 2° Ciclo</a>
+    <a class="at-indice" href="indice.html">📚 Índice para docentes</a><a href="#fluidez">📖 Fluidez Lectora</a><a href="#cp-head">🏠 Desde casa</a><a href="#av-head">🎨 Artes Visuales</a><a href="#sec-transversal">🌐 Transversal</a><a href="#sec-c1">🟢 1° Ciclo</a><a href="#sec-c2">🟠 2° Ciclo</a>
   </nav>
   <div class="filtros">
     <button class="filtro-btn active" data-f="all" onclick="setFiltro(this)">Todas</button>
@@ -367,6 +371,16 @@
   <div class="cpx-grados"><a class="cpx-g" href="continuidad/index.html#g-1" style="--gc:#e63946" data-tooltip="1.er grado: 4 de Matemática y 3 de Lengua">1.°<small>🔢 4 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-2" style="--gc:#fb8500" data-tooltip="2.º grado: 4 de Matemática y 3 de Lengua">2.°<small>🔢 4 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-3" style="--gc:#ffb703" data-tooltip="3.er grado: 3 de Matemática y 3 de Lengua">3.°<small>🔢 3 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-4" style="--gc:#2a9d8f" data-tooltip="4.º grado: 5 de Matemática y 3 de Lengua">4.°<small>🔢 5 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-5" style="--gc:#3a86ff" data-tooltip="5.º grado: 4 de Matemática y 3 de Lengua">5.°<small>🔢 4 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-6" style="--gc:#8338ec" data-tooltip="6.º grado: 4 de Matemática y 3 de Lengua">6.°<small>🔢 4 · 📖 3</small></a><a class="cpx-g" href="continuidad/index.html#g-7" style="--gc:#ef476f" data-tooltip="7.º grado: 4 de Matemática y 3 de Lengua">7.°<small>🔢 4 · 📖 3</small></a></div>
   <div class="cpx-pie"><span>🔢 Matemática</span><span>📖 Lengua · Alfabetización</span><span>📝 Me preparo para la evaluación</span><a class="cpx-todas" href="continuidad/index.html">Ver las 49 →</a></div>
   <div class="cpx-cred">📚 Basadas en el material del portal educativo de la Dirección General de Escuelas de Mendoza</div>
+</section>
+</div>
+<div class="wrapper">
+<section class="cpx avx" id="av-head" data-n="16">
+  <span class="cpx-badge">🎨 Nuevo bloque</span>
+  <div class="cpx-tit">Artes Visuales de 1.° a 7.° grado</div>
+  <div class="cpx-sub">👩‍🏫 Elegí el grado y enviá la actividad a las familias por WhatsApp · 🧒 taller de dibujo digital, audio y puntaje · 📄 ficha para imprimir en cada una.</div>
+  <div class="cpx-grados"><a class="cpx-g" href="artes-visuales/index.html#g-1" style="--gc:#e63946" data-tooltip="1.er grado: 2 actividades de Artes Visuales">1.°<small>🎨 2</small></a><a class="cpx-g" href="artes-visuales/index.html#g-2" style="--gc:#fb8500" data-tooltip="2.º grado: 2 actividades de Artes Visuales">2.°<small>🎨 2</small></a><a class="cpx-g" href="artes-visuales/index.html#g-3" style="--gc:#e0a100" data-tooltip="3.er grado: 4 actividades de Artes Visuales">3.°<small>🎨 4</small></a><a class="cpx-g" href="artes-visuales/index.html#g-4" style="--gc:#2a9d8f" data-tooltip="4.º grado: 2 actividades de Artes Visuales">4.°<small>🎨 2</small></a><a class="cpx-g" href="artes-visuales/index.html#g-5" style="--gc:#3a86ff" data-tooltip="5.º grado: 2 actividades de Artes Visuales">5.°<small>🎨 2</small></a><a class="cpx-g" href="artes-visuales/index.html#g-6" style="--gc:#8338ec" data-tooltip="6.º grado: 2 actividades de Artes Visuales">6.°<small>🎨 2</small></a><a class="cpx-g" href="artes-visuales/index.html#g-7" style="--gc:#ef476f" data-tooltip="7.º grado: 2 actividades de Artes Visuales">7.°<small>🎨 2</small></a></div>
+  <div class="cpx-pie"><span>🎨 Color, textura y forma</span><span>🖌️ Taller de dibujo</span><span>📄 Fichas en papel</span><a class="cpx-todas" href="artes-visuales/index.html">Ver las 16 →</a></div>
+  <div class="cpx-cred">🎨 Basadas en las propuestas de las docentes de Artes Visuales Seño Lorena y Seño Paz</div>
 </section>
 </div>
 <div class="wrapper">
@@ -412,7 +426,7 @@
   <div class="ciclo-header" id="sec-c1">
     <span class="ciclo-badge">1&deg; Ciclo</span>
     <span class="ciclo-title">Primer Ciclo</span>
-    <span class="ciclo-count" id="cnt-c1">59 paquetes</span>
+    <span class="ciclo-count" id="cnt-c1">58 paquetes</span>
     <div class="ciclo-line"></div>
   </div>
   <div class="cards-grid" id="grid-c1">
@@ -435,11 +449,6 @@
           <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#2b7de9"/><rect x="5" y="12" width="8" height="10" rx="2" fill="#ff8a3d"/><rect x="14" y="12" width="8" height="10" rx="2" fill="#ffc93c"/><rect x="23" y="12" width="8" height="10" rx="2" fill="#2fb86b"/><text x="9" y="20" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="7" fill="#fff">1</text><text x="18" y="20" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="7" fill="#243049">5</text><text x="27" y="20" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="6" fill="#fff">10</text><circle cx="9" cy="24.5" r="2" fill="#243049"/><circle cx="18" cy="24.5" r="2" fill="#243049"/><circle cx="27" cy="24.5" r="2" fill="#243049"/></svg></span>
           <div class="card-name">🚂 Números del 1 al 10… ¡y hasta el 20!</div>
           <span class="card-area" style="background:rgba(255,255,255,.08);color:#f97316">Matemática · Sala de 5 y 1° Grado</span>
-        </a>
-        <a class="card" href="primer%20ciclo/figura-que-se-esconde/index.html" target="_blank" data-area="artes" data-ciclo="c1" data-tooltip="Artes Visuales · 3er grado · Una figura que se esconde: figura simple y fondo complejo, basado en la Ficha Viajera N.º 1 de Artes Visuales. Narraciones animadas con puntero, clasificar simple o compleja, buscar la figura escondida, ¿cuál se destaca más? (contraste, contorno, aire y tamaño), verdadero o falso, taller de dibujo digital con prueba del ojo, foto de la obra en papel y autoevaluación. 12 pantallas con audio y puntaje.">
-          <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#fb8500"/><circle cx="8" cy="9" r="2" fill="#ffd166"/><circle cx="28" cy="8" r="2.2" fill="#8338ec"/><circle cx="9" cy="27" r="2.2" fill="#06d6a0"/><circle cx="28" cy="28" r="2" fill="#3a86ff"/><path d="M5 18 q3-3 6 0" stroke="#e63946" stroke-width="1.6" fill="none"/><path d="M25 18 q3-3 6 0" stroke="#ffd166" stroke-width="1.6" fill="none"/><path d="M18 8.5 L20.6 14.3 L26.9 14.9 L22.1 19.1 L23.5 25.3 L18 22.1 L12.5 25.3 L13.9 19.1 L9.1 14.9 L15.4 14.3 Z" fill="#fff" stroke="#1b1b1b" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <div class="card-name">🎨 Una figura que se esconde</div>
-          <span class="card-area" style="background:rgba(255,255,255,.08);color:#fb923c">Artes Visuales · 3er grado</span>
         </a>
         <a class="card" href="primer%20ciclo/plantas_partes_1er_grado/index.html" target="_blank" data-area="csnaturales" data-ciclo="c1" data-tooltip="Ambiente, Cultura y Tecnología · 1er Grado · Las plantas y sus partes: qué necesitan las plantas para vivir (sol, aire, agua y tierra) y cuáles son sus partes (raíz, tallo, hoja, flor y fruto). Video, narración animada con puntero sincronizado, clasificar necesidades, tocar cada parte sobre la imagen de un árbol, unir cada parte con su función y trivia con verdadero o falso. 10 pantallas con audio y puntaje.">
           <span class="card-ico"><svg width="32" height="32" viewBox="0 0 36 36"><rect x="2" y="2" width="32" height="32" rx="6" fill="#16a34a"/><path d="M18 30 L18 16" stroke="#a3e635" stroke-width="2.2" stroke-linecap="round"/><path d="M18 20 C12 20 10 15 11 10 C16 10 19 13 18 20 Z" fill="#4ade80"/><path d="M18 18 C24 18 26 13 25 8 C20 8 17 11 18 18 Z" fill="#86efac"/><circle cx="18" cy="30" r="3" fill="#a16207"/></svg></span>
@@ -1055,6 +1064,8 @@ function filtrar(){
   const flOk=(filtroActivo==='all'||filtroActivo==='lengua')&&(!q||'censo de fluidez lectora lectura 1° 2° 3° 4° 5° 6° 7°'.includes(q));
   const cpB=document.getElementById('cp-head');let vx=0;
   if(cpB){const ok=(!q||cpB.textContent.toLowerCase().includes(q)||'continuidad desde casa detectives no presencial'.includes(q))&&['all','matematica','lengua'].includes(filtroActivo);cpB.hidden=!ok;if(ok)vx+=(+cpB.dataset.n||0);}
+  const avB=document.getElementById('av-head');
+  if(avB){const ok=(!q||avB.textContent.toLowerCase().includes(q)||'artes visuales arte dibujo color textura pintura plastica plástica'.includes(q))&&['all','artes'].includes(filtroActivo);avB.closest('.wrapper').hidden=!ok;if(ok)vx+=(+avB.dataset.n||0);}
   document.getElementById('counter-total').textContent=vx+v1+v2+v3+(flOk?document.querySelectorAll('#fluidez .fl-g').length:0);
   document.getElementById('empty-msg').style.display=(v1+v2+v3+vx===0)?'block':'none';
 }
