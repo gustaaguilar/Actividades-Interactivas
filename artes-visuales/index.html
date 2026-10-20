@@ -95,7 +95,7 @@ footer{margin-top:30px;text-align:center;color:var(--suave);font-size:14px;font-
     <ol>
       <li>Elegí el grado y tocá <b>📲 Enviar por WhatsApp</b>: el mensaje ya va escrito con el enlace de la actividad.</li>
       <li>Las familias la abren desde el celular o la computadora, con el volumen activado.</li>
-      <li>Al terminar, el chico toca <b>📤 Enviar mis resultados a la seño</b> y te llega una tarjeta con su nombre, aciertos, errores y porcentaje.</li>
+      <li>Al terminar, el chico toca <b>📤 Enviar mi tarea a mi docente</b> y te llega una tarjeta con su nombre, aciertos, errores y porcentaje.</li>
       <li>¿Sin dispositivos? Cada actividad tiene su <b>📄 Ficha</b> para imprimir y trabajar en papel.</li>
     </ol>
   </section>
@@ -122,7 +122,7 @@ footer{margin-top:30px;text-align:center;color:var(--suave);font-size:14px;font-
   function mensaje(it) {
     return `🎨 *Artes Visuales · ${NOM_G[it.grado]}*\n*${it.titulo}*\n${it.tema}\n\n` +
       `👉 ${abs(BASE + it.ruta + 'index.html')}\n\n` +
-      `Ábranla desde el celular o la computadora, con el volumen activado. Al terminar, toquen *📤 Enviar mis resultados a la seño* y mándenme la tarjeta por este chat. ¡Gracias, familias!\n\n🎬 ¿Primera vez? Miren cómo se hace: https://youtu.be/pDtu2wZLQyI`;
+      `Ábranla desde el celular o la computadora, con el volumen activado. Al terminar, toquen *📤 Enviar mi tarea a mi docente* y mándenme la tarjeta por este chat. ¡Gracias, familias!\n\n🎬 ¿Primera vez? Miren cómo se hace: https://youtu.be/pDtu2wZLQyI`;
   }
   function fila() {
     $('#fila').innerHTML = `<button class="g todos" data-g="0" aria-pressed="${grado === 0}">Todos</button>` +
