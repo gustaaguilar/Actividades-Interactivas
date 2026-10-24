@@ -1,5 +1,5 @@
 window.DATOS = {
-  meta: { titulo: "Armando Palabras", subtitulo: "Primer Ciclo", area: "Prácticas del Lenguaje", mail: "profegustaaguilar@gmail.com", foto: "profe.jpg", fotoMini: "profe_mini.jpg", puntosPorAcierto: 10, revision: true },
+  meta: { titulo: "Armando Palabras", subtitulo: "Primer Ciclo", area: "Prácticas del Lenguaje", mail: "profegustaaguilar@gmail.com", foto: "profe.jpg", fotoMini: "profe_mini.jpg", puntosPorAcierto: 10, revision: false },
   audios: {
     portada: "¡Hola! Vamos a armar palabras. ¡Empecemos!",
     a1_instr: "Hacé clic sobre el nombre del dibujo.",
