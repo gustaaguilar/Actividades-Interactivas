@@ -192,6 +192,7 @@ R.escribirPalabra = function (p) {
 };
 
 R.ordenar = function (p) {
+  const items = p.items;
   let idx = 0;
   const render = function () {
     const it = p.items[idx]; const correctas = it.palabras.map(function (w) { return w.toLowerCase(); }); const total = correctas.length;
