@@ -924,7 +924,7 @@ window.DATOS = {
    ],
    "pistas": [
     {
-     "audio": null
+     "audio": "p_vertebrado.mp3"
     },
     {
      "audio": "p_herbivoro.mp3"
