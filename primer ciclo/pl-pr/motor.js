@@ -405,7 +405,7 @@ function generarSopa(palabras, maxCols) {
         var d = dirsW[t % dirsW.length];
         var r0 = Math.floor(Math.random() * (filas - d[0] * (w.length - 1)));
         var c0 = Math.floor(Math.random() * (cols - d[1] * (w.length - 1)));
-        if (r0 < 0 || c0 < 0) continue;
+        if (r0 < 0 || c0 < 0 || r0 + d[0] * (w.length - 1) >= filas || c0 + d[1] * (w.length - 1) >= cols) continue;
         var okp = true;
         for (var L = 0; L < w.length; L++) { var ch = g[r0 + d[0] * L][c0 + d[1] * L]; if (ch && ch !== w[L]) { okp = false; break; } }
         if (!okp) continue;
