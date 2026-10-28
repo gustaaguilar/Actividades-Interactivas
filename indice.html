@@ -133,14 +133,14 @@
   'use strict';
   var BASE='';
   var D=window.INDICE||[];
-  var GR=[['todos','Todos'],['S5','Sala 5'],['1','1°'],['2','2°'],['3','3°'],['4','4°'],['5','5°'],['6','6°'],['7','7°'],['SEC','Secund.'],['AD','Adultos']];
-  var NOMG={S5:'Sala de 5','1':'1.er grado','2':'2.º grado','3':'3.er grado','4':'4.º grado','5':'5.º grado','6':'6.º grado','7':'7.º grado',SEC:'Secundario',AD:'Adultos (CENS / CEBJA)'};
+  var GR=[['todos','Todos'],['S4','Sala 4'],['S5','Sala 5'],['1','1°'],['2','2°'],['3','3°'],['4','4°'],['5','5°'],['6','6°'],['7','7°'],['SEC','Secund.'],['AD','Adultos']];
+  var NOMG={S4:'Sala de 4',S5:'Sala de 5','1':'1.er grado','2':'2.º grado','3':'3.er grado','4':'4.º grado','5':'5.º grado','6':'6.º grado','7':'7.º grado',SEC:'Secundario',AD:'Adultos (CENS / CEBJA)'};
   var AR=[['todas','Todas','--c1'],['lengua','Lengua','--lengua'],['mate','Matemática','--mate'],['nat','Cs. Naturales · ACyT','--nat'],['soc','Cs. Sociales','--soc'],['int','Integrador','--int'],['otras','Otras áreas','--otras']];
   var ACOL={};AR.forEach(function(a){ACOL[a[0]]=a[2]});
   var TIPO={juego:'🎮 Juego',casa:'🏠 Desde casa',fluidez:'📖 Fluidez lectora'};
   var LS={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
   var st={g:'todos',a:'todas',q:''};
-  var h=(location.hash||'').match(/^#g-(S5|SEC|AD|[1-7])$/i);
+  var h=(location.hash||'').match(/^#g-(S4|S5|SEC|AD|[1-7])$/i);
   if(h)st.g=h[1].toUpperCase();else{var s=LS.get('idx_g');if(s&&NOMG[s])st.g=s}
   var $=function(s){return document.querySelector(s)};
   var esc=function(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')};
@@ -168,7 +168,7 @@
       'Ábranla desde el celular o la computadora, con el volumen activado. Al terminar, toquen *📤 Enviar mis resultados a la seño* y mándenme la tarjeta por este chat. ¡Gracias, familias!';
   }
   function fila(x){
-    var grs=x.g.map(function(g){return '<i class="'+(g===st.g?'on':'')+'">'+({S5:'S5',SEC:'Sec',AD:'Ad'}[g]||g+'°')+'</i>'}).join('');
+    var grs=x.g.map(function(g){return '<i class="'+(g===st.g?'on':'')+'">'+({S4:'S4',S5:'S5',SEC:'Sec',AD:'Ad'}[g]||g+'°')+'</i>'}).join('');
     return '<article class="act" style="--ac:var('+ACOL[x.a]+')"><span class="franja"></span><div class="cuerpo">'+
       '<h3>'+esc(x.t)+'</h3>'+
       '<div class="meta"><span class="pill area">'+esc(x.al)+'</span>'+(TIPO[x.k]?'<span class="pill tipo">'+TIPO[x.k]+'</span>':'')+(x.tm?'<span class="pill">'+esc(x.tm)+'</span>':'')+
