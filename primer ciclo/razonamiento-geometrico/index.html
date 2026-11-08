@@ -123,5 +123,15 @@ button{font-family:inherit;cursor:pointer;color:inherit}
 <script src="../../recursos/enviar-tarea.js"></script>
 <script src="datos.js"></script>
 <script src="motor.js"></script>
+<script>/* respaldo para navegadores sin aspect-ratio (Chrome anterior a 2021, tablets viejas) */
+(function(){if(window.CSS&&CSS.supports&&CSS.supports("aspect-ratio","1"))return;var R=[[".mvid", 1.7777777777777777, "w", 80]];
+function ap(){R.forEach(function(c){var L=document.querySelectorAll(c[0]);for(var i=0;i<L.length;i++){var e=L[i];
+if(c[2]==="h"){e.style.width="";var h=e.offsetHeight;if(h)e.style.width=Math.round(h*c[1])+"px";}
+else{if(c[2]==="wc")e.style.width="";e.style.height="";var w=e.offsetWidth;if(!w)continue;var hh=w/c[1];
+if(c[3]){var m=innerHeight*c[3]/100;if(hh>m){hh=m;if(c[2]==="wc")e.style.width=Math.round(m*c[1])+"px";}}e.style.height=Math.round(hh)+"px";}}});}
+var t;function pr(){clearTimeout(t);t=setTimeout(ap,40);}addEventListener("resize",pr);
+if(window.MutationObserver)new MutationObserver(pr).observe(document.documentElement,{childList:true,subtree:true});
+document.addEventListener("DOMContentLoaded",ap);setTimeout(ap,300);})();
+</script>
 </body>
 </html>
