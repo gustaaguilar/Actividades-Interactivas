@@ -93,9 +93,9 @@ button{font-family:inherit;cursor:pointer;color:inherit}
 .sonfila .preg{flex:1;text-align:left}
 /* seleccionar (animales del mar) */
 .selesc{position:relative;flex:1.05;min-height:0;border-radius:22px;overflow:hidden;box-shadow:0 3px 10px #0002;background:#bde4ff}
-.selfondo{position:absolute;inset:0}
+.selfondo{position:absolute;top:0;right:0;bottom:0;left:0}
 .selfondo img{width:100%;height:100%;object-fit:cover;max-width:none;max-height:none}
-.selcapa{position:absolute;inset:0}
+.selcapa{position:absolute;top:0;right:0;bottom:0;left:0}
 .nadador{position:absolute;width:20%;height:30%;transform:translate(-50%,-50%);animation:nada 2.6s ease-in-out infinite}
 @keyframes nada{50%{transform:translate(-50%,-62%) rotate(-4deg)}}
 .selgrid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:8px}
@@ -105,8 +105,8 @@ button{font-family:inherit;cursor:pointer;color:inherit}
 .memo{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:8px}
 @media (orientation:portrait){.memo{grid-template-columns:repeat(2,1fr)}}
 .carta{position:relative;border:4px solid var(--bor);border-radius:16px;background:#fff;padding:0;overflow:hidden;min-height:0;box-shadow:0 3px 6px #0001}
-.carta .dorso{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(28px,8vw,54px);background:linear-gradient(135deg,#69db7c,#38d9a9);color:#fff;transition:opacity .25s}
-.carta .cara{position:absolute;inset:0;padding:5px;display:flex;opacity:0;transition:opacity .25s}
+.carta .dorso{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:center;font-size:clamp(28px,8vw,54px);background:linear-gradient(135deg,#69db7c,#38d9a9);color:#fff;transition:opacity .25s}
+.carta .cara{position:absolute;top:0;right:0;bottom:0;left:0;padding:5px;display:flex;opacity:0;transition:opacity .25s}
 .carta.chab .cara{padding:0}
 .carta.chab .cara img{width:100%;height:100%;object-fit:cover;max-width:none;max-height:none}
 .carta.abierta .dorso,.carta.hecha .dorso{opacity:0}
@@ -123,14 +123,14 @@ button{font-family:inherit;cursor:pointer;color:inherit}
 .hueco.mal{animation:shake .4s;outline:4px solid var(--bad)}
 .puztab.completo{gap:0}
 .puztab.completo .hueco{border-radius:0}
-.puzcapa{position:absolute;inset:0;pointer-events:none}
+.puzcapa{position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}
 .puzani{position:absolute;width:26%;height:36%;transform:translate(-50%,-50%) scale(0);animation:aparece .5s forwards}
 @keyframes aparece{to{transform:translate(-50%,-50%) scale(1)}}
 .pieza{border:4px solid var(--bor);border-radius:12px;padding:0;background-repeat:no-repeat;min-height:0;box-shadow:0 3px 6px #0002}
 .pieza.sel{border-color:var(--azul);box-shadow:0 0 0 4px #3b5bdb66;transform:scale(1.04)}
 /* intruso */
 .intesc{position:relative;flex:1;min-height:0;border-radius:20px;overflow:hidden;box-shadow:0 3px 10px #0002}
-.intfondo{position:absolute;inset:0}
+.intfondo{position:absolute;top:0;right:0;bottom:0;left:0}
 .intfondo .intimg img{width:100%;height:100%;object-fit:cover;max-width:none;max-height:none}
 .intfondo .intimg{height:100%}
 .intgrid{position:absolute;left:3%;right:3%;bottom:4%;top:30%;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:1fr 1fr;gap:8px}
@@ -173,7 +173,7 @@ button{font-family:inherit;cursor:pointer;color:inherit}
 .stats div{background:#fff;border-radius:14px;padding:6px;box-shadow:0 2px 6px #0002;display:flex;flex-direction:column;font-size:22px}
 .stats b{font-size:clamp(18px,5vw,26px)}
 .stats span{font-size:12px}
-.lb{position:fixed;inset:0;top:0;left:0;right:0;bottom:0;background:#000d;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px}
+.lb{position:fixed;top:0;right:0;bottom:0;left:0;top:0;left:0;right:0;bottom:0;background:#000d;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px}
 .lbimg{overflow:hidden;max-width:92vw;max-height:72vh;border-radius:14px}
 .lbimg img{display:block;max-width:92vw;max-height:72vh;transition:transform .3s}
 .lbfrase{color:#fff;font-size:22px;text-align:center}

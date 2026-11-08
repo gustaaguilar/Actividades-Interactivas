@@ -564,6 +564,13 @@
         };
       })(h);
     }
+    /* navegadores viejos sin aspect-ratio: alto calculado a mano (4:3) */
+    var sinAR = !(window.CSS && CSS.supports && CSS.supports("aspect-ratio", "1"));
+    function medir() {
+      if (!vivo(tok) || !sinAR) return;
+      [tablero, bandeja].forEach(function (e) { e.style.height = Math.round(e.offsetWidth * 3 / 4) + "px"; });
+    }
+    if (sinAR) { setTimeout(medir, 0); window.addEventListener("resize", medir); }
     shuffle([0, 1, 2, 3]).forEach(function (k) {
       var pz = el("button", "pieza"); pz._k = k; pz._it = {}; fondo(pz, k);
       pz.onclick = function () { if (!idle()) return; if (sel) remC(sel, "sel"); sel = pz; addC(pz, "sel"); };
