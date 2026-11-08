@@ -60,7 +60,7 @@ footer{flex:0 0 auto;padding:4px 10px 10px;display:flex;justify-content:center;g
 .desc{font-size:clamp(14px,3.8vw,18px);font-weight:600;color:var(--tinta);text-align:center;max-width:560px;line-height:1.25;text-wrap:balance}
 .btn-info{font-family:inherit;font-weight:800;font-size:clamp(13px,3.6vw,16px);border:3px solid var(--o);color:var(--o);background:#fff;border-radius:999px;padding:3px 14px;cursor:pointer}
 /* modal de fundamentos */
-#modal{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;z-index:50;padding:12px}
+#modal{position:fixed;top:0;right:0;bottom:0;left:0;background:#0009;display:none;align-items:center;justify-content:center;z-index:50;padding:12px}
 #modal.ver{display:flex}
 #modal .hoja{background:#fffdf8;border-radius:18px;max-width:640px;width:100%;max-height:92%;overflow:auto;padding:18px 18px 16px;position:relative;box-shadow:0 10px 30px #0006;-webkit-user-select:text;user-select:text;text-align:left}
 #modal h2{color:var(--o);font-size:clamp(20px,5.5vw,28px);margin:0 44px 4px 0;line-height:1.1}
@@ -80,7 +80,7 @@ footer{flex:0 0 auto;padding:4px 10px 10px;display:flex;justify-content:center;g
 .stats b{font-size:clamp(20px,6vw,30px)}
 .yt{display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:#ff0000;color:#fff;font-weight:800;border-radius:999px;padding:6px 14px;font-size:clamp(13px,3.6vw,16px);box-shadow:0 3px 0 #a00}
 /* lightbox */
-#lightbox{position:fixed;inset:0;background:#000d;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:60;gap:12px;overflow:hidden}
+#lightbox{position:fixed;top:0;right:0;bottom:0;left:0;background:#000d;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:60;gap:12px;overflow:hidden}
 #lightbox.ver{display:flex}
 #lbImg{max-width:92vw;max-height:72vh;border-radius:14px;transition:transform .3s;cursor:zoom-in}
 #lbFrase{color:#fff;font-size:clamp(18px,5vw,26px);font-weight:700;text-shadow:0 2px 6px #000}
@@ -127,7 +127,7 @@ footer{flex:0 0 auto;padding:4px 10px 10px;display:flex;justify-content:center;g
 /* unir */
 .unir{position:relative;display:flex;flex-direction:column;gap:9vh;align-items:center}
 .unir .grupo{display:flex;gap:min(2vw,14px);position:relative;z-index:1}
-.unir .lineas{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+.unir .lineas{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
 .dibujo.chico img{width:min(15vw,24vh,150px);height:min(15vw,24vh,150px)}
 .dibujo.chico .escrita{font-size:clamp(14px,3.6vw,20px)}
 .dibujo.sel{border-color:var(--azul);background:#e3f0ff;transform:scale(1.06)}

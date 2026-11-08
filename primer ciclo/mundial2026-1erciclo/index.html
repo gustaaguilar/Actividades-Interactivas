@@ -98,7 +98,7 @@ main#pantalla{flex:1;display:flex;flex-direction:column;padding:1.5vh 3vw;overfl
 /* memoria */
 .tablero{display:grid;gap:1vh;width:100%;max-width:640px;flex:1 1 auto;min-height:0;align-content:center}
 .carta{font-family:inherit;border:none;background:transparent;cursor:pointer;aspect-ratio:1/1;max-height:17vh;width:100%;position:relative;justify-self:center;max-width:17vh}
-.carta .dorso,.carta .frente{position:absolute;inset:0;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .35s}
+.carta .dorso,.carta .frente{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .35s}
 .carta .dorso{background:linear-gradient(135deg,#1e3a8a,#3b82f6);color:#fff;font-size:5vh;font-weight:800}
 .carta .frente{background:#fff;border:3px solid #cbd5e1;transform:rotateY(180deg);font-weight:800;color:#1e3a8a;font-size:clamp(11px,min(3.4vw,2.6vh),22px);padding:3px;overflow:hidden;word-break:break-word;line-height:1.05;text-align:center}
 .carta .frente img{max-width:100%;max-height:75%;object-fit:contain}
@@ -120,13 +120,13 @@ main#pantalla{flex:1;display:flex;flex-direction:column;padding:1.5vh 3vw;overfl
 #navRev:empty{display:none}
 body.revision main#pantalla{padding-bottom:56px}
 #navRev button{background:transparent;border:none;color:#fff;font-size:20px;cursor:pointer;padding:4px 8px}
-#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:100;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:10px}
+#lightbox{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.95);z-index:100;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:10px}
 #lightbox[hidden],#modalEnvio[hidden]{display:none}
 .lb-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.2);color:#fff;border:none;font-size:28px;width:50px;height:50px;border-radius:50%;cursor:pointer}
 #lbImg{max-width:95vw;max-height:80vh;border-radius:8px;object-fit:contain;transition:transform .3s;cursor:zoom-in}
 #lbImg.zoom{transform:scale(1.8);cursor:zoom-out}
 .lb-frase{color:#fff;font-size:20px;margin-top:16px;font-weight:600}
-#modalEnvio{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:110;display:flex;align-items:center;justify-content:center;padding:16px}
+#modalEnvio{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.75);z-index:110;display:flex;align-items:center;justify-content:center;padding:16px}
 .envio-card{background:#fff;border-radius:16px;padding:20px;max-width:400px;width:100%;display:flex;flex-direction:column;gap:10px;max-height:92vh;overflow-y:auto}
 .envio-card h3{color:#1e3a8a;font-size:22px;text-align:center}
 .envio-card label{font-weight:600;font-size:16px;color:#334155}
