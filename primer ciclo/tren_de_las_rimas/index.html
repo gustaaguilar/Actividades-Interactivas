@@ -13,7 +13,7 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}
 body{font-family:'Baloo 2',system-ui,sans-serif;color:var(--tinta);background:linear-gradient(180deg,#1d3557,#457b9d);overflow:hidden;user-select:none;-webkit-user-select:none}
-#pantalla{height:100dvh;display:flex;flex-direction:column}
+#pantalla{height:100%;height:100vh;height:100dvh;display:flex;flex-direction:column}
 button{font-family:inherit;cursor:pointer;border:0}
 /* barra */
 .barra{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0006;color:#fff;flex:0 0 auto}
@@ -48,7 +48,7 @@ button{font-family:inherit;cursor:pointer;border:0}
 .stats b{display:block;font-size:28px}
 .cie-fila{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center}
 /* envío (compartido con el motor de paquetes) */
-#envio{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;z-index:60;padding:14px}
+#envio{position:fixed;top:0;right:0;bottom:0;left:0;background:#000b;display:none;align-items:center;justify-content:center;z-index:60;padding:14px}
 #envio.ver{display:flex}
 .envio-caja{position:relative;background:var(--papel);border-radius:var(--radio);padding:16px 18px;width:100%;max-width:420px;display:flex;flex-direction:column;gap:10px;max-height:94vh;overflow-y:auto}
 .envio-caja h2{text-align:center;font-size:22px}
@@ -62,20 +62,20 @@ button{font-family:inherit;cursor:pointer;border:0}
 .btn.enviar{background:#25d366;color:#fff;box-shadow:0 4px 0 #128c4a}.btn.guardar{background:var(--azul);color:#fff;box-shadow:0 4px 0 #1f5fcc}
 .btn-aula{background:#f98012;color:#fff;font-weight:800;font-size:clamp(16px,4.4vw,21px);padding:8px 18px;border-radius:999px;box-shadow:0 4px 0 #b35500}
 .aula-ok{background:#d8f3dc;color:#1b4332;font-weight:800;border-radius:12px;padding:6px 12px}
-#aulaM{position:fixed;inset:0;background:#000b;display:flex;align-items:center;justify-content:center;z-index:60;padding:14px}
+#aulaM{position:fixed;top:0;right:0;bottom:0;left:0;background:#000b;display:flex;align-items:center;justify-content:center;z-index:60;padding:14px}
 .aula-caja{position:relative;background:var(--papel);border-radius:var(--radio);padding:16px 18px;width:100%;max-width:440px;display:flex;flex-direction:column;gap:10px;max-height:94vh;overflow-y:auto}
 .aula-caja h2{text-align:center;font-size:22px}
 .aula-pasos{padding-left:22px;font-weight:700;font-size:15px;line-height:1.35}
 #aulaTxt{font-family:inherit;font-size:14px;border:3px solid var(--borde);border-radius:12px;padding:8px;resize:none;user-select:text;-webkit-user-select:text}
 /* lightbox */
-#lightbox{position:fixed;inset:0;background:#000d;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:50;gap:12px;overflow:hidden}
+#lightbox{position:fixed;top:0;right:0;bottom:0;left:0;background:#000d;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:50;gap:12px;overflow:hidden}
 #lightbox.ver{display:flex}
 #lbImg{max-width:92vw;max-height:74vh;border-radius:14px;transition:transform .3s;cursor:zoom-in}#lbImg.zoom{transform:scale(2.5)}
 #lbFrase{color:#fff;font-size:clamp(18px,5vw,26px);font-weight:700;text-shadow:0 2px 6px #000}
 #lbCerrar{position:absolute;top:12px;right:14px;width:44px;height:44px;border-radius:50%;font-size:22px;background:#fff;z-index:3}
 
 /* ===== escalada ===== */
-.cielo-p{position:absolute;inset:0;background:linear-gradient(180deg,var(--c1,#8ecae6),var(--c2,#d9f2ff))}
+.cielo-p{position:absolute;top:0;right:0;bottom:0;left:0;background:linear-gradient(180deg,var(--c1,#8ecae6),var(--c2,#d9f2ff))}
 .monte{position:absolute;left:0;bottom:0;width:100%;height:100%}
 .monte.m-ancho{display:none}
 .port-escena .m-alto{display:none}.port-escena .m-ancho{display:block}
@@ -93,7 +93,7 @@ button{font-family:inherit;cursor:pointer;border:0}
 /* mapa */
 .mapa{flex:1;position:relative;margin:10px;border-radius:var(--radio);overflow:hidden;box-shadow:inset 0 0 40px #0004;--c1:#8ecae6;--c2:#e0f4ff}
 .mapa .monte{height:110%}
-.sendero{position:absolute;inset:0;width:100%;height:100%}
+.sendero{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%}
 .campo{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;background:#ffffffe6;border-radius:999px;padding:4px 12px 4px 4px;box-shadow:0 4px 0 #0003;color:var(--tinta)}
 .campo .c-ico{width:clamp(44px,12vw,58px);height:clamp(44px,12vw,58px);border-radius:50%;background:#fb8500;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,6vw,30px);animation:late 2s ease-in-out infinite}
 .campo.cerrado .c-ico{background:#adb5bd;animation:none}
@@ -106,10 +106,10 @@ button{font-family:inherit;cursor:pointer;border:0}
 /* escena v2: ladera arriba + panel fijo abajo */
 .escena{flex:1;position:relative;overflow:hidden;min-height:0;display:flex;flex-direction:column}
 .ladera{flex:1;position:relative;overflow:hidden;min-height:0}
-.fondo-m{position:absolute;inset:0;opacity:.45}.fondo-m .monte{height:100%}
+.fondo-m{position:absolute;top:0;right:0;bottom:0;left:0;opacity:.45}.fondo-m .monte{height:100%}
 .t4 .cielo-p{background:linear-gradient(180deg,#24305e,#6b83b8)}
 .mundo{position:absolute;top:0;transition:transform 1s ease-in-out;will-change:transform}
-.mundo-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.mundo-svg{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;overflow:visible}
 .bandi .tela{fill:#e63946;transition:fill .3s}.bandi.ok .tela{fill:#2ecc71}
 .b-alt{font:800 15px 'Baloo 2',sans-serif;fill:#fff;paint-order:stroke;stroke:#0008;stroke-width:3px}
 .bandi.ok .b-alt{fill:#d8ffe6}
@@ -123,7 +123,7 @@ button{font-family:inherit;cursor:pointer;border:0}
 @keyframes flag{from{transform:scaleX(0)}}
 .nube{position:absolute;font-size:clamp(34px,9vw,56px);opacity:.9;animation:nube 28s linear infinite;z-index:1}.n1{top:12%;left:-15%}.n2{top:38%;left:-25%;animation-delay:-12s;font-size:clamp(26px,7vw,44px)}
 @keyframes nube{to{transform:translateX(140vw)}}
-.viento{position:absolute;inset:0;pointer-events:none;z-index:2}
+.viento{position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:2}
 .viento i{position:absolute;left:-30%;height:3px;width:28%;border-radius:3px;background:linear-gradient(90deg,#fff0,#fffc,#fff0);animation:vto 2.2s linear infinite}
 .viento i:nth-child(1){top:20%}.viento i:nth-child(2){top:45%;animation-delay:-.7s}.viento i:nth-child(3){top:65%;animation-delay:-1.4s}.viento i:nth-child(4){top:32%;animation-delay:-1.9s;width:18%}
 @keyframes vto{to{transform:translateX(480%)}}
@@ -184,13 +184,13 @@ button{font-family:inherit;cursor:pointer;border:0}
 .pul.bien{background:radial-gradient(circle at 35% 25%,#b9f6ca,#2ecc71 55%,#1b7f45);box-shadow:0 2px 0 #145c33}
 .pul.x{background:#e5989b;box-shadow:0 2px 0 #b5838d;transform:translateY(5px);animation:sac .4s;opacity:.7}
 @keyframes sac{25%{transform:translate(-8px,5px)}75%{transform:translate(8px,5px)}}
-.cuenta{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(54px,16vw,110px);font-weight:800;color:#fff;text-shadow:0 5px 0 #0007;opacity:0;pointer-events:none;z-index:5}
+.cuenta{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:center;font-size:clamp(54px,16vw,110px);font-weight:800;color:#fff;text-shadow:0 5px 0 #0007;opacity:0;pointer-events:none;z-index:5}
 .cuenta.ver{animation:pum .6s}.cuenta.ya{color:#ffd166}
 @keyframes pum{0%{opacity:0;transform:scale(2)}30%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.8)}}
-.modal{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:#0006;z-index:6;padding:12px}
+.modal{position:absolute;top:0;right:0;bottom:0;left:0;display:none;align-items:center;justify-content:center;background:#0006;z-index:6;padding:12px}
 .modal.ver{display:flex}
 .m-caja{position:relative;background:#fff;border-radius:22px;padding:14px 16px;width:100%;max-width:420px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:0 10px 30px #0006;max-height:100%;overflow-y:auto}
-#confeti{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#confeti{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;pointer-events:none}
 .m-pts{background:#80cbc4;color:#fff;font-weight:800;font-size:clamp(30px,8vw,40px);border-radius:16px;padding:0 18px}
 .m-tit{font-weight:800;font-size:clamp(22px,6vw,30px);line-height:1.15}
 .m-alt{font-weight:800;color:#6c757d}
@@ -235,7 +235,7 @@ button{font-family:inherit;cursor:pointer;border:0}
 /* ===== el tren de las rimas ===== */
 .p-jugar .escena{flex:1;display:flex;flex-direction:column;min-height:0;position:relative}
 .anden{flex:1;position:relative;overflow:hidden;min-height:0}
-.est-svg{position:absolute;inset:0;width:100%;height:100%}
+.est-svg{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%}
 .est-txt{font:800 11px 'Baloo 2',sans-serif;fill:#fff}.est-sub{font:700 7.5px 'Baloo 2',sans-serif;fill:#ffd166}
 .tren{position:absolute;left:0;right:3%;bottom:3%;height:46%;display:flex;align-items:flex-end;justify-content:flex-end;z-index:2}
 .tren.llega{animation:llega 1.6s ease-in forwards}
@@ -306,7 +306,7 @@ button{font-family:inherit;cursor:pointer;border:0}
 }
 /* ===== viaje de costado ===== */
 .portada{position:relative}
-.arranque{position:fixed;inset:0;z-index:40;background:#1d3557e6;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-weight:800;font-size:clamp(24px,7vw,36px);border:0}
+.arranque{position:fixed;top:0;right:0;bottom:0;left:0;z-index:40;background:#1d3557e6;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-weight:800;font-size:clamp(24px,7vw,36px);border:0}
 .arr-ico{font-size:clamp(60px,18vw,96px);animation:late 1.4s ease-in-out infinite}
 .btn-oir-port{background:#ffffff26;color:#fff;font-weight:800;font-size:16px;padding:6px 18px;border-radius:999px;border:2px solid #ffffff66}
 .m-bots .btn-jugar.espera{opacity:.45;animation:none;filter:grayscale(.6);cursor:wait}
@@ -326,7 +326,7 @@ button{font-family:inherit;cursor:pointer;border:0}
 .gcruza svg{width:100%;display:block;transform:scaleX(-1)}
 .gcruza.cruza{animation:gcruza 1.4s ease-out}
 @keyframes gcruza{0%{opacity:0;transform:translate(120%,10%)}20%{opacity:1;transform:translate(0,0)}65%{opacity:1;transform:translate(0,0)}100%{opacity:0;transform:translate(-60%,-30%)}}
-.copos{position:absolute;inset:0;pointer-events:none;z-index:5}
+.copos{position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:5}
 .copos i{position:absolute;top:-5%;width:6px;height:6px;border-radius:50%;background:#fff;opacity:.9;animation:copo 5s linear infinite}
 .copos i:nth-child(odd){width:4px;height:4px;animation-duration:7s}
 .copos i:nth-child(1){left:0%;animation-delay:-0.0s}.copos i:nth-child(2){left:37%;animation-delay:-0.7s}.copos i:nth-child(3){left:74%;animation-delay:-1.4s}.copos i:nth-child(4){left:11%;animation-delay:-2.1s}.copos i:nth-child(5){left:48%;animation-delay:-2.8s}.copos i:nth-child(6){left:85%;animation-delay:-3.5s}.copos i:nth-child(7){left:22%;animation-delay:-4.2s}.copos i:nth-child(8){left:59%;animation-delay:-4.9s}.copos i:nth-child(9){left:96%;animation-delay:-0.6s}.copos i:nth-child(10){left:33%;animation-delay:-1.3s}.copos i:nth-child(11){left:70%;animation-delay:-2.0s}.copos i:nth-child(12){left:7%;animation-delay:-2.7s}.copos i:nth-child(13){left:44%;animation-delay:-3.4s}.copos i:nth-child(14){left:81%;animation-delay:-4.1s}
