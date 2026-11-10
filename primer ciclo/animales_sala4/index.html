@@ -15,11 +15,14 @@
   var listo = false, pend = null, pendVoz = [], ctxs = [];
   var MP = window.HTMLMediaElement && HTMLMediaElement.prototype, playOrig = MP && MP.play;
   /* antes del primer toque no suena nada: se guarda el último audio pedido y se reproduce al tocar */
+  var pendOk = null, pendMal = null;
+  function aborto() { try { return new DOMException("Reemplazado antes del primer toque", "AbortError"); } catch (e) { var x = new Error("AbortError"); x.name = "AbortError"; return x; } }
   if (MP && playOrig) MP.play = function () {
     if (listo) return playOrig.apply(this, arguments);
-    if (pend && pend !== this) { try { pend.pause(); } catch (e) {} }
+    if (pend && pend !== this) { var m = pendMal; pendOk = pendMal = null; if (m) m(aborto()); }
     pend = this;
-    return { then: function () { return this; }, "catch": function () { return this; }, "finally": function () { return this; } };
+    if (!window.Promise) return;
+    return new Promise(function (ok, mal) { pendOk = ok; pendMal = mal; });
   };
   var ss = window.speechSynthesis, speakOrig = ss && ss.speak;
   if (ss && speakOrig) ss.speak = function (u) { if (listo) return speakOrig.call(ss, u); pendVoz.push(u); };
@@ -32,7 +35,11 @@
     if (listo) return; listo = true;
     var b = document.getElementById("qstArranque"); if (b && b.parentNode) b.parentNode.removeChild(b);
     ctxs.forEach(function (c) { try { if (c.resume) c.resume(); } catch (e) {} });
-    if (pend) { var p = pend; pend = null; try { var r = playOrig.call(p); if (r && r["catch"]) r["catch"](function () {}); } catch (e) {} }
+    if (pend) {
+      var p = pend, ok = pendOk, mal = pendMal; pend = pendOk = pendMal = null;
+      try { var r = playOrig.call(p); if (r && r.then) r.then(function () { if (ok) ok(); }, function (e) { if (mal) mal(e); }); else if (ok) ok(); }
+      catch (e) { if (mal) mal(e); }
+    }
     else { try { var s = new Audio(); s.muted = true; var r2 = playOrig.call(s); if (r2 && r2["catch"]) r2["catch"](function () {}); } catch (e) {} }
     if (ss && speakOrig) pendVoz.splice(0).forEach(function (u) { try { speakOrig.call(ss, u); } catch (e) {} });
   }

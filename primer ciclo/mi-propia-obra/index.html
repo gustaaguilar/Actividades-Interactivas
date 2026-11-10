@@ -2,6 +2,60 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<!-- QST: pantalla "Tocá para empezar" (destraba el sonido en celulares y tablets) -->
+<style id="qst-arr-css">
+.qst-arr{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483000;background:rgba(29,53,87,.9);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font:800 30px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:clamp(24px,7vw,36px);border:0;width:100%;height:100%;margin:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.qst-arr .qst-arr-ico{font-size:80px;font-size:clamp(60px,18vw,96px);margin-bottom:10px;-webkit-animation:qstLate 1.4s ease-in-out infinite;animation:qstLate 1.4s ease-in-out infinite}
+@-webkit-keyframes qstLate{0%,100%{-webkit-transform:scale(1)}50%{-webkit-transform:scale(1.12)}}
+@keyframes qstLate{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+</style>
+<script id="qst-arr-js">
+(function () {
+  if (window.__QST_ARR) return; window.__QST_ARR = true;
+  var listo = false, pend = null, pendVoz = [], ctxs = [];
+  var MP = window.HTMLMediaElement && HTMLMediaElement.prototype, playOrig = MP && MP.play;
+  /* antes del primer toque no suena nada: se guarda el último audio pedido y se reproduce al tocar */
+  var pendOk = null, pendMal = null;
+  function aborto() { try { return new DOMException("Reemplazado antes del primer toque", "AbortError"); } catch (e) { var x = new Error("AbortError"); x.name = "AbortError"; return x; } }
+  if (MP && playOrig) MP.play = function () {
+    if (listo) return playOrig.apply(this, arguments);
+    if (pend && pend !== this) { var m = pendMal; pendOk = pendMal = null; if (m) m(aborto()); }
+    pend = this;
+    if (!window.Promise) return;
+    return new Promise(function (ok, mal) { pendOk = ok; pendMal = mal; });
+  };
+  var ss = window.speechSynthesis, speakOrig = ss && ss.speak;
+  if (ss && speakOrig) ss.speak = function (u) { if (listo) return speakOrig.call(ss, u); pendVoz.push(u); };
+  ["AudioContext", "webkitAudioContext"].forEach(function (n) {
+    var C = window[n]; if (!C) return;
+    var N = function () { var c = new (Function.prototype.bind.apply(C, [null].concat([].slice.call(arguments))))(); ctxs.push(c); return c; };
+    N.prototype = C.prototype; window[n] = N;
+  });
+  function arrancar() {
+    if (listo) return; listo = true;
+    var b = document.getElementById("qstArranque"); if (b && b.parentNode) b.parentNode.removeChild(b);
+    ctxs.forEach(function (c) { try { if (c.resume) c.resume(); } catch (e) {} });
+    if (pend) {
+      var p = pend, ok = pendOk, mal = pendMal; pend = pendOk = pendMal = null;
+      try { var r = playOrig.call(p); if (r && r.then) r.then(function () { if (ok) ok(); }, function (e) { if (mal) mal(e); }); else if (ok) ok(); }
+      catch (e) { if (mal) mal(e); }
+    }
+    else { try { var s = new Audio(); s.muted = true; var r2 = playOrig.call(s); if (r2 && r2["catch"]) r2["catch"](function () {}); } catch (e) {} }
+    if (ss && speakOrig) pendVoz.splice(0).forEach(function (u) { try { speakOrig.call(ss, u); } catch (e) {} });
+  }
+  window.QST_arrancar = arrancar;
+  function poner() {
+    if (listo || document.getElementById("qstArranque")) return;
+    var b = document.createElement("button"); b.className = "qst-arr"; b.id = "qstArranque"; b.type = "button";
+    b.setAttribute("aria-label", "Tocá para empezar");
+    b.innerHTML = '<span class="qst-arr-ico">🔊</span><span>Tocá para empezar</span>';
+    b.onclick = function (e) { if (e && e.stopPropagation) e.stopPropagation(); arrancar(); };
+    document.body.appendChild(b);
+  }
+  if (document.body) poner(); else document.addEventListener("DOMContentLoaded", poner);
+})();
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Mi propia obra · QueSepanTodos</title>
 <meta name="description" content="Artes Visuales · 3.er grado: formas geométricas y transparencias. Paquete interactivo de QueSepanTodos.com">
