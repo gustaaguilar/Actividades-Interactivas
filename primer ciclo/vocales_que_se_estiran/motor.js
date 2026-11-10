@@ -102,7 +102,8 @@
       var clave = lista[k++];
       if (opts.alEmpezar) opts.alEmpezar(clave, k - 1);
       var a;
-      try { a = new Audio('audio/' + clave + '.mp3'); } catch (e) { setTimeout(sig, 0); return; }
+      /* un solo reproductor de voz: así no se bloquean los audios encadenados en celulares */
+      try { a = window.__QST_VOZ || (window.__QST_VOZ = new Audio()); a.onended = a.onerror = null; a.src = 'audio/' + clave + '.mp3'; } catch (e) { setTimeout(sig, 0); return; }
       actual = a;
       var listo = false, avanza = function () { if (listo) return; listo = true; setTimeout(sig, opts.pausa || 0); };
       a.onended = avanza; a.onerror = avanza;

@@ -211,7 +211,7 @@
     }
     if (it.b) { beep(it.b === 1); to = setTimeout(fin, TEST ? 2 : 380); return; }
     if (TEST) { to = setTimeout(fin, est(it.a)); return; }
-    try { au = new Audio("audio/" + it.a.a + ".mp3"); } catch (e) { au = null; }
+    try { au = reproductor(); au.onended = au.onerror = null; au.src = "audio/" + it.a.a + ".mp3"; } catch (e) { au = null; }
     auAct = au;
     function plan() { clearTimeout(to); to = setTimeout(fin, est(it.a) * 3 + 4000); hablar(it.a, fin); }
     if (!au) { plan(); return; }
@@ -223,6 +223,9 @@
       if (err && err.name === "NotAllowedError") { clearTimeout(to); to = setTimeout(fin, est(it.a)); }
     });
   }
+  /* un solo reproductor de voz: así no se bloquean los audios encadenados en celulares */
+  var VOZ1 = null;
+  function reproductor() { if (!VOZ1) { VOZ1 = new Audio(); VOZ1.preload = "auto"; } return VOZ1; }
   function callar() {
     gen++; Q = []; espera = [];
     try { if (auAct) auAct.pause(); } catch (e) {}
