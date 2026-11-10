@@ -148,8 +148,20 @@
     ov.appendChild(el("div", "lbfrase", "Menos prisa, más vida 🧉🫂<small>" + D.meta.autor + "<br>" + D.meta.mail + "</small>"));
     ov.appendChild(x); document.body.appendChild(ov);
   }
+  /* Nivel Inicial: los chicos todavía no leen → cada pantalla tiene su 🔊 para volver a escuchar la consigna */
   function titulo(s) {
-    stage.appendChild(el("h2", "titulo", s.titulo));
+    var h = el("h2", "titulo", s.titulo);
+    var repite = s.tipo === "narracion" ? "narr" : (s.intro && s.tipo !== "intruso" ? "intro" : null);
+    if (repite) {
+      var fila = el("div", "titfila"), parl = el("button", "parlante chico titparl", "🔊");
+      parl.setAttribute("aria-label", "Volver a escuchar la consigna");
+      parl.onclick = function () {
+        if (!idle()) return;
+        if (repite === "narr") { ir(st.i); return; }   /* vuelve a contar toda la narración */
+        addC(parl, "suena"); say(s.intro, function () { remC(parl, "suena"); }); bloquear();
+      };
+      fila.appendChild(parl); fila.appendChild(h); stage.appendChild(fila);
+    } else stage.appendChild(h);
     if (s.consigna) stage.appendChild(el("div", "consigna", s.consigna));
   }
 

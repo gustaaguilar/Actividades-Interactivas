@@ -105,6 +105,11 @@ button{font-family:inherit;cursor:pointer;color:inherit}
 .arranque{position:fixed;top:0;right:0;bottom:0;left:0;z-index:60;background:rgba(29,53,87,.9);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:30px;font-size:clamp(24px,7vw,36px);border:0;width:100%;cursor:pointer;font-family:inherit}
 .arr-ico{font-size:80px;font-size:clamp(60px,18vw,96px);margin-bottom:10px;animation:late 1.4s ease-in-out infinite}
 @keyframes late{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+/* 🔊 junto al título */
+.titfila{display:flex;align-items:center;justify-content:center}
+.titfila .titulo{margin:0 0 0 10px}
+.parlante.titparl{width:44px;height:44px;font-size:22px;border-width:3px;padding:0;box-shadow:0 3px 0 #f0c419}
+@media (min-width:700px){.parlante.titparl{width:54px;height:54px;font-size:27px}}
 /* memojuego */
 .memo{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:8px}
 @media (orientation:portrait){.memo{grid-template-columns:repeat(2,1fr)}}
