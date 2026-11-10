@@ -56,7 +56,7 @@
       var g = gen; if (it.cb) it.cb(); if (g === gen) sig();
     }
     if (it.b) { beep(it.b === 1); to = setTimeout(fin, TEST ? 2 : 380); return; }
-    if (TEST) { to = setTimeout(fin, est(it.a)); return; }
+    if (TEST) { (window.__SAY = window.__SAY || []).push(it.a.a); to = setTimeout(fin, est(it.a)); return; }
     if (it.a.efecto && !it.a.t && faltan[it.a.ruta]) { to = setTimeout(fin, 10); return; }
     /* un solo reproductor reutilizado: ya quedó habilitado con el primer toque, así las
        narraciones encadenadas (que no vienen de un toque) también suenan en tablets y celulares */
@@ -94,6 +94,7 @@
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (e) {}
     auAct = null; sonando = null;
   }
+  var ARRANCO = false;
   function beep(ok) {
     try {
       AC = AC || new (window.AudioContext || window.webkitAudioContext)();
@@ -166,7 +167,18 @@
     fila.appendChild(b); fila.appendChild(firma()); w.appendChild(fila);
     w.appendChild(el("div", "lic", D.meta.licencia));
     stage.appendChild(w);
-    say(s.audio); completar();
+    completar();
+    if (ARRANCO) { say(s.audio); return; }
+    /* Pantalla "🔊 Tocá para empezar": el primer toque destraba el sonido del celular */
+    var arr = el("button", "arranque"); arr.id = "bArranque";
+    arr.innerHTML = '<span class="arr-ico">🔊</span><span>Tocá para empezar</span>';
+    arr.onclick = function () {
+      ARRANCO = true;
+      try { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); if (AC.resume) AC.resume(); } catch (e) {}
+      if (arr.parentNode) arr.parentNode.removeChild(arr);
+      say(s.audio);
+    };
+    document.body.appendChild(arr);
   };
 
   /* Video incrustado en la pantalla (botón rojo de YouTube) */
