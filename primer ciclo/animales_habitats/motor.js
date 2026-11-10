@@ -596,9 +596,15 @@
     titulo(s);
     var tok = cur, n = s.rondas.length;
     var esc = el("div", "intesc"), fondo = el("div", "intfondo"), grid = el("div", "intgrid interact"), cnt = el("div", "cnt intcnt");
-    esc.appendChild(fondo); esc.appendChild(grid); esc.appendChild(cnt); stage.appendChild(esc);
+    /* 🔊 para volver a escuchar la consigna (chicos que todavía no leen) */
+    var parl = el("button", "parlante chico intparl", "🔊"), actual = null;
+    parl.onclick = function () {
+      if (!actual || !idle()) return;
+      addC(parl, "suena"); say(actual.pregunta, function () { remC(parl, "suena"); }); bloquear();
+    };
+    esc.appendChild(fondo); esc.appendChild(grid); esc.appendChild(cnt); esc.appendChild(parl); stage.appendChild(esc);
     function mostrar(k) {
-      var R0 = s.rondas[k], res = false;
+      var R0 = s.rondas[k], res = false; actual = R0;
       cnt.textContent = (k + 1) + " de " + n;
       fondo.innerHTML = ""; fondo.appendChild(imagen(R0.img, R0.emoji, "intimg"));
       grid.innerHTML = "";
