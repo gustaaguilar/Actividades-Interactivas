@@ -76,11 +76,26 @@ function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.fl
 function norm(s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
 function actualizarStats() { $("#sA").textContent = estado.aciertos; $("#sE").textContent = estado.errores; $("#sP").textContent = estado.puntos; }
 
+const POS_AFICHE_B = { "champú": [25, 39.5], "jabón": [75, 39.5], "toalla": [25, 82], "perfume": [75, 82], "crema": [25, 126], "desodorante": [75, 126] };
+function marcarEnAfiche(palabra) {
+  const svg = $(".afiche-marcas"), pos = POS_AFICHE_B[palabra]; if (!svg || !pos) return;
+  const NS = "http://www.w3.org/2000/svg", e = document.createElementNS(NS, "path");
+  const cx = pos[0], cy = pos[1], rx = 23.5, ry = 20;
+  // trazo a mano alzada: un poco más de una vuelta, levemente irregular
+  let d = "";
+  for (let i = 0; i <= 44; i++) {
+    const t = -0.35 + i / 44 * (Math.PI * 2 + 0.55), k = 1 + 0.04 * Math.sin(t * 3);
+    d += (i ? " L " : "M ") + (cx + rx * k * Math.cos(t)).toFixed(2) + " " + (cy + ry * k * Math.sin(t)).toFixed(2);
+  }
+  e.setAttribute("d", d); e.setAttribute("class", "marca-circulo"); svg.appendChild(e);
+  const L = e.getTotalLength ? e.getTotalLength() : 200; e.style.strokeDasharray = L; e.style.strokeDashoffset = L;
+  requestAnimationFrame(() => requestAnimationFrame(() => { e.style.strokeDashoffset = 0; }));
+}
 function htmlAfiche(letraAfiche) {
   const src = letraAfiche === "A" ? "img/afiche_a.jpg" : "img/afiche_b.jpg";
   return `
     <div class="afiche-wrapper">
-      <img src="${src}" class="afiche-img" onclick="abrirLightbox('${src}', false)">
+      <div class="afiche-box"><img src="${src}" class="afiche-img" onclick="abrirLightbox('${src}', false)"><svg class="afiche-marcas" viewBox="0 0 100 150" preserveAspectRatio="none"></svg></div>
       <div class="afiche-hint" onclick="abrirLightbox('${src}', false)">🔍 Tocá el afiche para ampliar</div>
     </div>`;
 }
@@ -219,7 +234,7 @@ R.escribirPalabra = function (p) {
 };
 
 R.sopaDeLetras = function (p) {
-  const size = 10;
+  const size = Math.max(10, Math.max.apply(null, p.palabras.map(w => w.length)) + 1);
   const grid = Array(size).fill(null).map(() => Array(size).fill(""));
   const dirs = [[0,1], [1,0], [1,1]];
   const puestas = [];
@@ -253,7 +268,8 @@ R.sopaDeLetras = function (p) {
       '<div class="pantalla sopa">' +
         '<div class="pregunta" style="margin:0;">Encontrá los productos</div>' +
         '<div class="sopa-layout">' +
-          '<div class="sopa-afiche-col">' + htmlAfiche(p.mostrarAfiche) + '</div>' +
+          '<div class="sopa-afiche-col">' + htmlAfiche(p.mostrarAfiche) +            '<div class="sopa-lista">' + p.palabras.map(w => '<span class="sopa-pal" data-w="' + w + '">' + w + '</span>').join("") + '</div>' +
+          '</div>' +
           '<div class="sopa-grid-col">' +
             '<div class="sopa-grid" style="grid-template-columns:repeat(' + size + ', 1fr);">' + gridHtml + '</div>' +
           '</div>' +
@@ -289,6 +305,8 @@ R.sopaDeLetras = function (p) {
         }
         seleccionados = []; sfxOk();
         const idxWord = p.palabras.indexOf(match.palabra); encolar(p.audiosOk[idxWord] || "a6_1");
+        const chip = $('.sopa-pal[data-w="' + match.palabra + '"]'); if (chip) chip.classList.add("tachada");
+        if (p.mostrarAfiche === "B") marcarEnAfiche(match.palabra);
         if (puestas.every(x => x.found)) {
           const key = 'sl_' + p._id;
           if (!estado.yaEvaluado[key]) { estado.yaEvaluado[key] = true; estado.aciertos += p.palabras.length; estado.puntos += p.palabras.length * META.puntosPorAcierto; actualizarStats(); }

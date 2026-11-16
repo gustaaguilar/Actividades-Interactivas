@@ -17,6 +17,8 @@ window.DATOS = {
 
     a6_instr: "Encontrá los nombres de los productos en la sopa de letras. Guiate con el afiche.", 
     a6_1: "¡Encontraste champú!", a6_2: "¡Encontraste jabón!", a6_3: "¡Encontraste toalla!", a6_4: "¡Encontraste perfume!",
+  a6_5: "¡Encontraste crema!",
+  a6_6: "¡Encontraste desodorante!",
 
     a2_instr: "Armá cada oración tocando las palabras en el orden correcto.",
     a2_or1: "El jabón limpia las manos.", a2_or2: "Mi toalla está limpia.", a2_or3: "El perfume huele rico.", a2_or4: "Nosotros nos ayudamos en la escuela.",
@@ -71,7 +73,7 @@ window.DATOS = {
         { palabra: "perfume", textoPregunta: "¿Qué producto cuesta $190?", audioPregunta: "afb_q4", audioOk: "a5_4_ok", audioErr: "a5_err" }
       ]
     },
-    { tipo: "sopaDeLetras", audioInstr: "a6_instr", audioAfiche: "a1_zoom", mostrarAfiche: "B", palabras: ["champú", "jabón", "toalla", "perfume"], audiosOk: ["a6_1", "a6_2", "a6_3", "a6_4"] },
+    { tipo: "sopaDeLetras", audioInstr: "a6_instr", audioAfiche: "a1_zoom", mostrarAfiche: "B", palabras: ["champú", "jabón", "toalla", "perfume", "crema", "desodorante"], audiosOk: ["a6_1", "a6_2", "a6_3", "a6_4", "a6_5", "a6_6"] },
     { 
       tipo: "ordenar", audioInstr: "a2_instr", 
       items: [
