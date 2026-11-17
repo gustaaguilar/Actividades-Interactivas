@@ -113,6 +113,7 @@ window.INDICE = [{"t": "🛒 Nuestras compras", "a": "mate", "al": "Matemática"
 {"t":"Sistema Solar","a":"nat","al":"Cs. Naturales","g":["4","5","6","7"],"d":"","tm":"","u":"segundo%20ciclo/sistema_solar/index.html","k":"paquete"},
 {"t":"Grooming","a":"otras","al":"Ed. Digital","g":["4","5","6","7"],"d":"","tm":"","u":"segundo%20ciclo/grooming/index.html","k":"paquete"},
 {"t":"Lavalle","a":"soc","al":"Cs. Sociales","g":["4","5","6","7"],"d":"","tm":"","u":"segundo%20ciclo/lavalle/index.html","k":"paquete"},
+{"t":"Normas de Convivencia","a":"soc","al":"Cs. Sociales","g":["4","5","6","7"],"d":"Normas de buena y mala convivencia en el aula, palabras mágicas, oraciones para armar, memotest y sopa de letras.","tm":"","u":"segundo%20ciclo/normas_de_convivencia/index.html","k":"paquete"},
 {"t":"Mendoza","a":"soc","al":"Cs. Sociales","g":["4","5","6","7"],"d":"","tm":"","u":"segundo%20ciclo/Mendoza/index.html","k":"paquete"},
 {"t":"San Martín, el Libertador","a":"soc","al":"Cs. Sociales","g":["4","5","6","7"],"d":"Nacimiento, Granaderos a Caballo, San Lorenzo, el cruce de los Andes, Chacabuco y su legado. Infografía interactiva, identificación, asociación, mapa, sopas de letras, verdadero o falso, laberinto matemático y sus máximas. 14 estaciones con audio.","tm":"","u":"segundo%20ciclo/SanMartin_el_libertador/paquete_final/index.html","k":"paquete"},
 {"t":"Turismo Aventura","a":"soc","al":"Cs. Sociales","g":["4"],"d":"","tm":"","u":"segundo%20ciclo/turismo_aventura/index.html","k":"paquete"},
