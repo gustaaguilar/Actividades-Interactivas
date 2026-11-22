@@ -1,7 +1,7 @@
 /* ===== MOTOR "EL ROBOT DE LAS PALABRAS" · QueSepanTodos.com =====
-   Juego de lectura para 1.° y 2.° grado. Se toca el robot y su pantalla gira como una tragamonedas:
-   parte 1, giran palabras y se elige el dibujo entre 9; parte 2, giran dibujos y se elige la palabra entre 9.
-   Cada acierto enciende una luz del robot (10 por parte). La palabra no se lee en voz alta antes de responder;
+   Juego de lectura para 1.° y 2.° grado. Se toca el robot y en su pantalla
+   escribe una palabra letra por letra (parte 1: se elige el dibujo entre 9) o hace un dibujo (parte 2: se elige la palabra entre 9).
+   Cada acierto carga un segmento de la batería del robot (10 por parte). Sin estética de juegos de azar. La palabra no se lee en voz alta antes de responder;
    al acertar, se escucha. Un solo reproductor de voz, pantalla inicial «Tocá para empezar», puntaje por primer intento. */
 (function () {
   'use strict';
@@ -73,11 +73,11 @@
 
 
   Object.assign(SFX, {
-    tic: () => tono(1500, 0, .025, 'square', .045),
-    palanca: () => { ruido(0, .25, .25, 1800, 400); [0, .06, .12, .18].forEach(t => tono(260, t, .04, 'square', .06)); },
-    para: () => { tono(1046.5, 0, .5, 'triangle', .1); tono(1318.5, .05, .5, 'triangle', .08); tono(1568, .1, .6, 'triangle', .07); },
-    luz: i => { tono(523.25 * Math.pow(2, i / 12), 0, .12, 'square', .07); tono(523.25 * Math.pow(2, (i + 7) / 12), .08, .2, 'triangle', .08); },
-    fiesta: () => { [0, 4, 7, 12, 16, 19, 24].forEach((s, i) => tono(392 * Math.pow(2, s / 12), i * .09, .22, 'square', .07)); tono(784, .7, .6, 'triangle', .1); tono(988, .7, .6, 'triangle', .08); tono(1175, .7, .7, 'triangle', .07); }
+    tecla: () => tono(700 + Math.random() * 250, 0, .035, 'square', .04),
+    piensa: () => { [0, .18, .36].forEach((t, i) => tono(520 + i * 90, t, .09, 'sine', .07)); },
+    dibuja: () => { tono(400, 0, .9, 'sine', .05, 900); tono(600, .1, .8, 'sine', .03, 1200); },
+    luz: i => { tono(330 * Math.pow(2, i / 12), 0, .1, 'square', .06); tono(330 * Math.pow(2, (i + 5) / 12), .08, .18, 'triangle', .08); },
+    fiesta: () => { tono(220, 0, .7, 'sawtooth', .05, 880); [0, 4, 7, 12].forEach((st, i) => tono(523.25 * Math.pow(2, st / 12), .7 + i * .1, .25, 'triangle', .09)); }
   });
 
   /* ---------- AYUDAS ---------- */
@@ -88,13 +88,10 @@
   const COLORES = ['#ffb703', '#3a86ff', '#8338ec', '#ef476f'];
   const PAL = D.palabras, POR = {}; PAL.forEach(p => { POR[p.k] = p; });
   const R = D.meta.rondas, N = D.meta.opciones;
-  const LUZ = ['#ff595e', '#ff924c', '#ffca3a', '#c5ca30', '#8ac926', '#2ec4b6', '#1982c4', '#4267ac', '#6a4c93', '#e056fd'];
+  const LUZ = ['#ffca3a', '#f2cc35', '#e2ce33', '#cdd033', '#b5d136', '#9bd23b', '#80d142', '#64cf4b', '#48cd55', '#2ecc71'];   // batería: de amarillo a verde
 
   /* ---------- EL ROBOT (dibujado por código) ---------- */
   function robotSVG() {
-    const bombis = [];
-    for (let x = 70; x <= 230; x += 20) { bombis.push([x, 150]); bombis.push([x, 254]); }
-    for (let y = 172; y <= 232; y += 20) { bombis.push([58, y]); bombis.push([242, y]); }
     return `<svg viewBox="0 0 300 360" aria-hidden="true">
       <line x1="150" y1="40" x2="150" y2="18" stroke="#0077b6" stroke-width="6" stroke-linecap="round"/>
       <circle id="antena" cx="150" cy="13" r="11" fill="#ff595e" stroke="#9d0208" stroke-width="3"/>
@@ -110,49 +107,53 @@
       <rect x="134" y="122" width="32" height="14" fill="#90a4ae" stroke="#546e7a" stroke-width="3"/>
       <rect x="20" y="168" width="26" height="74" rx="13" fill="#48cae4" stroke="#0077b6" stroke-width="4"/>
       <circle cx="33" cy="248" r="13" fill="#ffb703" stroke="#b36b00" stroke-width="3"/>
-      <g id="palanca"><line x1="262" y1="204" x2="284" y2="148" stroke="#adb5bd" stroke-width="8" stroke-linecap="round"/>
-        <circle cx="285" cy="143" r="14" fill="#ff595e" stroke="#9d0208" stroke-width="3"/><circle cx="281" cy="139" r="4" fill="#fff" opacity=".7"/></g>
+      <rect x="254" y="168" width="26" height="74" rx="13" fill="#48cae4" stroke="#0077b6" stroke-width="4"/>
+      <circle cx="267" cy="248" r="13" fill="#ffb703" stroke="#b36b00" stroke-width="3"/>
       <rect x="40" y="134" width="220" height="196" rx="30" fill="#3a86ff" stroke="#1d4ed8" stroke-width="5"/>
-      <circle cx="262" cy="204" r="11" fill="#546e7a" stroke="#263238" stroke-width="3"/>
-      <rect x="56" y="148" width="188" height="108" rx="16" fill="#ffd166" stroke="#b36b00" stroke-width="4"/>
-      <rect x="68" y="160" width="164" height="84" rx="8" fill="#fff" stroke="#b36b00" stroke-width="3"/>
-      ${bombis.map(([x, y], i) => `<circle class="bombi${i % 2 ? ' par' : ''}" cx="${x}" cy="${y}" r="4.6"/>`).join('')}
-      <rect x="52" y="274" width="196" height="34" rx="17" fill="#1d3a8a" stroke="#1d4ed8" stroke-width="3"/>
-      ${LUZ.map((c, i) => `<circle class="luz" id="lz${i}" cx="${69 + i * 18.4}" cy="291" r="7.2"/>`).join('')}
+      <rect x="56" y="148" width="188" height="108" rx="16" fill="#264653" stroke="#1d3557" stroke-width="4"/>
+      <rect x="68" y="160" width="164" height="84" rx="8" fill="#f1faff" stroke="#1d3557" stroke-width="3"/>
+      <circle class="led" cx="232" cy="252" r="3.2"/>
+      <rect x="60" y="272" width="170" height="38" rx="9" fill="#0b1a4a" stroke="#fff" stroke-width="3"/>
+      <rect x="230" y="282" width="10" height="18" rx="3" fill="#fff"/>
+      ${LUZ.map((c, i) => `<rect class="luz" id="lz${i}" x="${66 + i * 16.2}" y="278" width="13" height="26" rx="3"/>`).join('')}
       <rect x="78" y="326" width="54" height="24" rx="10" fill="#1d4ed8"/><rect x="168" y="326" width="54" height="24" rx="10" fill="#1d4ed8"/>
     </svg>`;
   }
   const robotHTML = () => `<button class="robot" id="robot" aria-label="Tocá el robot">${robotSVG()}<div class="ventana" id="ventana"><div class="cinta" id="cinta"></div></div><span class="mano">👆</span></button>`;
 
-  // la pantalla del robot: una cinta de palabras (parte 1) o de dibujos (parte 2) que gira como una tragamonedas
-  const celdaHTML = (k, p) => k === '?' ? '<div class="celda"><span class="c-pal c-preg">?</span></div>'
-    : p === 1 ? `<div class="celda"><span class="c-pal">${POR[k].t}</span></div>` : `<div class="celda">${imagen(k)}</div>`;
+  // la pantalla del robot: escribe la palabra letra por letra (parte 1) o hace el dibujo de arriba hacia abajo (parte 2)
   function ajustarCinta() {
     const v = $('#ventana'); if (!v) return;
     const h = v.clientHeight, w = v.clientWidth;
-    $$('.c-pal', v).forEach(s => { const n = Math.max(3, s.textContent.length); s.style.fontSize = Math.round(Math.min(h * .62, w * .9 / (n * .56))) + 'px'; });
+    $$('.c-pal', v).forEach(s => { const n = Math.max(3, +s.dataset.n || s.textContent.length); s.style.fontSize = Math.round(Math.min(h * .62, w * .88 / (n * .58))) + 'px'; });
   }
   let giroGen = 0;
-  const cuadro = f => (window.requestAnimationFrame ? window.requestAnimationFrame(f) : setTimeout(f, 16));
-  function rodar(lista, p, dur, sonar, cb) {
-    const cinta = $('#cinta'); if (!cinta) return;
-    const n = lista.length, fin = n - 1, gen = ++giroGen, d = window.__GIRO_RAPIDO ? 30 : dur;
-    cinta.style.setProperty('--n', n);
-    cinta.innerHTML = lista.map(k => celdaHTML(k, p)).join(''); ajustarCinta();
-    cinta.style.transform = 'translateY(0)';
-    if (n < 2) { if (cb) cb(); return; }
-    const t0 = Date.now(); let ult = 0;
-    const paso = () => {
-      if (gen !== giroGen) return;
-      const t = Math.min(1, (Date.now() - t0) / d), pos = (1 - Math.pow(1 - t, 3)) * fin;
-      cinta.style.transform = `translateY(${(-pos / n * 100).toFixed(3)}%)`;
-      cinta.classList.toggle('borroso', t < .5);
-      if (sonar && Math.floor(pos) !== ult) { ult = Math.floor(pos); SFX.tic(); }
-      if (t < 1) cuadro(paso); else { cinta.classList.remove('borroso'); if (cb) cb(); }
-    };
-    cuadro(paso);
+  const lento = t => window.__GIRO_RAPIDO ? 5 : t;
+  function mostrarEnPantalla(k, p, sonar, cb) {
+    const v = $('#cinta'); if (!v) return;
+    const gen = ++giroGen, sigue = () => gen === giroGen;
+    if (k === '?') { v.innerHTML = '<div class="celda"><span class="c-pal c-preg">?</span></div>'; ajustarCinta(); if (cb) cb(); return; }
+    v.innerHTML = '<div class="celda"><span class="puntitos"><i></i><i></i><i></i></span></div>';
+    if (sonar) SFX.piensa();
+    setTimeout(() => {
+      if (!sigue()) return;
+      if (p === 1) {
+        const t = POR[k].t;
+        v.innerHTML = `<div class="celda"><span class="c-pal" data-n="${t.length}"><span class="esc"></span><span class="cursor"></span></span></div>`; ajustarCinta();
+        const esc = $('.esc', v); let i = 0;
+        const letra = () => {
+          if (!sigue()) return;
+          esc.textContent = t.slice(0, ++i); if (sonar) SFX.tecla();
+          if (i < t.length) setTimeout(letra, lento(sonar ? 210 : 160)); else setTimeout(() => { if (sigue() && cb) cb(); }, lento(300));
+        };
+        letra();
+      } else {
+        v.innerHTML = `<div class="celda dibuja">${imagen(k)}</div>`; if (sonar) SFX.dibuja();
+        setTimeout(() => { if (sigue() && cb) cb(); }, lento(1150));
+      }
+    }, lento(700));
   }
-  function luces(n) { LUZ.forEach((c, i) => { const l = $('#lz' + i); if (!l) return; l.classList.toggle('on', i < n); l.style.fill = i < n ? c : ''; l.style.color = c; }); }
+  function luces(n) { LUZ.forEach((c, i) => { const l = $('#lz' + i); if (!l) return; l.classList.toggle('on', i < n); l.style.fill = i < n ? c : ''; }); }
 
   /* ---------- BARRA Y TEMPORIZADORES ---------- */
   const M = () => $('#pantalla');
@@ -180,11 +181,9 @@
       <button class="btn-oir-port" id="bOirPort">🔊 Escuchar</button>
       <div class="port-fuente">📚 ${m.fuente}<br>© 2026 Gustavo Aguilar · QueSepanTodos.com</div></div>`;
     $('#robot').classList.add('demo');
-    let actual = PAL[Math.floor(Math.random() * PAL.length)].k;
-    rodar([actual], 1, 0, false);
-    const demo = () => { const otras = mezclar(PAL.map(x => x.k).filter(k => k !== actual)).slice(0, 5); rodar([actual, ...otras], 1, 1100, false); actual = otras[4]; T_(demo, 2400); };
-    T_(demo, 900);
-    $('#robot').onclick = () => { ctx(); SFX.palanca(); };
+    const demo = () => mostrarEnPantalla(PAL[Math.floor(Math.random() * PAL.length)].k, 1, false, () => T_(demo, 1600));
+    T_(demo, 300);
+    $('#robot').onclick = () => { ctx(); SFX.piensa(); };
     $('#bJugar').onclick = () => { ctx(); SFX.clic(); S.colas = null; parte(1); };
     $('#bOirPort').onclick = ev => { ev.stopPropagation(); ctx(); hablar('portada'); };
     activarLightbox();
@@ -223,8 +222,8 @@
     conBarra();
     if (D.meta.revision) { $('#bAnt').onclick = () => p === 1 ? portada() : parte(1); $('#bPos').onclick = () => p === 1 ? parte(2) : cierre(); }
     const robot = $('#robot'), cartel = $('#cartel'), grilla = $('#grilla');
-    let ronda = 0, estado = 'espera', meta = null, fallas = 0, actual = '?';
-    rodar(['?'], p, 0, false); luces(0); tapar();
+    let ronda = 0, estado = 'espera', meta = null, fallas = 0;
+    mostrarEnPantalla('?', p, false); luces(0); tapar();
     const msj = t => { $('#ronda').textContent = `Ronda ${Math.min(ronda + 1, R)} de ${R}`; cartel.innerHTML = `<span class="msj">${t}</span>`; };
     const listo = () => { estado = 'listo'; robot.classList.add('listo'); msj('👆 ¡Tocá el robot!'); };
     msj('🔊 Escuchá la consigna…');
@@ -233,14 +232,12 @@
     function tapar() { grilla.innerHTML = Array.from({ length: N }, () => '<button class="carta tapada" tabindex="-1"></button>').join(''); }
     robot.onclick = () => {
       if (estado !== 'listo') return;
-      estado = 'girando'; ctx(); callarVoz();
+      estado = 'pensando'; ctx(); callarVoz();
       meta = cola[ronda]; fallas = 0;
-      robot.classList.remove('listo', 'feliz'); robot.classList.add('tirar', 'girando'); $('#ventana').classList.remove('brilla');
-      T_(() => robot.classList.remove('tirar'), 650);
-      SFX.palanca(); msj(p === 1 ? '🎰 ¡Giran las palabras!' : '🎰 ¡Giran los dibujos!');
-      const otras = mezclar(PAL.map(x => x.k).filter(k => k !== meta && k !== actual)).slice(0, 16);
-      rodar([actual, ...otras, meta], p, 2300, true, () => {
-        actual = meta; robot.classList.remove('girando'); $('#ventana').classList.add('brilla'); SFX.para();
+      robot.classList.remove('listo', 'feliz'); robot.classList.add('pensando'); $('#ventana').classList.remove('brilla');
+      msj(p === 1 ? '✍️ El robot está escribiendo…' : '🎨 El robot está dibujando…');
+      mostrarEnPantalla(meta, p, true, () => {
+        robot.classList.remove('pensando'); $('#ventana').classList.add('brilla');
         mostrarOpciones();
       });
     };
@@ -273,7 +270,7 @@
     }
     function finParte() {
       estado = 'fin'; robot.classList.add('fiesta', 'feliz'); SFX.fiesta();
-      cartel.innerHTML = `<span class="msj">🎉 ¡Encendiste las ${R} luces!</span><button class="btn-sig late" id="bSig">Siguiente ▶</button>`;
+      cartel.innerHTML = `<span class="msj">🔋 ¡Batería cargada!</span><button class="btn-sig late" id="bSig">Siguiente ▶</button>`;
       $('#bSig').onclick = () => { SFX.clic(); if (p === 1) parte(2); else cierre(); };
     }
   }

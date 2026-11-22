@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>El robot de las palabras · QueSepanTodos</title>
-<meta name="description" content="Juego de lectura para 1.° y 2.° grado: tocá el robot, gira como una tragamonedas y elegí el dibujo de la palabra o la palabra del dibujo. Palabras del cuadernillo de Alfabetización inicial de la Dirección General de Escuelas de Mendoza. QueSepanTodos.com">
+<meta name="description" content="Juego de lectura para 1.° y 2.° grado: tocá el robot, que escribe una palabra o hace un dibujo, y elegí el dibujo de la palabra o la palabra del dibujo. Palabras del cuadernillo de Alfabetización inicial de la Dirección General de Escuelas de Mendoza. QueSepanTodos.com">
 <meta name="theme-color" content="#3c096c">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
@@ -90,30 +90,31 @@ body{background:radial-gradient(circle at 50% 30%,#3c096c,#10002b 75%)}
 .robot{position:relative;height:100%;aspect-ratio:300/360;background:none;padding:0;flex:0 0 auto}
 .robot svg{display:block;width:100%;height:100%;overflow:visible}
 .ventana{position:absolute;left:22.67%;top:44.44%;width:54.67%;height:23.33%;overflow:hidden;border-radius:6px;pointer-events:none}
-.ventana::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#0006,#0000 28%,#0000 72%,#0006);pointer-events:none}
 .ventana.brilla{animation:brilla .5s ease-in-out 3}
 @keyframes brilla{50%{box-shadow:inset 0 0 0 4px #2ecc71}}
-.cinta{position:absolute;left:0;top:0;width:100%;height:calc(var(--n,1)*100%);display:flex;flex-direction:column}
-.cinta.borroso{filter:blur(1.4px)}
+.cinta{position:absolute;inset:0;display:flex;flex-direction:column}
 .celda{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:4% 6%;color:#1d1b2f;line-height:1}
 .celda .dib{height:100%}
 .c-preg{color:#7b2cbf}
-.bombi{fill:#fff6}
-.robot.demo .bombi{animation:chase 1.2s steps(1) infinite}.robot.demo .bombi.par{animation-delay:-.6s}
-.robot.girando .bombi{animation:chase .26s steps(1) infinite}.robot.girando .bombi.par{animation-delay:-.13s}
-.robot.fiesta .bombi{animation:chase .5s steps(1) infinite}.robot.fiesta .bombi.par{animation-delay:-.25s}
-@keyframes chase{0%{fill:#ffd166}50%{fill:#fff6}}
-.robot.girando #antena,.robot.fiesta #antena{animation:antena .3s steps(1) infinite}
+.led{fill:#2ecc71}
+.robot.pensando .led{animation:antena .25s steps(1) infinite}
+.robot.pensando #antena,.robot.fiesta #antena{animation:antena .4s steps(1) infinite}
 @keyframes antena{0%{fill:#ffd166}50%{fill:#ff595e}}
-.luz{fill:#0b1a4a;stroke:#ffffff44;stroke-width:2}
-.luz.on{filter:drop-shadow(0 0 5px currentColor);stroke:#fff}
+.robot.pensando .pupila{transform:translate(-3px,-5px)}
+.puntitos{display:flex;gap:9%;width:40%;justify-content:center}.puntitos i{width:14%;aspect-ratio:1;border-radius:50%;background:#7b2cbf;animation:punto .6s ease-in-out infinite alternate}
+.puntitos i:nth-child(2){animation-delay:.2s}.puntitos i:nth-child(3){animation-delay:.4s}
+@keyframes punto{to{transform:translateY(-60%);opacity:.4}}
+.cursor{display:inline-block;width:.07em;height:.95em;background:#1d1b2f;margin-left:.06em;vertical-align:-.12em;animation:cursor .8s steps(1) infinite}
+@keyframes cursor{50%{opacity:0}}
+.celda.dibuja{padding:2%}
+.celda.dibuja .dib{animation:dibuja 1.1s linear both}
+@keyframes dibuja{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0)}}
+.luz{fill:#1a2a6c}
+.luz.on{filter:drop-shadow(0 0 3px #b7ffcf)}
 .luz.prende{animation:prende .6s}
-@keyframes prende{0%{r:3}60%{r:10}100%{r:7.2}}
+@keyframes prende{0%,40%{opacity:.2}20%,60%{opacity:1}}
 .robot.fiesta .luz.on{animation:fiesta .6s ease-in-out infinite alternate}
 @keyframes fiesta{to{opacity:.35}}
-#palanca{transform-box:view-box;transform-origin:262px 204px}
-.robot.tirar #palanca{animation:tirar .6s ease-in-out}
-@keyframes tirar{40%{transform:rotate(68deg)}}
 .ojo-feliz{display:none}.robot.feliz .ojo-normal{display:none}.robot.feliz .ojo-feliz{display:inline}
 .ojos{transform-box:fill-box;transform-origin:center;animation:parpadeo 4.5s infinite}
 @keyframes parpadeo{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}

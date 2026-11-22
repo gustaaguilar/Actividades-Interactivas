@@ -2,7 +2,7 @@
    Juego de QueSepanTodos.com · Profe Gustavo Aguilar
    Las 47 palabras y sus dibujos son los del cuadernillo «Alfabetización inicial, primer y segundo grado» (págs. 35 a 45)
    del portal educativo de la Dirección General de Escuelas de Mendoza (salvo la sirena, que es un dibujo propio).
-   Parte 1: el robot gira palabras y se elige el dibujo. Parte 2: gira dibujos y se elige la palabra. */
+   Parte 1: el robot escribe una palabra y se elige el dibujo. Parte 2: el robot dibuja y se elige la palabra. */
 window.DATOS = {
  "meta": {
   "titulo": "El robot de las palabras",
@@ -22,14 +22,14 @@ window.DATOS = {
  },
  "partes": {
   "1": {
-   "nombre": "Giran las palabras",
-   "ico": "🔤",
-   "consigna": "Tocá el robot. Leé la palabra y tocá su dibujo."
+   "nombre": "El robot escribe",
+   "ico": "✍️",
+   "consigna": "Tocá el robot. Leé la palabra que escribe y tocá su dibujo."
   },
   "2": {
-   "nombre": "Giran los dibujos",
-   "ico": "🖼️",
-   "consigna": "Tocá el robot. Mirá el dibujo y tocá su nombre."
+   "nombre": "El robot dibuja",
+   "ico": "🎨",
+   "consigna": "Tocá el robot. Mirá su dibujo y tocá el nombre."
   }
  },
  "parecidos": [
@@ -229,10 +229,10 @@ window.DATOS = {
   }
  ],
  "audios": {
-  "portada": "¡Hola! Soy el robot de las palabras. Cuando me toques voy a girar como una máquina de juegos. Leé con atención y elegí la respuesta. Tocá Comenzar.",
-  "i1": "Tocá el robot. En su pantalla van a girar palabras hasta que se frene en una. Leé la palabra y tocá su dibujo.",
-  "i2": "¡Ahora al revés! Tocá el robot y van a girar los dibujos. Cuando se frene en uno buscá su nombre y tocalo.",
-  "cierre": "¡Terminaste! Encendiste todas las luces del robot leyendo palabras. Ahora enviale tus resultados a tu docente.",
+  "portada": "¡Hola! Soy el robot de las palabras. Cada vez que me toques voy a escribir una palabra o a hacer un dibujo. Leé con atención y elegí la respuesta. Tocá Comenzar.",
+  "i1": "Tocá el robot y va a escribir una palabra en su pantalla. Leela y tocá su dibujo.",
+  "i2": "¡Ahora el robot dibuja! Tocalo y mirá el dibujo que aparece en su pantalla. Después buscá su nombre y tocalo.",
+  "cierre": "¡Terminaste! Cargaste la batería del robot leyendo palabras. Ahora enviale tus resultados a tu docente.",
   "w_sol": "sol",
   "w_luna": "luna",
   "w_casa": "casa",
