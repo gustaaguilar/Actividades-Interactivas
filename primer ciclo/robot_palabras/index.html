@@ -122,9 +122,9 @@ body{background:radial-gradient(circle at 50% 30%,#3c096c,#10002b 75%)}
 @keyframes salta{50%{transform:translateY(-6%)}}
 .robot.listo{animation:listo 1.3s ease-in-out infinite}
 @keyframes listo{50%{transform:scale(1.04)}}
-.mano{position:absolute;right:-6%;bottom:30%;font-size:clamp(30px,8vw,46px);display:none;pointer-events:none;filter:drop-shadow(0 3px 3px #0006)}
+.mano{position:absolute;left:50%;top:56%;z-index:2;font-size:clamp(30px,7.5vw,48px);line-height:1;display:none;pointer-events:none;transform:translate(-30%,-20%);filter:drop-shadow(0 3px 3px #0005)}
 .robot.listo .mano{display:block;animation:mano 1s ease-in-out infinite}
-@keyframes mano{50%{transform:translate(-14%,-14%)}}
+@keyframes mano{0%,100%{transform:translate(-30%,-20%) scale(1)}50%{transform:translate(-30%,-8%) scale(.88)}}
 /* juego */
 .juego{flex:1;display:flex;flex-direction:column;min-height:0;padding:6px 10px 8px;gap:6px;max-width:1000px;width:100%;margin:0 auto}
 .cabeza{flex:0 0 auto;background:#fff9ef;border-radius:16px;padding:4px 10px;box-shadow:0 4px 0 #0003}

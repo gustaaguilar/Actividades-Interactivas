@@ -132,6 +132,7 @@
   function mostrarEnPantalla(k, p, sonar, cb) {
     const v = $('#cinta'); if (!v) return;
     const gen = ++giroGen, sigue = () => gen === giroGen;
+    if (k === '') { v.innerHTML = ''; if (cb) cb(); return; }
     if (k === '?') { v.innerHTML = '<div class="celda"><span class="c-pal c-preg">?</span></div>'; ajustarCinta(); if (cb) cb(); return; }
     v.innerHTML = '<div class="celda"><span class="puntitos"><i></i><i></i><i></i></span></div>';
     if (sonar) SFX.piensa();
@@ -223,9 +224,9 @@
     if (D.meta.revision) { $('#bAnt').onclick = () => p === 1 ? portada() : parte(1); $('#bPos').onclick = () => p === 1 ? parte(2) : cierre(); }
     const robot = $('#robot'), cartel = $('#cartel'), grilla = $('#grilla');
     let ronda = 0, estado = 'espera', meta = null, fallas = 0;
-    mostrarEnPantalla('?', p, false); luces(0); tapar();
+    mostrarEnPantalla('', p, false); luces(0); tapar();
     const msj = t => { $('#ronda').textContent = `Ronda ${Math.min(ronda + 1, R)} de ${R}`; cartel.innerHTML = `<span class="msj">${t}</span>`; };
-    const listo = () => { estado = 'listo'; robot.classList.add('listo'); msj('👆 ¡Tocá el robot!'); };
+    const listo = () => { estado = 'listo'; mostrarEnPantalla('', p, false); $('#ventana').classList.remove('brilla'); robot.classList.add('listo'); msj('👆 ¡Tocá el robot!'); };
     msj('🔊 Escuchá la consigna…');
     hablar('i' + p, listo);
     $('#bOirC').onclick = () => { if (estado === 'espera') return; if (estado === 'listo' || estado === 'eligiendo') { SFX.clic(); hablar('i' + p); } };
