@@ -16,7 +16,7 @@ window.DATOS = {
   "fotoMini": "profe_mini.jpg",
   "frase": "Menos prisa, más vida 🧉🫂",
   "puntosPorAcierto": 10,
-  "revision": true,
+  "revision": false,
   "rondas": 10,
   "opciones": 9
  },
