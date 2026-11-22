@@ -230,9 +230,9 @@ window.DATOS = {
  ],
  "audios": {
   "portada": "¡Hola! Soy el robot de las palabras. Cada vez que me toques voy a escribir una palabra o a hacer un dibujo. Leé con atención y elegí la respuesta. Tocá Comenzar.",
-  "i1": "Tocá el robot y va a escribir una palabra en su pantalla. Leela y tocá su dibujo.",
-  "i2": "¡Ahora el robot dibuja! Tocalo y mirá el dibujo que aparece en su pantalla. Después buscá su nombre y tocalo.",
-  "cierre": "¡Terminaste! Cargaste la batería del robot leyendo palabras. Ahora enviale tus resultados a tu docente.",
+  "i1": "Tocame y voy a escribir una palabra en mi pantalla. Leé la palabra y tocá su dibujo.",
+  "i2": "¡Ahora voy a dibujar! Tocame y mirá el dibujo que aparece en mi pantalla. Después buscá su nombre y tocalo.",
+  "cierre": "¡Terminaste! Cargaste mi batería leyendo palabras. Ahora enviale tus resultados a tu docente.",
   "w_sol": "sol",
   "w_luna": "luna",
   "w_casa": "casa",
