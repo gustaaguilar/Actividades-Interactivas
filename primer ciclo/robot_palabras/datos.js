@@ -24,12 +24,12 @@ window.DATOS = {
   "1": {
    "nombre": "El robot escribe",
    "ico": "✍️",
-   "consigna": "Tocá el robot. Leé la palabra que escribe y tocá su dibujo."
+   "consigna": "Tocá la pantalla del robot. Leé la palabra y tocá su dibujo."
   },
   "2": {
    "nombre": "El robot dibuja",
    "ico": "🎨",
-   "consigna": "Tocá el robot. Mirá su dibujo y tocá el nombre."
+   "consigna": "Tocá la pantalla del robot. Mirá el dibujo y tocá su nombre."
   }
  },
  "parecidos": [
@@ -229,9 +229,9 @@ window.DATOS = {
   }
  ],
  "audios": {
-  "portada": "¡Hola! Soy el robot de las palabras. Cada vez que me toques voy a escribir una palabra o a hacer un dibujo. Leé con atención y elegí la respuesta. Tocá Comenzar.",
-  "i1": "Tocame y voy a escribir una palabra en mi pantalla. Leé la palabra y tocá su dibujo.",
-  "i2": "¡Ahora voy a dibujar! Tocame y mirá el dibujo que aparece en mi pantalla. Después buscá su nombre y tocalo.",
+  "portada": "¡Hola! Soy el robot de las palabras. Cada vez que toques mi pantalla voy a escribir una palabra o a hacer un dibujo. Leé con atención y elegí la respuesta. Tocá Comenzar.",
+  "i1": "Tocá mi pantalla y voy a escribir una palabra. Leé la palabra y tocá su dibujo.",
+  "i2": "¡Ahora voy a dibujar! Tocá mi pantalla y mirá el dibujo que aparece. Después buscá su nombre y tocalo.",
   "cierre": "¡Terminaste! Cargaste mi batería leyendo palabras. Ahora enviale tus resultados a tu docente.",
   "w_sol": "sol",
   "w_luna": "luna",

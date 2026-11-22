@@ -226,7 +226,7 @@
     let ronda = 0, estado = 'espera', meta = null, fallas = 0;
     mostrarEnPantalla('', p, false); luces(0); tapar();
     const msj = t => { $('#ronda').textContent = `Ronda ${Math.min(ronda + 1, R)} de ${R}`; cartel.innerHTML = `<span class="msj">${t}</span>`; };
-    const listo = () => { estado = 'listo'; mostrarEnPantalla('', p, false); $('#ventana').classList.remove('brilla'); robot.classList.add('listo'); msj('👆 ¡Tocá el robot!'); };
+    const listo = () => { estado = 'listo'; mostrarEnPantalla('', p, false); $('#ventana').classList.remove('brilla'); robot.classList.add('listo'); msj('👆 ¡Tocá la pantalla del robot!'); };
     msj('🔊 Escuchá la consigna…');
     hablar('i' + p, listo);
     $('#bOirC').onclick = () => { if (estado === 'espera') return; if (estado === 'listo' || estado === 'eligiendo') { SFX.clic(); hablar('i' + p); } };
