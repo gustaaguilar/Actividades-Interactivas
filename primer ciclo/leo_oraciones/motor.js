@@ -74,8 +74,8 @@
 
   /* ---------- AYUDAS ---------- */
   const mezclar = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-  // mezcla asegurando que el orden cambie (para que el dibujo correcto no quede siempre enfrente de su oración)
-  const mezclarDistinto = (a, igual) => { for (let k = 0; k < 8; k++) { const m = mezclar(a); if (!m.every((x, i) => igual(x, i))) return m; } return mezclar(a); };
+  // mezcla para que ningún dibujo quede enfrente de su palabra u oración
+  const mezclarDistinto = (a, igual) => { for (let k = 0; k < 40; k++) { const m = mezclar(a); if (!m.some((x, i) => igual(x, i))) return m; } return mezclar(a); };
   const ALT = { sirena_mar: '🧜‍♀️🌊', sirena_roca: '🧜‍♀️🪨', sirena_playa: '🧜‍♀️🏖️' };
   const imagen = (k, cls) => `<span class="dib ${cls || ''}"><img src="img/${k}.jpg" alt="" data-alt="${ALT[k] || '🖼️'}" onerror="QSTsinImagen(this)"></span>`;
   window.QSTsinImagen = img => { const s = document.createElement('span'); s.className = 'dib-alt'; s.textContent = img.dataset.alt; img.replaceWith(s); };
